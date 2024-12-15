@@ -6,18 +6,31 @@
     <div class="grow"></div>
     <div class="card-title bg-black/[0.8] backdrop-blur-sm grid grid-cols-4 items-center py-6 text-white rounded-b-lg">
       <div class="flex flex-col text-center">
-        <p class="text-3xl font-bold">{{date.getUTCDate()}}</p>
-        <p class="font-bold">sept</p>
+        <p class="text-3xl font-bold">{{props.startDate.getUTCDate()}}</p>
+        <p class="font-bold">{{ month }}</p>
       </div>
     <div class="pl-4 col-span-3 flex flex-col border-l-2 border-green-400">
-        <h2 class="text-md font-bold mb-1">Comfy Secret Santa</h2>
-        <p class="text-xs text-green-400">21:00 - 23:00</p>
+        <h2 class="text-md font-bold mb-1">{{props.title}}</h2>
+        <p class="text-xs text-green-400">{{hours}}</p>
       </div>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-const date = new Date();
+import type { Category } from '@/models/Category';
+
+interface Event {
+  title: string,
+  startDate: Date,
+  endDate: Date,
+  category: Category
+}
+
+const props = defineProps<Event>()
+const month = props.startDate.toLocaleString('default', {month: 'long'}).slice(0,3);
+
+const hours = `${props.startDate.toLocaleString('default', {timeStyle: 'short', hour12: false})} - ${props.endDate.toLocaleString('default', {timeStyle: 'short', hour12: false})}`
+
 </script>
   
