@@ -36,7 +36,8 @@ const events = [
   <main>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
       <template v-for="event in events" :key="event.title">
-        <EventCard :title="event.title" :start-date="event.startDate" :end-date="event.endDate" :category="event.category" class="mx-auto my-4"/>
+        <EventCard :title="event.title" :start-date="event.startDate" :end-date="event.endDate"
+          :category="event.category" class="mx-auto my-4" />
       </template>
     </div>
   </main>

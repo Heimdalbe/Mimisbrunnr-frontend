@@ -6,12 +6,12 @@
     <div class="grow"></div>
     <div class="card-title bg-black/[0.8] backdrop-blur-sm grid grid-cols-4 items-center py-6 text-white rounded-b-lg">
       <div class="flex flex-col text-center">
-        <p class="text-3xl font-bold">{{props.startDate.getUTCDate()}}</p>
+        <p class="text-3xl font-bold">{{ props.startDate.getUTCDate() }}</p>
         <p class="font-bold">{{ month }}</p>
       </div>
-    <div class="pl-4 col-span-3 flex flex-col border-l-2 border-green-400">
-        <h2 class="text-md font-bold mb-1">{{props.title}}</h2>
-        <p class="text-xs text-green-400">{{hours}}</p>
+      <div class="pl-4 col-span-3 flex flex-col border-l-2 border-green-400">
+        <h2 class="text-md font-bold mb-1">{{ props.title }}</h2>
+        <p class="text-xs text-green-400">{{ hours }}</p>
       </div>
     </div>
   </div>
@@ -28,9 +28,8 @@ interface Event {
 }
 
 const props = defineProps<Event>()
-const month = props.startDate.toLocaleString('default', {month: 'long'}).slice(0,3);
+const month = props.startDate.toLocaleString('default', { month: 'long' }).slice(0, 3);
 
-const hours = `${props.startDate.toLocaleString('default', {timeStyle: 'short', hour12: false})} - ${props.endDate.toLocaleString('default', {timeStyle: 'short', hour12: false})}`
+const hours = `${props.startDate.toLocaleString('default', { timeStyle: 'short', hour12: false })} - ${props.endDate.toLocaleString('default', { timeStyle: 'short', hour12: false })}`
 
 </script>
-  
