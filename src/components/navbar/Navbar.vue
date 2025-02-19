@@ -23,11 +23,10 @@
       <RouterLink to="/" class="hover:text-white mr-4">Evenementen</RouterLink>
 
       <RouterLink to="/" class="text-white px-2 py-1 bg-green-600 rounded-full">Contact Us</RouterLink>
-
-      <RouterLink to="/" class="hover:text-white mr-4"><svg></svg></RouterLink>
+      <!--TODO:fix deze fucking svg -->
+      <RouterLink to="/" class="hover:text-white mr-4"><img src="@/assets/user-circle.svg?data" alt=""></RouterLink>
     </div>
   </nav>
 </template>
 
-<script setup lang="ts">
-</script>
+<script setup lang="ts"></script>
