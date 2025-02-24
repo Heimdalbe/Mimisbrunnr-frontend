@@ -10,7 +10,6 @@
         </button>
         <div
           class="absolute opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 bg-zinc-950 w-48 transition-opacity duration-300 ease-in-out">
-          <!-- TODO: general styling, links uitvullen -->
           <RouterLink to="/" class="block px-4 py-2 hover:bg-zinc-900">Over Ons</RouterLink>
           <RouterLink to="/" class="block px-4 py-2 hover:bg-zinc-900">Clublied</RouterLink>
           <RouterLink to="/" class="block px-4 py-2 hover:bg-zinc-900">Foto's</RouterLink>
