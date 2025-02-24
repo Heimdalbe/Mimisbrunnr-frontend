@@ -34,7 +34,22 @@ const events = [
 
 <template>
   <main>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+    <div class="bg-neutral-900 flex flex-row justify-center items-center mx-4">
+      <img src="@/assets/Schild.png" alt="" class="h-96 object-contain">
+      <div class="max-w-lg px-5 lg:mb-10">
+        <h2 class="text-5xl font-bold text-neutral-100">Heimdal</h2>
+        <div class="text-lg text-neutral-100 ">De thuisbasis voor geeky studenten aan Hogeschool Gent. Een
+          studentenvereniging
+          door een voor studenten,
+          waar passie en interesses gedeeld en gevierd worden.</div>
+      </div>
+      <img class="max-md:hidden lg:max-2xl:visible" src="@/assets/placeholder.png" alt="">
+    </div>
+    <div class="overflow-hidden">
+      <div class="bg-neutral-100 w-[110%] h-16 -skew-y-1 mt-2"></div>
+      <div class="bg-neutral-100 h-8 -mt-4"></div>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 bg-neutral-100">
       <template v-for="event in events" :key="event.title">
         <EventCard :title="event.title" :start-date="event.startDate" :end-date="event.endDate"
           :category="event.category" class="mx-auto my-4" />
