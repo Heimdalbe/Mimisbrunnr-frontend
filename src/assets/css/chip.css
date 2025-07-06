@@ -1,0 +1,17 @@
+span.chip {
+  padding: 8px 20px;
+  border-radius: 20px;
+  color: white;
+}
+
+span.chip.open {
+  background-color: var(--accent);
+}
+
+span.chip.open.bg-dark {
+  background-color: black;
+}
+
+span.chip.closed {
+  background-color: #E00818;
+}
