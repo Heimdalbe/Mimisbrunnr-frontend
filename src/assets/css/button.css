@@ -1,0 +1,23 @@
+button {
+  padding: 30px 75px;
+  border-radius: 50px;
+}
+
+button {
+  background-color: black;
+  color: white;
+}
+
+button:hover {
+  background-color: var(--accent);
+}
+
+button.bg-dark {
+  background-color: var(--accent);
+  color: white;
+}
+
+button.bg-dark:hover {
+  background-color: #fff;
+  color: black;
+}
