@@ -1,6 +1,7 @@
 @import './base.css';
 @import './css/button.css';
 @import './css/chip.css';
+@import './css/text.css';
 
 #app {
 }

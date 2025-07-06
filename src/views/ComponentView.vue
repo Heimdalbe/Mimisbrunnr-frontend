@@ -13,6 +13,16 @@
     <ChipComponent :text="Audience.CLOSED">Open</ChipComponent>
   </div>
   
+  <div>
+    <h2 class="text-2xl mb-4">Text</h2>
+
+    <h1>Dit is een titel</h1>
+    <h2>Tussentitel 2</h2>
+    <h3>Tussentitel 3</h3>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos maxime, rem consequatur, dicta pariatur ipsam aliquid ullam doloremque a illo officiis vero harum magni eos deleniti at architecto nobis. Odio! Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus autem mollitia nisi laborum. Quisquam aliquam possimus distinctio quaerat molestias necessitatibus. Vero facere cum nesciunt minus natus deleniti ipsum. Necessitatibus, dolorum?</p>
+    <p>informatieve tekst</p>
+    <p>footnote</p>
+  </div>
 
 </template>
 
