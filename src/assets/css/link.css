@@ -1,0 +1,8 @@
+a {
+  color: var(--accent);
+  font-style: italic;
+}
+
+a:hover {
+  border-bottom: 1px solid;
+}

@@ -20,10 +20,14 @@
     <h2>Tussentitel 2</h2>
     <h3>Tussentitel 3</h3>
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos maxime, rem consequatur, dicta pariatur ipsam aliquid ullam doloremque a illo officiis vero harum magni eos deleniti at architecto nobis. Odio! Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus autem mollitia nisi laborum. Quisquam aliquam possimus distinctio quaerat molestias necessitatibus. Vero facere cum nesciunt minus natus deleniti ipsum. Necessitatibus, dolorum?</p>
-    <p>informatieve tekst</p>
-    <p>footnote</p>
+    <p class="informative">informatieve tekst Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam, laudantium reprehenderit autem quod fuga, dignissimos veritatis, expedita maxime recusandae quasi voluptas id! Voluptate facere quaerat, numquam assumenda ex quam possimus!</p>
+    <p class="footnote">footnote</p>
   </div>
 
+  <div>
+    <h2>Links</h2>
+    <a href="">Lees meer...</a>
+  </div>
 </template>
 
 <script setup lang="ts">
