@@ -1,0 +1,5 @@
+.schild-sectie {
+  display: flex;
+  gap: 100px;
+  background: #121212;
+}

@@ -1,0 +1,10 @@
+.visiesectie {
+  display: flex;
+  padding: 40px;
+}
+
+@media (max-width: 1028px) {
+  .visiesectie {
+    flex-direction: column;
+  }
+}

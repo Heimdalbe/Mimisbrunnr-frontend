@@ -1,0 +1,23 @@
+.schild {
+  width: 371px;
+  height: 512px;
+}
+
+.info-section {
+  display: flex;
+  gap: 70px;
+  background-color: #121212;
+  color: white;
+  padding: 170px 0 170px 180px;
+}
+
+.titel {
+  font-size: 75px;
+  margin-bottom: 45px;
+}
+
+.text {
+  font-size: 26px;
+  font-weight: normal;
+  line-height: 46px;
+}

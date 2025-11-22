@@ -1,0 +1,15 @@
+.sectie {
+  margin: 140px 182px 140px 182px;
+}
+
+.button-section {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+@media (max-width: 1028px) {
+  .sectie {
+    margin: 90px 36px 90px 36px;
+  }
+}
