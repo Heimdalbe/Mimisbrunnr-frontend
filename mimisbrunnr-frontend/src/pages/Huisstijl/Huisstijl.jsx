@@ -1,3 +1,4 @@
+import EventChip from '../../components/Evenementen/EventChip';
 import EventIcon from '../../components/Evenementen/EventIcon'
 
 const Huisstijl = () => {
@@ -21,6 +22,10 @@ const Huisstijl = () => {
         <div className="button-wrapper">
           <button className='primary-button'>Ik ben een button</button>
           <button className='primary-button' disabled>Ik ben disabled</button>
+        </div>
+        <div className="button-wrapper">
+          <EventChip open={true}/>
+          <EventChip open={false}/>
         </div>
       </div>
       <div className='dark-bg'>

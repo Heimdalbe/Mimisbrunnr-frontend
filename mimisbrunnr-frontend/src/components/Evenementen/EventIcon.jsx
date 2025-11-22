@@ -1,4 +1,4 @@
-import './EventIcon.css';
+import './Event.css';
 
 const EventIcon = ({ iconClass }) => {
   return (
