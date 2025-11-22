@@ -1,7 +1,11 @@
+import './BigFooter.css';
+
 const BigFooter = () => {
   return (
-    <div>
-      Big footer
+    <div className='big-footer'>
+      <div className='container'>
+        Big footer
+      </div>
     </div>
   )
 }

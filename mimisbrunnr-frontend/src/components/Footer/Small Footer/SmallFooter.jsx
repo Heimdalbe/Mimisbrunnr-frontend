@@ -4,10 +4,10 @@ import './SmallFooter.css';
 
 const SmallFooter = () => {
   return (
-    <div className="small-footer">
+    <footer className="small-footer container">
       <SmallFooterLinks />
       <CopyrightSection />
-    </div>
+    </footer>
   )
 }
 

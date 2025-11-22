@@ -1,5 +1,3 @@
-import './CopyrightSection.css';
-
 const CopyrightSection = () => {
   const year = new Date().getFullYear();
 
