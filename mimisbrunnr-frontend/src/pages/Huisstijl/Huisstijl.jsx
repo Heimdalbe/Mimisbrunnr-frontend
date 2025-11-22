@@ -1,3 +1,5 @@
+import EventIcon from '../../components/Evenementen/EventIcon'
+
 const Huisstijl = () => {
   return (
     <div>
@@ -20,10 +22,15 @@ const Huisstijl = () => {
           <button className='primary-button'>Ik ben een button</button>
           <button className='primary-button' disabled>Ik ben disabled</button>
         </div>
-        
       </div>
       <div className='dark-bg'>
         <div className="container">
+          <div className="button-wrapper">
+            <EventIcon iconClass="fa-solid fa-football" />
+            <EventIcon iconClass="fa-solid fa-puzzle-piece" />
+            <EventIcon iconClass="fa-solid fa-child-reaching" />
+            <EventIcon iconClass="fa-solid fa-music" />
+          </div>
           <div className="button-wrapper">
             <button className='primary-button-dark'>Ik ben een button</button>
             <button className='primary-button-dark' disabled>Ik ben disabled</button>
