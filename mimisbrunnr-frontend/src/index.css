@@ -24,10 +24,21 @@
 /* desktop: 1024px;                       */ 
 /* large: 1200px;                         */
 
-.container {
+.container,
+.container-sm-tm,
+.container-sm-bm,
+.container-fw-mobile {
   margin: 0 auto;
   max-width: 1280px; /*of 1400px*/
   padding: 30px 60px;
+}
+
+.container-sm-tm {
+  padding: 30px 60px 0;
+}
+
+.container-sm-bm {
+  padding: 0 60px 30px;
 }
 
 .centered {
@@ -51,7 +62,19 @@
 
 @media (max-width: 1024px) {
   .container {
-    padding: 25px 35px;
+    padding: 60px 35px;
+  }
+
+  .container-fw-mobile {
+    padding: 0;
+  }
+
+  .container-sm-tm {
+    padding-top: 60px; 
+  }
+
+  .container-sm-bm {
+    padding-bottom: 60px; 
   }
 
   .button-wrapper {

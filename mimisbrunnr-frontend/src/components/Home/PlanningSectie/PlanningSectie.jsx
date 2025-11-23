@@ -4,15 +4,21 @@ import events from '../../../api/events';
 
 const PlanningSectie = () => {
   return (
-    <div className='container'>
-      <h1>Op de planning</h1>
-      <EventList events={events} />
-      <div className="button-wrapper">
-        <PrimaryButton 
-          text='Alle evenementen' 
-          to='/evenementen' 
-          isLight={true}
-          isDisabled={false} />
+    <div>
+      <div className='container-sm-tm'>
+        <h1>Op de planning...</h1>
+      </div>
+      <div className='container-fw-mobile'>
+        <EventList events={events} />
+      </div>
+      <div className='container-sm-bm'>
+        <div className="button-wrapper">
+          <PrimaryButton 
+            text='Alle evenementen' 
+            to='/evenementen' 
+            isLight={true}
+            isDisabled={false} />
+        </div>
       </div>
     </div>
   )
