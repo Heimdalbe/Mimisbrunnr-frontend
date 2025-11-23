@@ -6,6 +6,7 @@
   position: relative;
   transition: all 0.3s ease;
   width: 100%;
+  transition: transform 0.3s ease, opacity 0.3s ease, background-color 0.3s ease;
 }
 
 .circle {
@@ -18,12 +19,14 @@
   justify-content: center;
   align-items: center;
   font-size: 3.2rem;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .characteristic-text {
   width: 80%;
   text-align: center;
   margin-top: 10px;
+  transition: opacity 0.3s ease, color 0.3s ease;
 }
 
 .characteristic-text h3 {
