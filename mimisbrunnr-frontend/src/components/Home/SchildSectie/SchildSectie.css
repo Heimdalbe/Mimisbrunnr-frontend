@@ -1,5 +1,22 @@
-.schild-sectie {
-  display: flex;
-  gap: 100px;
-  background: #121212;
+.dark-bg {
+  position: relative;
+}
+
+.bg-image {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 25vw;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+@media (max-width: 1024px) {
+  .dark-bg .bg-image {
+    left: 0;
+    width: 100%;
+    height: 160px;
+    object-position: center 35%;
+  }
 }

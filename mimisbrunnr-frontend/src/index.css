@@ -37,7 +37,8 @@
 }
 
 .dark-bg {
-  background-color: var(--black);
+  background-color: var(--dark-grey);
+  color: white;
 }
 
 @media (max-width: 1024px) {
