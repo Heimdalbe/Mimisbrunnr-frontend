@@ -8,10 +8,12 @@ const Home = () => {
   return (
     <div>
       <SchildSectie />
+      {/*
       <PlanningSectie />
       <KarakteristiekenSectie />
       <FotoSectie />
       <VisieEnSponSectie />
+      */}
     </div>
   )
 }

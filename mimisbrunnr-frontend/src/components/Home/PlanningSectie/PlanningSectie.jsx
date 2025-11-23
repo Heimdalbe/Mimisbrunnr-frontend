@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import './PlanningSectie.css';
-import EventList from '../../Events/EventList/EventList';
+import EventList from '../../Evenementen/EventList/EventList';
 import events from '../../../api/events';
 
 const PlanningSectie = () => {
