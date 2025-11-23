@@ -24,7 +24,7 @@ const KarakteristiekenSectie = () => {
   }, [images.length]);
 
   return (
-    <div className='dark-bg'>
+    <div className='dark-bg line-container'>
       <div className='group-picture-wrapper'>
         <img
           className='group-picture'
