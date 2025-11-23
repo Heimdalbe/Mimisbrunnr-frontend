@@ -1,7 +1,8 @@
 import { useNavigate } from "react-router-dom";
+import EventIcon from '../Andere/EventIcon';
 import './EventCard.css';
 
-const EventCard = ({ id, image, date, start_time, end_time, title }) => {
+const EventCard = ({ id, image, date, start_time, end_time, title, type }) => {
   const navigate = useNavigate();
   const d = new Date(date);
   const day = d.getDate().toString().padStart(2, "0");
@@ -13,6 +14,7 @@ const EventCard = ({ id, image, date, start_time, end_time, title }) => {
       style={{ backgroundImage: `url(${image})` }}
       onClick={() => navigate(`/evenement/${id}`)}
     >
+      <EventIcon category={type} />
       <div className="event-info">
         <div className="date">
           <p className="day">{day}</p>

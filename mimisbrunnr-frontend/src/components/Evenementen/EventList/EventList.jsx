@@ -15,7 +15,8 @@ const EventList = ({ events }) => {
               date={event.date} 
               start_time={event.start_time} 
               end_time={event.end_time} 
-              title={event.title} />
+              title={event.title}
+              type={event.type} />
         ))}
         <div style={{ flex: '0 0 10px' }} />
       </div>

@@ -6,6 +6,7 @@ const events = [
     title: "Schaaktoernooi",
     start_time: "13:00",
     end_time: "18:00",
+    type: "sport",
   },
   {
     id: 2,
@@ -14,6 +15,7 @@ const events = [
     title: "Tetris toernooi",
     start_time: "13:00",
     end_time: "18:00",
+    type: "sport",
   },
   {
     id: 3,
@@ -22,6 +24,7 @@ const events = [
     title: "Movie night",
     start_time: "13:00",
     end_time: "18:00",
+    type: "cultuur",
   },
   {
     id: 4,
@@ -30,6 +33,7 @@ const events = [
     title: "Bowling",
     start_time: "13:00",
     end_time: "18:00",
+    type: "sport",
   },
 ];
 
