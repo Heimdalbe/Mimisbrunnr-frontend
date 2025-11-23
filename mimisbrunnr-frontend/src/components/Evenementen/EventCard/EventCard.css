@@ -72,7 +72,8 @@
 .event-info .title-time h3 {
   margin: 0;
   text-align: left;
-  word-break: break-all;
+  line-break: auto;
+  overflow-wrap: break-word;
   hyphens: auto;
 }
 

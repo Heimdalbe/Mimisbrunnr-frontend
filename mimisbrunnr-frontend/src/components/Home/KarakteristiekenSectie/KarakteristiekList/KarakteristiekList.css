@@ -8,6 +8,18 @@
   flex-wrap: wrap;
 }
 
+.card-wrapper .activeTracker {
+  width: 20%;
+}
+
+.active-underline {
+  position: absolute;
+  bottom: -10px;
+  height: 4px;
+  background-color: var(--green);
+  transition: transform 0.3s ease, width 0.3s ease;
+}
+
 @media (max-width: 1024px) {
   .card-wrapper {
     margin-top: -140px;

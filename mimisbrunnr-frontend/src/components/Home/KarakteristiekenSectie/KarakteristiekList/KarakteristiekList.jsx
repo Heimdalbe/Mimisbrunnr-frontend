@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import KarakteristiekCard from "../Karakteristiek/KarakteristiekCard";
 import './KarakteristiekList.css';
 
@@ -6,17 +6,38 @@ import './KarakteristiekList.css';
 // TODO: mobiele versie (ongeveer hetzelfde als event card, maar ook autoplay verschuiven)
 
 const KarakteristiekList = ({ characteristics, activeIndex }) => {
+  const cardRefs = useRef([]);
+  const [underlineStyle, setUnderlineStyle] = useState({});
+
+  useEffect(() => {
+    const activeCard = cardRefs.current[activeIndex];
+    if (activeCard) {
+      const { offsetLeft, offsetWidth } = activeCard;
+      setUnderlineStyle({
+        transform: `translateX(${offsetLeft}px)`,
+        width: offsetWidth + "px"
+      });
+    }
+  }, [activeIndex]);
+
   return (
     <div className="card-wrapper">
       {characteristics.map((ch, index) => (
-        <KarakteristiekCard
+        <div
+          className="activeTracker"
           key={index}
-          iconClass={ch.iconClass}
-          name={ch.name}
-          text={ch.text}
-          isActive={activeIndex === index}
-        />
+          ref={(el) => (cardRefs.current[index] = el)}
+        >
+          <KarakteristiekCard
+            iconClass={ch.iconClass}
+            name={ch.name}
+            text={ch.text}
+            isActive={activeIndex === index}
+          />
+        </div>
       ))}
+
+      <div className="active-underline" style={underlineStyle}></div>
     </div>
   );
 }

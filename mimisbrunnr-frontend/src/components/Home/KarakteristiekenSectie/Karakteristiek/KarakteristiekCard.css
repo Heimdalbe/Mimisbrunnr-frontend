@@ -5,19 +5,19 @@
   align-items: center;
   position: relative;
   transition: all 0.3s ease;
-  width: 20%;
+  width: 100%;
 }
 
 .circle {
   background-color: var(--white);
   color: var(--black);
-  width: 60%;
+  width: 120px;
   aspect-ratio: 1 / 1;
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 4rem;
+  font-size: 3.2rem;
 }
 
 .characteristic-text {
@@ -32,22 +32,7 @@
 
 .characteristic-text p {
   font-weight: 600;
-  font-size: 0.9rem;
-}
-
-.characteristic-card .underline {
-  height: 4px;
-  width: 100%;
-  background-color: var(--green);
-  position: absolute;
-  bottom: -10px;
-  left: 0;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.characteristic-card.active .underline {
-  opacity: 1;
+  font-size: 0.8rem;
 }
 
 .characteristic-card.muted .circle {
