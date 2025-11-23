@@ -1,87 +1,191 @@
-:root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap');
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
-body {
+* {
+  font-family: 'Montserrat', system-ui, Avenir, Helvetica, Arial, sans-serif;
   margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  padding: 0;
+  --black: #000;
+  --white: #fff;
+  --dark-grey: #121212;
+  --light-grey: #191C23;
+  --green: #4FD849;
+  --yellow: #EEE300;
 }
 
-h1+p {
-  font-size: 20px;
-  line-height: 35px;
-  margin-bottom: 70px;
+
+/* ====================================== */
+/* =============== LAYOUT =============== */
+/* ====================================== */
+
+/* Breakpoints                            */
+/* =======================================*/
+/* mobile: 480px;                         */
+/* tablet: 768px;                         */
+/* desktop: 1024px;                       */ 
+/* large: 1200px;                         */
+
+.container {
+  margin: 0 auto;
+  max-width: 1280px; /*of 1400px*/
+  padding: 30px 60px;
+}
+
+.centered {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dark-bg {
+  background-color: var(--black);
+}
+
+@media (max-width: 1024px) {
+  .container {
+    padding: 25px 35px;
+  }
+}
+
+
+/* ====================================== */
+/* ======== DEFAULT TEKST STYLES ======== */
+/* ====================================== */
+
+h1 {
+  font-size: 1.8rem;
+  line-height: 1.8rem;
+  font-weight: 800;
+  margin: 40px 0;
 }
 
 h2 {
-  font-size: 25px;
-  font-weight: bolder;
-  margin-bottom: 50px;
-}
-
-h2+p {
-  font-size: 20px;
-  line-height: 35px;
-  margin-bottom: 50px;
+  font-size: 1.3rem;
+  line-height: 1.3rem;
+  font-weight: 800;
+  margin: 25px 0;
 }
 
 h3 {
-  font-size: 21px;
-  font-weight: bold;
-  margin-bottom: 30px;
+  font-size: 1rem;
+  line-height: 1rem;
+  font-weight: 700;
+  margin: 20px 0;
 }
 
-h3+p {
-  font-size: 20px;
-  line-height: 35px;
+p {
+  font-size: 1rem;
+  line-height: 1.6rem;
+  margin-bottom: 20px;
 }
 
-.text-link {
-  color: #4FD849;
+div p:last-child {
+  margin-bottom: 60px;
+}
+
+a {
+  color: var(--green);
   font-style: italic;
   text-decoration: none;
-  font-size: 28px;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
+a:hover {
+  text-decoration: underline;
+}
+
+.footnote {
+  font-size: 0.8rem;
+  font-weight: bold;
+  color: var(--green);
+}
+
+@media (max-width: 1024px) {
+  h1, h2, h3, p {
+    text-align: center;
   }
-  a:hover {
-    color: #747bff;
+
+  h1 {
+    font-size: 1.6rem;
+    line-height: 1.6rem;
+    margin: 35px 0;
   }
-  button {
-    background-color: #f9f9f9;
+
+  h2, h3 {
+    font-size: 1.1rem;
+    line-height: 1.1rem;
+    margin: 28px 0;
+  }
+
+  div p:last-child {
+    margin-bottom: 50px;
+  }
+}
+
+
+/* ====================================== */
+/* ======= DEFAULT BUTTON STYLES ======== */
+/* ====================================== */
+
+.primary-button, 
+.primary-button-dark {
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 15px 40px;
+  border: none;
+  border-radius: 1000px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.primary-button {
+  background-color: var(--black);
+  color: var(--white);
+}
+
+.primary-button-dark {
+  background-color: var(--green);
+  color: var(--white);
+}
+
+.primary-button:hover {
+  background-color: var(--green);
+}
+
+.primary-button-dark:hover {
+  background-color: var(--white);
+  color: var(--black);
+}
+
+.primary-button:disabled,
+.primary-button-dark:disabled {
+  cursor: not-allowed;
+}
+
+.primary-button:disabled {
+  color: rgba(255, 255, 255, 0.6);
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.primary-button-dark:disabled {
+  color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(79, 216, 73, 0.2);
+}
+
+.button-wrapper {
+  display: flex;
+  gap: 10px;
+  padding-bottom: 25px;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 1024px) {
+  .button-wrapper {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .primary-button, 
+  .primary-button-dark {
+    font-weight: 600;
+    padding: 20px 40px;
   }
 }

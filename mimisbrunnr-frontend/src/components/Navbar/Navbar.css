@@ -1,0 +1,8 @@
+nav {
+  background-color: var(--black);
+}
+
+nav a {
+  color: var(--white);
+  text-decoration: none;
+}
