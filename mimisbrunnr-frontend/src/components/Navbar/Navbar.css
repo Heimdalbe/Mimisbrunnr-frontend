@@ -1,5 +1,8 @@
 nav {
   background-color: var(--black);
+}
+
+nav div {
   margin: 0 auto;
   max-width: 1280px;
   padding: 30px 60px;
