@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import './PrimaryButton.css';
 
 const PrimaryButton = ({ text, to, isLight, isDisabled }) => {
   const className = [
