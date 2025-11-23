@@ -2,14 +2,22 @@ import { useState, useEffect, useRef } from "react";
 import KarakteristiekCard from "../Karakteristiek/KarakteristiekCard";
 import './KarakteristiekList.css';
 
-// TODO: overgang synchroniseren met change bg image
-// TODO: mobiele versie (ongeveer hetzelfde als event card, maar ook autoplay verschuiven)
-
 const KarakteristiekList = ({ characteristics, activeIndex }) => {
   const cardRefs = useRef([]);
   const [underlineStyle, setUnderlineStyle] = useState({});
+  const [isMobile, setIsMobile] = useState(false);
 
+  // Detect screen size
   useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth <= 1024);
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  // Update underline for desktop
+  useEffect(() => {
+    if (isMobile) return;
     const activeCard = cardRefs.current[activeIndex];
     if (activeCard) {
       const { offsetLeft, offsetWidth } = activeCard;
@@ -18,15 +26,23 @@ const KarakteristiekList = ({ characteristics, activeIndex }) => {
         width: offsetWidth + "px"
       });
     }
-  }, [activeIndex]);
+  }, [activeIndex, isMobile]);
 
   return (
-    <div className="card-wrapper">
+    <div className={`card-wrapper ${isMobile ? "mobile" : ""}`}>
       {characteristics.map((ch, index) => (
         <div
-          className="activeTracker"
+          className={`activeTracker ${isMobile ? "mobileCard" : ""}`}
           key={index}
           ref={(el) => (cardRefs.current[index] = el)}
+          style={{
+            opacity: isMobile
+              ? activeIndex === index
+                ? 1
+                : 0
+              : 1,
+            transition: isMobile ? "opacity 0.5s ease" : "none"
+          }}
         >
           <KarakteristiekCard
             iconClass={ch.iconClass}
@@ -36,8 +52,7 @@ const KarakteristiekList = ({ characteristics, activeIndex }) => {
           />
         </div>
       ))}
-
-      <div className="active-underline" style={underlineStyle}></div>
+      {!isMobile && <div className="active-underline" style={underlineStyle}></div>}
     </div>
   );
 }

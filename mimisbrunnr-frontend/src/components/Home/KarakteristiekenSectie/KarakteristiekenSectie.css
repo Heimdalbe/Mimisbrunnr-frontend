@@ -38,6 +38,10 @@
 
 @media (max-width: 1024px) {
   .group-picture-wrapper {
-    height: 220px;
+    height: 180px;
+  }
+
+  .line-container::after {
+    display: none;
   }
 }

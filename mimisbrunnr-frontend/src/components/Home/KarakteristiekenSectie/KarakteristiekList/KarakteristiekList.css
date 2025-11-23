@@ -22,7 +22,21 @@
 
 @media (max-width: 1024px) {
   .card-wrapper {
-    margin-top: -140px;
+    flex-direction: row;
+    overflow: hidden;
     justify-content: center;
+    margin-top: -140px;
+    position: relative;
+  }
+
+  .card-wrapper .activeTracker {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .active-underline {
+    display: none;
   }
 }

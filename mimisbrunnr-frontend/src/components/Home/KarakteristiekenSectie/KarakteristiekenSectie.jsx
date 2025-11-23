@@ -13,29 +13,50 @@ const KarakteristiekenSectie = () => {
     './Groepsfoto4.jpg'
   ];
 
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [imageIndex, setImageIndex] = useState(0);
+  const [cardsIndex, setCardsIndex] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
 
+  // Detect screen size
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth <= 1024);
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  // Autoplay voor karakteristiek cards (desktop + mobile)
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentIndex(prevIndex => (prevIndex + 1) % images.length);
-    }, 2000);
-
+      setCardsIndex(prev => (prev + 1) % characteristics.length);
+    }, 8000);
     return () => clearInterval(interval);
-  }, [images.length]);
+  }, []);
+
+  // Images: enkel autoplay op desktop
+  useEffect(() => {
+    if (isMobile) return; // geen autoplay op mobile
+    const interval = setInterval(() => {
+      setImageIndex(prev => (prev + 1) % images.length);
+    }, 2000);
+    return () => clearInterval(interval);
+  }, [isMobile, images.length]);
+
+  const displayedImageIndex = isMobile ? 0 : imageIndex;
 
   return (
     <div className='dark-bg line-container'>
       <div className='group-picture-wrapper'>
         <img
           className='group-picture'
-          src={images[currentIndex]}
+          src={images[displayedImageIndex]}
           alt='Groepsfoto'
         />
       </div>
       <div className='container'>
         <KarakteristiekList 
           characteristics={characteristics} 
-          activeIndex={currentIndex % characteristics.length}
+          activeIndex={cardsIndex}
         />
       </div>
     </div>
