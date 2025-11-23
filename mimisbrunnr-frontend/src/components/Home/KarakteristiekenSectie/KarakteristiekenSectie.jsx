@@ -42,7 +42,7 @@ const KarakteristiekenSectie = () => {
     return () => clearInterval(interval);
   }, [isMobile, images.length]);
 
-  const displayedImageIndex = isMobile ? 0 : imageIndex;
+  const displayedImageIndex = isMobile ? 3 : imageIndex;
 
   return (
     <div className='dark-bg line-container'>
