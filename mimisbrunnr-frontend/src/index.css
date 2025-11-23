@@ -56,7 +56,7 @@
   display: flex;
   justify-content: center;
   gap: 10px;
-  padding: 50px 0;
+  margin: 35px 0;
   flex-wrap: wrap;
 }
 
@@ -65,16 +65,16 @@
     padding: 60px 35px;
   }
 
-  .container-fw-mobile {
-    padding: 0;
-  }
-
   .container-sm-tm {
-    padding-top: 60px; 
+    padding: 30px 30px 0;
   }
 
   .container-sm-bm {
-    padding-bottom: 60px; 
+    padding: 0 30px 30px;
+  }
+
+  .container-fw-mobile {
+    padding: 0;
   }
 
   .button-wrapper {
