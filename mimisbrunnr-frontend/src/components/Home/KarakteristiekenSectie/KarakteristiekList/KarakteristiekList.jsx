@@ -36,12 +36,9 @@ const KarakteristiekList = ({ characteristics, activeIndex }) => {
           key={index}
           ref={(el) => (cardRefs.current[index] = el)}
           style={{
-            opacity: isMobile
-              ? activeIndex === index
-                ? 1
-                : 0
-              : 1,
-            transition: isMobile ? "opacity 0.5s ease" : "none"
+            opacity: isMobile ? (activeIndex === index ? 1 : 0) : 1,
+            transform: isMobile ? (activeIndex === index ? "translateX(0)" : "translateX(-50px)") : "none",
+            transition: isMobile ? "opacity 0.5s ease, transform 0.5s ease" : "none"
           }}
         >
           <KarakteristiekCard
