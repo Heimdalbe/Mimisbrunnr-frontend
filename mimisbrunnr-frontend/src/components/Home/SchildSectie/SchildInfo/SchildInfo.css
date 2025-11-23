@@ -22,6 +22,8 @@
   font-size: 1.1rem;
   line-height: 2rem;
   padding-bottom: 20px;
+  line-break: normal;
+  hyphens: none;
 }
 
 @media (max-width: 1024px) {
