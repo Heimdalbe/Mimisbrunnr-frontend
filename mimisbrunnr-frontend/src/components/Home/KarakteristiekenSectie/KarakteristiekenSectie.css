@@ -4,7 +4,7 @@
   height: 300px;
 }
 
-.group-picture {
+.group-picture-wrapper img.group-picture {
   position: absolute;
   top: 0;
   left: 0;
@@ -12,6 +12,12 @@
   height: 100%;
   object-fit: cover;
   object-position: center;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.group-picture-wrapper img.group-picture.active {
+  opacity: 1;
 }
 
 .group-picture-wrapper::after {

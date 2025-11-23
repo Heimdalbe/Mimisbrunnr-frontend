@@ -3,8 +3,6 @@ import KarakteristiekList from './KarakteristiekList/KarakteristiekList';
 import './KarakteristiekenSectie.css';
 import characteristics from '../../../api/characteristics';
 
-// TODO: slide animation bij foto's
-
 const KarakteristiekenSectie = () => {
   const images = [
     './Groepsfoto1.jpg',
@@ -25,33 +23,42 @@ const KarakteristiekenSectie = () => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  // Autoplay voor karakteristiek cards (desktop + mobile)
+  // Desktop: sync image + card autoplay
   useEffect(() => {
+    if (isMobile) return; // Alleen desktop
+
     const interval = setInterval(() => {
       setCardsIndex(prev => (prev + 1) % characteristics.length);
-    }, 8000);
-    return () => clearInterval(interval);
-  }, []);
-
-  // Images: enkel autoplay op desktop
-  useEffect(() => {
-    if (isMobile) return; // geen autoplay op mobile
-    const interval = setInterval(() => {
       setImageIndex(prev => (prev + 1) % images.length);
-    }, 2000);
+    }, 6000);
+
     return () => clearInterval(interval);
-  }, [isMobile, images.length]);
+  }, [isMobile, characteristics.length, images.length]);
+
+  // Mobile: alleen cards autoplay
+  useEffect(() => {
+    if (!isMobile) return; // Alleen mobiel
+
+    const interval = setInterval(() => {
+      setCardsIndex(prev => (prev + 1) % characteristics.length);
+    }, 6000);
+
+    return () => clearInterval(interval);
+  }, [isMobile, characteristics.length]);
 
   const displayedImageIndex = isMobile ? 3 : imageIndex;
 
   return (
     <div className='dark-bg line-container'>
       <div className='group-picture-wrapper'>
-        <img
-          className='group-picture'
-          src={images[displayedImageIndex]}
-          alt='Groepsfoto'
-        />
+        {images.map((img, index) => (
+          <img
+            key={index}
+            className={`group-picture ${index === displayedImageIndex ? 'active' : ''}`}
+            src={img}
+            alt='Groepsfoto'
+          />
+        ))}
       </div>
       <div className='container'>
         <KarakteristiekList 
