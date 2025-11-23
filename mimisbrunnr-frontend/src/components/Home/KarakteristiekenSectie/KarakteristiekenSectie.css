@@ -1,0 +1,32 @@
+.group-picture-wrapper {
+  position: relative;
+  width: 100%;
+  height: 300px;
+}
+
+.group-picture {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.group-picture-wrapper::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.4);
+  pointer-events: none;
+}
+
+@media (max-width: 1024px) {
+  .group-picture-wrapper {
+    height: 220px;
+  }
+}

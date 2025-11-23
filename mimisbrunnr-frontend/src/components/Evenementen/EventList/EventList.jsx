@@ -2,7 +2,7 @@ import { useEffect, useRef } from "react";
 import EventCard from '../EventCard/EventCard';
 import './EventList.css';
 
-// TODO: Auto-scroll animatie events op mobile
+// TODO: hintende animatie dat je naar rechts kan swipen?
 
 const EventList = ({ events }) => {
   return (

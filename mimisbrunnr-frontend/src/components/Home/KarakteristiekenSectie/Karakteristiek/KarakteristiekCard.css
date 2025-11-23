@@ -1,0 +1,40 @@
+.characteristic-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 20%;
+}
+
+.circle {
+  background-color: var(--white);
+  color: var(--black);
+  width: 70%;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 4rem;
+}
+
+.characteristic-text {
+  width: 80%;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.characteristic-text h3 {
+  color: var(--green);
+}
+
+.characteristic-text p {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 1024px) {
+  .characteristic-card {
+    width: 60%;
+  }
+}

@@ -14,7 +14,7 @@ nav a {
 }
 
 @media (max-width: 1024px) {
-  nav {
+  nav div {
     padding: 30px 35px;
   }
 }
