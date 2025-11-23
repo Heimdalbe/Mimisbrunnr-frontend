@@ -137,6 +137,8 @@ a:hover {
   border-radius: 1000px;
   cursor: pointer;
   transition: background-color 0.2s ease, color 0.2s ease;
+  text-align: center;
+  font-style: normal;
 }
 
 .primary-button {
@@ -151,11 +153,13 @@ a:hover {
 
 .primary-button:hover {
   background-color: var(--green);
+  text-decoration: none;
 }
 
 .primary-button-dark:hover {
   background-color: var(--white);
   color: var(--black);
+  text-decoration: none;
 }
 
 .primary-button:disabled,
@@ -175,6 +179,7 @@ a:hover {
 
 .button-wrapper {
   display: flex;
+  justify-content: center;
   gap: 10px;
   padding-bottom: 25px;
   flex-wrap: wrap;
