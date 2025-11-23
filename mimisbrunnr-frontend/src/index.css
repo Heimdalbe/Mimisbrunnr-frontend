@@ -162,17 +162,17 @@ a:hover {
   text-decoration: none;
 }
 
-.primary-button:disabled,
-.primary-button-dark:disabled {
+.primary-button.disabled,
+.primary-button-dark.disabled {
   cursor: not-allowed;
 }
 
-.primary-button:disabled {
+.primary-button.disabled {
   color: rgba(255, 255, 255, 0.6);
   background-color: rgba(0, 0, 0, 0.2);
 }
 
-.primary-button-dark:disabled {
+.primary-button-dark.disabled {
   color: rgba(255, 255, 255, 0.2);
   background-color: rgba(79, 216, 73, 0.2);
 }
@@ -181,7 +181,7 @@ a:hover {
   display: flex;
   justify-content: center;
   gap: 10px;
-  padding-bottom: 25px;
+  padding: 50px 0;
   flex-wrap: wrap;
 }
 

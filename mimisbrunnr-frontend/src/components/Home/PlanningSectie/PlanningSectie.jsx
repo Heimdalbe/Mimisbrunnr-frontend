@@ -8,7 +8,11 @@ const PlanningSectie = () => {
       <h1>Op de planning</h1>
       <EventList events={events} />
       <div className="button-wrapper">
-        <PrimaryButton text='Alle evenementen' to='/evenementen' isLight={true} />
+        <PrimaryButton 
+          text='Alle evenementen' 
+          to='/evenementen' 
+          isLight={true}
+          isDisabled={false} />
       </div>
     </div>
   )
