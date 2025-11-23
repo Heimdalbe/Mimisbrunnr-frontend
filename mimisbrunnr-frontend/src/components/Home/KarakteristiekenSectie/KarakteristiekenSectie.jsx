@@ -18,7 +18,7 @@ const KarakteristiekenSectie = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex(prevIndex => (prevIndex + 1) % images.length);
-    }, 10000);
+    }, 5000);
 
     return () => clearInterval(interval);
   }, [images.length]);
@@ -33,7 +33,10 @@ const KarakteristiekenSectie = () => {
         />
       </div>
       <div className='container'>
-        <KarakteristiekList characteristics={characteristics} />
+        <KarakteristiekList 
+          characteristics={characteristics} 
+          activeIndex={currentIndex % characteristics.length}
+        />
       </div>
     </div>
   );
