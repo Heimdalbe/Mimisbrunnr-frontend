@@ -20,16 +20,9 @@
 
 .info-section p {
   font-size: 1.1rem;
+  line-height: 2rem;
   padding-bottom: 20px;
 }
-
-
-/*
-.text {
-  font-size: 26px;
-  font-weight: normal;
-  line-height: 46px;
-}*/
 
 @media (max-width: 1024px) {
 
@@ -50,7 +43,11 @@
     max-height: auto;
   }
 
-  .titel {
+  .info-section h1 {
     display: none;
+  }
+
+  .info-section p {
+    padding-top: 10px;
   }
 }
