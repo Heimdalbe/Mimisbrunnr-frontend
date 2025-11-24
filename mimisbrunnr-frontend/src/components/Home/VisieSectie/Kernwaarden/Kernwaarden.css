@@ -23,7 +23,7 @@
   margin: 0;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 768px) {
   .kernwaarde {
     display: flex;
     flex-direction: column;

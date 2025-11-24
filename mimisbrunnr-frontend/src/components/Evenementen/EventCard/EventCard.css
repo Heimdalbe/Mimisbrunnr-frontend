@@ -84,7 +84,7 @@
 }
 
 
-@media (max-width: 1024px) {
+@media (max-width: 768px) {
   .event-card {
     aspect-ratio: 7 / 8;
   }

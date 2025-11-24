@@ -20,7 +20,7 @@
   transition: transform 0.3s ease, width 0.3s ease;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 768px) {
   .card-wrapper {
     flex-direction: row;
     overflow: hidden;

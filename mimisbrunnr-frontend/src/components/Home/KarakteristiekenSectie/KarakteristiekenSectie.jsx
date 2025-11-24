@@ -17,7 +17,7 @@ const KarakteristiekenSectie = () => {
 
   // Detect screen size
   useEffect(() => {
-    const handleResize = () => setIsMobile(window.innerWidth <= 1024);
+    const handleResize = () => setIsMobile(window.innerWidth <= 768);
     handleResize();
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);

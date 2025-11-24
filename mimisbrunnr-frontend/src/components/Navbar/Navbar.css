@@ -13,7 +13,7 @@ nav a {
   text-decoration: none;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 768px) {
   nav div {
     padding: 30px 35px;
   }

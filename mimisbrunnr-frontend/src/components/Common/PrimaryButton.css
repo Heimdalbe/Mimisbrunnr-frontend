@@ -47,7 +47,7 @@
   background-color: rgba(79, 216, 73, 0.2);
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 768px) {
   .primary-button, 
   .primary-button-dark {
     font-weight: 600;

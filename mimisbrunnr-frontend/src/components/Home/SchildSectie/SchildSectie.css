@@ -17,7 +17,7 @@
   z-index: 0;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 768px) {
   .dark-bg .bg-image {
     left: 0;
     width: 100%;

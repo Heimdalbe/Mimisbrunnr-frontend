@@ -26,7 +26,7 @@
   hyphens: none;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 768px) {
 
   .info-section {
     padding: 0;
