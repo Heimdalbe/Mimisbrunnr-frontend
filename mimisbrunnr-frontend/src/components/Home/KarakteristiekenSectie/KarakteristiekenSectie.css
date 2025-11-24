@@ -31,10 +31,14 @@
   pointer-events: none;
 }
 
+.line-container {
+  padding-bottom: 60px;
+}
+
 .line-container::after {
   content: "";
   position: absolute;
-  bottom: 21px;
+  bottom: 81px;
   left: 50%;
   transform: translateX(-50%);
   width: 100%;
