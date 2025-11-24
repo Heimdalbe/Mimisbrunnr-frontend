@@ -2,6 +2,11 @@
   position: relative;
 }
 
+.dark-bg.schild-sectie .container {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
 .bg-image {
   position: absolute;
   right: 0;

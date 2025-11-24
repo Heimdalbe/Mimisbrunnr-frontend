@@ -39,7 +39,7 @@ div.line-container {
 div.line-container::after {
   content: "";
   position: absolute;
-  bottom: 45px;
+  bottom: 75px;
   left: 50%;
   transform: translateX(-50%);
   width: 100%;

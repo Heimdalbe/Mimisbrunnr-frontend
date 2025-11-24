@@ -30,15 +30,15 @@
 .container-fw-mobile {
   margin: 0 auto;
   max-width: 1280px; /*of 1400px*/
-  padding: 30px 60px;
+  padding: 60px 60px;
 }
 
 .container-sm-tm {
-  padding: 30px 60px 0;
+  padding: 60px 60px 0;
 }
 
 .container-sm-bm {
-  padding: 0 60px 30px;
+  padding: 0 60px 60px;
 }
 
 .centered {

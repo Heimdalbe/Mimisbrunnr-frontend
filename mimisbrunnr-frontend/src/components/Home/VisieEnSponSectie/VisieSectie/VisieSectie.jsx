@@ -1,5 +1,5 @@
 import './VisieSectie.css'
-import KernwaardenList from './Kernwaarden/KernwaardenList';
+import KernwaardenList from '../../VisieSectie/Kernwaarden/KernwaardenList';
 import kernwaarden from '../../../../api/kernwaarden';
 
 const VisieSectie = () => {
