@@ -1,0 +1,15 @@
+.socials-list {
+  margin: 90px 0 70px;
+  display: flex;
+  gap: 10px;
+}
+
+.social-link {
+  font-size: 40px;
+  color: white;
+  transition: ease 0.3s;
+}
+
+.social-link:hover {
+  color: var(--green);
+}

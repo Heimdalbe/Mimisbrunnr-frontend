@@ -1,0 +1,23 @@
+.nuttige-links {
+  display: flex;
+}
+
+.nuttige-links-desktop {
+  display: flex;
+}
+
+.nuttige-links-mobile {
+  display: none;
+  justify-content: center;
+  width: 100%;
+}
+
+@media (max-width: 1028px) {
+  .nuttige-links-desktop {
+    display: none;
+  }
+
+  .nuttige-links-mobile {
+    display: flex;
+  }
+}
