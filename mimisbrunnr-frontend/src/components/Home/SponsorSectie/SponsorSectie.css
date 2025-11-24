@@ -34,7 +34,7 @@
   .sponsorlist {
     display: flex;
     gap: 40px;
-    padding: 30px 0;
+    padding: 30px 0 60px;
     margin: 0;
     max-width: none;
     width: max-content;
