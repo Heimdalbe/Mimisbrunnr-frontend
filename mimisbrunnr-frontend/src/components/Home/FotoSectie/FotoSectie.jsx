@@ -1,17 +1,16 @@
 import PrimaryButton from '../../Common/PrimaryButton';
+import ImageGrid from '../../Images/ImageGrid';
 import './FotoSectie.css';
-
-// TODO: Sfeerbeeldsectie
 
 const FotoSectie = () => {
   return (
     <div className='container' style={{ paddingTop: 5 }}>
       <h1>Enkele sfeerbeelden</h1>
-      <p>insert grid...</p>
+      <ImageGrid images={["Groepsfoto4.jpg", "Groepsfoto1.jpg", "Groepsfoto2.jpg", "Groepsfoto3.jpg", "Groepsfoto4.jpg", "Groepsfoto1.jpg", "Groepsfoto2.jpg", "Groepsfoto3.jpg", "Groepsfoto4.jpg"]} />
       <div className="button-wrapper">
-        <PrimaryButton 
-          text='Bekijk alles' 
-          to='/albums' 
+        <PrimaryButton
+          text='Bekijk alles'
+          to='/albums'
           isLight={false}
           isDisabled={false} />
       </div>
