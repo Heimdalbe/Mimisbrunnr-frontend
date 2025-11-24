@@ -1,9 +1,14 @@
 import './FotoSectie.css';
 
+// TODO: Sfeerbeeldsectie
+
 const FotoSectie = () => {
   return (
-    <div style={{ backgroundColor: 'black', color: 'white' }}>
-      FotoSectie
+    <div className='dark-bg'>
+      <div className='container'>
+        <h1>Enkele sfeerbeelden</h1>
+        <p>insert grid...</p>
+      </div>
     </div>
   )
 }

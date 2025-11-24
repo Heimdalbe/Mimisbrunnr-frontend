@@ -32,13 +32,13 @@
 }
 
 .line-container {
-  padding-bottom: 60px;
+  padding-bottom: 24px;
 }
 
 .line-container::after {
   content: "";
   position: absolute;
-  bottom: 81px;
+  bottom: 45px;
   left: 50%;
   transform: translateX(-50%);
   width: 100%;
