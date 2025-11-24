@@ -2,3 +2,14 @@
   background-color: var(--dark-grey);
   color: var(--white);
 }
+
+.footer-title-container {
+  border-bottom: 4px solid var(--green);
+  margin-bottom: 40px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}

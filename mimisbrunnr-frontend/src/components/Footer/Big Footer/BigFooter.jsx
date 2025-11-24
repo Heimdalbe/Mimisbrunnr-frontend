@@ -1,10 +1,13 @@
 import './BigFooter.css';
+import ContactSection from './ContactSection/ContactSection';
+import NuttigeLinksSection from './NuttigeLinksSection/NuttigeLinksSection';
 
 const BigFooter = () => {
   return (
     <div className='big-footer'>
       <div className='container'>
-        Big footer
+        <ContactSection />
+        <NuttigeLinksSection />
       </div>
     </div>
   )
