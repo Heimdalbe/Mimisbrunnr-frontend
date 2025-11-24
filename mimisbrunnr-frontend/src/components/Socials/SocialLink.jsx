@@ -10,7 +10,7 @@ const icons = {
 
 const SocialLink = ({ type, link }) => {
   return (
-    <a href={link} className="social-link">
+    <a href={link} className="social-link" target="blank">
       {icons[type]}
     </a>
   );
