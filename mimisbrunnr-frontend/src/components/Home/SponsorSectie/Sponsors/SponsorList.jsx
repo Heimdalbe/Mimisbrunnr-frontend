@@ -1,5 +1,5 @@
 import Sponsor from "./Sponsor";
-import '../SponsorSectie.css';
+/*import '../SponsorSectie.css';*/
 
 const SponsorList = ({ sponsors }) => {
   return (
