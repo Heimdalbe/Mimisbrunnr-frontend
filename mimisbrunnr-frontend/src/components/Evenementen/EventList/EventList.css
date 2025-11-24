@@ -4,6 +4,11 @@
   gap: 15px;
 }
 
+.carousel-end-spacer {
+  flex: 0 0 10px;
+  display: none;
+}
+
 @media (max-width: 1024px) {
   .carousel-wrapper {
     margin-top: 50px;
@@ -18,5 +23,9 @@
   .event-card {
     flex: 0 0 100%;
     scroll-snap-align: center;
+  }
+
+  .carousel-end-spacer {
+    display: block;
   }
 }

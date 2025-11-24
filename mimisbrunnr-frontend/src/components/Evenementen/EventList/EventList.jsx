@@ -18,7 +18,7 @@ const EventList = ({ events }) => {
               title={event.title}
               type={event.type} />
         ))}
-        <div style={{ flex: '0 0 10px' }} />
+        <div className="carousel-end-spacer" />
       </div>
     </div>
   );
