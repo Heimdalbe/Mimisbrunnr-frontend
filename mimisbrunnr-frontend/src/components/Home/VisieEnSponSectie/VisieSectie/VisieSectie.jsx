@@ -10,7 +10,9 @@ const VisieSectie = () => {
         <p>Dit is een plaatsvervangend tekstje om wat meer info te geven over de visie van Heimdal die we dus voor ogen hebben. Hieronder komt er ook een opsomming voor de kernwaarden te noteren.</p>
         <KernwaardenList kernwaarden={kernwaarden} />
       </div>
-      <img src='./VisieFoto.png' height={350} width={350} />
+      <div className='visiefoto'>
+        <img src='./VisieFoto.png' height={350} width={350} />
+      </div>
     </div>
   )
 }

@@ -11,10 +11,9 @@ const Home = () => {
       <PlanningSectie />
       <KarakteristiekenSectie />
       {/*
-      <KarakteristiekenSectie />
       <FotoSectie />
-      <VisieEnSponSectie />
       */}
+      <VisieEnSponSectie />
     </div>
   )
 }

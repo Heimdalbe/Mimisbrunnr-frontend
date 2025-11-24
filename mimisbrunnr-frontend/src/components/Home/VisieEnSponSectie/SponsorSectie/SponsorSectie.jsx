@@ -10,7 +10,7 @@ const SponsorSectie = ({ sponsors }) => {
       <h1 className='sponsor-titel'>Onze Sponsors</h1>
       <SponsorList sponsors={sponsors} />
       <div className='info-button'>
-        <Link className='button-light'>Meer info</Link>
+        <Link className='primary-button'>Meer info</Link>
       </div>
     </div>
   )

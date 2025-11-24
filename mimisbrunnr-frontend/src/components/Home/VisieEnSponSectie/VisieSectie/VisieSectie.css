@@ -1,10 +1,16 @@
 .visiesectie {
   display: flex;
-  padding: 40px;
+  gap: 300px
 }
 
 @media (max-width: 1028px) {
   .visiesectie {
     flex-direction: column;
+    gap: 20px;
+  }
+
+  .visiefoto {
+    display: flex;
+    justify-content: center;
   }
 }

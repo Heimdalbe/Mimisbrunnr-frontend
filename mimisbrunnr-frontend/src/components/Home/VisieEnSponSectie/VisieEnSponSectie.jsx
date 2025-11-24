@@ -5,7 +5,7 @@ import sponsors from '../../../api/sponsors';
 
 const VisieEnSponSectie = () => {
   return (
-    <div>
+    <div className='container'>
       <VisieSectie />
       <SponsorSectie sponsors={sponsors} />
     </div>
