@@ -1,47 +1,47 @@
 const sponsors = [
   {
     id: 1,
-    url: "",
+    url: "https://cafecomicsans.be/",
     logo: "./ComicSans.png"
   },
   {
     id: 2,
-    url: "",
+    url: "https://www.devrolijkeviking.be/",
     logo: "./VrolijkeViking.png"
   },
   {
     id: 3,
-    url: "",
+    url: "https://www.hogent.be/",
     logo: "./HOGENT.png"
   },
   {
     id: 4,
-    url: "",
+    url: "https://www.delaware.pro/en-be",
     logo: "./Delaware.png"
   },
   {
     id: 5,
-    url: "",
+    url: "https://cloudcom.eu/",
     logo: "./CloudCom.png"
   },
   {
     id: 6,
-    url: "",
+    url: "https://reproduct.be/",
     logo: "./Reproduct.png"
   },
   {
     id: 7,
-    url: "",
+    url: "https://www.planet-talent.com/",
     logo: "./PlanetTalent.png"
   },
   {
     id: 8,
-    url: "",
+    url: "#",
     logo: "./idk.png"
   },
   {
     id: 9,
-    url: "",
+    url: "https://www.alternate.be/",
     logo: "./Alternate.png"
   },
 ];
