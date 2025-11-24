@@ -6,7 +6,7 @@ const VisieSectie = () => {
   return (
     <div className='container vision-section'>
       <div className='vision-info-section'>
-        <div>
+        <div className='vision-info-section-text'>
           <h1>Onze visie</h1>
           <p>Dit is een plaatsvervangend tekstje om wat meer info te geven over de visie van Heimdal die we dus voor ogen hebben. Hieronder komt er ook een opsomming voor de kernwaarden te noteren.</p>
         </div>

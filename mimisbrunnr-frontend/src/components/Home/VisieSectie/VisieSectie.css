@@ -2,7 +2,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 2rem;
+  gap: 6rem;
 }
 
 .vision-info-section {
@@ -34,14 +34,34 @@
   border: 5px var(--white) solid;
 }
 
-/* MOBILE */
 @media (max-width: 768px) {
   .vision-section {
     flex-direction: column;
+    gap: 0;
   }
 
   .vision-info-section,
   .vision-image-section {
     width: 100%;
+  }
+
+  .v-pic2 {
+    width: 100%;
+    aspect-ratio: initial;
+    margin-bottom: 0;
+    border: none;
+    position: static;
+  }
+
+  .v-pic1 {
+    display: none;
+  }
+
+  .container.vision-section {
+    padding: 0;
+  }
+
+  .container.vision-section .vision-info-section .vision-info-section-text {
+    padding: 60px 35px 0;
   }
 }
