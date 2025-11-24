@@ -1,0 +1,35 @@
+.icon {
+  border: 2px solid var(--white);
+  border-radius: 50%;
+  background-color: var(--black);
+  color: var(--white);
+  font-size: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+}
+
+.chip {
+  font-size: 0.7rem;
+  font-weight: bold;
+  padding: 8px 15px;
+  border-radius: 30px;
+  color: var(--white);
+  width: fit-content;
+}
+
+.chip.open {
+  background-color: var(--green);
+}
+
+.chip.closed {
+  background-color: red;
+}
+
+@media (max-width: 768px) {
+  .chip {
+    font-size: 0.8rem;
+  }
+}
