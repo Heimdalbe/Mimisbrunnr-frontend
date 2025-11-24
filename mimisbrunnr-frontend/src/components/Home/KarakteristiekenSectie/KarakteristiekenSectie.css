@@ -31,11 +31,12 @@
   pointer-events: none;
 }
 
-.line-container {
+div.line-container {
   padding-bottom: 24px;
+  position: relative;
 }
 
-.line-container::after {
+div.line-container::after {
   content: "";
   position: absolute;
   bottom: 45px;
@@ -50,8 +51,12 @@
   .group-picture-wrapper {
     height: 180px;
   }
+  
+  div.line-container {
+    padding-bottom: 0;
+  }
 
-  .line-container::after {
-    display: none;
+  div.line-container::after {
+    bottom: 61px;
   }
 }

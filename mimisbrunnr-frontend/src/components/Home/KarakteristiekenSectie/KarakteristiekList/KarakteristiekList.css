@@ -37,6 +37,6 @@
   }
 
   .active-underline {
-    display: none;
+    bottom: 0;
   }
 }

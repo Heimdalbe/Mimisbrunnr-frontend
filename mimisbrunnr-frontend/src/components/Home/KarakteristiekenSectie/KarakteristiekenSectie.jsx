@@ -49,7 +49,7 @@ const KarakteristiekenSectie = () => {
   const displayedImageIndex = isMobile ? 3 : imageIndex;
 
   return (
-    <div className='dark-bg line-container'>
+    <div className='line-container'>
       <div className='group-picture-wrapper'>
         {images.map((img, index) => (
           <img

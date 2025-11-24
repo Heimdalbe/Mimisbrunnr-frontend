@@ -4,11 +4,9 @@ import './FotoSectie.css';
 
 const FotoSectie = () => {
   return (
-    <div className='dark-bg'>
-      <div className='container'>
-        <h1>Enkele sfeerbeelden</h1>
-        <p>insert grid...</p>
-      </div>
+    <div className='container' style={{ paddingTop: 5 }}>
+      <h1>Enkele sfeerbeelden</h1>
+      <p>insert grid...</p>
     </div>
   )
 }

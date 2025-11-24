@@ -15,31 +15,25 @@ const KarakteristiekList = ({ characteristics, activeIndex }) => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // Update underline for desktop
+  // Update underline for desktop + mobile
   useEffect(() => {
-    if (isMobile) return;
     const activeCard = cardRefs.current[activeIndex];
     if (activeCard) {
       const { offsetLeft, offsetWidth } = activeCard;
       setUnderlineStyle({
         transform: `translateX(${offsetLeft}px)`,
-        width: offsetWidth + "px"
+        width: offsetWidth + "px",
       });
     }
-  }, [activeIndex, isMobile]);
+  }, [activeIndex, isMobile, characteristics]);
 
   return (
-    <div className={`card-wrapper ${isMobile ? "mobile" : ""}`}>
+    <div className='card-wrapper'>
       {characteristics.map((ch, index) => (
         <div
-          className={`activeTracker ${isMobile ? "mobileCard" : ""}`}
+          className='activeTracker'
           key={index}
           ref={(el) => (cardRefs.current[index] = el)}
-          style={{
-            opacity: isMobile ? (activeIndex === index ? 1 : 0) : 1,
-            transform: isMobile ? (activeIndex === index ? "translateX(0)" : "translateX(-50px)") : "none",
-            transition: isMobile ? "opacity 0.5s ease, transform 0.5s ease" : "none"
-          }}
         >
           <KarakteristiekCard
             iconClass={ch.iconClass}
@@ -49,7 +43,7 @@ const KarakteristiekList = ({ characteristics, activeIndex }) => {
           />
         </div>
       ))}
-      {!isMobile && <div className="active-underline" style={underlineStyle}></div>}
+      <div className="active-underline" style={underlineStyle}></div>
     </div>
   );
 }

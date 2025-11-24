@@ -9,8 +9,10 @@ const Home = () => {
     <div>
       <SchildSectie />
       <PlanningSectie />
-      <KarakteristiekenSectie />
-      <FotoSectie />
+      <div className="dark-bg">
+        <KarakteristiekenSectie />
+        <FotoSectie />
+      </div>
       <VisieEnSponSectie />
     </div>
   )

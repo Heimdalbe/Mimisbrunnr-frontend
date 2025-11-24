@@ -47,14 +47,15 @@
 }
 
 @media (max-width: 1024px) {
-  .characteristic-text p {
-    margin-bottom: 0 !important;
-  }
   .characteristic-card.muted {
     display: none;
   }
   .characteristic-card.active {
     opacity: 1;
     transition: opacity 0.5s ease;
+  }
+  .characteristic-text p {
+    font-size: 0.9rem;
+    padding-bottom: 15px;
   }
 }
