@@ -1,0 +1,19 @@
+.select-field {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+select,
+option {
+  padding: 5px;
+  width: 100%;
+}
+
+@media (max-width: 1028px) {
+  .select-field {
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+  }
+}
