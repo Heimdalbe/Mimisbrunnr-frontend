@@ -10,6 +10,7 @@ input {
 }
 
 label {
+  color: white;
   font-weight: bold;
   margin: 5px 0;
 }

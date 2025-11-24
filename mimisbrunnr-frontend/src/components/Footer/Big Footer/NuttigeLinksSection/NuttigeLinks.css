@@ -2,10 +2,6 @@
   display: flex;
 }
 
-.nuttige-links-desktop {
-  display: flex;
-}
-
 .nuttige-links-mobile {
   display: none;
   justify-content: center;

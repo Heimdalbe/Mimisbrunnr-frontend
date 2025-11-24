@@ -4,7 +4,7 @@ import FooterContactForm from './ContactForm/FooterContactForm';
 const ContactSection = () => {
   return (
     <div>
-      <FooterTitle title={"Contact"} />
+      <FooterTitle title={"Contact"} isDark={false} />
       <FooterContactForm />
     </div>
   )
