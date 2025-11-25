@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import PrimaryButton from '../../Common/PrimaryButton';
 import './FotoSectie.css';
 
@@ -16,12 +16,24 @@ const FotoSectie = () => {
   const areas = ['a','b','c','d','e','f','g']
   const [activeImage, setActiveImage] = useState(null);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-  window.addEventListener('resize', () => setWindowWidth(window.innerWidth));
 
-  const images = windowWidth <= 600 ? allImages.slice(0,5) : allImages;
-  const areasToUse = windowWidth <= 600 ? areas.slice(0,5) : areas;
+  useEffect(() => {
+    const handleResize = () => setWindowWidth(window.innerWidth);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  useEffect(() => {
+    if (activeImage) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+  }, [activeImage]);
+
+  const images = windowWidth <= 768 ? allImages.slice(0,5) : allImages;
+  const areasToUse = windowWidth <= 768 ? areas.slice(0,5) : areas;
   
-
   return (
     <div>
       <div className='container-sm-tm' style={{ paddingTop: 5 }}>
@@ -54,11 +66,18 @@ const FotoSectie = () => {
         </div>
       </div>
 
-      
-
-      {/* Lightbox modal */}
+      {/* Lightbox */}
       {activeImage && (
         <div className="lightbox" onClick={() => setActiveImage(null)}>
+          <button
+            className="lightbox-close"
+            onClick={(e) => {
+              e.stopPropagation();
+              setActiveImage(null);
+            }}
+          >
+            &times;
+          </button>
           <img src={activeImage} alt="" />
         </div>
       )}
