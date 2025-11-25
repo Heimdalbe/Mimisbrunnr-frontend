@@ -8,8 +8,10 @@ const NuttigeLinksSection = () => {
     <div className="nuttige-links">
       <div className="nuttige-links-desktop">
         <FooterTitle title={"Nuttige links"} isDark={false} />
-        <NuttigeLinks />
-        <SocialsList />
+        <div className="nuttige-links-desktop-bottom">
+          <NuttigeLinks />
+          <SocialsList />
+        </div>
       </div>
       <div className="nuttige-links-mobile">
         <SocialsList />

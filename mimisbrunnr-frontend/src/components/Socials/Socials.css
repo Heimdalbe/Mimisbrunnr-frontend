@@ -1,7 +1,7 @@
 .socials-list {
-  margin: 90px 0 70px;
+  margin: 0;
   display: flex;
-  gap: 10px;
+  gap: 20px;
 }
 
 .social-link {
@@ -17,5 +17,10 @@
 @media (min-width: 1028px) {
   .socials-list {
     flex-direction: column;
+    gap: 5px;
+  }
+
+  .social-link {
+    font-size: 30px;
   }
 }

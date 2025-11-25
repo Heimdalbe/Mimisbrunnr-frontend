@@ -1,11 +1,18 @@
 .nuttige-links {
   display: flex;
+  padding-right: 60px;
 }
 
 .nuttige-links-mobile {
   display: none;
   justify-content: center;
   width: 100%;
+}
+
+.nuttige-links-desktop-bottom {
+  display: flex;
+  align-items: flex-start;
+  gap: 100px;
 }
 
 @media (max-width: 1028px) {

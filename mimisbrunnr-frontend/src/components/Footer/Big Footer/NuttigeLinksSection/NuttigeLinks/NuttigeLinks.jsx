@@ -3,7 +3,7 @@ import './NuttigeLink.css';
 
 const NuttigeLinks = () => {
   return (
-    <div>
+    <div className="nuttige-links">
       <NuttigeLink link={"/"} text={"Home"} />
       <NuttigeLink link={"/over-ons"} text={"Over ons"} />
       <NuttigeLink link={"/evenementen"} text={"Events"} />

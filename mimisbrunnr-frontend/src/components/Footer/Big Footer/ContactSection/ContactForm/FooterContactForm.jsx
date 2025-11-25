@@ -1,5 +1,6 @@
 import InputField from "../../../../Form/InputField/InputField";
 import SelectField from "../../../../Form/SelectField/SelectField";
+import './ContactForm.css';
 
 const FooterContactForm = () => {
 

@@ -1,3 +1,12 @@
+.dark-bg .container {
+  padding-bottom: 0 !important;
+  padding-right: 0 !important;
+}
+
+.big-footer {
+  position: relative;
+}
+
 .footer-title-container {
   border-bottom: 4px solid var(--green);
   margin-bottom: 40px;
@@ -24,6 +33,22 @@ form {
   min-width: 0;
 }
 
+.jormungandr-wrapper {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 300px;
+  height: 200px;
+  overflow: hidden;
+}
+
+.jormungandr {
+  width: 100%;
+  transform: scale(1.07);
+  transform-origin: top;
+}
+
+
 @media (max-width: 1028px) {
   .footer-sections {
     flex-direction: column;
@@ -31,5 +56,9 @@ form {
 
   .footer-sections>* {
     width: 100%;
+  }
+
+  .jormungandr {
+    display: none;
   }
 }
