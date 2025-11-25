@@ -63,6 +63,12 @@
   height: 45px;
   cursor: pointer;
   z-index: 1001;
+  transition: background 0.2s ease;
+}
+
+.lightbox-close:hover,
+.navigate-buttons button:hover {
+  background: #2E2E2E; /* lichtgrijs, lichter dan var(--light-grey) */
 }
 
 .lightbox-close {
