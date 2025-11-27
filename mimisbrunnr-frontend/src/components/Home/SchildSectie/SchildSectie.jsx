@@ -1,4 +1,5 @@
 import SchildInfo from "./SchildInfo/SchildInfo";
+import SocialsList from "../../Socials/SocialsList";
 import './SchildSectie.css';
 
 const SchildSectie = () => {
@@ -8,8 +9,12 @@ const SchildSectie = () => {
       <div className="container">
         <SchildInfo />
       </div>
+
+      <div className="socials-wrapper">
+        <SocialsList />
+      </div>
     </div>
-  )
-}
+  );
+};
 
 export default SchildSectie;
