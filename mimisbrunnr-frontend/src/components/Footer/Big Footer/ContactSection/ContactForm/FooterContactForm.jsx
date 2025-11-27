@@ -13,7 +13,7 @@ const FooterContactForm = () => {
   const [bericht, setBericht] = useState("");
 
   const emailIsValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-  const isFormValid = naam !== "" && emailIsValid && onderwerp !== "" && bericht !== "";
+  const isFormValid = naam !== "" && emailIsValid && bericht != "";
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -24,7 +24,13 @@ const FooterContactForm = () => {
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        <InputField type="text" label="Naam" placeholder={""} value={naam} onChange={(e) => setNaam(e.target.value)}/>
+        <InputField 
+          type="text" 
+          label="Naam" 
+          placeholder={""} 
+          value={naam} 
+          onChange={(e) => setNaam(e.target.value)}/>
+
         <InputField type="email" label="Email" placeholder={"john.heimdal@placeholder.be"} value={email} onChange={(e) => setEmail(e.target.value)} />
         <SelectField label={"Onderwerp"} placeholder={"Maak een keuze..."} options={onderwerpOpties} value={onderwerp} onChange={(val) => setOnderwerp(val)} />
         <InputField type="message" label="Bericht" placeholder={"Vul hier je boodschap in..."} value={bericht} onChange={(e) => setBericht(e.target.value)} />
