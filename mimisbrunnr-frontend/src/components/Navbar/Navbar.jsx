@@ -5,7 +5,7 @@ import NavbarHamburger from './Components/NavbarHamburger';
 import { useState } from 'react';
 import { IoClose } from "react-icons/io5";
 import OverOns from './Components/OverOns';
-import PrimaryButton from '../Common/PrimaryButton';
+import NavContactButton from './Components/NavContactButton';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -23,12 +23,9 @@ const Navbar = () => {
           <Link to={"/albums"} className="nav-link">Albums</Link>
           <Link to={"/praesidium"} className="nav-link">Praesidium</Link>
           <Link to={"/evenementen"} className="nav-link">Evenementen</Link>
-          <PrimaryButton
-            text='Contact'
-            to='/contact'
-            isLight={false}
-            isDisabled={false} />
-
+          <Link to={"/contact"}>
+            <NavContactButton />
+          </Link>
           <Link to={"/user"} className="user-icon">
             <PiUserCircle size={35} />
           </Link>
