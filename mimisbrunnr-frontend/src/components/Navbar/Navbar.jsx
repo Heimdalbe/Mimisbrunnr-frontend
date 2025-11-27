@@ -20,7 +20,13 @@ const Navbar = () => {
 
           <div className="nav-links">
             <div>
-              <OverOns />
+              <OverOns links={[
+                { label: "Wie zijn we?", to: "/over-ons" },
+                { label: "Clublied", to: "/over-ons/clublied" },
+                { label: "Boekje", to: "/over-ons/boekje" },
+                { label: "Statuten", to: "/over-ons/statuten" },
+                { label: "Werkgroepen", to: "/over-ons/werkgroepen" }
+              ]} />
               <Link to={"/albums"} className="nav-link">Albums</Link>
               <Link to={"/praesidium"} className="nav-link">Praesidium</Link>
               <Link to={"/evenementen"} className="nav-link">Evenementen</Link>
@@ -40,23 +46,12 @@ const Navbar = () => {
           <Link to={"/"} className='logo'>
             <img src="./HeimdalBannerTransparantWit.png" alt="Heimdal Banner" />
           </Link>
-          {
-            !isOpen && (
-              <div className='nav-links'>
-                <Link to={"/user"} className="user-icon">
-                  <i class="fa-solid fa-circle-user"></i>
-                </Link>
-                <NavbarHamburger isOpen={isOpen} setIsOpen={setIsOpen} />
-              </div>
-            )
-          }
-          {
-            isOpen && (
-              <div className='nav-links'>
-                <i class="fa-solid fa-xmark" onClick={() => setIsOpen(!isOpen)}></i>
-              </div>
-            )
-          }
+          <div className='nav-links'>
+            <Link to={"/user"} className="user-icon">
+              <i class="fa-solid fa-circle-user"></i>
+            </Link>
+            <NavbarHamburger isOpen={isOpen} setIsOpen={setIsOpen} />
+          </div>
         </div>
       </div>
     </div>

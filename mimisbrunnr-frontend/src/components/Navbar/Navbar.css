@@ -50,7 +50,8 @@
   color: var(--white);
 }
 
-.nav-link::after {
+.nav-link::after,
+.submenu-item span::after {
   content: "";
   position: absolute;
   left: 0;
@@ -62,11 +63,18 @@
   transition: opacity 0.3s ease-in-out;
 }
 
-.nav-link:hover::after {
+.submenu-item span {
+  position: relative;
+  display: inline-block;
+}
+
+.nav-link:hover::after,
+.submenu-item:hover span::after {
   opacity: 1;
 }
 
-.nav-link:hover {
+.nav-link:hover,
+.submenu-item:hover {
   text-decoration: none;
 }
 
@@ -95,11 +103,39 @@
   background-color: var(--white);
 }
 
+.over-ons-wrapper {
+  position: relative;
+}
+
 .over-ons-link {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   white-space: nowrap;
   gap: 12px !important;
+  cursor: pointer;
+}
+
+.submenu {
+  position: absolute;
+  border-top: 1px solid var(--white);
+  top: 200%;
+  left: 0;
+  background-color: var(--light-grey);
+  padding: 15px 0 20px;
+  display: flex;
+  flex-direction: column;
+  z-index: 1000;
+}
+
+.submenu-item {
+  min-width: 120px;
+  color: var(--white);
+  font-style: normal;
+  text-decoration: none;
+  padding: 8px 20px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  white-space: nowrap;
 }
 
 .over-ons-link i {
@@ -132,7 +168,7 @@
 }
 
 .hamburger-btn {
-  background-color: black;
+  background: none;
   color: white;
   border: none;
   transition: 0.2s ease;
@@ -148,6 +184,7 @@
 
 .close-btn {
   transition: 0.2s ease;
+  cursor: pointer;
 }
 
 .close-btn:hover {
