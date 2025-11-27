@@ -22,12 +22,12 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   cursor: pointer;
 }
 
 .dropdown-list {
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   border-radius: 0;
   background-color: var(--white);
   position: absolute;
@@ -42,6 +42,7 @@
 
 .dropdown-list__item {
   padding: 12px 14px;
+  cursor: pointer;
 }
 
 .dropdown-list__item + .dropdown-list__item {

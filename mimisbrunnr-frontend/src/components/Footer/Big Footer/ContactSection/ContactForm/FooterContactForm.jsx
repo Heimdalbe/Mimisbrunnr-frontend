@@ -11,7 +11,7 @@ const FooterContactForm = () => {
       <form>
         <InputField type="text" label="Naam" placeholder={"John Heimdal"} />
         <InputField type="email" label="Email" placeholder={"john.heimdal@placeholder.be"} />
-        <SelectField label={"Onderwerp"} placeholder={"-- Maak een keuze --"} options={onderwerpOpties} />
+        <SelectField label={"Onderwerp"} placeholder={"Maak een keuze..."} options={onderwerpOpties} />
         <InputField type="message" label="Bericht" placeholder={"Vul hier je boodschap in..."} />
         <button type="submit" className="primary-button-dark">Verstuur</button>
       </form>
