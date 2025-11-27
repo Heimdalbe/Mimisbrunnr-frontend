@@ -1,9 +1,13 @@
 import { useState } from "react";
 import './SelectField.css';
 
-const SelectField = ({ label, placeholder, options }) => {
-  const [selected, setSelected] = useState(placeholder);
+const SelectField = ({ label, placeholder, options, value, onChange }) => {
   const [open, setOpen] = useState(false);
+
+  const handleSelect = (option) => {
+    onChange(option);
+    setOpen(false);
+  };
   
   return (
     <div className='select-field'>
@@ -14,9 +18,8 @@ const SelectField = ({ label, placeholder, options }) => {
         onClick={() => setOpen(!open)}
       >
         <div className='dropdown-select'>
-          <span className='select'>{selected}</span>
+          <span className='select'>{value || placeholder}</span>
           <i className={`fa ${open ? "fa-angle-up" : "fa-angle-down"}`}></i>
-
         </div>
 
         <div 
@@ -30,7 +33,7 @@ const SelectField = ({ label, placeholder, options }) => {
               <div 
                 key={o} 
                 className='dropdown-list__item'
-                onClick={() => { setSelected(o); setOpen(false); }}
+                onClick={() => handleSelect(o)}
               >
                 {o}
               </div>
