@@ -15,7 +15,7 @@ const SelectField = ({ label, placeholder, options }) => {
       >
         <div className='dropdown-select'>
           <span className='select'>{selected}</span>
-          <i className={`fa ${open ? "fa-caret-up" : "fa-caret-down"}`}></i>
+          <i className={`fa ${open ? "fa-angle-up" : "fa-angle-down"}`}></i>
 
         </div>
 
