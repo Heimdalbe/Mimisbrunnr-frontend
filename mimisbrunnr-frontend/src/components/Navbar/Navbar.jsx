@@ -23,7 +23,7 @@ const Navbar = () => {
           <Link to={"/albums"} className="nav-link">Albums</Link>
           <Link to={"/praesidium"} className="nav-link">Praesidium</Link>
           <Link to={"/evenementen"} className="nav-link">Evenementen</Link>
-          <Link to={"/contact"}>
+          <Link to={"/contact"} className='contact-link'>
             <NavContactButton />
           </Link>
           <Link to={"/user"} className="user-icon">
