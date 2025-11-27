@@ -1,18 +1,44 @@
 .select-field {
   display: flex;
-  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 18px;
 }
 
-select,
-option {
-  padding: 5px;
+.select-field select {
   width: 100%;
+  padding: 10px 10px;
+  border: none;
+  border-bottom: 1px solid var(--black);
+  box-sizing: border-box;
+  max-width: 100%;
 }
 
-@media (max-width: 1028px) {
+.select-field select:focus {
+  outline: none;
+  border: none;
+}
+
+.select-field select option {
+  color: var(--black);
+}
+
+.select-field:has(select) {
+  align-items: flex-start;
+}
+
+@media (max-width: 900px) {
   .select-field {
     flex-direction: column;
-    justify-content: center;
-    gap: 10px;
+    align-items: flex-start;
+    gap: 15px;
+    margin-bottom: 0;
+  }
+
+  .select-field label {
+    min-width: 0;
+  }
+
+  .select-field select {
+    box-sizing: border-box;
   }
 }
