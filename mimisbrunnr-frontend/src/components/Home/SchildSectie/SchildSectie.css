@@ -1,0 +1,32 @@
+.dark-bg {
+  position: relative;
+}
+
+.dark-bg.schild-sectie .container {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.bg-image {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 25vw;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+@media (max-width: 768px) {
+  .dark-bg .bg-image {
+    left: 0;
+    width: 100%;
+    height: 160px;
+    object-position: center 35%;
+  }
+
+  .dark-bg.schild-sectie .container {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+}

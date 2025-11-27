@@ -1,68 +1,160 @@
-:root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap');
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+* {
+  font-family: 'Montserrat', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  --black: #000;
+  --white: #fff;
+  --dark-grey: #121212;
+  --light-grey: #191C23;
+  --green: #4FD849;
+  --yellow: #EEE300;
+}
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+
+/* ====================================== */
+/* =============== LAYOUT =============== */
+/* ====================================== */
+
+/* Breakpoints                            */
+/* =======================================*/
+/* mobile: 480px;                         */
+/* tablet: 768px;                         */
+/* desktop: 1024px;                       */ 
+/* large: 1200px;                         */
+
+.container,
+.container-sm-tm,
+.container-sm-bm,
+.container-fw-mobile {
+  margin: 0 auto;
+  max-width: 1280px; /*of 1400px*/
+  padding: 60px 60px;
+}
+
+.container-sm-tm {
+  padding: 60px 60px 0;
+}
+
+.container-sm-bm {
+  padding: 0 60px 60px;
+}
+
+.centered {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dark-bg {
+  background-color: var(--dark-grey);
+  color: white;
+}
+
+.button-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 35px 0;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 60px 35px;
+  }
+
+  .container-sm-tm {
+    padding: 60px 30px 0;
+  }
+
+  .container-sm-bm {
+    padding: 0 30px 60px;
+  }
+
+  .container-fw-mobile {
+    padding: 0;
+  }
+
+  .button-wrapper {
+    flex-direction: column;
+    gap: 15px;
+  }
+}
+
+
+/* ====================================== */
+/* ======== DEFAULT TEKST STYLES ======== */
+/* ====================================== */
+
+h1 {
+  font-size: 1.8rem;
+  line-height: 1.8rem;
+  font-weight: 800;
+  margin: 40px 0;
+}
+
+h2 {
+  font-size: 1.3rem;
+  line-height: 1.3rem;
+  font-weight: 800;
+  margin: 25px 0;
+}
+
+h3 {
+  font-size: 1rem;
+  line-height: 1rem;
+  font-weight: 700;
+  margin: 20px 0;
+}
+
+p {
+  font-size: 1rem;
+  line-height: 1.6rem;
+  margin-bottom: 20px;
+  line-break: auto;
+  hyphens: auto;
+}
+
+div p:last-child {
+  margin-bottom: 60px;
 }
 
 a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
+  color: var(--green);
+  font-style: italic;
+  text-decoration: none;
 }
+
 a:hover {
-  color: #535bf2;
+  text-decoration: underline;
 }
 
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+.footnote {
+  font-size: 0.8rem;
+  font-weight: bold;
+  color: var(--green);
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
+@media (max-width: 768px) {
+  h1, h2, h3, p {
+    text-align: center;
   }
-  a:hover {
-    color: #747bff;
+
+  h1 {
+    font-size: 1.6rem;
+    line-height: 1.6rem;
+    margin: 35px 0;
   }
-  button {
-    background-color: #f9f9f9;
+
+  h2, h3 {
+    font-size: 1.1rem;
+    line-height: 1.1rem;
+    margin: 28px 0;
+  }
+
+  div p:last-child {
+    margin-bottom: 50px;
   }
 }

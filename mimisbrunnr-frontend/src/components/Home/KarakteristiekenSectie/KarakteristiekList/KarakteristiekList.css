@@ -1,0 +1,42 @@
+.card-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  margin-top: -100px;
+  position: relative;
+  z-index: 100;
+  flex-wrap: wrap;
+}
+
+.card-wrapper .activeTracker {
+  width: 20%;
+}
+
+.active-underline {
+  position: absolute;
+  bottom: -10px;
+  height: 4px;
+  background-color: var(--green);
+  transition: transform 0.3s ease, width 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  .card-wrapper {
+    flex-direction: row;
+    overflow: hidden;
+    justify-content: center;
+    margin-top: -140px;
+    position: relative;
+  }
+
+  .card-wrapper .activeTracker {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .active-underline {
+    bottom: 0;
+  }
+}
