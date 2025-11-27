@@ -1,6 +1,5 @@
 import SocialsList from "../../../Socials/SocialsList";
 import NuttigeLinks from "./NuttigeLinks/NuttigeLinks";
-import FooterTitle from "../FooterTitle";
 import './NuttigeLinks.css';
 
 const NuttigeLinksSection = () => {

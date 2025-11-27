@@ -1,4 +1,3 @@
-import FooterTitle from "../FooterTitle";
 import FooterContactForm from './ContactForm/FooterContactForm';
 
 const ContactSection = () => {
