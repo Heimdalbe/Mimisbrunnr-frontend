@@ -4,7 +4,7 @@ import '../Navbar.css';
 const NavbarHamburger = ({ isOpen, setIsOpen }) => {
   return (
     <button className="hamburger-btn" onClick={() => setIsOpen(!isOpen)}>
-      <RxHamburgerMenu size={35} />
+      <i class="fa-solid fa-bars"></i>
     </button>
   );
 };

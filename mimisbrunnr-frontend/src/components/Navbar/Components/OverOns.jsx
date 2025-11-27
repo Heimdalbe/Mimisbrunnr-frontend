@@ -7,16 +7,16 @@ const OverOns = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className='over-ons-link' onClick={() => setIsOpen(!isOpen)}>
+    <div className='over-ons-link nav-link' onClick={() => setIsOpen(!isOpen)}>
       Over ons
       {
         isOpen && (
-          <IoIosArrowUp />
+          <i class="fa-solid fa-angle-up"></i>
         )
       }
       {
         !isOpen && (
-          <IoIosArrowDown />
+          <i class="fa-solid fa-angle-down"></i>
         )
       }
     </div>
