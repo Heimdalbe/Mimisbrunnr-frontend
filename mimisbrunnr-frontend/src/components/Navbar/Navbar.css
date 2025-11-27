@@ -33,9 +33,14 @@
 }
 
 .user-icon {
-  color: white;
+  color: var(--green);
   display: flex;
   align-items: center;
+  transition: 0.2s ease;
+}
+
+.user-icon:hover {
+  color: var(--white);
 }
 
 .navbar-mobile {
@@ -46,6 +51,11 @@
   background-color: black;
   color: white;
   border: none;
+  transition: 0.2s ease;
+}
+
+.hamburger-btn:hover {
+  color: var(--green);
 }
 
 .hamburger-btn:hover {
