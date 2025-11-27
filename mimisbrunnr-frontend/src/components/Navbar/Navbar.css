@@ -181,6 +181,7 @@
   background: none;
   color: white;
   border: none;
+  width: 30px;
   transition: 0.2s ease;
 }
 
