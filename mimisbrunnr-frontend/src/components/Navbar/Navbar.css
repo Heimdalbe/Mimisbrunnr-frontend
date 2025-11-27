@@ -90,8 +90,13 @@
   cursor: pointer;
 }
 
+.close-btn {
+  transition: 0.2s ease;
+}
+
 .close-btn:hover {
   cursor: pointer;
+  color: var(--green);
 }
 
 @media (max-width: 1028px) {
