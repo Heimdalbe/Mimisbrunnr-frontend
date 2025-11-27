@@ -1,7 +1,7 @@
 .input-field {
   display: flex;
   justify-content: space-between;
-  gap: 30px;
+
 }
 
 input {
@@ -11,8 +11,9 @@ input {
 
 label {
   color: white;
-  font-weight: bold;
+  font-weight: 700;
   margin: 5px 0;
+  min-width: 150px;
 }
 
 .textarea-field {
@@ -29,6 +30,6 @@ label {
   .input-field {
     flex-direction: column;
     justify-content: center;
-    gap: 5px;
+    gap: 10px;
   }
 }
