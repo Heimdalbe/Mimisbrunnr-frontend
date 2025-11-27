@@ -1,6 +1,5 @@
 .nuttige-links {
   display: flex;
-  padding-right: 60px;
 }
 
 .nuttige-links-mobile {
@@ -9,9 +8,10 @@
   width: 100%;
 }
 
-.nuttige-links-desktop-bottom {
+.nuttige-links-container {
   display: flex;
-  align-items: flex-start;
+  align-items: stretch;
+  justify-self: start;
   gap: 100px;
 }
 

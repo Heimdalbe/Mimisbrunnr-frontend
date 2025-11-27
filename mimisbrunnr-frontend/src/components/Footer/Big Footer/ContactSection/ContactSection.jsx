@@ -3,8 +3,8 @@ import FooterContactForm from './ContactForm/FooterContactForm';
 
 const ContactSection = () => {
   return (
-    <div>
-      <FooterTitle title={"Contact"} isDark={false} />
+    <div className="contact-section">
+      <h1 className="footer-title">Contact</h1>
       <FooterContactForm />
     </div>
   )
