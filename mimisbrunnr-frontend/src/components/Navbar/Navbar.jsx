@@ -13,8 +13,8 @@ const Navbar = () => {
   return (
     <div className='navbar'>
       <div className='navbar-desktop'>
-        <Link to={"/"} className='logo'>
-          <img src="./HeimdalBannerTransparantWit.png" alt="Heimdal Banner" height={65} />
+        <Link to={"/"}>
+          <img className='logo' src="./HeimdalBannerTransparantWit.png" alt="Heimdal Banner" height={65} />
         </Link>
 
         <div className="nav-links">
