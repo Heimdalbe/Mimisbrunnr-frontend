@@ -41,7 +41,7 @@
   gap: 15px;
 }
 
-.nav-link {
+.nav-link, .over-ons-link a {
   position: relative;
   text-decoration: none;
   font-style: normal;
@@ -65,7 +65,6 @@
 
 .submenu-item span {
   position: relative;
-  display: inline-block;
 }
 
 .nav-link:hover::after,
@@ -74,7 +73,8 @@
 }
 
 .nav-link:hover,
-.submenu-item:hover {
+.submenu-item:hover,
+.over-ons-link a:hover {
   text-decoration: none;
 }
 
@@ -113,18 +113,28 @@
   white-space: nowrap;
   gap: 12px !important;
   cursor: pointer;
+  padding: 20px 0;
 }
 
 .submenu {
+  display: none !important;
   position: absolute;
   border-top: 1px solid var(--white);
-  top: 200%;
+  top: 100%;
   left: 0;
   background-color: var(--light-grey);
   padding: 15px 0 20px;
-  display: flex;
   flex-direction: column;
   z-index: 1000;
+}
+
+.over-ons-wrapper:hover .submenu {
+  display: flex !important;
+}
+
+.over-ons-wrapper:hover .over-ons-link i {
+  transform: rotate(180deg);
+  transition: 0.3s ease;
 }
 
 .submenu-item {

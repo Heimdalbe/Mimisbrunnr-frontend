@@ -1,9 +1,7 @@
 import { Link } from 'react-router-dom';
 import './Navbar.css';
-import { PiUserCircle } from "react-icons/pi";
 import NavbarHamburger from './Components/NavbarHamburger';
 import { useState } from 'react';
-import { IoClose } from "react-icons/io5";
 import OverOns from './Components/OverOns';
 import NavContactButton from './Components/NavContactButton';
 
