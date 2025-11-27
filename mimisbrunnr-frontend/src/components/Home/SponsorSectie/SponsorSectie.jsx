@@ -12,9 +12,9 @@ const SponsorSectie = () => {
       <SponsorList sponsors={sponsors} />
       <div className='container-sm-bm sponsor-button'>
         <div className="button-wrapper">
-          <PrimaryButton 
-            text='Meer info' 
-            to='/evenementen' 
+          <PrimaryButton
+            text='Meer info'
+            to='/sponsors'
             isLight={true}
             isDisabled={false} />
         </div>
