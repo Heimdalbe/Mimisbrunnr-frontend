@@ -1,5 +1,5 @@
-import EventChip from '../../components/Evenementen/EventChip';
-import EventIcon from '../../components/Evenementen/EventIcon'
+import EventChip from '../../components/Evenementen/Andere/EventChip';
+import EventIcon from '../../components/Evenementen/Andere/EventIcon'
 
 const Huisstijl = () => {
   return (

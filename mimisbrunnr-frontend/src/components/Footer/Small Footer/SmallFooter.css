@@ -5,6 +5,11 @@
   justify-content: space-between;
 }
 
+.small-footer.container {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
 .links-section {
   display: flex;
   align-items: center;

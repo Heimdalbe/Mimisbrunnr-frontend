@@ -1,0 +1,65 @@
+.characteristic-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  position: relative;
+  transition: all 0.3s ease;
+  width: 100%;
+  transition: transform 0.3s ease, opacity 0.3s ease, background-color 0.3s ease;
+}
+
+.circle {
+  background-color: var(--white);
+  color: var(--black);
+  width: 120px;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3.2rem;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.characteristic-text {
+  width: 80%;
+  text-align: center;
+  margin-top: 10px;
+  transition: opacity 0.3s ease, color 0.3s ease;
+}
+
+.characteristic-text h3 {
+  color: var(--green);
+}
+
+.characteristic-text p {
+  font-weight: 600;
+  font-size: 0.8rem;
+}
+
+.characteristic-card.muted .circle {
+  background-color: #777777;
+}
+
+.characteristic-card.muted .characteristic-text {
+  opacity: 0.5;
+}
+
+@media (max-width: 768px) {
+  .characteristic-card {
+    height: 371px;
+  }
+
+  .characteristic-card.muted {
+    display: none;
+  }
+  .characteristic-card.active {
+    opacity: 1;
+    transition: opacity 0.5s ease;
+  }
+  .characteristic-text p {
+    font-size: 0.9rem;
+    padding-bottom: 15px;
+  }
+}

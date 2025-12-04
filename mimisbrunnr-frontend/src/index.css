@@ -9,6 +9,7 @@
   --dark-grey: #121212;
   --light-grey: #191C23;
   --green: #4FD849;
+  --darker-green: #3BAA36;
   --yellow: #EEE300;
 }
 
@@ -21,13 +22,25 @@
 /* =======================================*/
 /* mobile: 480px;                         */
 /* tablet: 768px;                         */
-/* desktop: 1024px;                       */ 
+/* desktop: 1024px;                       */
 /* large: 1200px;                         */
 
-.container {
+.container,
+.container-sm-tm,
+.container-sm-bm,
+.container-fw-mobile {
   margin: 0 auto;
-  max-width: 1280px; /*of 1400px*/
-  padding: 30px 60px;
+  max-width: 1280px;
+  /*of 1400px*/
+  padding: 60px 60px;
+}
+
+.container-sm-tm {
+  padding: 60px 60px 0;
+}
+
+.container-sm-bm {
+  padding: 0 60px 60px;
 }
 
 .centered {
@@ -37,12 +50,38 @@
 }
 
 .dark-bg {
-  background-color: var(--black);
+  background-color: var(--dark-grey);
+  color: white;
 }
 
-@media (max-width: 1024px) {
+.button-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 35px 0;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 768px) {
   .container {
-    padding: 25px 35px;
+    padding: 60px 35px;
+  }
+
+  .container-sm-tm {
+    padding: 60px 30px 0;
+  }
+
+  .container-sm-bm {
+    padding: 0 30px 60px;
+  }
+
+  .container-fw-mobile {
+    padding: 0;
+  }
+
+  .button-wrapper {
+    flex-direction: column;
+    gap: 15px;
   }
 }
 
@@ -76,6 +115,8 @@ p {
   font-size: 1rem;
   line-height: 1.6rem;
   margin-bottom: 20px;
+  line-break: auto;
+  hyphens: auto;
 }
 
 div p:last-child {
@@ -98,8 +139,12 @@ a:hover {
   color: var(--green);
 }
 
-@media (max-width: 1024px) {
-  h1, h2, h3, p {
+@media (max-width: 768px) {
+
+  h1,
+  h2,
+  h3,
+  p {
     text-align: center;
   }
 
@@ -109,7 +154,8 @@ a:hover {
     margin: 35px 0;
   }
 
-  h2, h3 {
+  h2,
+  h3 {
     font-size: 1.1rem;
     line-height: 1.1rem;
     margin: 28px 0;
@@ -117,75 +163,5 @@ a:hover {
 
   div p:last-child {
     margin-bottom: 50px;
-  }
-}
-
-
-/* ====================================== */
-/* ======= DEFAULT BUTTON STYLES ======== */
-/* ====================================== */
-
-.primary-button, 
-.primary-button-dark {
-  font-size: 0.8rem;
-  font-weight: 600;
-  padding: 15px 40px;
-  border: none;
-  border-radius: 1000px;
-  cursor: pointer;
-  transition: background-color 0.2s ease, color 0.2s ease;
-}
-
-.primary-button {
-  background-color: var(--black);
-  color: var(--white);
-}
-
-.primary-button-dark {
-  background-color: var(--green);
-  color: var(--white);
-}
-
-.primary-button:hover {
-  background-color: var(--green);
-}
-
-.primary-button-dark:hover {
-  background-color: var(--white);
-  color: var(--black);
-}
-
-.primary-button:disabled,
-.primary-button-dark:disabled {
-  cursor: not-allowed;
-}
-
-.primary-button:disabled {
-  color: rgba(255, 255, 255, 0.6);
-  background-color: rgba(0, 0, 0, 0.2);
-}
-
-.primary-button-dark:disabled {
-  color: rgba(255, 255, 255, 0.2);
-  background-color: rgba(79, 216, 73, 0.2);
-}
-
-.button-wrapper {
-  display: flex;
-  gap: 10px;
-  padding-bottom: 25px;
-  flex-wrap: wrap;
-}
-
-@media (max-width: 1024px) {
-  .button-wrapper {
-    flex-direction: column;
-    gap: 15px;
-  }
-
-  .primary-button, 
-  .primary-button-dark {
-    font-weight: 600;
-    padding: 20px 40px;
   }
 }

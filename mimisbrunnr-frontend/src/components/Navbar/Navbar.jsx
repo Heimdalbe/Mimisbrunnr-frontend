@@ -4,7 +4,7 @@ import './Navbar.css';
 const Navbar = () => {
   return (
     <nav>
-      <div className='container'>
+      <div>
         <Link to={"/"}>Home</Link>
         <Link to={"/huisstijl"}>Bekijk huisstijl</Link>
       </div>

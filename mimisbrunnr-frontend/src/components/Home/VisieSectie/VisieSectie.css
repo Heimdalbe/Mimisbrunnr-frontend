@@ -1,0 +1,67 @@
+.vision-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6rem;
+}
+
+.vision-info-section {
+  flex: 2;
+}
+
+.vision-image-section {
+  flex: 3;
+}
+
+.vision-image-section div {
+  width: 100%;
+  position: relative;
+}
+
+.v-pic1 {
+  width: 80%;
+  aspect-ratio: 8 / 7;
+  height: auto;
+  object-fit: cover;
+  margin-bottom: 80px;
+}
+
+.v-pic2 {
+  width: 300px;
+  position: absolute;
+  right: 0px;
+  bottom: -20px;
+  border: 5px var(--white) solid;
+}
+
+@media (max-width: 768px) {
+  .vision-section {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .vision-info-section,
+  .vision-image-section {
+    width: 100%;
+  }
+
+  .v-pic2 {
+    width: 100%;
+    aspect-ratio: initial;
+    margin-bottom: 0;
+    border: none;
+    position: static;
+  }
+
+  .v-pic1 {
+    display: none;
+  }
+
+  .container.vision-section {
+    padding: 0;
+  }
+
+  .container.vision-section .vision-info-section .vision-info-section-text {
+    padding: 60px 35px 0;
+  }
+}
