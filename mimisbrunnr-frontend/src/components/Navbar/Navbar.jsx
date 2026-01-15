@@ -1,12 +1,24 @@
 import { Link } from 'react-router-dom';
 import './Navbar.css';
 import NavbarHamburger from './Components/NavbarHamburger';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import OverOns from './Components/OverOns';
 import NavContactButton from './Components/NavContactButton';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isOpen]);
 
   return (
     <div className='navbar'>
@@ -40,15 +52,36 @@ const Navbar = () => {
           </div>
         </div>
 
-        <div className='navbar-mobile'>
-          <Link to={"/"} className='logo'>
+        <div className="navbar-mobile">
+          <Link to={"/"} className="logo">
             <img src="./HeimdalBannerTransparantWit.png" alt="Heimdal Banner" />
           </Link>
-          <div className='nav-links'>
-            <Link to={"/user"} className="user-icon">
-              <i class="fa-solid fa-circle-user"></i>
+
+          <div className="nav-links">
+            <Link to={"/user"} className={`user-icon ${isOpen ? "open" : ""}`}>
+              <i className="fa-solid fa-circle-user"></i>
             </Link>
             <NavbarHamburger isOpen={isOpen} setIsOpen={setIsOpen} />
+          </div>
+
+          <div className={`mobile-menu ${isOpen ? "open" : ""}`}>
+            <div className="mobile-links">
+              <OverOns links={[
+                { label: "Wie zijn we?", to: "/over-ons" },
+                { label: "Clublied", to: "/over-ons/clublied" },
+                { label: "Boekje", to: "/over-ons/boekje" },
+                { label: "Statuten", to: "/over-ons/statuten" },
+                { label: "Werkgroepen", to: "/over-ons/werkgroepen" }
+              ]} />
+
+              <Link to={"/albums"} className="nav-link">Albums</Link>
+              <Link to={"/praesidium"} className="nav-link">Praesidium</Link>
+              <Link to={"/evenementen"} className="nav-link">Evenementen</Link>
+
+              <Link to={"/contact"} className="contact-link">
+                <NavContactButton />
+              </Link>
+            </div>
           </div>
         </div>
       </div>

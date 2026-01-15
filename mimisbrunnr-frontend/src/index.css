@@ -24,6 +24,10 @@
 /* desktop: 1024px;                       */ 
 /* large: 1200px;                         */
 
+.content-general {
+  padding-top: 75px;
+}
+
 .container,
 .container-sm-tm,
 .container-sm-bm,
