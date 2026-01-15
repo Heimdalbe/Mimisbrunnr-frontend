@@ -46,7 +46,7 @@ const Navbar = () => {
                 <NavContactButton />
               </Link>
               <Link to={"/user"} className="user-icon">
-                <i class="fa-solid fa-circle-user"></i>
+                <i className="fa-solid fa-circle-user"></i>
               </Link>
             </div>
           </div>
