@@ -1,6 +1,6 @@
 const CookiePolicy = () => {
   return (
-    <div>
+    <div className="container-sm-tm">
       CookiePolicy
     </div>
   )

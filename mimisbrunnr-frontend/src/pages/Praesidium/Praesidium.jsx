@@ -1,6 +1,6 @@
 const Praesidium = () => {
   return (
-    <div>
+    <div className="container-sm-tm">
       Praesidium
     </div>
   )

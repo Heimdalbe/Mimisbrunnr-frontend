@@ -1,6 +1,6 @@
 const Statuten = () => {
   return (
-    <div>
+    <div className="container-sm-tm">
       Statuten
     </div>
   )

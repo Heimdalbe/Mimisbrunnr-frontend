@@ -1,6 +1,6 @@
 const PrivacyPolicy = () => {
   return (
-    <div>
+    <div className="container-sm-tm">
       PrivacyPolicy
     </div>
   )

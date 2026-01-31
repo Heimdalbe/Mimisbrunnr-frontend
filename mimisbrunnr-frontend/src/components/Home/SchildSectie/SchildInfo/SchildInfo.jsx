@@ -12,7 +12,7 @@ const SchildInfo = () => {
           De thuisbasis voor geeky studenten aan Hogeschool Gent.
           Een studentenvereniging door en voor studenten, waar passie en interesses gedeeld en gevierd worden.
         </p>
-        <a href='#'> Lees meer ...</a>
+        <a href='/over-ons'> Lees meer ...</a>
       </div>
     </div>
   )

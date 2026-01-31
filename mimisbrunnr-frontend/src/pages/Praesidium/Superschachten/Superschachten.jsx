@@ -1,6 +1,6 @@
 const Superschachten = () => {
   return (
-    <div>
+    <div className="container-sm-tm">
       Superschachten
     </div>
   )

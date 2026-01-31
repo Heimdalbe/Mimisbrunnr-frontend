@@ -1,6 +1,6 @@
 const Ereleden = () => {
   return (
-    <div>
+    <div className="container-sm-tm">
       Ereleden
     </div>
   )

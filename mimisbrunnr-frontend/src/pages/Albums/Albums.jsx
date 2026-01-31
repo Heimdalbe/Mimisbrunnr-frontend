@@ -1,6 +1,6 @@
 const Albums = () => {
   return (
-    <div>
+    <div className="container-sm-tm">
       Albums
     </div>
   )
