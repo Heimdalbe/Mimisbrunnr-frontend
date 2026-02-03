@@ -1,0 +1,33 @@
+.event-wrapper {
+  display: flex;
+  background-color: var(--black);
+  border-radius: 8px;
+}
+
+.info-section {
+  padding: 5px 0px 5px 15px;
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+
+.title-and-icon {
+  display: flex;
+}
+
+h1 {
+  color: var(--white);
+}
+
+.location {
+  color: var(--green);
+}
+
+.img-section {
+  width: 50px;
+}
+
+.image {
+  height: 200px;
+  object-fit: cover;
+}
