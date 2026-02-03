@@ -1,9 +1,9 @@
-const NotFound = () => {
+const OverOns = () => {
   return (
     <div className="container-sm-tm">
-      NotFound
+      OverOns
     </div>
   )
 }
 
-export default NotFound;
+export default OverOns;

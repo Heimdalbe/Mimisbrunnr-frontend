@@ -1,9 +1,9 @@
-const NotFound = () => {
+const Clublied = () => {
   return (
     <div className="container-sm-tm">
-      NotFound
+      Clublied
     </div>
   )
 }
 
-export default NotFound;
+export default Clublied;

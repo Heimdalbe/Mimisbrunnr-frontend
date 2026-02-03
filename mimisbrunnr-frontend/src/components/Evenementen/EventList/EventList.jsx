@@ -9,14 +9,15 @@ const EventList = ({ events }) => {
     <div className="carousel-wrapper">
       <div className="carousel">
         {events.map((event) => (
-          <EventCard 
-              id={event.id} 
-              image={event.image} 
-              date={event.date} 
-              start_time={event.start_time} 
-              end_time={event.end_time} 
-              title={event.title}
-              type={event.type} />
+          <EventCard
+            key={event.id}
+            id={event.id}
+            image={event.image}
+            date={event.date}
+            start_time={event.start_time}
+            end_time={event.end_time}
+            title={event.title}
+            type={event.type} />
         ))}
         <div className="carousel-end-spacer" />
       </div>

@@ -6,7 +6,7 @@ const Layout = () => {
   return (
     <div>
       <Navbar />
-      <Outlet />
+      <div className="content-general"><Outlet /></div>
       <Footer />
       <ScrollRestoration />
     </div>

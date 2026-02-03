@@ -1,9 +1,9 @@
-const NotFound = () => {
+const Boekje = () => {
   return (
     <div className="container-sm-tm">
-      NotFound
+      Boekje
     </div>
   )
 }
 
-export default NotFound;
+export default Boekje;
