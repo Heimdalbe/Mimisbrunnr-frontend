@@ -1,0 +1,19 @@
+.title-button-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.select-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+label {
+  color: var(--black);
+}
+
+select {
+  width: 20%;
+}
