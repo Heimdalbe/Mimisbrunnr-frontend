@@ -1,5 +1,8 @@
 import Strofe from "../../../components/Clublied/Strofe";
 
+//TODO: Skyrim theme link nog toevoegen
+//TODO: Eigendomsrechten uitleg nog toevoegen
+
 const Clublied = () => {
   return (
     <div className="container-sm-tm">
