@@ -1,6 +1,6 @@
 .carousel-wrapper .carousel {
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
   gap: 15px;
 }
 
@@ -12,7 +12,6 @@
 @media (max-width: 768px) {
   .carousel-wrapper {
     margin-top: 50px;
-    overflow-x: auto;
   }
 
   .carousel {
@@ -27,5 +26,11 @@
 
   .carousel-end-spacer {
     display: block;
+  }
+
+  .carousel-wrapper .carousel {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
   }
 }
