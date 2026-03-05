@@ -1,0 +1,9 @@
+.breadcrumb-wrapper {
+  margin-bottom: 60px;
+}
+
+.home,
+.breadcrumb-wrapper a:not(:last-child) {
+  color: var(--black);
+  font-style: normal;
+}
