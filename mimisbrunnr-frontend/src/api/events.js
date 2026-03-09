@@ -8,6 +8,8 @@ const events = [
     end_time: "18:00",
     type: "sport",
     location: "Comic Sans",
+    description:
+      "Neem het op tegen andere leden in een gezellig schaaktoernooi. Beginners en gevorderden welkom.",
   },
   {
     id: 2,
@@ -18,6 +20,8 @@ const events = [
     end_time: "18:00",
     type: "sport",
     location: "Comic Sans",
+    description:
+      "Wie haalt de hoogste score? Kom meedoen aan ons Tetris toernooi en win leuke prijzen.",
   },
   {
     id: 3,
@@ -28,6 +32,8 @@ const events = [
     end_time: "23:00",
     type: "cultuur",
     location: "Campus Schoonmeersen",
+    description:
+      "Gezellige filmavond met snacks en drankjes. Stem mee welke film we kijken.",
   },
   {
     id: 4,
@@ -38,6 +44,8 @@ const events = [
     end_time: "18:00",
     type: "sport",
     location: "O'Learys",
+    description:
+      "We gaan samen bowlen bij O'Learys. Iedereen welkom, ervaring niet nodig.",
   },
   {
     id: 5,
@@ -48,6 +56,8 @@ const events = [
     end_time: "18:00",
     type: "sport",
     location: "Comic Sans",
+    description:
+      "Test je strategie en speel mee in ons schaaktoernooi. Leuke sfeer gegarandeerd.",
   },
   {
     id: 6,
@@ -58,6 +68,7 @@ const events = [
     end_time: "18:00",
     type: "sport",
     location: "Comic Sans",
+    description: "Retro gaming namiddag met een competitief Tetris toernooi.",
   },
   {
     id: 7,
@@ -68,6 +79,8 @@ const events = [
     end_time: "23:00",
     type: "cultuur",
     location: "Campus Schoonmeersen",
+    description:
+      "Ontspan met een filmavond samen met de vereniging. Snacks voorzien.",
   },
   {
     id: 8,
@@ -78,6 +91,8 @@ const events = [
     end_time: "18:00",
     type: "sport",
     location: "O'Learys",
+    description:
+      "Een namiddag vol bowling en gezelligheid. Kom alleen of met vrienden.",
   },
   {
     id: 9,
@@ -88,6 +103,8 @@ const events = [
     end_time: "18:00",
     type: "sport",
     location: "Comic Sans",
+    description:
+      "Schaaktoernooi voor alle niveaus. Speel mee en maak kans op een prijs.",
   },
   {
     id: 10,
@@ -98,6 +115,8 @@ const events = [
     end_time: "18:00",
     type: "sport",
     location: "Comic Sans",
+    description:
+      "Laat je skills zien in ons Tetris toernooi. Hoogste score wint.",
   },
   {
     id: 11,
@@ -108,6 +127,8 @@ const events = [
     end_time: "23:00",
     type: "cultuur",
     location: "Campus Schoonmeersen",
+    description:
+      "Filmavond met de vereniging. Gezellig samen kijken en napraten.",
   },
   {
     id: 12,
@@ -118,6 +139,7 @@ const events = [
     end_time: "18:00",
     type: "sport",
     location: "O'Learys",
+    description: "Bowling activiteit voor alle leden. Fun staat centraal.",
   },
   {
     id: 13,
@@ -128,6 +150,7 @@ const events = [
     end_time: "18:00",
     type: "sport",
     location: "Comic Sans",
+    description: "Daag andere leden uit in een spannend schaaktoernooi.",
   },
   {
     id: 14,
@@ -138,6 +161,8 @@ const events = [
     end_time: "18:00",
     type: "sport",
     location: "Comic Sans",
+    description:
+      "Competitieve Tetris namiddag met prijzen voor de beste spelers.",
   },
   {
     id: 15,
@@ -148,6 +173,8 @@ const events = [
     end_time: "23:00",
     type: "cultuur",
     location: "Campus Schoonmeersen",
+    description:
+      "Kom langs voor een gezellige filmavond met popcorn en drankjes.",
   },
   {
     id: 16,
@@ -158,6 +185,8 @@ const events = [
     end_time: "18:00",
     type: "sport",
     location: "O'Learys",
+    description:
+      "We sluiten het semester af met een gezellige bowlingnamiddag.",
   },
 ];
 
