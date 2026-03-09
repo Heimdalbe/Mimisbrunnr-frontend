@@ -2,10 +2,10 @@
   display: flex;
   background-color: var(--black);
   border-radius: 8px;
+  margin-bottom: 20px;
 }
 
 .info-section {
-  padding: 5px 0px 5px 15px;
   display: flex;
   flex-direction: column;
   width: 50%;
@@ -15,7 +15,8 @@
   display: flex;
 }
 
-h1 {
+h1,
+p {
   color: var(--white);
 }
 
@@ -23,11 +24,9 @@ h1 {
   color: var(--green);
 }
 
-.img-section {
-  width: 50px;
-}
-
 .image {
-  height: 200px;
+  width: 50%;
   object-fit: cover;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
 }
