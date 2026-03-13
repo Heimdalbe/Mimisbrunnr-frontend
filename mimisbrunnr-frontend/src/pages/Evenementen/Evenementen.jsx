@@ -2,10 +2,34 @@ import EventList from "../../components/Evenementen/EventList/EventList";
 import events from "../../api/events";
 import UpcomingEvent from "../../components/Evenementen/EventCard/UpcomingEvent";
 import Breadcrumbs from "../../components/Breadcrumbs/Breadcrumbs";
+import ChipList from "../../components/Common/Chip filter/ChipList";
 
 const Evenementen = () => {
   const sortedEvents = events.sort((a, b) => a.date - b.date);
   const upcomingEvent = sortedEvents[0];
+
+  const chips = [
+    {
+      id: 1,
+      label: "Sport",
+      icon: "fa-football",
+    },
+    {
+      id: 2,
+      label: "Cultuur",
+      icon: "fa-puzzle-piece",
+    },
+    {
+      id: 3,
+      label: "Schachten",
+      icon: "fa-person",
+    },
+    {
+      id: 4,
+      label: "Feest&LAN",
+      icon: "fa-music",
+    },
+  ];
 
   return (
     <div className="container-sm-tm">
@@ -19,7 +43,7 @@ const Evenementen = () => {
         image={upcomingEvent.image}
         type={upcomingEvent.type}
       />
-      {/* CHIP FILTERS */}
+      <ChipList chips={chips} />
       <EventList events={sortedEvents} />
     </div>
   );
