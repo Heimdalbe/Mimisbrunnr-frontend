@@ -8,12 +8,15 @@ const Breadcrumbs = ({ children }) => {
       <Link className="home" to={"/"}>
         {"Home > "}
       </Link>
-      {children.map((c, i) => (
-        <Link
-          key={i}
-          to={c.link}
-        >{`${capitalize(c.link)} ${c.isLast ? "" : "> "}`}</Link>
-      ))}
+      {children.map((c, i) =>
+        c.isLast ? (
+          <span key={i} className="last-breadcrumb">
+            {capitalize(c.link)}
+          </span>
+        ) : (
+          <Link key={i} to={c.link}>{`${capitalize(c.link)} > `}</Link>
+        ),
+      )}
     </div>
   );
 };
