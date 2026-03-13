@@ -3,13 +3,18 @@
   background-color: var(--black);
   border-radius: 8px;
   margin-bottom: 20px;
+  width: 100%;
+  height: 650px;
 }
 
 .info-section {
   display: flex;
   flex-direction: column;
   width: 50%;
+  margin-left: 130px;
+  margin-right: -150px;
 }
+/* TODO: Hardcoded margins hier zijn funky wunky dus moet nog gefixed worden */
 
 .title-and-icon {
   display: flex;
