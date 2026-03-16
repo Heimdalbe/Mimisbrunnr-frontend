@@ -4,6 +4,8 @@ import UpcomingEvent from "../../components/Evenementen/EventCard/UpcomingEvent"
 import Breadcrumbs from "../../components/Breadcrumbs/Breadcrumbs";
 import ChipList from "../../components/Common/Chip filter/ChipList";
 
+//TODO: Events uit het verleden niet meer tonen (waarschijnlijk best in backend uitfilteren)
+
 const Evenementen = () => {
   const sortedEvents = events.sort((a, b) => a.date - b.date);
   const upcomingEvent = sortedEvents[0];
