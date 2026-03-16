@@ -1,6 +1,8 @@
 import "./Chipfiltering.css";
 import { useState } from "react";
 
+//TODO: Transition voor icon die van plek veranderd bij active zetten van een chip
+
 const IconChip = ({ label, icon }) => {
   const [isActive, setIsActive] = useState(false);
 
