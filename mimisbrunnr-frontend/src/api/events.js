@@ -1,17 +1,5 @@
 const events = [
   {
-    id: 1,
-    image: "./Schaaktoernooi.png",
-    date: new Date("2026-03-15T13:00:00"),
-    title: "Schaaktoernooi",
-    start_time: "13:00",
-    end_time: "18:00",
-    type: "sport",
-    location: "Comic Sans",
-    description:
-      "Neem het op tegen andere leden in een gezellig schaaktoernooi. Beginners en gevorderden welkom.",
-  },
-  {
     id: 2,
     image: "./Tetristoernooi.png",
     date: new Date("2026-04-10T13:00:00"),

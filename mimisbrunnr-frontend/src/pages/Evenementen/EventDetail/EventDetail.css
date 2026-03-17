@@ -1,0 +1,5 @@
+.interesting-section h1,
+.description-section h1,
+.description-section p {
+  color: var(--black);
+}
