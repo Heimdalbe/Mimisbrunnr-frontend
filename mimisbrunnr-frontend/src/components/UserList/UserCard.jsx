@@ -1,9 +1,11 @@
+import "./UserItems.css";
+
 const UserCard = ({ name, role, img }) => {
   return (
-    <div>
+    <div className="user-card">
+      <img src={img} alt="" />
       <p>{name}</p>
       <p>{role}</p>
-      <p>{img}</p>
     </div>
   );
 };

@@ -1,0 +1,14 @@
+.user-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 100px 15px;
+  margin-bottom: 200px;
+}
+
+.user-card {
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  height: 400px;
+  width: 300px;
+}
