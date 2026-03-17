@@ -3,3 +3,49 @@
 .description-section p {
   color: var(--black);
 }
+
+.img-card-wrapper {
+  position: relative;
+}
+
+.info-card {
+  box-shadow:
+    0 4px 8px 0 rgba(0, 0, 0, 0.2),
+    0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 10px;
+  padding: 35px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  position: absolute;
+  top: 225px;
+  left: 550px;
+  z-index: 10;
+}
+
+.event-img {
+  height: 355px;
+  border-radius: 10px;
+  z-index: 1;
+}
+
+.icon-info {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  gap: 20px;
+}
+
+.icon-info i {
+  color: var(--green);
+}
+
+.icon-info span {
+  font-weight: bold;
+}
+
+.button-div {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 50px;
+}
