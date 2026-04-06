@@ -26,6 +26,10 @@
   cursor: pointer;
 }
 
+.label {
+  color: var(--black);
+}
+
 .dropdown-list {
   font-size: 0.8rem;
   border-radius: 0;
@@ -36,7 +40,9 @@
   left: 0;
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.2s linear, visibility 0.2s linear;
+  transition:
+    opacity 0.2s linear,
+    visibility 0.2s linear;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
 }
 
@@ -52,8 +58,6 @@
 .dropdown-list__item:hover {
   background-color: rgba(0, 0, 0, 0.05);
 }
-
-
 
 @media (max-width: 900px) {
   .select-field {

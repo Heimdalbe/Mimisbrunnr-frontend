@@ -4,7 +4,7 @@ const praesidium = [
     name: "Seppe Landtsheer",
     role: "Praeses",
     img: "./seppe.png",
-    quote: "Ik ben een coole praeses",
+    quote: "Ik ben een coole Praeses",
   },
   {
     id: 2,
