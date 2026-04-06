@@ -5,7 +5,13 @@ const UserList = ({ users }) => {
   return (
     <div className="user-list">
       {users.map((u) => (
-        <UserCard key={u.id} name={u.name} role={u.role} img={u.img} />
+        <UserCard
+          key={u.id}
+          name={u.name}
+          role={u.role}
+          img={u.img}
+          quote={u.quote}
+        />
       ))}
     </div>
   );
