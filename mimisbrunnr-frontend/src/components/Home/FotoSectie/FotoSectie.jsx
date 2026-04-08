@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import PrimaryButton from '../../Common/PrimaryButton';
+import PrimaryButton from '../../Common/PrimaryButton/PrimaryButton';
 import './FotoSectie.css';
 
 const FotoSectie = () => {
@@ -13,7 +13,7 @@ const FotoSectie = () => {
     "Groepsfoto3.jpg"
   ];
 
-  const areas = ['a','b','c','d','e','f','g']
+  const areas = ['a', 'b', 'c', 'd', 'e', 'f', 'g']
   const [activeIndex, setActiveIndex] = useState(null);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
@@ -31,8 +31,8 @@ const FotoSectie = () => {
     }
   }, [activeIndex]);
 
-  const images = windowWidth <= 768 ? allImages.slice(0,5) : allImages;
-  const areasToUse = windowWidth <= 768 ? areas.slice(0,5) : areas;
+  const images = windowWidth <= 768 ? allImages.slice(0, 5) : allImages;
+  const areasToUse = windowWidth <= 768 ? areas.slice(0, 5) : areas;
 
   useEffect(() => {
     const handleKeyDown = (e) => {
@@ -58,19 +58,19 @@ const FotoSectie = () => {
   }, [activeIndex, images.length]);
 
   const openLightbox = (index) => setActiveIndex(index);
-  
+
   return (
     <div>
       <div className='container-sm-tm' style={{ paddingTop: 5 }}>
         <h1>Enkele sfeerbeelden</h1>
       </div>
-      
-      <div className='container-fw-mobile' style={{ paddingTop: 0, paddingBottom: 0}}>
+
+      <div className='container-fw-mobile' style={{ paddingTop: 0, paddingBottom: 0 }}>
         <div className='fixed-image-grid'>
           {images.map((src, i) => (
-            <div 
-              key={i} 
-              className="fixed-image-grid-item" 
+            <div
+              key={i}
+              className="fixed-image-grid-item"
               style={{ gridArea: areasToUse[i] }}
               onClick={() => openLightbox(i)}
             >
@@ -79,14 +79,14 @@ const FotoSectie = () => {
           ))}
         </div>
       </div>
-      
+
       <div className='container-sm-bm'>
         <div className="button-wrapper">
           <PrimaryButton
             text='Bekijk alles'
             to='/albums'
             isLight={false}
-            isDisabled={false} 
+            isDisabled={false}
           />
         </div>
       </div>
@@ -121,7 +121,7 @@ const FotoSectie = () => {
               <i class="fa-solid fa-angle-right"></i>
             </button>
           </div>
-          
+
           <img src={images[activeIndex]} alt="" />
         </div>
       )}

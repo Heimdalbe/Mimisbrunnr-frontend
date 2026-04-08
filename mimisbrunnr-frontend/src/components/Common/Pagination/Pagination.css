@@ -1,0 +1,40 @@
+.pagination{
+  display: flex;
+  flex-direction: row;
+  gap: 6px;
+  justify-content: center;
+  min-width: 0px;
+}
+
+.pagination > button {
+  background: none;
+  border: none;
+  text-align: center;
+  padding: 3px 5px;
+  width: 30px;
+}
+
+.pagination > button:enabled:hover {
+  text-decoration: underline;
+}
+
+.pagination > .first-page{
+  color: var(--white);
+  border-style: solid;
+  border-radius: 100px;
+  background-color: var(--green);
+  border-color: var(--green);
+}
+
+.pagination > .current-page{
+  font-weight: bolder;
+}
+
+.pagination > .last-page{
+  color: var(--white);
+  font-weight: bolder;
+  border-style: solid;
+  border-radius: 100px;
+  background-color: var(--green);
+  border-color: var(--green);
+}
