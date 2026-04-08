@@ -1,6 +1,6 @@
 const albums =
 {
-  data : [
+  albums : [
     {
       id : 1,
       name : "Schaatsen 2024",

@@ -6,7 +6,7 @@ import Pagination from "../../components/Common/Pagination/Pagination";
 const Albums = () => {
 
   const albumsPerPage = 12;
-  const albums = albumdtos.data;
+  const albums = albumdtos.albums;
 
   const [page, setPage] = useState(1);
 
