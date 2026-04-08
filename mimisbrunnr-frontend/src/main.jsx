@@ -2,6 +2,7 @@ import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import Home from './pages/Home/Home.jsx'
 import Albums from './pages/Albums/Albums.jsx'
+import AlbumDetail from './pages/Albums/AlbumDetail/AlbumDetail.jsx'
 import OverOns from './pages/Over ons/OverOns.jsx';
 import Clublied from './pages/Over ons/Clublied/Clublied.jsx'
 import Boekje from './pages/Over ons/Boekje/Boekje.jsx';
@@ -29,6 +30,7 @@ const router = createBrowserRouter([
     children: [
       { path: '/', Component: Home },
       { path: '/albums', Component: Albums },
+      { path: '/albums/:id', Component: AlbumDetail },
 
       { path: '/over-ons', Component: OverOns },
       { path: '/over-ons/clublied', Component: Clublied },

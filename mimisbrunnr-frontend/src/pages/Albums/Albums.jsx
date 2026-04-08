@@ -1,7 +1,13 @@
+import albumdtos from "../../api/albums"; "../../api/albums"
+import AlbumList from "../../components/Albums/AlbumList/AlbumList"
+
 const Albums = () => {
+
+  const albums = albumdtos;
+
   return (
     <div className="container-sm-tm">
-      Albums
+      <AlbumList albums={albums} />
     </div>
   )
 }
