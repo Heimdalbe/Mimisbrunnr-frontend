@@ -29,7 +29,7 @@ function getLayoutGroups(n) {
 
 const AlbumDetail = () => {
   const { id } = useParams();
-  const album = albums[id - 1];
+  const album = albums.albums[id - 1];
 
   const d = new Date(album.date);
   const day = d.getDate().toString();
