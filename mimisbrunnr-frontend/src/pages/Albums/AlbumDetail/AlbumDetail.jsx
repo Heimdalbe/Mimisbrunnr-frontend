@@ -21,12 +21,8 @@ function getLayoutGroups(n) {
     lastUsed = layout;
   }
 
-  console.log(result)
-
   if (result.length > 2)
     result.splice(1, 0, result.pop());
-
-  console.log(result)
 
   return result;
 }
@@ -48,9 +44,11 @@ const AlbumDetail = () => {
   for (let i = 0; i < layouts.length; i++) {
     let imgs = [];
 
-    console.log(prev, layouts[i], layouts, images.length)
-
-    images.slice(prev, prev + layouts[i]).forEach((img, i) => imgs.push(<img style={{ "grid-area": '_' + i }} src={img.url}></img>));
+    images.slice(prev, prev + layouts[i]).forEach((img, i) => imgs.push(
+      <a href={img.url} style={{ "grid-area": '_' + i }} >
+        <img src={img.url} alt={img.description} loading="lazy" />
+      </a>
+    ));
 
     prev += layouts[i];
 
