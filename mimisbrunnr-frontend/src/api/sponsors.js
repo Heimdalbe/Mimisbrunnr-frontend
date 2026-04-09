@@ -21,8 +21,8 @@ const sponsors = [
   },
   {
     id: 5,
-    url: "https://www.monsterenergy.com/nl-be/",
-    logo: "./Monster.png",
+    url: "https://www.linkedin.com/in/sepp-degroote/",
+    logo: "./Sepp.png",
   },
   {
     id: 6,
