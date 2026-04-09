@@ -1,6 +1,9 @@
 import { useParams } from "react-router";
-import albums from "../../../api/albums";
+import useSWR from "swr";
+import { getAll } from "../../../api";
 import "./AlbumDetail.css";
+import AsyncData from "../../../components/Common/AsyncData/AsyncData";
+import PrimaryButton from "../../../components/Common/PrimaryButton/PrimaryButton"
 
 function getLayoutGroups(n) {
   const LAYOUTS = [7, 5, 3, 2, 1]
@@ -29,14 +32,14 @@ function getLayoutGroups(n) {
 
 const AlbumDetail = () => {
   const { id } = useParams();
-  const album = albums.albums[id - 1];
+  const { data = [], error, isLoading } = useSWR(`albums/pub/${id}`, getAll);
 
-  const d = new Date(album.date);
+  const d = new Date(data.date);
   const day = d.getDate().toString();
   const month = d.toLocaleString("nl-BE", { month: "long" });
   const year = d.getFullYear();
 
-  const images = album.images;
+  const images = data.images;
   const layouts = getLayoutGroups(images?.length ?? 0);
   const diffs = [];
   var prev = 0;
@@ -44,8 +47,8 @@ const AlbumDetail = () => {
   for (let i = 0; i < layouts.length; i++) {
     let imgs = [];
 
-    images.slice(prev, prev + layouts[i]).forEach((img, i) => imgs.push(
-      <a href={img.url} style={{ "grid-area": '_' + i }} >
+    images.slice(prev, prev + layouts[i]).forEach((img, j) => imgs.push(
+      <a key={j} href={img.url} style={{ gridArea: '_' + i }} >
         <img src={img.url} alt={img.description} loading="lazy" />
       </a>
     ));
@@ -53,7 +56,7 @@ const AlbumDetail = () => {
     prev += layouts[i];
 
     diffs.push(
-      <div className={"layout-" + layouts[i]}>
+      <div key={i} className={"layout-" + layouts[i]}>
         {imgs}
       </div>
     );
@@ -61,15 +64,20 @@ const AlbumDetail = () => {
 
   return (
     <div className="container-sm-tm">
-      <div className="album-wrapper">
-        {/* TODO: Terug knop of breadcrumbs (of allebei :p) */}
-        <h1>{album.name}</h1>
-        <h2>{day} {month} {year}</h2>
-        {album.description ? <p>{album.description}</p> : <></>}
-        <div className="grid">
-          {diffs}
+      <AsyncData error={error} loading={isLoading}>
+        <div className="album-wrapper">
+          {/* TODO: Terug knop of breadcrumbs (of allebei :p) */}
+          <h1>{data.name}</h1>
+          <h2>{day} {month} {year}</h2>
+          {data.description ? <p>{data.description}</p> : <></>}
+          <div className="grid">
+            {diffs}
+          </div>
+          <div>
+            <PrimaryButton text="Terug naar alle albums" isLight={true} to={"../albums"} />
+          </div>
         </div>
-      </div>
+      </AsyncData>
     </div>
   );
 };

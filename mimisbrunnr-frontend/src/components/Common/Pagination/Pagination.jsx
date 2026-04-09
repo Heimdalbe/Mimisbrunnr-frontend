@@ -39,8 +39,8 @@ const Pagination = ({ page, totalPages, onPageChange }) => {
     <div className="pagination">
       <button disabled={page <= 1} className="first-page" onClick={() => onPageChange(page - 1)}><FiChevronLeft /></button>
       {
-        getPagination(page, totalPages).map(p =>
-          <button className={p == page ? "current-page" : ""} disabled={p == elipse || p == undefined} onClick={() => onPageChange(p)}>
+        getPagination(page, totalPages).map((p, i) =>
+          <button key={i} className={p == page ? "current-page" : ""} disabled={p == elipse || p == undefined} onClick={() => onPageChange(p)}>
             {p}
           </button>)
       }

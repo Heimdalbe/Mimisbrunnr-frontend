@@ -1,7 +1,7 @@
 import AlbumCard from "../AlbumCard/AlbumCard"
 import './AlbumList.css';
 
-const AlbumList = ({ albums }) => {
+const AlbumList = ({ albums = [] }) => {
   return (
     <div className="carousel-wrapper">
       <h1>Albums</h1>

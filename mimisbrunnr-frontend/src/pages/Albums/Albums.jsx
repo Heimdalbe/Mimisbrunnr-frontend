@@ -1,19 +1,26 @@
 import { useState } from "react";
-import albumdtos from "../../api/albums"; "../../api/albums"
+import useSWR from "swr";
+import { getAll } from "../../api";
 import AlbumList from "../../components/Albums/AlbumList/AlbumList"
 import Pagination from "../../components/Common/Pagination/Pagination";
+import AsyncData from "../../components/Common/AsyncData/AsyncData";
 
 const Albums = () => {
 
-  const albumsPerPage = 12;
-  const albums = albumdtos.albums;
-
   const [page, setPage] = useState(1);
+  const take = 12;
+  const skip = take * (page - 1);
+
+  const { data = [], error, isLoading } = useSWR(`albums/pub?skip=${skip}&take=${take}`, getAll);
 
   return (
     <div className="container-sm-tm">
-      <AlbumList albums={albums} />
-      <Pagination page={page} totalPages={Math.ceil(albumdtos.total / albumsPerPage)} onPageChange={setPage} />
+      <AsyncData loading={isLoading} error={error}>
+        <>
+          <AlbumList albums={data.albums} />
+          <Pagination page={page} totalPages={Math.ceil(data.total / take)} onPageChange={setPage} />
+        </>
+      </AsyncData>
     </div>
   )
 }
