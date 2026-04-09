@@ -1,11 +1,18 @@
-import { FaFacebook, FaInstagram, FaLinkedin, FaTwitch } from "react-icons/fa";
-import './Socials.css';
+import {
+  FaDiscord,
+  FaFacebook,
+  FaInstagram,
+  FaLinkedin,
+  FaTwitch,
+} from "react-icons/fa";
+import "./Socials.css";
 
 const icons = {
   facebook: <FaFacebook />,
   instagram: <FaInstagram />,
   linkedin: <FaLinkedin />,
   twitch: <FaTwitch />,
+  discord: <FaDiscord />,
 };
 
 const SocialLink = ({ type, link }) => {
