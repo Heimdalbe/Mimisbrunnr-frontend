@@ -40,7 +40,7 @@ const Pagination = ({ page, totalPages, onPageChange }) => {
       <button disabled={page <= 1} className="first-page" onClick={() => onPageChange(page - 1)}><FiChevronLeft /></button>
       {
         getPagination(page, totalPages).map(p =>
-          <button className={p == page ? "current-page" : ""} disabled={p == elipse} onClick={() => onPageChange(p)}>
+          <button className={p == page ? "current-page" : ""} disabled={p == elipse || p == undefined} onClick={() => onPageChange(p)}>
             {p}
           </button>)
       }
