@@ -3,10 +3,10 @@ import './AlbumList.css';
 
 const AlbumList = ({ albums = [] }) => {
   return (
-    <div className="carousel-wrapper">
+    <div className="albums-wrapper">
       <h1>Albums</h1>
 
-      <div className="carousel">
+      <div className="album-grid">
         {
           albums.map((album) => (
             <AlbumCard
