@@ -45,15 +45,20 @@ const ImageGrid = ({ images = [] }) => {
   const layouts = getLayoutGroups(images?.length ?? 0);
   const diffs = [];
   var prev = 0;
+  var index = 0;
 
   for (let i = 0; i < layouts.length; i++) {
     let imgs = [];
 
-    images.slice(prev, prev + layouts[i]).forEach((img, j) => imgs.push(
-      <div key={j} onClick={() => openLightbox(i + j)} className='img-wrapper' style={{ gridArea: '_' + j }} >
-        <img src={img.url} alt={img.description} loading="lazy" />
-      </div>
-    ));
+    images.slice(prev, prev + layouts[i]).forEach((img, j) => {
+      let k = index
+      imgs.push(
+        <div key={j} onClick={() => openLightbox(k)} className='img-wrapper' style={{ gridArea: '_' + j }} >
+          <img src={img.url} alt={img.description} loading="lazy" />
+        </div>
+      );
+      index += 1
+    });
 
     prev += layouts[i];
 
