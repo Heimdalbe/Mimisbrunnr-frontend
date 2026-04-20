@@ -1,6 +1,6 @@
 import { useParams } from "react-router";
 import events from "../../../api/events";
-import PrimaryButton from "../../../components/Common/PrimaryButton";
+import PrimaryButton from "../../../components/Common/PrimaryButton/PrimaryButton";
 import EventList from "../../../components/Evenementen/EventList/EventList";
 import "./EventDetail.css";
 
