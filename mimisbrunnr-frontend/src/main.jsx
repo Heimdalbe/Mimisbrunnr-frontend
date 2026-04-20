@@ -29,7 +29,7 @@ const router = createBrowserRouter([
   {
     element: <Layout />,
     children: [
-      { path: '/', Component: Home },
+      { path: "/", Component: Home },
 
       { path: "/over-ons", Component: OverOns },
       { path: "/over-ons/clublied", Component: Clublied },
@@ -38,9 +38,9 @@ const router = createBrowserRouter([
       { path: "/over-ons/werkgroepen", Component: Werkgroepen },
       { path: "/over-ons/sponsors", Component: Sponsors },
       { path: "/over-ons/stamboom", Component: Stamboom },
-  
-      { path: '/albums', Component: Albums },
-      { path: '/albums/:id', Component: AlbumDetail },
+
+      { path: "/albums", Component: Albums },
+      { path: "/albums/:id", Component: AlbumDetail },
 
       { path: "/praesidium", Component: Praesidium },
       { path: "/praesidium/ereleden", Component: Ereleden },
