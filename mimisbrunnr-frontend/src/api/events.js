@@ -1,17 +1,5 @@
 const events = [
   {
-    id: 2,
-    image: "./Tetristoernooi.png",
-    date: new Date("2026-04-10T13:00:00"),
-    title: "Tetris toernooi",
-    start_time: "13:00",
-    end_time: "18:00",
-    type: "sport",
-    location: "Comic Sans",
-    description:
-      "Wie haalt de hoogste score? Kom meedoen aan ons Tetris toernooi en win leuke prijzen.",
-  },
-  {
     id: 3,
     image: "./Movienight.png",
     date: new Date("2026-04-22T19:00:00"),
