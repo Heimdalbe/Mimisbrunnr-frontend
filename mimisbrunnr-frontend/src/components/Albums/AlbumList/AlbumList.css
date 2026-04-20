@@ -1,0 +1,21 @@
+.albums-wrapper .album-grid {
+  display: grid;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.albums-wrapper > h1 {
+  text-align: center;
+  color: black;
+}
+
+@media (min-width: 768px) {
+  .albums-wrapper .album-grid {
+  grid-template-columns: repeat(3, 1fr);
+}
+}
+@media (max-width: 768px) {
+  .albums-wrapper .album-grid {
+  grid-template-columns: repeat(auto-fill, 1fr);
+}
+}
