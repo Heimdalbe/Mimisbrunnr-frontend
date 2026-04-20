@@ -13,7 +13,7 @@ const EventDetail = () => {
     <div className="container-sm-tm">
       {/* TODO: Terug knop of breadcrumbs (of allebei :p) */}
       <div className="img-card-wrapper">
-        <img className="event-img" src={`.${event.image}`} alt={event.title} />
+        <img className="event-img" src={event.image} alt={event.title} />
         <div className="info-card">
           <div className="icon-info">
             <i class="fa-solid fa-user-group"></i>
