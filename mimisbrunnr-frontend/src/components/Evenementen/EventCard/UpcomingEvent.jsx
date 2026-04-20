@@ -11,6 +11,13 @@ const UpcomingEvent = ({
   image,
   type,
 }) => {
+  const maxDescriptionLength = 260;
+  const safeDescription = description ?? "";
+  const limitedDescription =
+    safeDescription.length > maxDescriptionLength
+      ? `${safeDescription.slice(0, maxDescriptionLength).trimEnd()}...`
+      : safeDescription;
+
   return (
     <div className="event-wrapper">
       <div className="info-section">
@@ -25,7 +32,7 @@ const UpcomingEvent = ({
             </div>
           </div>
           <p>
-            {description}
+            {limitedDescription}
             <a href="#"> Lees meer...</a>
           </p>
         </div>
