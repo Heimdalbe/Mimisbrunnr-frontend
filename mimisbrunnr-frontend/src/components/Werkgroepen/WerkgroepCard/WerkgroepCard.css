@@ -1,0 +1,33 @@
+.werkgroep-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 280px;
+  padding: 28px;
+  border-radius: 18px;
+  background: var(--black);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+}
+
+.werkgroep-card h2 {
+  margin: 0 0 14px;
+  color: var(--white);
+}
+
+.werkgroep-card p {
+  margin-bottom: 24px;
+  color: var(--white);
+}
+
+@media (max-width: 768px) {
+  .werkgroep-card {
+    min-height: auto;
+  }
+
+  .werkgroep-card h2,
+  .werkgroep-card p {
+    text-align: left;
+  }
+}
