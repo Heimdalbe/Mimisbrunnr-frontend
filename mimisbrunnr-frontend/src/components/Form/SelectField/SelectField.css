@@ -27,6 +27,10 @@
   cursor: pointer;
 }
 
+.label {
+  color: var(--black);
+}
+
 .dropdown-list {
   font-size: 0.8rem;
   border-radius: 0;

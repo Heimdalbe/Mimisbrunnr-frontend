@@ -11,7 +11,7 @@ const SelectField = ({ label, placeholder, options, value, onChange }) => {
 
   return (
     <div className="select-field">
-      <label>{label}</label>
+      <label className="label">{label}</label>
 
       <div className="dropdown" onClick={() => setOpen(!open)}>
         <div className="dropdown-select">

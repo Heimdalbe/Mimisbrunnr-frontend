@@ -1,20 +1,19 @@
 import SocialLink from "./SocialLink";
 import "./Socials.css";
 
-const SocialsList = () => {
+const defaultSocials = [
+  { type: "facebook", link: "https://www.facebook.com/Heimdal.be/" },
+  { type: "instagram", link: "https://www.instagram.com/heimdalgent/" },
+  { type: "linkedin", link: "https://www.linkedin.com/company/heimdal-be/" },
+  { type: "twitch", link: "https://www.twitch.tv/heimdalgent" },
+];
+
+const SocialsList = ({ socials = defaultSocials }) => {
   return (
     <div className="socials-list">
-      <SocialLink type="facebook" link="https://www.facebook.com/Heimdal.be/" />
-      <SocialLink
-        type="instagram"
-        link="https://www.instagram.com/heimdalgent/"
-      />
-      <SocialLink
-        type="linkedin"
-        link="https://www.linkedin.com/company/heimdal-be/"
-      />
-      <SocialLink type="twitch" link="https://www.twitch.tv/heimdalgent" />
-      <SocialLink type="discord" link="https://discord.gg/6ZsU4wHqZ3" />
+      {socials.map((s, index) => (
+        <SocialLink key={index} type={s.type} link={s.link} />
+      ))}
     </div>
   );
 };

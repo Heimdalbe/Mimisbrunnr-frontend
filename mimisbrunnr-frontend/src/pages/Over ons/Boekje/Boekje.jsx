@@ -1,5 +1,5 @@
 import { useState } from "react";
-import PrimaryButton from "../../../components/Common/PrimaryButton";
+import PrimaryButton from "../../../components/Common/PrimaryButton/PrimaryButton";
 import PdfViewer from "../../../components/PdfViewer/PdfViewer";
 import "./Boekje.css";
 import boekjes from "../../../api/boekjes";
