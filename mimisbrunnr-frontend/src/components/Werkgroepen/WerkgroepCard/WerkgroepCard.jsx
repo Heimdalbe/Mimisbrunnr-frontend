@@ -1,5 +1,5 @@
 import "./WerkgroepCard.css";
-import PrimaryButton from "../../Common/PrimaryButton.jsx";
+import PrimaryButton from "../../Common/PrimaryButton/PrimaryButton";
 
 const WerkgroepCard = ({ naam, beschrijving, url }) => {
   return (

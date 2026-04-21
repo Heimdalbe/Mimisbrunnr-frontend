@@ -1,6 +1,6 @@
 import PdfViewer from "../../../components/PdfViewer/PdfViewer";
 import statuten from "../../../api/statuten";
-import PrimaryButton from "../../../components/Common/PrimaryButton";
+import PrimaryButton from "../../../components/Common/PrimaryButton/PrimaryButton";
 import "./Statuten.css";
 
 const Statuten = () => {
