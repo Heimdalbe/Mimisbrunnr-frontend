@@ -5,7 +5,7 @@ const SelectField = ({ label, placeholder, options, value, onChange }) => {
   const [open, setOpen] = useState(false);
 
   const handleSelect = (option) => {
-    onChange(option);
+    if (onChange) onChange(option);
     setOpen(false);
   };
 
@@ -26,15 +26,16 @@ const SelectField = ({ label, placeholder, options, value, onChange }) => {
             visibility: open ? "visible" : "hidden",
           }}
         >
-          {options.map((o) => (
-            <div
-              key={o}
-              className="dropdown-list__item"
-              onClick={() => handleSelect(o)}
-            >
-              {o}
-            </div>
-          ))}
+          {options &&
+            options.map((o) => (
+              <div
+                key={o}
+                className="dropdown-list__item"
+                onClick={() => handleSelect(o)}
+              >
+                {o}
+              </div>
+            ))}
         </div>
       </div>
     </div>

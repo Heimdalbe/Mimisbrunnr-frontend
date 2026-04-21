@@ -1,6 +1,6 @@
 import './SponsorSectie.css';
 import SponsorList from './Sponsors/SponsorList';
-import PrimaryButton from '../../Common/PrimaryButton';
+import PrimaryButton from '../../Common/PrimaryButton/PrimaryButton';
 import sponsors from '../../../api/sponsors';
 
 const SponsorSectie = () => {

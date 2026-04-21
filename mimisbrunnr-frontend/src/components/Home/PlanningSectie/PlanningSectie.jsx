@@ -1,27 +1,28 @@
 import EventList from '../../Evenementen/EventList/EventList';
-import PrimaryButton from '../../Common/PrimaryButton';
+import PrimaryButton from '../../Common/PrimaryButton/PrimaryButton';
 import events from '../../../api/events';
 
 const PlanningSectie = () => {
   return (
     <div>
-      <div className='container-sm-tm'>
+      <div className="container-sm-tm">
         <h1>Op de planning...</h1>
       </div>
-      <div className='container-fw-mobile' style={{ paddingTop: 0, paddingBottom: 0}}>
+      <div className='container-fw-mobile' style={{ paddingTop: 0, paddingBottom: 0 }}>
         <EventList events={events} />
       </div>
-      <div className='container-sm-bm'>
+      <div className="container-sm-bm">
         <div className="button-wrapper">
-          <PrimaryButton 
-            text='Alle evenementen' 
-            to='/evenementen' 
+          <PrimaryButton
+            text='Alle evenementen'
+            to='/evenementen'
             isLight={true}
-            isDisabled={false} />
+            isDisabled={false}
+          />
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default PlanningSectie;
