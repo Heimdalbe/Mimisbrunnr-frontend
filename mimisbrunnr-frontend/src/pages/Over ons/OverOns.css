@@ -1,0 +1,45 @@
+div.over-ons{
+  padding-bottom: 20px;
+}
+
+.link-wrapper{
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+div.vision-section{
+  padding : 0px 60px;
+}
+
+.top-foto{
+  margin-top: 0px;
+  height: 400px;
+  
+  background-image: url("../../../public/Groepsfoto3.jpg");
+  background-size: cover;
+  background-position: center;
+  
+  display: flex;
+  flex-direction: column;
+}
+
+.top-text{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.top-text > h1 {
+  position: relative;
+  margin: 0px;
+  color: var(--white);
+  font-size: 5rem;
+  line-height: 5rem;
+  display: block;
+
+  text-align: center;
+}
