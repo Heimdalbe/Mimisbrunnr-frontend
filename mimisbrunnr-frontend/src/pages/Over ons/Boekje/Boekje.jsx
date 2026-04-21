@@ -27,11 +27,13 @@ const Boekje = () => {
     <div className="container-sm-tm">
       <div className="title-button-wrapper">
         <h1>Boekje</h1>
+        {/* TODO: Button achter auth steken
         <PrimaryButton
           text={"Wijzig boekjes"}
           to={"/over-ons/boekje/edit"}
           isLight={true}
         />
+        */}
       </div>
       <SelectField
         label={"Kies een jaar:"}

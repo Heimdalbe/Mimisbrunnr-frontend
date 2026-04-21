@@ -8,12 +8,13 @@ const Statuten = () => {
     <div className="container-sm-tm">
       <div className="title-button-wrapper">
         <h1>Statuten</h1>
-        {/* TODO:  Button verstoppen achter auth */}
+        {/* TODO:  Button verstoppen achter auth 
         <PrimaryButton
           text={"Wijzig statuten"}
           isLight={true}
           to={"/over-ons/statuten/edit"}
         />
+        */}
       </div>
       <h2>
         Laatst aangepast op {statuten.datumAangepast.toLocaleDateString()}
