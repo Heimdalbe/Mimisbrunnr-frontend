@@ -18,7 +18,7 @@ import EventDetail from "./pages/Evenementen/EventDetail/EventDetail.jsx";
 import EventEnlistForm from "./pages/Evenementen/EventEnlistForm.jsx";
 import PrivacyPolicy from "./pages/Legal/PrivacyPolicy.jsx";
 import CookiePolicy from "./pages/Legal/CookiePolicy.jsx";
-import Huisstijl from "./pages/Huisstijl/Huisstijl.jsx";
+import Login from "./pages/Login/Login.jsx";
 import NotFound from "./pages/NotFound/NotFound.jsx";
 import Layout from "./Layout.jsx";
 import "./index.css";
@@ -52,7 +52,9 @@ const router = createBrowserRouter([
 
       { path: "/cookie-policy", Component: CookiePolicy },
       { path: "/privacy-policy", Component: PrivacyPolicy },
-      { path: "/huisstijl", Component: Huisstijl },
+
+      { path: "/login", Component: Login },
+
       { path: "*", Component: NotFound },
     ],
   },
