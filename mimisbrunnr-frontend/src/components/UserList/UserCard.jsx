@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import "./UserItems.css";
 import SocialsList from "../Socials/SocialsList";
 
-const UserCard = ({ name, year = undefined, role = {}, img, quote = "", socials }) => {
+const UserCard = ({ name, year = undefined, role = undefined, img, quote = "", socials }) => {
   const [showOverlay, setShowOverlay] = useState(false);
 
   // useEffect pagina niet scrollable maken als er een overlay geopend is
