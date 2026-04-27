@@ -2,19 +2,21 @@ import { useNavigate } from "react-router-dom";
 import EventIcon from "../Andere/EventIcon";
 import "./EventCard.css";
 
-const EventCard = ({ id, image, date, start_time, end_time, title, type }) => {
+const EventCard = ({ id, banner, start, end, name, category }) => {
   const navigate = useNavigate();
-  const d = new Date(date);
-  const day = d.getDate().toString().padStart(2, "0");
-  const month = d.toLocaleString("nl-BE", { month: "long" }).slice(0, 3);
+  const date = new Date(start);
+  const day = date.getDate().toString().padStart(2, "0");
+  const month = date.toLocaleString("nl-BE", { month: "long" }).slice(0, 3);
+  const start_time = date.toLocaleTimeString();
+  const end_time = new Date(end).toLocaleTimeString();
 
   return (
     <div
       className="event-card"
-      style={{ backgroundImage: `url(${image})` }}
+      style={{ backgroundImage: `url(${banner.url})` }}
       onClick={() => navigate(`/evenementen/${id}`)}
     >
-      <EventIcon category={type} />
+      <EventIcon category={category} />
       <div className="event-info">
         <div className="date">
           <p className="day">{day}</p>
@@ -22,7 +24,7 @@ const EventCard = ({ id, image, date, start_time, end_time, title, type }) => {
         </div>
         <div className="line" />
         <div className="title-time">
-          <h3>{title}</h3>
+          <h3>{name}</h3>
           <p className="footnote">{`${start_time} - ${end_time}`}</p>
         </div>
       </div>
