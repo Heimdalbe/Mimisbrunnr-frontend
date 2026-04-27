@@ -7,10 +7,12 @@ const UserList = ({ users }) => {
       {users.map((u) => (
         <UserCard
           key={u.id}
-          name={u.name}
-          role={u.role}
-          img={u.img}
-          quote={u.quote}
+          name={`${u.member.firstName} ${u.member.lastName}`}
+          year={u.year}
+          role={u.role?.name}
+          img={u.image.url}
+          quote={u.member.quote}
+          socials={u.member.socials}
         />
       ))}
     </div>

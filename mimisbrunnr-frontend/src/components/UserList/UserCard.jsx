@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import "./UserItems.css";
 import SocialsList from "../Socials/SocialsList";
 
-const UserCard = ({ name, role, img, quote }) => {
+const UserCard = ({ name, year = undefined, role = {}, img, quote = "", socials }) => {
   const [showOverlay, setShowOverlay] = useState(false);
 
   // useEffect pagina niet scrollable maken als er een overlay geopend is
@@ -24,7 +24,7 @@ const UserCard = ({ name, role, img, quote }) => {
         <img src={img} alt={`Foto van ${name}`} />
         <div className="card-info">
           <p className="card-text">{name}</p>
-          <p className="card-text role">{role}</p>
+          {role && <p className="card-text role">{role}</p>}
         </div>
       </div>
 
@@ -38,7 +38,7 @@ const UserCard = ({ name, role, img, quote }) => {
             />
             <div className="text-and-info">
               <h1>{name}</h1>
-              <h2 className="role">{role}</h2>
+              {role && <h2 className="role">{role} {year}-{year + 1}</h2>}
               {/* Quote of andere leuke weetjes,... evt nog aanpassen en apart componentje van maken */}
               <h3 className="quote">{`"${quote}"`}</h3>
             </div>
@@ -50,7 +50,7 @@ const UserCard = ({ name, role, img, quote }) => {
                 <i className="fa-solid fa-xmark"></i>
               </div>
               {/* Socials van de persoon doorgeven met props ipv defaults nu */}
-              <SocialsList />
+              <SocialsList socials={socials} />
             </div>
           </div>
         </div>
