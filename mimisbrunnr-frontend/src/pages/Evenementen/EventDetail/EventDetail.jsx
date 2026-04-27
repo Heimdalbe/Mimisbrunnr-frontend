@@ -7,6 +7,7 @@ import "./EventDetail.css";
 import useSWR from "swr";
 import { getAll } from "../../../api";
 import AsyncData from "../../../components/Common/AsyncData/AsyncData";
+import SponsorList from "../../../components/Home/SponsorSectie/Sponsors/SponsorList";
 
 const EventDetail = () => {
   const { id } = useParams();
@@ -63,6 +64,13 @@ const EventDetail = () => {
             />
           </div>
         </div>
+        {event.sponsors?.length > 0 &&
+          <div className="sponsor-section">
+            <h1>Sponsors</h1>
+            <p>Met dank aan onze sponsors :</p>
+            <SponsorList sponsors={event.sponsors} />
+          </div>
+        }
       </AsyncData>
       <AsyncData loading={eventsAreLoading} error={eventsError}>
         <div className="interesting-section">
