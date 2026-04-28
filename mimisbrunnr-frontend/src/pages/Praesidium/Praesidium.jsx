@@ -53,7 +53,7 @@ const Praesidium = () => {
         />
       </AsyncData>
       <AsyncData loading={praesidiumIsLoading} error={praesidiumError}>
-        <UserList users={praesidium.praesidium} />
+        <UserList users={praesidium.praesidium} endpoint={'praesidium/members'} />
       </AsyncData>
     </div>
   );

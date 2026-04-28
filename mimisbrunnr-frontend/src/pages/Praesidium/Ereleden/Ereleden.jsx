@@ -12,7 +12,7 @@ const Ereleden = () => {
       <Breadcrumbs children={[{ link: "praesidium" }, { link: "ereleden", isLast: true }]} />
       <h1>Ereleden</h1>
       <AsyncData loading={praesidiumIsLoading} error={praesidiumError}>
-        <UserList users={praesidium.erelids} />
+        <UserList users={praesidium.erelids} endpoint={"praesidium/erelids"} />
       </AsyncData>
     </div>
   );

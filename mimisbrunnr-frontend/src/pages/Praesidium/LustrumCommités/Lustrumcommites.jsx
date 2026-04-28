@@ -31,7 +31,7 @@ const LustrumCommites = () => {
         <SelectField label={"Kies een jaar:"} options={years.years} value={year} onChange={setYear} />
       </AsyncData>
       <AsyncData loading={praesidiumIsLoading} error={praesidiumError}>
-        <UserList users={praesidium.lustrumLids} />
+        <UserList users={praesidium.lustrumLids} endpoint={"praesidium/lustrum/members"} />
       </AsyncData>
     </div>
   );

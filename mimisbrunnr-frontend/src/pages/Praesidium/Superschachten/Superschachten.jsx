@@ -12,7 +12,7 @@ const Superschachten = () => {
       <Breadcrumbs children={[{ link: "praesidium" }, { link: "superschachten", isLast: true }]} />
       <h1>Super Schachten</h1>
       <AsyncData loading={praesidiumIsLoading} error={praesidiumError}>
-        <UserList users={praesidium.schachts} />
+        <UserList users={praesidium.schachts} endpoint={"praesidium/superschachts"} />
       </AsyncData>
     </div>
   );
