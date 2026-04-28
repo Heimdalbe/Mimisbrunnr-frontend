@@ -20,12 +20,14 @@ import EventEnlistForm from "./pages/Evenementen/EventEnlistForm.jsx";
 import PrivacyPolicy from "./pages/Legal/PrivacyPolicy.jsx";
 import CookiePolicy from "./pages/Legal/CookiePolicy.jsx";
 import Login from "./pages/Login/Login.jsx";
+import AdminHome from "./pages/Admin/Home/AdminHome.jsx";
 import NotFound from "./pages/NotFound/NotFound.jsx";
 import Unauthorized from "./pages/NotFound/Unauthorized.jsx";
 import Layout from "./Layout.jsx";
 import ProtectedRoute from "./components/Common/ProtectedRoute.jsx";
 import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import AdminLayout from "./AdminLayout.jsx";
 
 const router = createBrowserRouter([
   {
@@ -67,6 +69,12 @@ const router = createBrowserRouter([
       { path: "*", Component: NotFound },
     ],
   },
+  {
+    element: <AdminLayout />,
+    children: [
+      { path: "/admin/", Component: AdminHome },
+    ]
+  }
 ]);
 
 createRoot(document.getElementById("root")).render(

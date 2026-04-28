@@ -1,0 +1,12 @@
+.admin-navbar{
+  position: fixed;
+  left: 0px;
+  height: 100vw;
+  background-color: red;
+  width: 300px;
+  padding-top: 20px;
+}
+
+.admin-navbar div{
+  margin-left: 20px;
+}
