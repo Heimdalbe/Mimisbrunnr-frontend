@@ -21,7 +21,9 @@ import PrivacyPolicy from "./pages/Legal/PrivacyPolicy.jsx";
 import CookiePolicy from "./pages/Legal/CookiePolicy.jsx";
 import Login from "./pages/Login/Login.jsx";
 import AdminHome from "./pages/Admin/Home/AdminHome.jsx";
-import AdminAlbumDetails from "./pages/Admin/Albums/AdminAlbumDetails.jsx";
+import AdminAlbums from "./pages/Admin/Albums/AdminAlbums.jsx";
+import AdminNewAlbum from "./pages/Admin/Albums/AdminNewAlbum.jsx";
+import AdminEditAlbum from "./pages/Admin/Albums/AdminEditAlbum.jsx";
 
 import NotFound from "./pages/NotFound/NotFound.jsx";
 import Unauthorized from "./pages/NotFound/Unauthorized.jsx";
@@ -76,7 +78,9 @@ const router = createBrowserRouter([
     children: [
       { path: "/admin/", Component: AdminHome },
 
-      { path: "/admin/albums/:id", Component: AdminAlbumDetails },
+      { path: "/admin/albums", Component: AdminAlbums },
+      { path: "/admin/albums/new", Component: AdminNewAlbum },
+      { path: "/admin/albums/:id", Component: AdminEditAlbum },
       { path: "/admin/*", Component: NotFound },
     ]
   }
