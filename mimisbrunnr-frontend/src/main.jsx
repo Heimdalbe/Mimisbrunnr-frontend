@@ -1,16 +1,16 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import { AuthProvider } from "./contexts/AuthContext.jsx";
+import { AuthProvider } from "./contexts/AuthContext";
 import Home from "./pages/Home/Home.jsx";
 import Albums from "./pages/Albums/Albums.jsx";
 import AlbumDetail from "./pages/Albums/AlbumDetail/AlbumDetail.jsx";
 import OverOns from "./pages/Over ons/OverOns.jsx";
 import Clublied from "./pages/Over ons/Clublied/Clublied.jsx";
 import Boekje from "./pages/Over ons/Boekje/Boekje.jsx";
-import Statuten from "./pages/Over Ons/Statuten/Statuten.jsx";
-import Werkgroepen from "./pages/Over Ons/Werkgroepen/Werkgroepen.jsx";
-import Sponsors from "./pages/Over Ons/Sponsors/Sponsors.jsx";
-import Stamboom from "./pages/Over Ons/Stamboom/Stamboom.jsx";
+import Statuten from "./pages/Over ons/Statuten/Statuten.jsx";
+import Werkgroepen from "./pages/Over ons/Werkgroepen/Werkgroepen.jsx";
+import Sponsors from "./pages/Over ons/Sponsors/Sponsors.jsx";
+import Stamboom from "./pages/Over ons/Stamboom/Stamboom.jsx";
 import Praesidium from "./pages/Praesidium/Praesidium.jsx";
 import Ereleden from "./pages/Praesidium/Ereleden/Ereleden.jsx";
 import Superschachten from "./pages/Praesidium/Superschachten/Superschachten.jsx";
@@ -24,8 +24,7 @@ import NotFound from "./pages/NotFound/NotFound.jsx";
 import Layout from "./Layout.jsx";
 import ProtectedRoute from "./components/Common/ProtectedRoute.jsx";
 import "./index.css";
-import { createBrowserRouter } from "react-router";
-import { RouterProvider } from "react-router/dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 const router = createBrowserRouter([
   {
