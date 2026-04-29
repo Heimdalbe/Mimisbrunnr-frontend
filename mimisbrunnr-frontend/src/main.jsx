@@ -19,13 +19,16 @@ import EventEnlistForm from "./pages/Evenementen/EventEnlistForm.jsx";
 import PrivacyPolicy from "./pages/Legal/PrivacyPolicy.jsx";
 import CookiePolicy from "./pages/Legal/CookiePolicy.jsx";
 import Huisstijl from "./pages/Huisstijl/Huisstijl.jsx";
+
 import AdminHome from "./pages/Admin/Home/AdminHome.jsx";
+import AdminAlbumDetails from "./pages/Admin/Albums/AdminAlbumDetails.jsx";
+
 import NotFound from "./pages/NotFound/NotFound.jsx";
 import Layout from "./Layout.jsx";
 import "./index.css";
+import AdminLayout from "./AdminLayout.jsx";
 import { createBrowserRouter } from "react-router";
 import { RouterProvider } from "react-router/dom";
-import AdminLayout from "./AdminLayout.jsx";
 
 const router = createBrowserRouter([
   {
@@ -63,6 +66,9 @@ const router = createBrowserRouter([
     element: <AdminLayout />,
     children: [
       { path: "/admin/", Component: AdminHome },
+
+      { path: "/admin/albums/:id", Component: AdminAlbumDetails },
+      { path: "/admin/*", Component: NotFound },
     ]
   }
 ]);

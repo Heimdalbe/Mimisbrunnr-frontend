@@ -1,7 +1,8 @@
 import axiosRoot from 'axios';
 
 export const axios = axiosRoot.create({
-  baseURL: import.meta.env.VITE_API_URL
+  baseURL: import.meta.env.VITE_API_URL,
+  withCredentials: true
 });
 
 export async function getAll(url) {
