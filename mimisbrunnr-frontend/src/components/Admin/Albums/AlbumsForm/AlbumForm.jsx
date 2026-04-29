@@ -62,12 +62,12 @@ const AlbumForm = ({ id = undefined, album = {} }) => {
     <Form onSubmit={handleSubmit} className="album-form">
       <label>
         Name
-        <input name="name" value={formData.name} onChange={handleChange} />
+        <input name="name" value={formData.name} onChange={handleChange} required />
       </label>
 
       <label>
         Date
-        <input type="date" name="date" value={formData.date} onChange={handleChange} />
+        <input type="date" name="date" value={formData.date} onChange={handleChange} required />
       </label>
 
       <label>
@@ -106,7 +106,13 @@ const AlbumForm = ({ id = undefined, album = {} }) => {
           </button>
         )}
 
-        <button type="reset" onClick={() => setFormData(album)}>
+        <button type="reset" onClick={() => setFormData({
+          name: album.name || '',
+          date: album.date || '',
+          coverImage: album.coverImage?.url || '',
+          description: album.description || '',
+          published: album.published || false,
+        })}>
           Reset
         </button>
 
