@@ -1,10 +1,10 @@
 import './Event.css';
 
 const EventIcons = {
-  cultuur: "fa-solid fa-puzzle-piece",
-  schacht: "fa-solid fa-child-reaching",
-  sport: "fa-solid fa-football",
-  feest: "fa-solid fa-music",
+  CULTUUR: "fa-solid fa-puzzle-piece",
+  SCHACHT: "fa-solid fa-child-reaching",
+  SPORT: "fa-solid fa-football",
+  FEESTENLAN: "fa-solid fa-music",
 };
 
 const EventIcon = ({ category }) => {
