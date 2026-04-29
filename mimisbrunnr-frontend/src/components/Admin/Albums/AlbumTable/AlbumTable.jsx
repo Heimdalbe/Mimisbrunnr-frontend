@@ -6,7 +6,6 @@ const AlbumTable = ({ albums }) => {
     <table>
       <thead>
         <tr>
-          <th>Id</th>
           <th>Name</th>
           <th>Date</th>
           <th>Published</th>
@@ -14,14 +13,13 @@ const AlbumTable = ({ albums }) => {
       </thead>
       <tbody>
         {
-          albums.map((a) => {
+          albums.map((a) =>
             <tr>
-              <td>{a.id}</td>
               <td><Link to={`/admin/albums/${a.id}`}>{a.name}</Link></td>
               <td>{a.date}</td>
               <td>{a.published}</td>
             </tr>
-          })
+          )
         }
       </tbody>
     </table>

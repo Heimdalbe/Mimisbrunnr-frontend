@@ -4,6 +4,7 @@ import './Navbar.css'
 const Navbar = () => {
   return (
     <div className="admin-navbar">
+      <Link to={'/admin'}>Home</Link>
       <div><Link to={'/admin/accounts'}>Accounts</Link></div>
       <div><Link to={'/admin/albums'}>Albums</Link></div>
       <div><Link to={'/admin/events'}>Events</Link></div>
