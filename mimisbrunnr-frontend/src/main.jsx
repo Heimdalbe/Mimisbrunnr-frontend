@@ -1,5 +1,6 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
+import { AuthProvider } from "./contexts/AuthContext.jsx";
 import Home from "./pages/Home/Home.jsx";
 import Albums from "./pages/Albums/Albums.jsx";
 import AlbumDetail from "./pages/Albums/AlbumDetail/AlbumDetail.jsx";
@@ -21,6 +22,7 @@ import CookiePolicy from "./pages/Legal/CookiePolicy.jsx";
 import Login from "./pages/Login/Login.jsx";
 import NotFound from "./pages/NotFound/NotFound.jsx";
 import Layout from "./Layout.jsx";
+import ProtectedRoute from "./components/Common/ProtectedRoute.jsx";
 import "./index.css";
 import { createBrowserRouter } from "react-router";
 import { RouterProvider } from "react-router/dom";
@@ -48,7 +50,14 @@ const router = createBrowserRouter([
 
       { path: "/evenementen", Component: Evenementen },
       { path: "/evenementen/:id", Component: EventDetail },
-      { path: "/evenementen/:id/inschrijven", Component: EventEnlistForm },
+      {
+        path: "/evenementen/:id/inschrijven",
+        element: (
+          <ProtectedRoute>
+            <EventEnlistForm />
+          </ProtectedRoute>
+        )
+      },
 
       { path: "/cookie-policy", Component: CookiePolicy },
       { path: "/privacy-policy", Component: PrivacyPolicy },
@@ -62,6 +71,8 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
   </StrictMode>,
 );
