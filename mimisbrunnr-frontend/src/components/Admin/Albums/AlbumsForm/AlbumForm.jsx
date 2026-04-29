@@ -1,67 +1,121 @@
-import { Form, Link } from "react-router";
+import { Form, useNavigate } from "react-router";
 import './AlbumForm.css'
-import { useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import useSWRMutation from "swr/mutation";
 import { deleteById, save } from "../../../../api";
-import PrimaryButton from "../../../Common/PrimaryButton/PrimaryButton";
 
-const AlbumForm = ({ id = undefined, action, album = {} }) => {
+const AlbumForm = ({ id = undefined, album = {} }) => {
+  const navigate = useNavigate();
+  const isEditMode = id !== undefined;
 
-  var [img, setImage] = useState(album?.coverImage?.url);
+  const [formData, setFormData] = useState({
+    name: '',
+    date: '',
+    coverImage: '',
+    description: '',
+    published: false,
+  });
 
-  function handleSubmit(e) {
-    e.preventDefault();
-
-    const form = e.target;
-    const formData = new FormData(form);
-
-    const data = {
-      name: formData.get('name'),
-      date: formData.get('date'),
-      coverImage: `aws/${formData.get('coverImage').name}`, /* Image uploaden naar AWS */
-      published: formData.get('published') == 'on',
+  useEffect(() => {
+    if (isEditMode) {
+      setFormData({
+        name: album.name || '',
+        date: album.date || '',
+        coverImage: album.coverImage?.url || '',
+        description: album.description || '',
+        published: album.published || false,
+      });
     }
+  }, [album]);
 
-    handleSave({ id: id, ...data })
+  const { trigger: handleSave, isMutating } = useSWRMutation(`albums`, save);
+  const { trigger: handleDelete, isMutating: isDeleting } = useSWRMutation(`albums`, deleteById);
+
+  function handleChange(e) {
+    const { name, value, type, checked } = e.target;
+
+    setFormData(prev => ({
+      ...prev,
+      [name]: type === "checkbox" ? checked : value,
+    }));
   }
 
-  const { trigger: handleSave, isMutating } = useSWRMutation(`albums`, save)
-  const { trigger: handleDelete } = useSWRMutation(`albums`, deleteById)
+  async function handleSubmit(e) {
+    e.preventDefault();
+
+    await handleSave({
+      id: id,
+      ...formData,
+    });
+
+    navigate('/admin/albums');
+  }
+
+  async function onDelete() {
+    if (!window.confirm("Are you sure you want to delete this album?")) return;
+
+    await handleDelete(id);
+    navigate('/admin/albums');
+  }
 
   return (
     <Form onSubmit={handleSubmit} className="album-form">
-      <label htmlFor="name">
+      <label>
         Name
-        <input id="name" name="name" type="text" defaultValue={album?.name} />
+        <input name="name" value={formData.name} onChange={handleChange} />
       </label>
-      <label htmlFor="date">
+
+      <label>
         Date
-        <input id="data" name="date" type="date" defaultValue={album?.date} />
+        <input type="date" name="date" value={formData.date} onChange={handleChange} />
       </label>
-      <label htmlFor="coverImage">
+
+      <label>
         Cover Image
-        {action == 'put' &&
-          <div>Huidige : <a href={img}>{img}</a></div>
-        }
-        <input id="coverImage" name="coverImage" type="file" accept="image/png, image/jpg" />
+        <input type="url" name="coverImage" value={formData.coverImage} onChange={handleChange} />
       </label>
-      <label htmlFor="description">
+
+      {formData.coverImage && (
+        <img src={formData.coverImage} alt="preview" style={{ width: 100 }} />
+      )}
+
+      <label>
         Description
-        <input id="description" name="description" type="text" defaultValue={album?.description} />
+        <textarea name="description" value={formData.description} onChange={handleChange} />
       </label>
-      <label htmlFor="published">
+
+      <label>
         Published
-        <input id="published" name="published" type="checkbox" defaultChecked={album?.published} />
+        <input
+          type="checkbox"
+          name="published"
+          checked={formData.published}
+          onChange={handleChange}
+        />
       </label>
+
       <div>
-        {action == 'put' &&
-          <Link className="delete" to={'/admin/albums'} onClick={e => handleDelete(id)}>Verwijderen</Link>
-        }
-        <button type="reset">Reset</button>
-        <button type="submit">Opslaan</button>
+        {isEditMode && (
+          <button
+            type="button"
+            className="delete"
+            onClick={onDelete}
+            disabled={isDeleting}
+          >
+            Delete
+          </button>
+        )}
+
+        <button type="reset" onClick={() => setFormData(album)}>
+          Reset
+        </button>
+
+        <button type="submit" disabled={isMutating}>
+          {isMutating ? "Saving..." : "Save"}
+        </button>
       </div>
     </Form>
-  )
-}
+  );
+};
 
 export default AlbumForm;
