@@ -19,9 +19,17 @@ import EventEnlistForm from "./pages/Evenementen/EventEnlistForm.jsx";
 import PrivacyPolicy from "./pages/Legal/PrivacyPolicy.jsx";
 import CookiePolicy from "./pages/Legal/CookiePolicy.jsx";
 import Huisstijl from "./pages/Huisstijl/Huisstijl.jsx";
+
+import AdminHome from "./pages/Admin/Home/AdminHome.jsx";
+import AdminAlbums from "./pages/Admin/Albums/AdminAlbums.jsx";
+import AdminNewAlbum from "./pages/Admin/Albums/AdminNewAlbum.jsx";
+import AdminEditAlbum from "./pages/Admin/Albums/AdminEditAlbum.jsx";
+import AdminAlbumImages from "./pages/Admin/Albums/AdminAlbumImages.jsx";
+
 import NotFound from "./pages/NotFound/NotFound.jsx";
 import Layout from "./Layout.jsx";
 import "./index.css";
+import AdminLayout from "./AdminLayout.jsx";
 import { createBrowserRouter } from "react-router";
 import { RouterProvider } from "react-router/dom";
 
@@ -53,9 +61,22 @@ const router = createBrowserRouter([
       { path: "/cookie-policy", Component: CookiePolicy },
       { path: "/privacy-policy", Component: PrivacyPolicy },
       { path: "/huisstijl", Component: Huisstijl },
+
       { path: "*", Component: NotFound },
     ],
   },
+  {
+    element: <AdminLayout />,
+    children: [
+      { path: "/admin/", Component: AdminHome },
+
+      { path: "/admin/albums", Component: AdminAlbums },
+      { path: "/admin/albums/new", Component: AdminNewAlbum },
+      { path: "/admin/albums/:id", Component: AdminEditAlbum },
+      { path: "/admin/albums/:id/images", Component: AdminAlbumImages },
+      { path: "/admin/*", Component: NotFound },
+    ]
+  }
 ]);
 
 createRoot(document.getElementById("root")).render(
