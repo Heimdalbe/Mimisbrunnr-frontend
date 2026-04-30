@@ -24,6 +24,7 @@ import AdminHome from "./pages/Admin/Home/AdminHome.jsx";
 import AdminAlbums from "./pages/Admin/Albums/AdminAlbums.jsx";
 import AdminNewAlbum from "./pages/Admin/Albums/AdminNewAlbum.jsx";
 import AdminEditAlbum from "./pages/Admin/Albums/AdminEditAlbum.jsx";
+import AdminAlbumImages from "./pages/Admin/Albums/AdminAlbumImages.jsx";
 
 import NotFound from "./pages/NotFound/NotFound.jsx";
 import Layout from "./Layout.jsx";
@@ -72,6 +73,7 @@ const router = createBrowserRouter([
       { path: "/admin/albums", Component: AdminAlbums },
       { path: "/admin/albums/new", Component: AdminNewAlbum },
       { path: "/admin/albums/:id", Component: AdminEditAlbum },
+      { path: "/admin/albums/:id/images", Component: AdminAlbumImages },
       { path: "/admin/*", Component: NotFound },
     ]
   }

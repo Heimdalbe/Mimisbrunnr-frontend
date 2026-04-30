@@ -9,6 +9,7 @@ const AlbumTable = ({ albums }) => {
           <th>Name</th>
           <th>Date</th>
           <th>Published</th>
+          <th>Images</th>
         </tr>
       </thead>
       <tbody>
@@ -18,6 +19,7 @@ const AlbumTable = ({ albums }) => {
               <td><Link to={`/admin/albums/${a.id}`}>{a.name}</Link></td>
               <td>{a.date}</td>
               <td>{a.published}</td>
+              <td><Link to={`/admin/albums/${a.id}/images`}>Images</Link></td>
             </tr>
           )
         }
