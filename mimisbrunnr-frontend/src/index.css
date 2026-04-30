@@ -187,5 +187,19 @@ a.link-button{
 /* ===================================== */
 
 .admin-content{
-  margin-left: 300px;
+  margin-left: 250px;
+}
+
+.admin-add-button{
+  display: flex;
+  align-self: flex-end;
+  text-align: right;
+}
+
+.admin-content table{
+  width: 100%;
+}
+
+.admin-content th{
+  text-align: left;
 }

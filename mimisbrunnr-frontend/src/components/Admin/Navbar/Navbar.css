@@ -2,11 +2,13 @@
   position: fixed;
   left: 0px;
   height: 100vh;
-  background-color: red;
-  width: 300px;
-  padding-top: 20px;
+  padding: 20px;
+  width: 205px;
+  background-color: var(--dark-grey);
+  border-right: 5px double black;
 }
 
 .admin-navbar div{
+  color: var(--white);
   margin-left: 20px;
 }
