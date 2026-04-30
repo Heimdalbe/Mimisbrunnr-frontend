@@ -9,9 +9,9 @@ const AdminAlbums = () => {
   const { data = {}, error, isLoading } = useSWR(`albums`, getAll);
 
   return (
-    <div className="">
+    <div className="container">
       <Breadcrumbs children={[{ link: 'admin' }, { link: 'albums', isLast: true }]} />
-      <Link to={'/admin/albums/new'}>Toevoegen</Link>
+      <Link className="admin-add-button" to={'/admin/albums/new'}>Toevoegen</Link>
       <AsyncData loading={isLoading} error={error}>
         <AlbumTable albums={data.albums} />
       </AsyncData>

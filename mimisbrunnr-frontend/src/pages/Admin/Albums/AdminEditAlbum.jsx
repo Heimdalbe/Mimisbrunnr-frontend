@@ -10,9 +10,11 @@ const AdminEditAlbum = () => {
   const { data: album = {}, error, isLoading } = useSWR(`albums/${id}`, getAll);
 
   return (
-    <div>
+    <div className="container">
       <AsyncData loading={isLoading} error={error}>
         <Breadcrumbs children={[{ link: 'admin' }, { link: 'albums' }, { link: `${album.name}`, isLast: true }]} />
+
+        <h1>Album Wijzigen</h1>
         <AlbumForm id={id} action={'put'} album={album} />
       </AsyncData>
     </div>

@@ -7,8 +7,10 @@ import AsyncData from "../../../components/Common/AsyncData/AsyncData";
 
 const AdminNewAlbum = () => {
   return (
-    <div>
+    <div className="container">
       <Breadcrumbs children={[{ link: 'admin' }, { link: 'albums' }, { link: `new`, isLast: true }]} />
+
+      <h1>Album Toevoegen</h1>
       <AlbumForm action={'post'} />
     </div>
   )

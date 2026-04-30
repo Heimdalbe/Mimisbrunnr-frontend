@@ -53,7 +53,7 @@ const AdminAlbumImages = () => {
   }
 
   return (
-    <div>
+    <div className="container">
       <AsyncData loading={isLoading} error={error}>
         <Breadcrumbs children={[{ link: 'admin' }, { link: 'albums' }, { link: `${data.name}>Images`, isLast: true }]} />
         <h1>{data.name}</h1>
