@@ -21,6 +21,7 @@ import PrivacyPolicy from "./pages/Legal/PrivacyPolicy.jsx";
 import CookiePolicy from "./pages/Legal/CookiePolicy.jsx";
 import Login from "./pages/Login/Login.jsx";
 import NotFound from "./pages/NotFound/NotFound.jsx";
+import Unauthorized from "./pages/NotFound/Unauthorized.jsx";
 import Layout from "./Layout.jsx";
 import ProtectedRoute from "./components/Common/ProtectedRoute.jsx";
 import "./index.css";
@@ -55,14 +56,14 @@ const router = createBrowserRouter([
           <ProtectedRoute>
             <EventEnlistForm />
           </ProtectedRoute>
-        )
+        ),
       },
 
       { path: "/cookie-policy", Component: CookiePolicy },
       { path: "/privacy-policy", Component: PrivacyPolicy },
 
       { path: "/login", Component: Login },
-
+      { path: "/unauthorized", Component: Unauthorized },
       { path: "*", Component: NotFound },
     ],
   },

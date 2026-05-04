@@ -1,8 +1,8 @@
 import { Navigate, useLocation } from "react-router-dom";
 import { useAuth } from "../../contexts/AuthContext";
 
-const ProtectedRoute = ({ children }) => {
-  const { isAuthenticated, loading } = useAuth();
+const ProtectedRoute = ({ children, role }) => {
+  const { isAuthenticated, loading, user } = useAuth();
   const location = useLocation();
 
   if (loading) {
@@ -10,8 +10,11 @@ const ProtectedRoute = ({ children }) => {
   }
 
   if (!isAuthenticated) {
-    // Redirect to login, but save the current location so we can redirect back after login
     return <Navigate to="/login" state={{ from: location }} replace />;
+  }
+
+  if (role && !user?.roles?.includes(role)) {
+    return <Navigate to="/unauthorized" replace />;
   }
 
   return children;
