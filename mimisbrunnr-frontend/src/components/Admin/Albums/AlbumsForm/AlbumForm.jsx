@@ -1,8 +1,8 @@
-import { Form, useNavigate } from "react-router";
-import './AlbumForm.css'
-import { useEffect, useState } from "react";
-import useSWRMutation from "swr/mutation";
-import { deleteById, save } from "../../../../api";
+import { Form, useNavigate } from 'react-router';
+import './AlbumForm.css';
+import { useEffect, useState } from 'react';
+import useSWRMutation from 'swr/mutation';
+import { deleteById, save } from '../../../../api';
 
 const AlbumForm = ({ id = undefined, album = {} }) => {
   const navigate = useNavigate();
@@ -26,17 +26,17 @@ const AlbumForm = ({ id = undefined, album = {} }) => {
         published: album.published || false,
       });
     }
-  }, [album]);
+  }, [album, isEditMode]);
 
-  const { trigger: handleSave, isMutating } = useSWRMutation(`albums`, save);
-  const { trigger: handleDelete, isMutating: isDeleting } = useSWRMutation(`albums`, deleteById);
+  const { trigger: handleSave, isMutating } = useSWRMutation('albums', save);
+  const { trigger: handleDelete, isMutating: isDeleting } = useSWRMutation('albums', deleteById);
 
   function handleChange(e) {
     const { name, value, type, checked } = e.target;
 
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      [name]: type === "checkbox" ? checked : value,
+      [name]: type === 'checkbox' ? checked : value,
     }));
   }
 
@@ -52,7 +52,7 @@ const AlbumForm = ({ id = undefined, album = {} }) => {
   }
 
   async function onDelete() {
-    if (!window.confirm("Are you sure you want to delete this album?")) return;
+    if (!window.confirm('Are you sure you want to delete this album?')) return;
 
     await handleDelete(id);
     navigate('/admin/albums');
@@ -117,7 +117,7 @@ const AlbumForm = ({ id = undefined, album = {} }) => {
         </button>
 
         <button type="submit" disabled={isMutating}>
-          {isMutating ? "Saving..." : "Save"}
+          {isMutating ? 'Saving...' : 'Save'}
         </button>
       </div>
     </Form>

@@ -1,13 +1,12 @@
-import { useParams } from "react-router";
-import useSWR from "swr";
-import useSWRMutation from "swr/mutation";
-import { getAll, post } from "../../../../api";
-import SocialsTable from "../../../../components/Admin/Praesidium/Socials/SocialsTable";
-import { useState } from "react";
-import AsyncData from "../../../../components/Common/AsyncData/AsyncData";
-import Breadcrumbs from "../../../../components/Breadcrumbs/Breadcrumbs";
-import SelectField from "../../../../components/Form/SelectField/SelectField";
-
+import { useParams } from 'react-router';
+import useSWR from 'swr';
+import useSWRMutation from 'swr/mutation';
+import { getAll, post } from '../../../../api';
+import SocialsTable from '../../../../components/Admin/Praesidium/Socials/SocialsTable';
+import { useState } from 'react';
+import AsyncData from '../../../../components/Common/AsyncData/AsyncData';
+import Breadcrumbs from '../../../../components/Breadcrumbs/Breadcrumbs';
+import SelectField from '../../../../components/Form/SelectField/SelectField';
 
 const AdminSocials = () => {
   const { id } = useParams();
@@ -47,22 +46,22 @@ const AdminSocials = () => {
 
           <input
             value={url}
-            onChange={e => setUrl(e.target.value)}
+            onChange={(e) => setUrl(e.target.value)}
             placeholder="URL"
           />
           <AsyncData loading={typesAreLoading} error={typesError}>
             <SelectField
-              label={"Kies een type:"}
-              options={types.types.map(t => ({ label: t.name, value: t.id }))}
+              label={'Kies een type:'}
+              options={types.types.map((t) => ({ label: t.name, value: t.id }))}
               value={type}
               onChange={setType}
             />
           </AsyncData>
-          <button disabled={isAdding} onClick={e => onAdd()}>Toevoegen</button>
+          <button disabled={isAdding} onClick={() => onAdd()}>Toevoegen</button>
         </div>
       )}
     </div >
-  )
-}
+  );
+};
 
 export default AdminSocials;

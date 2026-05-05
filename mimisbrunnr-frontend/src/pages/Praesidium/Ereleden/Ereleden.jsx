@@ -3,7 +3,7 @@ const Ereleden = () => {
     <div className="container-sm-tm">
       Ereleden
     </div>
-  )
-}
+  );
+};
 
 export default Ereleden;

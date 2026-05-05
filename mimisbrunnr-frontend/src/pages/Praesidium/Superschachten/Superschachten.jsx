@@ -3,7 +3,7 @@ const Superschachten = () => {
     <div className="container-sm-tm">
       Superschachten
     </div>
-  )
-}
+  );
+};
 
 export default Superschachten;

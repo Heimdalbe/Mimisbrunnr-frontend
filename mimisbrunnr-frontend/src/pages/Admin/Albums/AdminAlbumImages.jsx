@@ -1,11 +1,11 @@
-import { useParams } from "react-router";
-import useSWR from "swr";
-import { getAll, post, put } from "../../../api";
-import AsyncData from "../../../components/Common/AsyncData/AsyncData";
-import Breadcrumbs from "../../../components/Breadcrumbs/Breadcrumbs";
-import ImageTable from "../../../components/Admin/Albums/Images/ImageTable"
-import { useEffect, useState } from "react";
-import useSWRMutation from "swr/mutation";
+import { useParams } from 'react-router';
+import useSWR from 'swr';
+import { getAll, post, put } from '../../../api';
+import AsyncData from '../../../components/Common/AsyncData/AsyncData';
+import Breadcrumbs from '../../../components/Breadcrumbs/Breadcrumbs';
+import ImageTable from '../../../components/Admin/Albums/Images/ImageTable';
+import { useEffect, useState } from 'react';
+import useSWRMutation from 'swr/mutation';
 
 const AdminAlbumImages = () => {
   const { id } = useParams();
@@ -21,16 +21,15 @@ const AdminAlbumImages = () => {
 
   useEffect(() => {
     if (showImport) {
-      document.body.style.overflow = "hidden";
+      document.body.style.overflow = 'hidden';
     } else {
-      document.body.style.overflow = "auto";
+      document.body.style.overflow = 'auto';
     }
 
     return () => {
-      document.body.style.overflow = "auto";
+      document.body.style.overflow = 'auto';
     };
   }, [showImport]);
-
 
   async function onAdd() {
     await handleAdd({ url, description: '' });
@@ -42,9 +41,9 @@ const AdminAlbumImages = () => {
   }
 
   async function onImport() {
-    if (!window.confirm("Are you sure you want import this album (all data will be lost)?")) return;
+    if (!window.confirm('Are you sure you want import this album (all data will be lost)?')) return;
 
-    await handleImport({ albumUrl: imgurUrl })
+    await handleImport({ albumUrl: imgurUrl });
 
     await mutate();
 
@@ -73,10 +72,10 @@ const AdminAlbumImages = () => {
         <div className="add-inline">
           <input
             value={url}
-            onChange={e => setUrl(e.target.value)}
+            onChange={(e) => setUrl(e.target.value)}
             placeholder="Image URL"
           />
-          <button disabled={isAdding} onClick={e => onAdd()}>Toevoegen</button>
+          <button disabled={isAdding} onClick={() => onAdd()}>Toevoegen</button>
         </div>
       )}
 
@@ -89,10 +88,10 @@ const AdminAlbumImages = () => {
               <input
                 placeholder="Imgur album URL"
                 value={imgurUrl}
-                onChange={e => setImgurUrl(e.target.value)}
+                onChange={(e) => setImgurUrl(e.target.value)}
               />
 
-              <button disabled={isImporting} onClick={e => onImport()}>
+              <button disabled={isImporting} onClick={() => onImport()}>
                 Importeren
               </button>
 
@@ -105,7 +104,7 @@ const AdminAlbumImages = () => {
       )
       }
     </div >
-  )
-}
+  );
+};
 
 export default AdminAlbumImages;

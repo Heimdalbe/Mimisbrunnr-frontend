@@ -1,12 +1,12 @@
-import useSWR from "swr";
-import PraesidiumMemberTable from "../../../../components/Admin/Praesidium/MemberTable/MemberTable";
-import { getAll } from "../../../../api";
-import AsyncData from "../../../../components/Common/AsyncData/AsyncData";
-import Breadcrumbs from "../../../../components/Breadcrumbs/Breadcrumbs";
-import { Link } from "react-router";
+import useSWR from 'swr';
+import PraesidiumMemberTable from '../../../../components/Admin/Praesidium/MemberTable/MemberTable';
+import { getAll } from '../../../../api';
+import AsyncData from '../../../../components/Common/AsyncData/AsyncData';
+import Breadcrumbs from '../../../../components/Breadcrumbs/Breadcrumbs';
+import { Link } from 'react-router';
 
 const AdminSuperSchachten = () => {
-  const { data = { schachts: [] }, error, isLoading } = useSWR(`praesidium/superschachts`, getAll);
+  const { data = { schachts: [] }, error, isLoading } = useSWR('praesidium/superschachts', getAll);
 
   return (
     <div className="container">
@@ -16,7 +16,7 @@ const AdminSuperSchachten = () => {
         <PraesidiumMemberTable members={data.schachts} />
       </AsyncData>
     </div>
-  )
-}
+  );
+};
 
 export default AdminSuperSchachten;

@@ -1,5 +1,5 @@
 import { Link } from 'react-router';
-import './Navbar.css'
+import './Navbar.css';
 
 const Navbar = () => {
   return (
@@ -22,6 +22,6 @@ const Navbar = () => {
       <div><Link to={'/admin/sponsors'}>Sponsors</Link></div>
     </div>
   );
-}
+};
 
 export default Navbar;

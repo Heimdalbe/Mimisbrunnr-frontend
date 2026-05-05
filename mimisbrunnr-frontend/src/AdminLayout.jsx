@@ -9,6 +9,6 @@ const AdminLayout = () => {
       <ScrollRestoration />
     </div>
   );
-}
+};
 
 export default AdminLayout;

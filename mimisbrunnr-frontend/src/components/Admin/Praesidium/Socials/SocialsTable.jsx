@@ -1,5 +1,4 @@
-import { useEffect, useState } from "react";
-import Social from "./Social";
+import Social from './Social';
 
 const SocialsTable = ({ memberId, socials = [], mutate }) => {
 
@@ -15,12 +14,12 @@ const SocialsTable = ({ memberId, socials = [], mutate }) => {
       <tbody>
         {
           socials.map((s) =>
-            <Social key={s.id} memberId={memberId} id={s.id} url={s.url} type={s.type?.name} mutate={mutate} />
+            <Social key={s.id} memberId={memberId} id={s.id} url={s.url} type={s.type?.name} mutate={mutate} />,
           )
         }
       </tbody>
     </table>
-  )
-}
+  );
+};
 
 export default SocialsTable;

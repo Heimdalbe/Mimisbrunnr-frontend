@@ -1,6 +1,6 @@
-import "./UpcomingEvent.css";
-import EventIcon from "../Andere/EventIcon";
-import Countdown from "../Andere/Countdown";
+import './UpcomingEvent.css';
+import EventIcon from '../Andere/EventIcon';
+import Countdown from '../Andere/Countdown';
 
 const UpcomingEvent = ({
   title,
@@ -12,7 +12,7 @@ const UpcomingEvent = ({
   type,
 }) => {
   const maxDescriptionLength = 260;
-  const safeDescription = description ?? "";
+  const safeDescription = description ?? '';
   const limitedDescription =
     safeDescription.length > maxDescriptionLength
       ? `${safeDescription.slice(0, maxDescriptionLength).trimEnd()}...`
@@ -38,7 +38,7 @@ const UpcomingEvent = ({
         </div>
         <Countdown date={date} />
       </div>
-      <img src={image} alt={"Foto van " + title} className="image" />
+      <img src={image} alt={'Foto van ' + title} className="image" />
     </div>
   );
 };

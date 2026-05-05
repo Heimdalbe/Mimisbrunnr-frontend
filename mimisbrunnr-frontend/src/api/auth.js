@@ -3,7 +3,7 @@ import { axios } from './index';
 export async function login(email, password) {
   const { data } = await axios.post('/identity/accounts/login', {
     email,
-    password
+    password,
   });
   return data;
 }

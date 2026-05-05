@@ -1,5 +1,5 @@
-import Strofe from "../../../components/Clublied/Strofe";
-import "./Clublied.css";
+import Strofe from '../../../components/Clublied/Strofe';
+import './Clublied.css';
 
 //TODO: Skyrim theme link nog toevoegen
 //TODO: Eigendomsrechten uitleg nog toevoegen
@@ -10,45 +10,45 @@ const Clublied = () => {
       <div className="clublied-wrapper">
         <h1>Clublied</h1>
         <Strofe
-          titel={"Refrein"}
+          titel={'Refrein'}
           lijnen={[
-            "Heimdal, Heimdal, club van mijn hart",
-            "waar ik al-tijd mezellef kan zijn!",
-            "geloofd, geliefd, zijt gij voor mij",
-            "Heimdal, met ons schoon wit en ons zwart",
+            'Heimdal, Heimdal, club van mijn hart',
+            'waar ik al-tijd mezellef kan zijn!',
+            'geloofd, geliefd, zijt gij voor mij',
+            'Heimdal, met ons schoon wit en ons zwart',
           ]}
         />
         <Strofe
-          titel={"Strofe 1"}
+          titel={'Strofe 1'}
           lijnen={[
-            "Hoera nu, met z'n allen, gaan wij alweer knallen",
-            "Samen, vriend en schild, maak ple-zier!",
+            'Hoera nu, met z\'n allen, gaan wij alweer knallen',
+            'Samen, vriend en schild, maak ple-zier!',
           ]}
         />
         <Strofe
-          titel={"Refrein"}
+          titel={'Refrein'}
           lijnen={[
-            "Heimdal, Heimdal, club van mijn hart",
-            "waar ik al-tijd mezellef kan zijn!",
-            "geloofd, geliefd, zijt gij voor mij",
-            "Heimdal, met ons schoon wit en ons zwart",
+            'Heimdal, Heimdal, club van mijn hart',
+            'waar ik al-tijd mezellef kan zijn!',
+            'geloofd, geliefd, zijt gij voor mij',
+            'Heimdal, met ons schoon wit en ons zwart',
           ]}
         />
         <Strofe
-          titel={"Strofe 2"}
+          titel={'Strofe 2'}
           lijnen={[
-            "Comic Sans, ons café, is gevuld tot de nok",
-            "Komt nader, schuif erbij met ons!",
-            "May the force be with you en je broeders nabij",
+            'Comic Sans, ons café, is gevuld tot de nok',
+            'Komt nader, schuif erbij met ons!',
+            'May the force be with you en je broeders nabij',
           ]}
         />
         <Strofe
-          titel={"Refrein"}
+          titel={'Refrein'}
           lijnen={[
-            "Heimdal, Heimdal, club van mijn hart",
-            "waar ik al-tijd mezellef kan zijn!",
-            "geloofd, geliefd, zijt gij voor mij",
-            "Heimdal, met ons schoon wit en ons zwart",
+            'Heimdal, Heimdal, club van mijn hart',
+            'waar ik al-tijd mezellef kan zijn!',
+            'geloofd, geliefd, zijt gij voor mij',
+            'Heimdal, met ons schoon wit en ons zwart',
           ]}
         />
       </div>

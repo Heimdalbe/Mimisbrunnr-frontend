@@ -1,5 +1,5 @@
-import BigFooter from "./Big Footer/BigFooter";
-import SmallFooter from "./Small Footer/SmallFooter";
+import BigFooter from './Big Footer/BigFooter';
+import SmallFooter from './Small Footer/SmallFooter';
 
 const Footer = () => {
   return (
@@ -7,7 +7,7 @@ const Footer = () => {
       <BigFooter />
       <SmallFooter />
     </footer>
-  )
-}
+  );
+};
 
 export default Footer;

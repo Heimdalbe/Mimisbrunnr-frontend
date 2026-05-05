@@ -8,7 +8,7 @@ const KarakteristiekenSectie = () => {
     './Groepsfoto1.jpg',
     './Groepsfoto2.jpg',
     './Groepsfoto3.jpg',
-    './Groepsfoto4.jpg'
+    './Groepsfoto4.jpg',
   ];
 
   const [imageIndex, setImageIndex] = useState(0);
@@ -28,23 +28,23 @@ const KarakteristiekenSectie = () => {
     if (isMobile) return; // Alleen desktop
 
     const interval = setInterval(() => {
-      setCardsIndex(prev => (prev + 1) % characteristics.length);
-      setImageIndex(prev => (prev + 1) % images.length);
+      setCardsIndex((prev) => (prev + 1) % characteristics.length);
+      setImageIndex((prev) => (prev + 1) % images.length);
     }, 6000);
 
     return () => clearInterval(interval);
-  }, [isMobile, characteristics.length, images.length]);
+  }, [isMobile, images.length]);
 
   // Mobile: alleen cards autoplay
   useEffect(() => {
     if (!isMobile) return; // Alleen mobiel
 
     const interval = setInterval(() => {
-      setCardsIndex(prev => (prev + 1) % characteristics.length);
+      setCardsIndex((prev) => (prev + 1) % characteristics.length);
     }, 6000);
 
     return () => clearInterval(interval);
-  }, [isMobile, characteristics.length]);
+  }, [isMobile]);
 
   const displayedImageIndex = isMobile ? 3 : imageIndex;
 
@@ -61,8 +61,8 @@ const KarakteristiekenSectie = () => {
         ))}
       </div>
       <div className='container'>
-        <KarakteristiekList 
-          characteristics={characteristics} 
+        <KarakteristiekList
+          characteristics={characteristics}
           activeIndex={cardsIndex}
         />
       </div>

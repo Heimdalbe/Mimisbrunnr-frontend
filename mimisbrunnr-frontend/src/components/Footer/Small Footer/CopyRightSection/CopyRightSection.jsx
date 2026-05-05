@@ -4,6 +4,6 @@ const CopyrightSection = () => {
   return (
     <p>Copyright {year} Heimdal.be | All rights reserved</p>
   );
-}
+};
 
 export default CopyrightSection;

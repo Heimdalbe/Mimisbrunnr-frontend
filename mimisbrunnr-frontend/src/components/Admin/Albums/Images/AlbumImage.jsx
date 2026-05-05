@@ -1,5 +1,5 @@
-import useSWRMutation from "swr/mutation";
-import { deleteById } from "../../../../api";
+import useSWRMutation from 'swr/mutation';
+import { deleteById } from '../../../../api';
 
 const AlbumImage = ({ albumId, id, url, description, mutate }) => {
   const { trigger: handleDelete, isMutating: isDeleting } = useSWRMutation(`albums/${albumId}/images`, deleteById);
@@ -15,9 +15,9 @@ const AlbumImage = ({ albumId, id, url, description, mutate }) => {
     <tr>
       <td>{url}</td>
       <td>{description}</td>
-      <th><button disabled={isDeleting} onClick={e => onDelete()}><i className="fa-solid fa-trash" /></button></th>
+      <th><button disabled={isDeleting} onClick={() => onDelete()}><i className="fa-solid fa-trash" /></button></th>
     </tr>
-  )
-}
+  );
+};
 
 export default AlbumImage;

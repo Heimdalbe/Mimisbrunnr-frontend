@@ -1,6 +1,6 @@
-import { useState, useEffect } from "react";
-import "./UserItems.css";
-import SocialsList from "../Socials/SocialsList";
+import { useState, useEffect } from 'react';
+import './UserItems.css';
+import SocialsList from '../Socials/SocialsList';
 
 const UserCard = ({ name, role, img, quote }) => {
   const [showOverlay, setShowOverlay] = useState(false);
@@ -8,13 +8,13 @@ const UserCard = ({ name, role, img, quote }) => {
   // useEffect pagina niet scrollable maken als er een overlay geopend is
   useEffect(() => {
     if (showOverlay) {
-      document.body.style.overflow = "hidden";
+      document.body.style.overflow = 'hidden';
     } else {
-      document.body.style.overflow = "auto";
+      document.body.style.overflow = 'auto';
     }
 
     return () => {
-      document.body.style.overflow = "auto";
+      document.body.style.overflow = 'auto';
     };
   }, [showOverlay]);
 

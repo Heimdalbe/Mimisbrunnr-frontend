@@ -1,8 +1,8 @@
-import { useParams } from "react-router-dom";
-import events from "../../../api/events";
-import PrimaryButton from "../../../components/Common/PrimaryButton/PrimaryButton";
-import EventList from "../../../components/Evenementen/EventList/EventList";
-import "./EventDetail.css";
+import { useParams } from 'react-router-dom';
+import events from '../../../api/events';
+import PrimaryButton from '../../../components/Common/PrimaryButton/PrimaryButton';
+import EventList from '../../../components/Evenementen/EventList/EventList';
+import './EventDetail.css';
 
 const EventDetail = () => {
   const { id } = useParams();
@@ -39,7 +39,7 @@ const EventDetail = () => {
         <div className="button-div">
           <PrimaryButton
             isLight={true}
-            text={"Inschrijven"}
+            text={'Inschrijven'}
             to={`/evenementen/${id}/inschrijven`}
           />
         </div>
@@ -50,8 +50,8 @@ const EventDetail = () => {
         <div className="button-div">
           <PrimaryButton
             isLight={true}
-            text={"Alle evenementen"}
-            to={"/evenementen"}
+            text={'Alle evenementen'}
+            to={'/evenementen'}
           />
         </div>
       </div>

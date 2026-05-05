@@ -6,7 +6,7 @@ const ContactSection = () => {
       <h1 className="footer-title">Contact</h1>
       <FooterContactForm />
     </div>
-  )
-}
+  );
+};
 
 export default ContactSection;

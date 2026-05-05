@@ -20,7 +20,7 @@ const SponsorSectie = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default SponsorSectie;

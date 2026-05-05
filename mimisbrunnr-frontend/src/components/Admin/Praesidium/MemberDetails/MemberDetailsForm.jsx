@@ -1,8 +1,8 @@
-import { useEffect, useState } from "react";
-import { Form, useNavigate } from "react-router";
-import useSWRMutation from "swr/mutation";
-import { deleteById, save } from "../../../../api";
-import './MemberDetailsForm.css'
+import { useEffect, useState } from 'react';
+import { Form, useNavigate } from 'react-router';
+import useSWRMutation from 'swr/mutation';
+import { deleteById, save } from '../../../../api';
+import './MemberDetailsForm.css';
 
 const MemberDetailsForm = ({ id = undefined, memberDetails = {} }) => {
   const navigate = useNavigate();
@@ -12,7 +12,7 @@ const MemberDetailsForm = ({ id = undefined, memberDetails = {} }) => {
     firstName: '',
     lastName: '',
     quote: '',
-    trivia: ''
+    trivia: '',
   });
 
   useEffect(() => {
@@ -24,15 +24,15 @@ const MemberDetailsForm = ({ id = undefined, memberDetails = {} }) => {
         trivia: memberDetails.trivia || '',
       });
     }
-  }, [memberDetails]);
+  }, [memberDetails, isEditMode]);
 
-  const { trigger: handleSave, isMutating } = useSWRMutation(`praesidium/memberdetails`, save);
-  const { trigger: handleDelete, isMutating: isDeleting } = useSWRMutation(`praesidium/memberdetails`, deleteById);
+  const { trigger: handleSave, isMutating } = useSWRMutation('praesidium/memberdetails', save);
+  const { trigger: handleDelete, isMutating: isDeleting } = useSWRMutation('praesidium/memberdetails', deleteById);
 
   function handleChange(e) {
-    const { name, value, type, checked } = e.target;
+    const { name, value } = e.target;
 
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
       [name]: value,
     }));
@@ -50,7 +50,7 @@ const MemberDetailsForm = ({ id = undefined, memberDetails = {} }) => {
   }
 
   async function onDelete() {
-    if (!window.confirm("Are you sure you want to delete this entry?")) return;
+    if (!window.confirm('Are you sure you want to delete this entry?')) return;
 
     await handleDelete(id);
     navigate(-1);
@@ -72,7 +72,6 @@ const MemberDetailsForm = ({ id = undefined, memberDetails = {} }) => {
         Quote
         <input name="quote" value={formData.quote} onChange={handleChange} />
       </label>
-
 
       <label>
         Trivia
@@ -101,7 +100,7 @@ const MemberDetailsForm = ({ id = undefined, memberDetails = {} }) => {
         </button>
 
         <button type="submit" disabled={isMutating}>
-          {isMutating ? "Saving..." : "Save"}
+          {isMutating ? 'Saving...' : 'Save'}
         </button>
       </div>
     </Form>

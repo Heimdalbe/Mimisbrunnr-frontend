@@ -1,9 +1,9 @@
-import { useState } from "react";
-import useSWR from "swr";
-import { getAll } from "../../api";
-import AlbumList from "../../components/Albums/AlbumList/AlbumList"
-import Pagination from "../../components/Common/Pagination/Pagination";
-import AsyncData from "../../components/Common/AsyncData/AsyncData";
+import { useState } from 'react';
+import useSWR from 'swr';
+import { getAll } from '../../api';
+import AlbumList from '../../components/Albums/AlbumList/AlbumList';
+import Pagination from '../../components/Common/Pagination/Pagination';
+import AsyncData from '../../components/Common/AsyncData/AsyncData';
 
 const Albums = () => {
 
@@ -22,7 +22,7 @@ const Albums = () => {
         </>
       </AsyncData>
     </div>
-  )
-}
+  );
+};
 
 export default Albums;

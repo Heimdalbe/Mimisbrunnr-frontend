@@ -1,12 +1,12 @@
-import useSWR from "swr";
-import PraesidiumMemberTable from "../../../../components/Admin/Praesidium/MemberTable/MemberTable";
-import { getAll } from "../../../../api";
-import AsyncData from "../../../../components/Common/AsyncData/AsyncData";
-import Breadcrumbs from "../../../../components/Breadcrumbs/Breadcrumbs";
-import { Link } from "react-router";
+import useSWR from 'swr';
+import PraesidiumMemberTable from '../../../../components/Admin/Praesidium/MemberTable/MemberTable';
+import { getAll } from '../../../../api';
+import AsyncData from '../../../../components/Common/AsyncData/AsyncData';
+import Breadcrumbs from '../../../../components/Breadcrumbs/Breadcrumbs';
+import { Link } from 'react-router';
 
 const AdminEreleden = () => {
-  const { data = { erelids: [] }, error, isLoading } = useSWR(`praesidium/erelids`, getAll);
+  const { data = { erelids: [] }, error, isLoading } = useSWR('praesidium/erelids', getAll);
 
   return (
     <div className="container">
@@ -16,7 +16,7 @@ const AdminEreleden = () => {
         <PraesidiumMemberTable members={data.erelids} hasYear={false} />
       </AsyncData>
     </div>
-  )
-}
+  );
+};
 
 export default AdminEreleden;

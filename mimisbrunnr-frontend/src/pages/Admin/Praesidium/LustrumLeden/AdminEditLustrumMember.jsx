@@ -1,10 +1,9 @@
-import useSWR from "swr";
-import { getAll } from "../../../../api";
-import AsyncData from "../../../../components/Common/AsyncData/AsyncData";
-import { Form, useParams } from "react-router";
-import Breadcrumbs from "../../../../components/Breadcrumbs/Breadcrumbs";
-import { useEffect, useState } from "react";
-import MemberForm from "../../../../components/Admin/Praesidium/MemberTable/MemberForm";
+import useSWR from 'swr';
+import { getAll } from '../../../../api';
+import AsyncData from '../../../../components/Common/AsyncData/AsyncData';
+import { Form, useParams } from 'react-router';
+import Breadcrumbs from '../../../../components/Breadcrumbs/Breadcrumbs';
+import MemberForm from '../../../../components/Admin/Praesidium/MemberTable/MemberForm';
 
 const AdminEditLustrumMember = () => {
   const { id } = useParams();
@@ -17,7 +16,7 @@ const AdminEditLustrumMember = () => {
         <MemberForm endpoint={'praesidium/lustrum/members'} id={id} member={member} />
       </AsyncData>
     </div>
-  )
-}
+  );
+};
 
 export default AdminEditLustrumMember;

@@ -19,7 +19,7 @@ const VisieSectie = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default VisieSectie;

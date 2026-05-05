@@ -4,8 +4,8 @@ import {
   FaInstagram,
   FaLinkedin,
   FaTwitch,
-} from "react-icons/fa";
-import "./Socials.css";
+} from 'react-icons/fa';
+import './Socials.css';
 
 const icons = {
   facebook: <FaFacebook />,

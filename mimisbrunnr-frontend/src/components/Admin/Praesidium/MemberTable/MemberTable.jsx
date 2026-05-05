@@ -1,6 +1,5 @@
-import { tr } from "motion/react-client";
-import { FaCheck, FaXmark } from "react-icons/fa6";
-import { Link } from "react-router";
+import { FaCheck, FaXmark } from 'react-icons/fa6';
+import { Link } from 'react-router';
 
 const PraesidiumMemberTable = ({ members, hasYear = true, hasRole = false }) => {
   return (
@@ -23,12 +22,12 @@ const PraesidiumMemberTable = ({ members, hasYear = true, hasRole = false }) => 
               {hasRole && <td><Link to={`/admin/functies/${m.role?.id}`}>{m.role?.name}</Link></td>}
               <td><Link to={`/admin/ledengegevens/${m.member?.id}`}>{m.member?.firstName} {m.member?.lastName}</Link></td>
               <td><Link to={`/admin/ledengegevens/${m.member?.id}/socials`}>Socials</Link></td>
-            </tr>
+            </tr>,
           )
         }
       </tbody>
     </table >
-  )
-}
+  );
+};
 
 export default PraesidiumMemberTable;

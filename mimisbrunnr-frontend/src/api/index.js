@@ -2,7 +2,7 @@ import axiosRoot from 'axios';
 
 export const axios = axiosRoot.create({
   baseURL: import.meta.env.VITE_API_URL,
-  withCredentials: true
+  withCredentials: true,
 });
 
 export async function getAll(url) {
@@ -30,7 +30,6 @@ export const put = async (url, { arg }) => {
 
   return data;
 };
-
 
 export const deleteById = async (url, { arg: id }) => {
   await axios.delete(`${url}/${id}`); 

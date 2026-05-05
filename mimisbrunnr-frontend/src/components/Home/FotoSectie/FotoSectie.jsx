@@ -4,19 +4,18 @@ import LightBox from '../../Common/Lightbox/Lightbox';
 
 import './FotoSectie.css';
 
-
 const FotoSectie = () => {
   const allImages = [
-    "Groepsfoto1.jpg",
-    "Groepsfoto2.jpg",
-    "Groepsfoto3.jpg",
-    "BackgroundImg1.png",
-    "Groepsfoto1.jpg",
-    "Groepsfoto2.jpg",
-    "Groepsfoto3.jpg"
+    'Groepsfoto1.jpg',
+    'Groepsfoto2.jpg',
+    'Groepsfoto3.jpg',
+    'BackgroundImg1.png',
+    'Groepsfoto1.jpg',
+    'Groepsfoto2.jpg',
+    'Groepsfoto3.jpg',
   ];
 
-  const areas = ['a', 'b', 'c', 'd', 'e', 'f', 'g']
+  const areas = ['a', 'b', 'c', 'd', 'e', 'f', 'g'];
   const [activeIndex, setActiveIndex] = useState(null);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
@@ -75,6 +74,6 @@ const FotoSectie = () => {
       {activeIndex !== null && (<LightBox images={images} activeIndex={activeIndex} setActiveIndex={setActiveIndex} />)}
     </div>
   );
-}
+};
 
 export default FotoSectie;

@@ -1,5 +1,5 @@
-import SchildInfo from "./SchildInfo/SchildInfo";
-import SocialsList from "../../Socials/SocialsList";
+import SchildInfo from './SchildInfo/SchildInfo';
+import SocialsList from '../../Socials/SocialsList';
 import './SchildSectie.css';
 
 const SchildSectie = () => {

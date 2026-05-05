@@ -3,7 +3,7 @@ const Stamboom = () => {
     <div>
       Stamboom
     </div>
-  )
-}
+  );
+};
 
 export default Stamboom;

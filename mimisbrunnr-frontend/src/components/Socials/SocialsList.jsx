@@ -1,11 +1,11 @@
-import SocialLink from "./SocialLink";
-import "./Socials.css";
+import SocialLink from './SocialLink';
+import './Socials.css';
 
 const defaultSocials = [
-  { type: "facebook", link: "https://www.facebook.com/Heimdal.be/" },
-  { type: "instagram", link: "https://www.instagram.com/heimdalgent/" },
-  { type: "linkedin", link: "https://www.linkedin.com/company/heimdal-be/" },
-  { type: "twitch", link: "https://www.twitch.tv/heimdalgent" },
+  { type: 'facebook', link: 'https://www.facebook.com/Heimdal.be/' },
+  { type: 'instagram', link: 'https://www.instagram.com/heimdalgent/' },
+  { type: 'linkedin', link: 'https://www.linkedin.com/company/heimdal-be/' },
+  { type: 'twitch', link: 'https://www.twitch.tv/heimdalgent' },
 ];
 
 const SocialsList = ({ socials = defaultSocials }) => {

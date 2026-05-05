@@ -1,6 +1,6 @@
-import WerkgroepenList from "../../../components/Werkgroepen/WerkgroepenList/WerkgroepenList";
-import werkgroepen from "../../../api/werkgroepen";
-import "./Werkgroepen.css";
+import WerkgroepenList from '../../../components/Werkgroepen/WerkgroepenList/WerkgroepenList';
+import werkgroepen from '../../../api/werkgroepen';
+import './Werkgroepen.css';
 
 const Werkgroepen = () => {
   return (

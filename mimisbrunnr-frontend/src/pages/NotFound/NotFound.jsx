@@ -3,7 +3,7 @@ const NotFound = () => {
     <div className="container-sm-tm">
       NotFound
     </div>
-  )
-}
+  );
+};
 
 export default NotFound;

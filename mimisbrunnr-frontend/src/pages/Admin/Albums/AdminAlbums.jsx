@@ -1,12 +1,12 @@
-import useSWR from "swr";
-import { getAll } from "../../../api";
-import AsyncData from "../../../components/Common/AsyncData/AsyncData";
-import AlbumTable from "../../../components/Admin/Albums/AlbumTable/AlbumTable";
-import Breadcrumbs from "../../../components/Breadcrumbs/Breadcrumbs";
-import { Link } from "react-router";
+import useSWR from 'swr';
+import { getAll } from '../../../api';
+import AsyncData from '../../../components/Common/AsyncData/AsyncData';
+import AlbumTable from '../../../components/Admin/Albums/AlbumTable/AlbumTable';
+import Breadcrumbs from '../../../components/Breadcrumbs/Breadcrumbs';
+import { Link } from 'react-router';
 
 const AdminAlbums = () => {
-  const { data = {}, error, isLoading } = useSWR(`albums`, getAll);
+  const { data = {}, error, isLoading } = useSWR('albums', getAll);
 
   return (
     <div className="container">
@@ -16,7 +16,7 @@ const AdminAlbums = () => {
         <AlbumTable albums={data.albums} />
       </AsyncData>
     </div>
-  )
-}
+  );
+};
 
 export default AdminAlbums;

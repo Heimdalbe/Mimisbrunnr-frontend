@@ -1,8 +1,8 @@
-import EventList from "../../components/Evenementen/EventList/EventList";
-import events from "../../api/events";
-import UpcomingEvent from "../../components/Evenementen/EventCard/UpcomingEvent";
-import Breadcrumbs from "../../components/Breadcrumbs/Breadcrumbs";
-import ChipList from "../../components/Common/Chip filter/ChipList";
+import EventList from '../../components/Evenementen/EventList/EventList';
+import events from '../../api/events';
+import UpcomingEvent from '../../components/Evenementen/EventCard/UpcomingEvent';
+import Breadcrumbs from '../../components/Breadcrumbs/Breadcrumbs';
+import ChipList from '../../components/Common/Chip filter/ChipList';
 
 //TODO: Events uit het verleden niet meer tonen (waarschijnlijk best in backend uitfilteren)
 
@@ -13,29 +13,29 @@ const Evenementen = () => {
   const chips = [
     {
       id: 1,
-      label: "Sport",
-      icon: "fa-football",
+      label: 'Sport',
+      icon: 'fa-football',
     },
     {
       id: 2,
-      label: "Cultuur",
-      icon: "fa-puzzle-piece",
+      label: 'Cultuur',
+      icon: 'fa-puzzle-piece',
     },
     {
       id: 3,
-      label: "Schachten",
-      icon: "fa-person",
+      label: 'Schachten',
+      icon: 'fa-person',
     },
     {
       id: 4,
-      label: "Feest&LAN",
-      icon: "fa-music",
+      label: 'Feest&LAN',
+      icon: 'fa-music',
     },
   ];
 
   return (
     <div className="container-sm-tm">
-      <Breadcrumbs children={[{ link: "evenementen", isLast: true }]} />
+      <Breadcrumbs children={[{ link: 'evenementen', isLast: true }]} />
       <UpcomingEvent
         title={upcomingEvent.title}
         location={upcomingEvent.location}

@@ -1,4 +1,4 @@
-import AlbumCard from "../AlbumCard/AlbumCard"
+import AlbumCard from '../AlbumCard/AlbumCard';
 import './AlbumList.css';
 
 const AlbumList = ({ albums = [] }) => {
@@ -21,7 +21,7 @@ const AlbumList = ({ albums = [] }) => {
         }
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default AlbumList;

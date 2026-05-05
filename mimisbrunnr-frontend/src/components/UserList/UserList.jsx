@@ -1,5 +1,5 @@
-import UserCard from "./UserCard.jsx";
-import "./UserItems.css";
+import UserCard from './UserCard.jsx';
+import './UserItems.css';
 
 const UserList = ({ users }) => {
   return (

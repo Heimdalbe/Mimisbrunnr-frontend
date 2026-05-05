@@ -1,11 +1,11 @@
-import { useEffect, useState } from "react";
-import { Form, useNavigate } from "react-router";
-import useSWR from "swr";
-import useSWRMutation from "swr/mutation";
-import { deleteById, getAll, save } from "../../../../api";
-import './MemberForm.css'
-import SelectField from "../../../Form/SelectField/SelectField";
-import AsyncData from "../../../Common/AsyncData/AsyncData";
+import { useEffect, useState } from 'react';
+import { Form, useNavigate } from 'react-router';
+import useSWR from 'swr';
+import useSWRMutation from 'swr/mutation';
+import { deleteById, getAll, save } from '../../../../api';
+import './MemberForm.css';
+import SelectField from '../../../Form/SelectField/SelectField';
+import AsyncData from '../../../Common/AsyncData/AsyncData';
 
 const MemberForm = ({ endpoint, id = undefined, member = {} }) => {
   const navigate = useNavigate();
@@ -27,17 +27,17 @@ const MemberForm = ({ endpoint, id = undefined, member = {} }) => {
         role: member.role?.id || undefined,
       });
     }
-  }, [member]);
+  }, [member, isEditMode]);
 
-  const { data: memberdetails = { members: [] }, isLoading: membersLoading, error: membersError } = useSWR('praesidium/memberdetails', getAll)
-  const { data: roles = { roles: [] }, isLoading: rolesLoading, error: rolesError } = useSWR('praesidium/roles', getAll)
+  const { data: memberdetails = { members: [] }, isLoading: membersLoading, error: membersError } = useSWR('praesidium/memberdetails', getAll);
+  const { data: roles = { roles: [] }, isLoading: rolesLoading, error: rolesError } = useSWR('praesidium/roles', getAll);
   const { trigger: handleSave, isMutating } = useSWRMutation(endpoint, save);
   const { trigger: handleDelete, isMutating: isDeleting } = useSWRMutation(endpoint, deleteById);
 
   function handleChange(e) {
-    const { name, value, type, checked } = e.target;
+    const { name, value } = e.target;
 
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
       [name]: value,
     }));
@@ -55,7 +55,7 @@ const MemberForm = ({ endpoint, id = undefined, member = {} }) => {
   }
 
   async function onDelete() {
-    if (!window.confirm("Are you sure you want to delete this entry?")) return;
+    if (!window.confirm('Are you sure you want to delete this entry?')) return;
 
     await handleDelete(id);
     navigate(-1);
@@ -64,8 +64,8 @@ const MemberForm = ({ endpoint, id = undefined, member = {} }) => {
   async function handleSelect(e) {
     setFormData({
       ...formData,
-      ...e
-    })
+      ...e,
+    });
   }
 
   return (
@@ -74,10 +74,10 @@ const MemberForm = ({ endpoint, id = undefined, member = {} }) => {
         Heimie
         <AsyncData loading={membersLoading} error={membersError}>
           <SelectField
-            label={"Kies een lid:"}
-            options={memberdetails.members.map(r => ({ label: `${r.firstName} ${r.lastName}`, value: r.id }))}
+            label={'Kies een lid:'}
+            options={memberdetails.members.map((r) => ({ label: `${r.firstName} ${r.lastName}`, value: r.id }))}
             value={formData.memberId}
-            onChange={e => handleSelect({ memberId: e })}
+            onChange={(e) => handleSelect({ memberId: e })}
           />
         </AsyncData>
       </label>
@@ -91,22 +91,22 @@ const MemberForm = ({ endpoint, id = undefined, member = {} }) => {
         <img src={formData.imageUrl} alt="preview" style={{ width: 100 }} />
       )}
 
-      {endpoint !== "praesidium/erelids" &&
+      {endpoint !== 'praesidium/erelids' &&
         <label>
           Jaar
           <input type="number" name="year" value={formData.year} onChange={handleChange}></input>
         </label>
       }
 
-      {endpoint === "praesidium/members" &&
+      {endpoint === 'praesidium/members' &&
         <label>
           Role
           <AsyncData loading={rolesLoading} error={rolesError}>
             <SelectField
-              label={"Kies een lid:"}
-              options={roles.roles.map(r => ({ label: r.name, value: r.id }))}
+              label={'Kies een lid:'}
+              options={roles.roles.map((r) => ({ label: r.name, value: r.id }))}
               value={formData.role}
-              onChange={e => handleSelect({ role: e })}
+              onChange={(e) => handleSelect({ role: e })}
             />
           </AsyncData>
         </label>
@@ -134,7 +134,7 @@ const MemberForm = ({ endpoint, id = undefined, member = {} }) => {
         </button>
 
         <button type="submit" disabled={isMutating}>
-          {isMutating ? "Saving..." : "Save"}
+          {isMutating ? 'Saving...' : 'Save'}
         </button>
       </div>
     </Form>

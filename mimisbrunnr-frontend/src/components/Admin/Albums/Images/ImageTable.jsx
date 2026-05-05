@@ -1,5 +1,4 @@
-import { useEffect, useState } from "react";
-import AlbumImage from "./AlbumImage";
+import AlbumImage from './AlbumImage';
 
 const ImageTable = ({ albumId, images = [], mutate }) => {
 
@@ -15,12 +14,13 @@ const ImageTable = ({ albumId, images = [], mutate }) => {
       <tbody>
         {
           images.map((i) =>
-            <AlbumImage key={i.id} albumId={albumId} id={i.id} url={i.url} description={i.description} mutate={mutate} />
+            <AlbumImage key={i.id} albumId={albumId} id={i.id} url={i.url}
+              description={i.description} mutate={mutate} />,
           )
         }
       </tbody>
     </table>
-  )
-}
+  );
+};
 
 export default ImageTable;

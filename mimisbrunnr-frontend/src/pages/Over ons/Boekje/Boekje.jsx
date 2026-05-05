@@ -1,9 +1,9 @@
-import { useState } from "react";
-import PrimaryButton from "../../../components/Common/PrimaryButton/PrimaryButton";
-import PdfViewer from "../../../components/PdfViewer/PdfViewer";
-import "./Boekje.css";
-import boekjes from "../../../api/boekjes";
-import SelectField from "../../../components/Form/SelectField/SelectField";
+import { useState } from 'react';
+import PrimaryButton from '../../../components/Common/PrimaryButton/PrimaryButton';
+import PdfViewer from '../../../components/PdfViewer/PdfViewer';
+import './Boekje.css';
+import boekjes from '../../../api/boekjes';
+import SelectField from '../../../components/Form/SelectField/SelectField';
 
 //TODO: Selectfield op full width ziet er hier beetje cursed uit
 
@@ -16,7 +16,7 @@ const Boekje = () => {
     return year;
   });
 
-  const [selectedLabel, setSelectedLabel] = useState(labels[0] ?? "");
+  const [selectedLabel, setSelectedLabel] = useState(labels[0] ?? '');
   const current = boekjes[labels.indexOf(selectedLabel)] || boekjes[0];
 
   const handleChangeBoekje = (label) => {
@@ -36,8 +36,8 @@ const Boekje = () => {
         */}
       </div>
       <SelectField
-        label={"Kies een jaar:"}
-        placeholder={"bv. 2025 - 2026"}
+        label={'Kies een jaar:'}
+        placeholder={'bv. 2025 - 2026'}
         options={labels}
         value={selectedLabel}
         onChange={handleChangeBoekje}

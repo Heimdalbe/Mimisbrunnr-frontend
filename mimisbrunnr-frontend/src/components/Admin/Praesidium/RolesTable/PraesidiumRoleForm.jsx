@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react";
-import { Form, useNavigate } from "react-router";
-import useSWRMutation from "swr/mutation";
-import { deleteById, save } from "../../../../api";
+import { useEffect, useState } from 'react';
+import { Form, useNavigate } from 'react-router';
+import useSWRMutation from 'swr/mutation';
+import { deleteById, save } from '../../../../api';
 import './PraesidiumRoleForm.css';
 
 const PraesidiumRoleForm = ({ id = undefined, role = {} }) => {
@@ -22,15 +22,15 @@ const PraesidiumRoleForm = ({ id = undefined, role = {} }) => {
         email: role?.email || '',
       });
     }
-  }, [role]);
+  }, [role, isEditMode]);
 
   const { trigger: handleSave, isMutating } = useSWRMutation('praesidium/roles', save);
   const { trigger: handleDelete, isMutating: isDeleting } = useSWRMutation('praesidium/roles', deleteById);
 
   function handleChange(e) {
-    const { name, value, type, checked } = e.target;
+    const { name, value } = e.target;
 
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
       [name]: value,
     }));
@@ -48,17 +48,10 @@ const PraesidiumRoleForm = ({ id = undefined, role = {} }) => {
   }
 
   async function onDelete() {
-    if (!window.confirm("Are you sure you want to delete this entry?")) return;
+    if (!window.confirm('Are you sure you want to delete this entry?')) return;
 
     await handleDelete(id);
     navigate(-1);
-  }
-
-  async function handleSelect(e) {
-    setFormData({
-      ...formData,
-      ...e
-    })
   }
 
   return (
@@ -99,7 +92,7 @@ const PraesidiumRoleForm = ({ id = undefined, role = {} }) => {
         </button>
 
         <button type="submit" disabled={isMutating}>
-          {isMutating ? "Saving..." : "Save"}
+          {isMutating ? 'Saving...' : 'Save'}
         </button>
       </div>
     </Form>

@@ -1,5 +1,5 @@
-import SocialsList from "../../../Socials/SocialsList";
-import NuttigeLinks from "./NuttigeLinks/NuttigeLinks";
+import SocialsList from '../../../Socials/SocialsList';
+import NuttigeLinks from './NuttigeLinks/NuttigeLinks';
 import './NuttigeLinks.css';
 
 const NuttigeLinksSection = () => {
@@ -16,7 +16,7 @@ const NuttigeLinksSection = () => {
         <SocialsList />
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default NuttigeLinksSection;

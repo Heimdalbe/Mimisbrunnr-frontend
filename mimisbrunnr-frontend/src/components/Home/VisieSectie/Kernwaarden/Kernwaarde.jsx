@@ -6,7 +6,7 @@ const Kernwaarde = ({ nr, waarde }) => {
       <h2 className='waarde-nr'>{nr}</h2>
       <h3>{waarde}</h3>
     </div>
-  )
-}
+  );
+};
 
 export default Kernwaarde;

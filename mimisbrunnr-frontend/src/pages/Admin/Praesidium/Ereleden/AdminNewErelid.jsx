@@ -1,5 +1,5 @@
-import MemberForm from "../../../../components/Admin/Praesidium/MemberTable/MemberForm";
-import Breadcrumbs from "../../../../components/Breadcrumbs/Breadcrumbs";
+import MemberForm from '../../../../components/Admin/Praesidium/MemberTable/MemberForm';
+import Breadcrumbs from '../../../../components/Breadcrumbs/Breadcrumbs';
 
 const AdminNewErelid = () => {
 
@@ -8,7 +8,7 @@ const AdminNewErelid = () => {
       <Breadcrumbs children={[{ link: 'admin' }, { link: 'ereleden' }, { link: 'new', isLast: true }]} />
       <MemberForm endpoint={'praesidium/erelids'} />
     </div>
-  )
-}
+  );
+};
 
 export default AdminNewErelid;

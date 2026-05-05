@@ -1,12 +1,12 @@
-import { useNavigate } from "react-router-dom";
-import EventIcon from "../Andere/EventIcon";
-import "./EventCard.css";
+import { useNavigate } from 'react-router-dom';
+import EventIcon from '../Andere/EventIcon';
+import './EventCard.css';
 
 const EventCard = ({ id, image, date, start_time, end_time, title, type }) => {
   const navigate = useNavigate();
   const d = new Date(date);
-  const day = d.getDate().toString().padStart(2, "0");
-  const month = d.toLocaleString("nl-BE", { month: "long" }).slice(0, 3);
+  const day = d.getDate().toString().padStart(2, '0');
+  const month = d.toLocaleString('nl-BE', { month: 'long' }).slice(0, 3);
 
   return (
     <div

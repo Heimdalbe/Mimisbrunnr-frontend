@@ -1,20 +1,20 @@
 import { useState, useEffect } from 'react';
 import LightBox from '../Lightbox/Lightbox';
-import './ImageGrid.css'
+import './ImageGrid.css';
 
 function getLayoutGroups(n) {
-  const LAYOUTS = [7, 5, 3, 2, 1]
+  const LAYOUTS = [7, 5, 3, 2, 1];
   const result = [];
   let remaining = n;
   let lastUsed = null;
 
   while (remaining > 0) {
-    let candidates = LAYOUTS.filter(l => l <= remaining && l != lastUsed);
+    let candidates = LAYOUTS.filter((l) => l <= remaining && l != lastUsed);
 
-    let layout = candidates.find(l => remaining - l == 0)
+    let layout = candidates.find((l) => remaining - l == 0);
 
     if (!layout)
-      layout = candidates.find(l => l <= remaining);
+      layout = candidates.find((l) => l <= remaining);
 
     result.push(layout);
     remaining -= layout;
@@ -32,7 +32,7 @@ const ImageGrid = ({ images = [] }) => {
   const [activeIndex, setActiveIndex] = useState(null);
   const openLightbox = (index) => setActiveIndex(index);
 
-  const urls = images.map(i => i.url)
+  const urls = images.map((i) => i.url);
 
   useEffect(() => {
     if (activeIndex !== null) {
@@ -51,24 +51,23 @@ const ImageGrid = ({ images = [] }) => {
     let imgs = [];
 
     images.slice(prev, prev + layouts[i]).forEach((img, j) => {
-      let k = index
+      let k = index;
       imgs.push(
         <div key={j} onClick={() => openLightbox(k)} className='img-wrapper' style={{ gridArea: '_' + j }} >
           <img src={img.url} alt={img.description} loading="lazy" />
-        </div>
+        </div>,
       );
-      index += 1
+      index += 1;
     });
 
     prev += layouts[i];
 
     diffs.push(
-      <div key={i} className={"layout-" + layouts[i]}>
+      <div key={i} className={'layout-' + layouts[i]}>
         {imgs}
-      </div>
+      </div>,
     );
   }
-
 
   return (
     <>

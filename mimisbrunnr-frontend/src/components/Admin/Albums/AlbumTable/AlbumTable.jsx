@@ -1,6 +1,5 @@
-import { tr } from "motion/react-client";
-import { FaCheck, FaXmark } from "react-icons/fa6";
-import { Link } from "react-router";
+import { FaCheck, FaXmark } from 'react-icons/fa6';
+import { Link } from 'react-router';
 
 const AlbumTable = ({ albums }) => {
   return (
@@ -21,12 +20,12 @@ const AlbumTable = ({ albums }) => {
               <td>{a.date}</td>
               <td>{a.published ? <FaCheck /> : <FaXmark />}</td>
               <td><Link to={`/admin/albums/${a.id}/images`}>Afbeeldingen</Link></td>
-            </tr>
+            </tr>,
           )
         }
       </tbody>
     </table>
-  )
-}
+  );
+};
 
 export default AlbumTable;

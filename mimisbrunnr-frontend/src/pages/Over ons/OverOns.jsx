@@ -1,6 +1,6 @@
-import SponsorSectie from "../../components/Home/SponsorSectie/SponsorSectie";
-import VisieSectie from "../../components/Home/VisieSectie/VisieSectie";
-import "./OverOns.css";
+import SponsorSectie from '../../components/Home/SponsorSectie/SponsorSectie';
+import VisieSectie from '../../components/Home/VisieSectie/VisieSectie';
+import './OverOns.css';
 
 const OverOns = () => {
   return (
@@ -19,7 +19,7 @@ const OverOns = () => {
       <VisieSectie />
       <SponsorSectie />
     </div >
-  )
-}
+  );
+};
 
 export default OverOns;

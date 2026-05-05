@@ -6,6 +6,6 @@ const EventChip = ({ open }) => {
       {open ? 'Open' : 'Gesloten'}
     </span>
   );
-}
+};
 
 export default EventChip;
