@@ -1,5 +1,5 @@
 import useSWRMutation from "swr/mutation";
-import { deleteById } from "../../../api";
+import { deleteById } from "../../../../api";
 
 const AlbumImage = ({ albumId, id, url, description, mutate }) => {
   const { trigger: handleDelete, isMutating: isDeleting } = useSWRMutation(`albums/${albumId}/images`, deleteById);

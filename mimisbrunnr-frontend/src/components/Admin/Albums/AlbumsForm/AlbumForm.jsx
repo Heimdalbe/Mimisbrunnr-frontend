@@ -61,17 +61,17 @@ const AlbumForm = ({ id = undefined, album = {} }) => {
   return (
     <Form onSubmit={handleSubmit} className="album-form">
       <label>
-        Name
+        Naam
         <input name="name" value={formData.name} onChange={handleChange} required />
       </label>
 
       <label>
-        Date
+        Datum
         <input type="date" name="date" value={formData.date} onChange={handleChange} required />
       </label>
 
       <label>
-        Cover Image
+        Cover Afbeelding
         <input type="url" name="coverImage" value={formData.coverImage} onChange={handleChange} />
       </label>
 
@@ -80,12 +80,12 @@ const AlbumForm = ({ id = undefined, album = {} }) => {
       )}
 
       <label>
-        Description
+        Beschrijving
         <textarea name="description" value={formData.description} onChange={handleChange} />
       </label>
 
       <label>
-        Published
+        Gedeeld
         <input
           type="checkbox"
           name="published"

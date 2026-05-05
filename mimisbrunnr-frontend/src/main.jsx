@@ -25,6 +25,22 @@ import AdminAlbums from "./pages/Admin/Albums/AdminAlbums.jsx";
 import AdminNewAlbum from "./pages/Admin/Albums/AdminNewAlbum.jsx";
 import AdminEditAlbum from "./pages/Admin/Albums/AdminEditAlbum.jsx";
 import AdminAlbumImages from "./pages/Admin/Albums/AdminAlbumImages.jsx";
+import AdminPraesidiumMembers from "./pages/Admin/Praesidium/Members/AdminPraesidiumMembers.jsx";
+import AdminEditPraesidiumMember from "./pages/Admin/Praesidium/Members/AdminEditPraesidiumMember.jsx";
+import AdminNewPraesidiumMember from "./pages/Admin/Praesidium/Members/AdminNewPraesidiumMember.jsx";
+import AdminMemberDetails from "./pages/Admin/Praesidium/MemberDetails/AdminMemberDetails.jsx";
+import AdminEditMemberDetails from "./pages/Admin/Praesidium/MemberDetails/AdminEditMemberDetails.jsx";
+import AdminNewMemberDetails from "./pages/Admin/Praesidium/MemberDetails/AdminNewMemberDetails.jsx";
+import AdminSuperSchachten from "./pages/Admin/Praesidium/Superschachten/AdminSuperSchachten.jsx";
+import AdminEditSuperSchacht from "./pages/Admin/Praesidium/Superschachten/AdminEditSuperschacht.jsx";
+import AdminNewSuperSchacht from "./pages/Admin/Praesidium/Superschachten/AdminNewSuperSchacht.jsx";
+import AdminEreleden from "./pages/Admin/Praesidium/Ereleden/AdminEreleden.jsx";
+import AdminEditErelid from "./pages/Admin/Praesidium/Ereleden/AdminEditErelid.jsx";
+import AdminNewErelid from "./pages/Admin/Praesidium/Ereleden/AdminNewErelid.jsx";
+import AdminLustrumMembers from "./pages/Admin/Praesidium/LustrumLeden/AdminLustrumMembers.jsx";
+import AdminEditLustrumMember from "./pages/Admin/Praesidium/LustrumLeden/AdminEditLustrumMember.jsx";
+import AdminNewLustrumMember from "./pages/Admin/Praesidium/LustrumLeden/AdminNewLustrumMember.jsx";
+import AdminPraesidiumRoles from "./pages/Admin/Praesidium/Functies/AdminPraesidiumRoles.jsx";
 
 import NotFound from "./pages/NotFound/NotFound.jsx";
 import Layout from "./Layout.jsx";
@@ -32,6 +48,9 @@ import "./index.css";
 import AdminLayout from "./AdminLayout.jsx";
 import { createBrowserRouter } from "react-router";
 import { RouterProvider } from "react-router/dom";
+import AdminEditPraesidiumRole from "./pages/Admin/Praesidium/Functies/AdminEditPraesidiumRole.jsx";
+import AdminNewPraesidiumRole from "./pages/Admin/Praesidium/Functies/AdminNewPraesidiumRole.jsx";
+import AdminSocials from "./pages/Admin/Praesidium/MemberDetails/AdminSocials.jsx";
 
 const router = createBrowserRouter([
   {
@@ -74,6 +93,25 @@ const router = createBrowserRouter([
       { path: "/admin/albums/new", Component: AdminNewAlbum },
       { path: "/admin/albums/:id", Component: AdminEditAlbum },
       { path: "/admin/albums/:id/images", Component: AdminAlbumImages },
+      { path: "/admin/praesidiumleden", Component: AdminPraesidiumMembers },
+      { path: "/admin/praesidiumleden/:id", Component: AdminEditPraesidiumMember },
+      { path: "/admin/praesidiumleden/new", Component: AdminNewPraesidiumMember },
+      { path: "/admin/superschachten", Component: AdminSuperSchachten },
+      { path: "/admin/superschachten/:id", Component: AdminEditSuperSchacht },
+      { path: "/admin/superschachten/new", Component: AdminNewSuperSchacht },
+      { path: "/admin/ereleden", Component: AdminEreleden },
+      { path: "/admin/ereleden/:id", Component: AdminEditErelid },
+      { path: "/admin/ereleden/new", Component: AdminNewErelid },
+      { path: "/admin/lustrumleden", Component: AdminLustrumMembers },
+      { path: "/admin/lustrumleden/:id", Component: AdminEditLustrumMember },
+      { path: "/admin/lustrumleden/new", Component: AdminNewLustrumMember },
+      { path: "/admin/ledengegevens", Component: AdminMemberDetails },
+      { path: "/admin/ledengegevens/:id", Component: AdminEditMemberDetails },
+      { path: "/admin/ledengegevens/new", Component: AdminNewMemberDetails },
+      { path: "/admin/ledengegevens/:id/socials", Component: AdminSocials },
+      { path: "/admin/functies", Component: AdminPraesidiumRoles },
+      { path: "/admin/functies/:id", Component: AdminEditPraesidiumRole },
+      { path: "/admin/functies/new", Component: AdminNewPraesidiumRole },
       { path: "/admin/*", Component: NotFound },
     ]
   }
