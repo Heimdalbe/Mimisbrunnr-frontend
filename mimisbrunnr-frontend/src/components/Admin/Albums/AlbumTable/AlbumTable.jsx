@@ -7,10 +7,10 @@ const AlbumTable = ({ albums }) => {
     <table>
       <thead>
         <tr>
-          <th>Name</th>
-          <th>Date</th>
-          <th>Published</th>
-          <th>Images</th>
+          <th>Naam</th>
+          <th>Datum</th>
+          <th>Gedeeld</th>
+          <th>Afbeeldingen</th>
         </tr>
       </thead>
       <tbody>
@@ -20,7 +20,7 @@ const AlbumTable = ({ albums }) => {
               <td><Link to={`/admin/albums/${a.id}`}>{a.name}</Link></td>
               <td>{a.date}</td>
               <td>{a.published ? <FaCheck /> : <FaXmark />}</td>
-              <td><Link to={`/admin/albums/${a.id}/images`}>Images</Link></td>
+              <td><Link to={`/admin/albums/${a.id}/images`}>Afbeeldingen</Link></td>
             </tr>
           )
         }

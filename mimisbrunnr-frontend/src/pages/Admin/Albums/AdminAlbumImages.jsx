@@ -3,7 +3,7 @@ import useSWR from "swr";
 import { getAll, post, put } from "../../../api";
 import AsyncData from "../../../components/Common/AsyncData/AsyncData";
 import Breadcrumbs from "../../../components/Breadcrumbs/Breadcrumbs";
-import ImageTable from "../../../components/Admin/Images/ImageTable"
+import ImageTable from "../../../components/Admin/Albums/Images/ImageTable"
 import { useEffect, useState } from "react";
 import useSWRMutation from "swr/mutation";
 
@@ -55,7 +55,7 @@ const AdminAlbumImages = () => {
   return (
     <div className="container">
       <AsyncData loading={isLoading} error={error}>
-        <Breadcrumbs children={[{ link: 'admin' }, { link: 'albums' }, { link: `${data.name}>Images`, isLast: true }]} />
+        <Breadcrumbs children={[{ link: 'admin' }, { link: 'albums' }, { link: `${data.name} > Images`, isLast: true }]} />
         <h1>{data.name}</h1>
         <ImageTable albumId={id} images={data.images} mutate={mutate} />
       </AsyncData>
