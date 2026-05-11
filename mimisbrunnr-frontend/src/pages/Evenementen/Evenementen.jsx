@@ -39,7 +39,7 @@ const Evenementen = () => {
   return (
     <div className="container-sm-tm">
       <Breadcrumbs children={[{ link: "evenementen", isLast: true }]} />
-      <AsyncData loading={eventsAreLoading} error={eventsAreLoading}>
+      <AsyncData loading={eventsAreLoading} error={eventsError}>
         {upcomingEvent && <UpcomingEvent
           id={upcomingEvent.id}
         />}

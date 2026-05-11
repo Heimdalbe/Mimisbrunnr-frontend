@@ -6,7 +6,7 @@ import useSWR from 'swr';
 import { getAll } from '../../../api';
 
 const PlanningSectie = () => {
-  const { data: data = { events: [] }, isLoading: eventsAreLoading, error: eventsError } = useSWR(`events/pub`, getAll);
+  const { data: data = { events: [] }, isLoading: eventsAreLoading, error: eventsError } = useSWR(`events/pub?take=4`, getAll);
 
   return (
     <div>

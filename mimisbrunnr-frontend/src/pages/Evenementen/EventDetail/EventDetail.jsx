@@ -18,7 +18,7 @@ const EventDetail = () => {
   var banner = event.banner;
 
   return (
-    <div className="container-sm-tm test">
+    <div className="container-sm-tm">
       {/* TODO: Terug knop of breadcrumbs (of allebei :p) */}
       <AsyncData loading={eventIsLoading} error={eventError}>
         <img className="background" src="../../../../public/BackgroundImg.png"></img>
