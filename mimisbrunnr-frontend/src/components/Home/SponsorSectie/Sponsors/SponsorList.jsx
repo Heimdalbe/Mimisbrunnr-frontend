@@ -5,7 +5,7 @@ const SponsorList = ({ sponsors }) => {
     <div className="sponsorlist-wrapper">
       <div className="sponsorlist marquee">
         {sponsors.map((s) => (
-          <Sponsor key={s.id} logo={s.logo} url={s.url} />
+          <Sponsor key={s.id} logo={s.logo} url={s.website} />
         ))}
       </div>
     </div>
