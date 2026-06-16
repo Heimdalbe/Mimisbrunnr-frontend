@@ -1,0 +1,46 @@
+.sponsor-wrapper{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  aspect-ratio: 1;
+  max-width: 100%;
+}
+
+.sponsor-wrapper:hover{
+  cursor: pointer;
+}
+
+.sponsor-wrapper:hover .sponsor-logo{  
+  transform: scale(1.3);
+}
+
+.sponsor-img-wrapper{
+  aspect-ratio: 4/3;
+  display: flex;
+  justify-content: center;
+  max-width: 100%;
+}
+
+.sponsor-name{
+  text-align: center;
+  align-self: center;
+}
+
+.sponsor-logo{
+  height: 100%;
+  width: auto;
+  transition: transform 0.3s ease;
+}
+
+.overlay-header{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.overlay-img-wrapper{
+  aspect-ratio: 4/3;
+  display: flex;
+  justify-content: center;
+  max-width: 50%;
+}

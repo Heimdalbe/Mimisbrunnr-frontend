@@ -59,6 +59,8 @@ const router = createBrowserRouter([
         ),
       },
 
+      { path: "/sponsors", Component: Sponsors },
+
       { path: "/cookie-policy", Component: CookiePolicy },
       { path: "/privacy-policy", Component: PrivacyPolicy },
 
