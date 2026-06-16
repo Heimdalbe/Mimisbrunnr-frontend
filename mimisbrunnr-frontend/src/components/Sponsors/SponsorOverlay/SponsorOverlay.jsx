@@ -7,7 +7,6 @@ import './SponsorOverlay.css';
 const SponsorOverlay = ({ id, setShowOverlay }) => {
   const { data: sponsor = {}, error: sponsorError, isLoading: sponsorsAreLoading } = useSWR(`sponsors/${id}`, getAll);
 
-
   return (
     <div className="overlay" onClick={() => setShowOverlay(false)}>
       <div className="overlay-content" onClick={(e) => e.stopPropagation()}>
