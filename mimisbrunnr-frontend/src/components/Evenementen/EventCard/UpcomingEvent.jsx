@@ -1,22 +1,20 @@
 import "./UpcomingEvent.css";
 import EventIcon from "../Andere/EventIcon";
 import Countdown from "../Andere/Countdown";
+import useSWR from "swr";
+import { getAll } from "../../../api";
 
 const UpcomingEvent = ({
-  title,
-  location,
-  date,
-  start_time,
-  description,
-  image,
-  type,
+  id
 }) => {
+  const { data: event = {}, error: eventError, isLoading: eventIsLoading } = useSWR(`events/pub/${id}`, getAll);
   const maxDescriptionLength = 260;
-  const safeDescription = description ?? "";
+  const safeDescription = event.description ?? "";
   const limitedDescription =
     safeDescription.length > maxDescriptionLength
       ? `${safeDescription.slice(0, maxDescriptionLength).trimEnd()}...`
       : safeDescription;
+  var date = new Date(event.start);
 
   return (
     <div className="event-wrapper">
@@ -24,21 +22,21 @@ const UpcomingEvent = ({
         <div>
           <div className="title-and-icon">
             <div>
-              <h1>{title}</h1>
-              <h2 className="location">{location}</h2>
+              <h1>{event.name}</h1>
+              <h2 className="location">{event.location}</h2>
             </div>
             <div>
-              <EventIcon category={type} />
+              <EventIcon category={event.category} />
             </div>
           </div>
           <p>
             {limitedDescription}
-            <a href="#"> Lees meer...</a>
+            <a href={`evenementen/${id}`}> Lees meer...</a>
           </p>
         </div>
         <Countdown date={date} />
       </div>
-      <img src={image} alt={"Foto van " + title} className="image" />
+      <img src={event.banner?.url} alt={event.banner?.alt ?? "Foto van " + event.name} className="image" />
     </div>
   );
 };
