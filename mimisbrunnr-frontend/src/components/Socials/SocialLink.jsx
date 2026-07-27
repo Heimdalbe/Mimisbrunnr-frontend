@@ -15,10 +15,10 @@ const icons = {
   discord: <FaDiscord />,
 };
 
-const SocialLink = ({ type, link }) => {
+const SocialLink = ({ type, url }) => {
   return (
-    <a href={link} className="social-link" target="blank">
-      {icons[type]}
+    <a href={url} className="social-link" target="blank">
+      {icons[type.name]}
     </a>
   );
 };

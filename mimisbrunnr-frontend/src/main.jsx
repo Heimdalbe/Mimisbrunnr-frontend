@@ -14,6 +14,7 @@ import Stamboom from "./pages/Over ons/Stamboom/Stamboom.jsx";
 import Praesidium from "./pages/Praesidium/Praesidium.jsx";
 import Ereleden from "./pages/Praesidium/Ereleden/Ereleden.jsx";
 import Superschachten from "./pages/Praesidium/Superschachten/Superschachten.jsx";
+import LustrumCommites from "./pages/Praesidium/LustrumCommités/Lustrumcommites.jsx";
 import Evenementen from "./pages/Evenementen/Evenementen.jsx";
 import EventDetail from "./pages/Evenementen/EventDetail/EventDetail.jsx";
 import EventEnlistForm from "./pages/Evenementen/EventEnlistForm.jsx";
@@ -47,6 +48,7 @@ const router = createBrowserRouter([
       { path: "/praesidium", Component: Praesidium },
       { path: "/praesidium/ereleden", Component: Ereleden },
       { path: "/praesidium/superschachten", Component: Superschachten },
+      { path: "/praesidium/lustrumcommites", Component: LustrumCommites },
 
       { path: "/evenementen", Component: Evenementen },
       { path: "/evenementen/:id", Component: EventDetail },
