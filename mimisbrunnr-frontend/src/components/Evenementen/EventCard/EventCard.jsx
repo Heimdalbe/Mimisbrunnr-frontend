@@ -5,8 +5,8 @@ import './EventCard.css';
 const EventCard = ({ id, banner, start, end, name, category }) => {
   const navigate = useNavigate();
   const date = new Date(start);
-  const day = date.getDate().toString().padStart(2, "0");
-  const month = date.toLocaleString("nl-BE", { month: "long" }).slice(0, 3);
+  const day = date.getDate().toString().padStart(2, '0');
+  const month = date.toLocaleString('nl-BE', { month: 'long' }).slice(0, 3);
   const start_time = date.toLocaleTimeString();
   const end_time = new Date(end).toLocaleTimeString();
 

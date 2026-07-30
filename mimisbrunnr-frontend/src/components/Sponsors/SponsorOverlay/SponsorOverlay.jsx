@@ -1,7 +1,7 @@
-import useSWR from "swr";
-import { getAll } from "../../../api";
-import AsyncData from "../../Common/AsyncData/AsyncData";
-import { div } from "motion/react-client";
+import useSWR from 'swr';
+import { getAll } from '../../../api';
+import AsyncData from '../../Common/AsyncData/AsyncData';
+import { div } from 'motion/react-client';
 import './SponsorOverlay.css';
 
 const SponsorOverlay = ({ id, setShowOverlay }) => {
@@ -27,7 +27,7 @@ const SponsorOverlay = ({ id, setShowOverlay }) => {
         </AsyncData>
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default SponsorOverlay;

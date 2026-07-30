@@ -1,16 +1,16 @@
-import EventList from "../../components/Evenementen/EventList/EventList";
+import EventList from '../../components/Evenementen/EventList/EventList';
 //import events from "../../api/events";
-import UpcomingEvent from "../../components/Evenementen/EventCard/UpcomingEvent";
-import Breadcrumbs from "../../components/Breadcrumbs/Breadcrumbs";
-import ChipList from "../../components/Common/Chip filter/ChipList";
-import useSWR from "swr";
-import { getAll } from "../../api";
-import AsyncData from "../../components/Common/AsyncData/AsyncData";
+import UpcomingEvent from '../../components/Evenementen/EventCard/UpcomingEvent';
+import Breadcrumbs from '../../components/Breadcrumbs/Breadcrumbs';
+import ChipList from '../../components/Common/Chip filter/ChipList';
+import useSWR from 'swr';
+import { getAll } from '../../api';
+import AsyncData from '../../components/Common/AsyncData/AsyncData';
 
 //TODO: Events uit het verleden niet meer tonen (waarschijnlijk best in backend uitfilteren)
 
 const Evenementen = () => {
-  const { data: data = { events: [] }, isLoading: eventsAreLoading, error: eventsError } = useSWR(`events/pub`, getAll);
+  const { data: data = { events: [] }, isLoading: eventsAreLoading, error: eventsError } = useSWR('events/pub', getAll);
   var upcomingEvent = data?.events?.[0];
 
   const chips = [
@@ -38,7 +38,7 @@ const Evenementen = () => {
 
   return (
     <div className="container-sm-tm">
-      <Breadcrumbs children={[{ link: "evenementen", isLast: true }]} />
+      <Breadcrumbs children={[{ link: 'evenementen', isLast: true }]} />
       <AsyncData loading={eventsAreLoading} error={eventsError}>
         {upcomingEvent && <UpcomingEvent
           id={upcomingEvent.id}

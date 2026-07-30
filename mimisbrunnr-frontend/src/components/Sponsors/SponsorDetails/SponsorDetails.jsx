@@ -3,19 +3,19 @@ import './SponsorDetails.css';
 import { div } from 'motion/react-client';
 import SponsorOverlay from '../SponsorOverlay/SponsorOverlay';
 
-const SponsorDetails = ({ id, name, logo, website, }) => {
+const SponsorDetails = ({ id, name, logo, website }) => {
   const [showOverlay, setShowOverlay] = useState(false);
 
   // useEffect pagina niet scrollable maken als er een overlay geopend is
   useEffect(() => {
     if (showOverlay) {
-      document.body.style.overflow = "hidden";
+      document.body.style.overflow = 'hidden';
     } else {
-      document.body.style.overflow = "auto";
+      document.body.style.overflow = 'auto';
     }
 
     return () => {
-      document.body.style.overflow = "auto";
+      document.body.style.overflow = 'auto';
     };
   }, [showOverlay]);
   return (
@@ -28,7 +28,7 @@ const SponsorDetails = ({ id, name, logo, website, }) => {
       </div>
       {showOverlay && <SponsorOverlay id={id} setShowOverlay={setShowOverlay} />}
     </>
-  )
-}
+  );
+};
 
 export default SponsorDetails;

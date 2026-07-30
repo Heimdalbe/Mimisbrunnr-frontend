@@ -4,15 +4,15 @@ import PrimaryButton from '../../../components/Common/PrimaryButton/PrimaryButto
 import EventList from '../../../components/Evenementen/EventList/EventList';
 import './EventDetail.css';
 
-import useSWR from "swr";
-import { getAll } from "../../../api";
-import AsyncData from "../../../components/Common/AsyncData/AsyncData";
-import SponsorList from "../../../components/Home/SponsorSectie/Sponsors/SponsorList";
+import useSWR from 'swr';
+import { getAll } from '../../../api';
+import AsyncData from '../../../components/Common/AsyncData/AsyncData';
+import SponsorList from '../../../components/Home/SponsorSectie/Sponsors/SponsorList';
 
 const EventDetail = () => {
   const { id } = useParams();
   const { data: event = {}, error: eventError, isLoading: eventIsLoading } = useSWR(`events/pub/${id}`, getAll);
-  const { data: data = { events: [] }, error: eventsError, isLoading: eventsAreLoading } = useSWR(`events/pub?take=4`, getAll);
+  const { data: data = { events: [] }, error: eventsError, isLoading: eventsAreLoading } = useSWR('events/pub?take=4', getAll);
   var date = new Date(event.start);
   var start_time = date.toLocaleTimeString();
   var banner = event.banner;
@@ -28,7 +28,7 @@ const EventDetail = () => {
           <div className="info-card">
             <div className="icon-info">
               <i class="fa-solid fa-user-group"></i>
-              {event.accessibility === "OPEN" ?
+              {event.accessibility === 'OPEN' ?
                 <span>Iedereen welkom</span> :
                 <span>Heimies</span>
               }
@@ -59,7 +59,7 @@ const EventDetail = () => {
           <div className="button-div">
             <PrimaryButton
               isLight={true}
-              text={"Inschrijven"}
+              text={'Inschrijven'}
               to={`/evenementen/${id}/inschrijven`}
             />
           </div>
@@ -79,8 +79,8 @@ const EventDetail = () => {
           <div className="button-div">
             <PrimaryButton
               isLight={true}
-              text={"Alle evenementen"}
-              to={"/evenementen"}
+              text={'Alle evenementen'}
+              to={'/evenementen'}
             />
           </div>
         </div>

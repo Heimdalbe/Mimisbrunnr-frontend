@@ -1,7 +1,7 @@
-import useSWR from "swr";
-import AsyncData from "../Common/AsyncData/AsyncData";
-import { getAll } from "../../api";
-import SocialsList from "../Socials/SocialsList";
+import useSWR from 'swr';
+import AsyncData from '../Common/AsyncData/AsyncData';
+import { getAll } from '../../api';
+import SocialsList from '../Socials/SocialsList';
 
 const UserOverlay = ({ id, setShowOverlay, endpoint }) => {
   const { data: user = {}, error: userError, isLoading: userIsLoading } = useSWR(`${endpoint}/${id}`, getAll);
@@ -33,7 +33,7 @@ const UserOverlay = ({ id, setShowOverlay, endpoint }) => {
           <SocialsList socials={user.member?.socials} />
         </div>
       </div>
-    </div>)
+    </div>);
 };
 
 export default UserOverlay;

@@ -1,15 +1,15 @@
-import "./UpcomingEvent.css";
-import EventIcon from "../Andere/EventIcon";
-import Countdown from "../Andere/Countdown";
-import useSWR from "swr";
-import { getAll } from "../../../api";
+import './UpcomingEvent.css';
+import EventIcon from '../Andere/EventIcon';
+import Countdown from '../Andere/Countdown';
+import useSWR from 'swr';
+import { getAll } from '../../../api';
 
 const UpcomingEvent = ({
-  id
+  id,
 }) => {
   const { data: event = {}, error: eventError, isLoading: eventIsLoading } = useSWR(`events/pub/${id}`, getAll);
   const maxDescriptionLength = 260;
-  const safeDescription = event.description ?? "";
+  const safeDescription = event.description ?? '';
   const limitedDescription =
     safeDescription.length > maxDescriptionLength
       ? `${safeDescription.slice(0, maxDescriptionLength).trimEnd()}...`
@@ -36,7 +36,7 @@ const UpcomingEvent = ({
         </div>
         <Countdown date={date} />
       </div>
-      <img src={event.banner?.url} alt={event.banner?.alt ?? "Foto van " + event.name} className="image" />
+      <img src={event.banner?.url} alt={event.banner?.alt ?? 'Foto van ' + event.name} className="image" />
     </div>
   );
 };
