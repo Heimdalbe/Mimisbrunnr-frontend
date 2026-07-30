@@ -1,12 +1,11 @@
-import { useParams } from "react-router-dom";
-import useSWR from "swr";
-import { getAll } from "../../../api";
+import { useParams } from 'react-router-dom';
+import useSWR from 'swr';
+import { getAll } from '../../../api';
 
-import AsyncData from "../../../components/Common/AsyncData/AsyncData";
-import PrimaryButton from "../../../components/Common/PrimaryButton/PrimaryButton";
-import ImageGrid from "../../../components/Common/ImageGrid/ImageGrid";
-import "./AlbumDetail.css";
-
+import AsyncData from '../../../components/Common/AsyncData/AsyncData';
+import PrimaryButton from '../../../components/Common/PrimaryButton/PrimaryButton';
+import ImageGrid from '../../../components/Common/ImageGrid/ImageGrid';
+import './AlbumDetail.css';
 
 const AlbumDetail = () => {
   const { id } = useParams();
@@ -14,7 +13,7 @@ const AlbumDetail = () => {
 
   const d = new Date(data.date);
   const day = d.getDate().toString();
-  const month = d.toLocaleString("nl-BE", { month: "long" });
+  const month = d.toLocaleString('nl-BE', { month: 'long' });
   const year = d.getFullYear();
 
   return (
@@ -27,7 +26,7 @@ const AlbumDetail = () => {
           {data.description ? <p>{data.description}</p> : <></>}
           <ImageGrid images={data.images} />
           <div>
-            <PrimaryButton text="Terug naar alle albums" isLight={true} to={"../albums"} />
+            <PrimaryButton text="Terug naar alle albums" isLight={true} to={'../albums'} />
           </div>
         </div>
       </AsyncData>

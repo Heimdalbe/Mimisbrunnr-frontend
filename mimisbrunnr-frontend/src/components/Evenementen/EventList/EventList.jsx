@@ -1,12 +1,12 @@
-import EventCard from "../EventCard/EventCard";
-import "./EventList.css";
+import EventCard from '../EventCard/EventCard';
+import './EventList.css';
 
 // TODO: hintende animatie dat je naar rechts kan swipen?
 
 const EventList = ({ events, limit }) => {
 
   return (
-    <div className={"carousel-wrapper" + (limit ? " carousel-mobile" : "")}>
+    <div className={'carousel-wrapper' + (limit ? ' carousel-mobile' : '')}>
       <div className="carousel">
         {events?.map((event) => (
           <EventCard

@@ -180,3 +180,26 @@ a.link-button{
     margin-bottom: 50px;
   }
 }
+
+
+/* ===================================== */
+/* =============== ADMIN =============== */
+/* ===================================== */
+
+.admin-content{
+  margin-left: 250px;
+}
+
+.admin-add-button{
+  display: flex;
+  align-self: flex-end;
+  text-align: right;
+}
+
+.admin-content table{
+  width: 100%;
+}
+
+.admin-content th{
+  text-align: left;
+}

@@ -8,7 +8,7 @@ const EventIcons = {
 };
 
 const EventIcon = ({ category }) => {
-  const iconClass = EventIcons[category] || "fa-solid fa-question"; // fallback icoon
+  const iconClass = EventIcons[category] || 'fa-solid fa-question'; // fallback icoon
   return (
     <div className='icon'>
       <i className={iconClass}></i>
@@ -16,4 +16,4 @@ const EventIcon = ({ category }) => {
   );
 };
 
-export default EventIcon
+export default EventIcon;

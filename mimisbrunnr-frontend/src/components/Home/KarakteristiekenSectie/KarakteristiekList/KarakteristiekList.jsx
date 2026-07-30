@@ -1,5 +1,5 @@
-import { useState, useEffect, useRef } from "react";
-import KarakteristiekCard from "../Karakteristiek/KarakteristiekCard";
+import { useState, useEffect, useRef } from 'react';
+import KarakteristiekCard from '../Karakteristiek/KarakteristiekCard';
 import './KarakteristiekList.css';
 
 const KarakteristiekList = ({ characteristics, activeIndex }) => {
@@ -11,8 +11,8 @@ const KarakteristiekList = ({ characteristics, activeIndex }) => {
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth <= 768);
     handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
 
   // Update underline for desktop + mobile
@@ -22,8 +22,8 @@ const KarakteristiekList = ({ characteristics, activeIndex }) => {
       const { offsetLeft, offsetWidth } = activeCard;
       setUnderlineStyle({
         transform: `translateX(${offsetLeft}px)`,
-        transition: "transform 0.5s ease, width 0.5s ease",
-        width: offsetWidth + "px",
+        transition: 'transform 0.5s ease, width 0.5s ease',
+        width: offsetWidth + 'px',
       });
     }
   }, [activeIndex, isMobile, characteristics]);
@@ -37,8 +37,8 @@ const KarakteristiekList = ({ characteristics, activeIndex }) => {
           ref={(el) => (cardRefs.current[index] = el)}
           style={{ 
             opacity: isMobile ? (activeIndex === index ? 1 : 0) : 1, 
-            transform: isMobile ? (activeIndex === index ? "translateX(0)" : "translateX(-50px)") : "none", 
-            transition: isMobile ? "opacity 0.5s ease, transform 0.5s ease" : "none" 
+            transform: isMobile ? (activeIndex === index ? 'translateX(0)' : 'translateX(-50px)') : 'none', 
+            transition: isMobile ? 'opacity 0.5s ease, transform 0.5s ease' : 'none', 
           }}
         >
           <KarakteristiekCard
@@ -55,6 +55,6 @@ const KarakteristiekList = ({ characteristics, activeIndex }) => {
       </div>
     </div>
   );
-}
+};
 
 export default KarakteristiekList;

@@ -15,7 +15,7 @@ const SchildInfo = () => {
         <a href='/over-ons'> Lees meer ...</a>
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default SchildInfo;

@@ -1,22 +1,22 @@
-import { Link } from "react-router-dom";
-import "./Navbar.css";
-import NavbarHamburger from "./Components/NavbarHamburger";
-import { useState, useEffect } from "react";
-import OverOns from "./Components/OverOns";
-import NavContactButton from "./Components/NavContactButton";
+import { Link } from 'react-router-dom';
+import './Navbar.css';
+import NavbarHamburger from './Components/NavbarHamburger';
+import { useState, useEffect } from 'react';
+import OverOns from './Components/OverOns';
+import NavContactButton from './Components/NavContactButton';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     if (isOpen) {
-      document.body.style.overflow = "hidden";
+      document.body.style.overflow = 'hidden';
     } else {
-      document.body.style.overflow = "";
+      document.body.style.overflow = '';
     }
 
     return () => {
-      document.body.style.overflow = "";
+      document.body.style.overflow = '';
     };
   }, [isOpen]);
 
@@ -24,7 +24,7 @@ const Navbar = () => {
     <div className="navbar">
       <div className="container">
         <div className="navbar-desktop">
-          <Link className="logo" to={"/"}>
+          <Link className="logo" to={'/'}>
             <img src="./HeimdalBannerTransparantWit.png" alt="Heimdal Banner" />
           </Link>
 
@@ -32,28 +32,28 @@ const Navbar = () => {
             <div>
               <OverOns
                 links={[
-                  { label: "Wie zijn we?", to: "/over-ons" },
-                  { label: "Clublied", to: "/over-ons/clublied" },
-                  { label: "Boekje", to: "/over-ons/boekje" },
-                  { label: "Statuten", to: "/over-ons/statuten" },
-                  { label: "Werkgroepen", to: "/over-ons/werkgroepen" },
+                  { label: 'Wie zijn we?', to: '/over-ons' },
+                  { label: 'Clublied', to: '/over-ons/clublied' },
+                  { label: 'Boekje', to: '/over-ons/boekje' },
+                  { label: 'Statuten', to: '/over-ons/statuten' },
+                  { label: 'Werkgroepen', to: '/over-ons/werkgroepen' },
                 ]}
               />
-              <Link to={"/albums"} className="nav-link">
+              <Link to={'/albums'} className="nav-link">
                 Albums
               </Link>
-              <Link to={"/praesidium"} className="nav-link">
+              <Link to={'/praesidium'} className="nav-link">
                 Praesidium
               </Link>
-              <Link to={"/evenementen"} className="nav-link">
+              <Link to={'/evenementen'} className="nav-link">
                 Evenementen
               </Link>
             </div>
             <div>
-              <Link to={"/contact"} className="contact-link">
+              <Link to={'/contact'} className="contact-link">
                 <NavContactButton />
               </Link>
-              <Link to={"/login"} className="user-icon">
+              <Link to={'/login'} className="user-icon">
                 <i className="fa-solid fa-circle-user"></i>
               </Link>
             </div>
@@ -61,40 +61,40 @@ const Navbar = () => {
         </div>
 
         <div className="navbar-mobile">
-          <Link to={"/"} className="logo">
+          <Link to={'/'} className="logo">
             <img src="./HeimdalBannerTransparantWit.png" alt="Heimdal Banner" />
           </Link>
 
           <div className="nav-links">
-            <Link to={"/login"} className={`user-icon ${isOpen ? "open" : ""}`}>
+            <Link to={'/login'} className={`user-icon ${isOpen ? 'open' : ''}`}>
               <i className="fa-solid fa-circle-user"></i>
             </Link>
             <NavbarHamburger isOpen={isOpen} setIsOpen={setIsOpen} />
           </div>
 
-          <div className={`mobile-menu ${isOpen ? "open" : ""}`}>
+          <div className={`mobile-menu ${isOpen ? 'open' : ''}`}>
             <div className="mobile-links">
               <OverOns
                 links={[
-                  { label: "Wie zijn we?", to: "/over-ons" },
-                  { label: "Clublied", to: "/over-ons/clublied" },
-                  { label: "Boekje", to: "/over-ons/boekje" },
-                  { label: "Statuten", to: "/over-ons/statuten" },
-                  { label: "Werkgroepen", to: "/over-ons/werkgroepen" },
+                  { label: 'Wie zijn we?', to: '/over-ons' },
+                  { label: 'Clublied', to: '/over-ons/clublied' },
+                  { label: 'Boekje', to: '/over-ons/boekje' },
+                  { label: 'Statuten', to: '/over-ons/statuten' },
+                  { label: 'Werkgroepen', to: '/over-ons/werkgroepen' },
                 ]}
               />
 
-              <Link to={"/albums"} className="nav-link">
+              <Link to={'/albums'} className="nav-link">
                 Albums
               </Link>
-              <Link to={"/praesidium"} className="nav-link">
+              <Link to={'/praesidium'} className="nav-link">
                 Praesidium
               </Link>
-              <Link to={"/evenementen"} className="nav-link">
+              <Link to={'/evenementen'} className="nav-link">
                 Evenementen
               </Link>
 
-              <Link to={"/contact"} className="contact-link">
+              <Link to={'/contact'} className="contact-link">
                 <NavContactButton />
               </Link>
             </div>

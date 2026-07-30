@@ -3,7 +3,7 @@ const PrivacyPolicy = () => {
     <div className="container-sm-tm">
       PrivacyPolicy
     </div>
-  )
-}
+  );
+};
 
 export default PrivacyPolicy;

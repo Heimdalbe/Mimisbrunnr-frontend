@@ -1,6 +1,6 @@
-import { useNavigate } from "react-router-dom";
-import EventIcon from "../Andere/EventIcon";
-import "./EventCard.css";
+import { useNavigate } from 'react-router-dom';
+import EventIcon from '../Andere/EventIcon';
+import './EventCard.css';
 
 const EventCard = ({ id, banner, start, end, name, category }) => {
   const navigate = useNavigate();

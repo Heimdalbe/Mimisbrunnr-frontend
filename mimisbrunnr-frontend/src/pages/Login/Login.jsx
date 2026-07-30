@@ -1,7 +1,7 @@
-import { useState } from "react";
-import { useAuth } from "../../contexts/AuthContext";
-import { useNavigate, useLocation } from "react-router-dom";
-import "./Login.css";
+import { useState } from 'react';
+import { useAuth } from '../../contexts/AuthContext';
+import { useNavigate, useLocation } from 'react-router-dom';
+import './Login.css';
 
 const Login = () => {
   const { login, isAuthenticated, user, logout } = useAuth();
@@ -9,24 +9,24 @@ const Login = () => {
   const location = useLocation();
 
   // Get the intended destination from location state, or default to home
-  const from = location.state?.from?.pathname || "/";
+  const from = location.state?.from?.pathname || '/';
 
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError("");
+    setError('');
 
     try {
       await login(email, password);
       navigate(from, { replace: true });
     } catch (err) {
       if (err.response?.status === 401) {
-        setError("Ongeldig e-mailadres of wachtwoord.");
+        setError('Ongeldig e-mailadres of wachtwoord.');
       } else {
-        setError("Er ging iets mis. Probeer het later opnieuw.");
+        setError('Er ging iets mis. Probeer het later opnieuw.');
       }
     }
   };
@@ -35,7 +35,7 @@ const Login = () => {
     try {
       await logout();
     } catch {
-      setError("Uitloggen mislukt. Probeer het opnieuw.");
+      setError('Uitloggen mislukt. Probeer het opnieuw.');
     }
   };
 

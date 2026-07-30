@@ -49,7 +49,7 @@ export const AuthProvider = ({ children }) => {
     isAuthenticated: !!user,
     login,
     logout,
-    refreshUser: checkAuth
+    refreshUser: checkAuth,
   };
 
   return (

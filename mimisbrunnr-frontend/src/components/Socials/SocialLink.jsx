@@ -4,8 +4,8 @@ import {
   FaInstagram,
   FaLinkedin,
   FaTwitch,
-} from "react-icons/fa";
-import "./Socials.css";
+} from 'react-icons/fa';
+import './Socials.css';
 
 const icons = {
   facebook: <FaFacebook />,
@@ -16,9 +16,11 @@ const icons = {
 };
 
 const SocialLink = ({ type, url }) => {
+  const socialType = type?.name ?? type;
+
   return (
-    <a href={url} className="social-link" target="blank">
-      {icons[type.name]}
+    <a href={url} className="social-link" target="_blank" rel="noreferrer">
+      {icons[socialType]}
     </a>
   );
 };

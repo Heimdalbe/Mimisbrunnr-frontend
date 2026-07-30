@@ -1,4 +1,4 @@
-import "./PdfViewer.css";
+import './PdfViewer.css';
 
 const PdfViewer = ({ bestand }) => {
   return (

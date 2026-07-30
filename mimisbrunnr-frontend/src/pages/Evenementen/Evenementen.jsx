@@ -16,23 +16,23 @@ const Evenementen = () => {
   const chips = [
     {
       id: 1,
-      label: "Sport",
-      icon: "fa-football",
+      label: 'Sport',
+      icon: 'fa-football',
     },
     {
       id: 2,
-      label: "Cultuur",
-      icon: "fa-puzzle-piece",
+      label: 'Cultuur',
+      icon: 'fa-puzzle-piece',
     },
     {
       id: 3,
-      label: "Schachten",
-      icon: "fa-person",
+      label: 'Schachten',
+      icon: 'fa-person',
     },
     {
       id: 4,
-      label: "Feest&LAN",
-      icon: "fa-music",
+      label: 'Feest&LAN',
+      icon: 'fa-music',
     },
   ];
 

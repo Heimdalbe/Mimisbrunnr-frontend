@@ -9,7 +9,7 @@ const KernwaardenList = ({ kernwaarden }) => {
         ))
       }
     </div>
-  )
-}
+  );
+};
 
 export default KernwaardenList;

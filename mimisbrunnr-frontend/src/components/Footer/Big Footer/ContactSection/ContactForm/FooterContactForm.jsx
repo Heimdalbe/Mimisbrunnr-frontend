@@ -1,21 +1,20 @@
-import { useState } from "react";
-import * as motion from "motion/react-client";
-import { AnimatePresence } from "motion/react";
-import InputField from "../../../../Form/InputField/InputField";
-import SelectField from "../../../../Form/SelectField/SelectField";
-import "./ContactForm.css";
+import { useState } from 'react';
+import { AnimatePresence } from 'motion/react';
+import InputField from '../../../../Form/InputField/InputField';
+import SelectField from '../../../../Form/SelectField/SelectField';
+import './ContactForm.css';
 
 const FooterContactForm = () => {
-  const onderwerpOpties = ["Algemeen", "Evenement", "Extra info"];
+  const onderwerpOpties = ['Algemeen', 'Evenement', 'Extra info'];
 
-  const [naam, setNaam] = useState("");
-  const [email, setEmail] = useState("");
-  const [onderwerp, setOnderwerp] = useState("");
-  const [bericht, setBericht] = useState("");
+  const [naam, setNaam] = useState('');
+  const [email, setEmail] = useState('');
+  const [onderwerp, setOnderwerp] = useState('');
+  const [bericht, setBericht] = useState('');
   const [submitted, setSubmitted] = useState(false);
 
   const emailIsValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-  const isFormValid = (naam !== "") && (emailIsValid) && (onderwerp != "") && (bericht != "");
+  const isFormValid = (naam !== '') && (emailIsValid) && (onderwerp != '') && (bericht != '');
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -23,10 +22,10 @@ const FooterContactForm = () => {
 
     setSubmitted(true);
 
-    setNaam("");
-    setEmail("");
-    setOnderwerp("");
-    setBericht("");
+    setNaam('');
+    setEmail('');
+    setOnderwerp('');
+    setBericht('');
 
     setTimeout(() => setSubmitted(false), 5000);
   }
@@ -66,8 +65,8 @@ const FooterContactForm = () => {
         />
 
         <SelectField
-          label={"Onderwerp"}
-          placeholder={"Maak een keuze..."}
+          label={'Onderwerp'}
+          placeholder={'Maak een keuze...'}
           options={onderwerpOpties}
           value={onderwerp}
           onChange={(val) => setOnderwerp(val)}
@@ -76,7 +75,7 @@ const FooterContactForm = () => {
         <InputField
           type="message"
           label="Bericht"
-          placeholder={"Vul hier je boodschap in..."}
+          placeholder={'Vul hier je boodschap in...'}
           value={bericht}
           onChange={(e) => setBericht(e.target.value)}
         />

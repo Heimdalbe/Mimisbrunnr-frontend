@@ -1,6 +1,6 @@
 const statuten = {
   id: 1,
-  bestandUrl: "/statuten.pdf",
+  bestandUrl: '/statuten.pdf',
   datumAangepast: new Date(),
 };
 

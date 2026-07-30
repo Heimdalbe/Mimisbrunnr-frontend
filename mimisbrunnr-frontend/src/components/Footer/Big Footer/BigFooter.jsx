@@ -15,7 +15,7 @@ const BigFooter = () => {
         alt="Jormungandr"
       />
     </div>
-  )
-}
+  );
+};
 
 export default BigFooter;

@@ -1,5 +1,5 @@
-import CopyrightSection from "./CopyRightSection/CopyRightSection";
-import SmallFooterLinks from "./SmallFooterLinks/SmallFooterLinks";
+import CopyrightSection from './CopyRightSection/CopyRightSection';
+import SmallFooterLinks from './SmallFooterLinks/SmallFooterLinks';
 import './SmallFooter.css';
 
 const SmallFooter = () => {
@@ -8,7 +8,7 @@ const SmallFooter = () => {
       <SmallFooterLinks />
       <CopyrightSection />
     </footer>
-  )
-}
+  );
+};
 
 export default SmallFooter;

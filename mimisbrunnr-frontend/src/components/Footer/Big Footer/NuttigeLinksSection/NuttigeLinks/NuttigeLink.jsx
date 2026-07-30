@@ -1,4 +1,4 @@
-import { FiChevronRight } from "react-icons/fi";
+import { FiChevronRight } from 'react-icons/fi';
 import './NuttigeLink.css';
 
 const NuttigeLink = ({ link, text }) => {

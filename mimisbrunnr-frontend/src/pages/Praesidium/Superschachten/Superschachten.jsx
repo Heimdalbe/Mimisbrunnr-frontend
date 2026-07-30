@@ -18,5 +18,4 @@ const Superschachten = () => {
   );
 };
 
-
 export default Superschachten;

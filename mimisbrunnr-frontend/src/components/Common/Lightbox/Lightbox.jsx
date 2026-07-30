@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import "./Lightbox.css"
+import './Lightbox.css';
 
 const LightBox = ({ images = [], activeIndex, setActiveIndex }) => {
 
@@ -24,7 +24,7 @@ const LightBox = ({ images = [], activeIndex, setActiveIndex }) => {
 
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [activeIndex, images.length]);
+  }, [activeIndex, images.length, setActiveIndex]);
 
   return <div className="lightbox" onClick={() => setActiveIndex(null)}>
     <button
@@ -56,7 +56,7 @@ const LightBox = ({ images = [], activeIndex, setActiveIndex }) => {
     </div>
 
     <img src={images[activeIndex]} alt="" />
-  </div>
-}
+  </div>;
+};
 
-export default LightBox
+export default LightBox;

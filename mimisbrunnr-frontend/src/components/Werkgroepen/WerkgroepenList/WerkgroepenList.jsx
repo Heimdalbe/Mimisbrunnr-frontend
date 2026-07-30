@@ -1,5 +1,5 @@
-import WerkgroepCard from "../WerkgroepCard/WerkgroepCard";
-import "./WerkgroepenList.css";
+import WerkgroepCard from '../WerkgroepCard/WerkgroepCard';
+import './WerkgroepenList.css';
 
 const WerkgroepenList = ({ werkgroepen }) => {
   return (

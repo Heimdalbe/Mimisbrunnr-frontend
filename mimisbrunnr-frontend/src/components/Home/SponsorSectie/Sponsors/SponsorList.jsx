@@ -1,4 +1,4 @@
-import Sponsor from "./Sponsor";
+import Sponsor from './Sponsor';
 
 const SponsorList = ({ sponsors }) => {
   return (
@@ -9,7 +9,7 @@ const SponsorList = ({ sponsors }) => {
         ))}
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default SponsorList;
