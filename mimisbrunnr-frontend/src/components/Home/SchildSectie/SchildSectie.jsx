@@ -1,5 +1,5 @@
 import SchildInfo from './SchildInfo/SchildInfo';
-import SocialsList from '../../Socials/SocialsList';
+import SocialsList, { defaultSocials } from '../../Socials/SocialsList';
 import './SchildSectie.css';
 
 const SchildSectie = () => {
@@ -11,7 +11,7 @@ const SchildSectie = () => {
       </div>
 
       <div className="socials-wrapper">
-        <SocialsList />
+        <SocialsList socials={defaultSocials} />
       </div>
     </div>
   );

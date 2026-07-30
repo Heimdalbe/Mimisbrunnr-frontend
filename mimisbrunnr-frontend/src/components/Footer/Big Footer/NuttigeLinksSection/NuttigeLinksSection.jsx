@@ -1,4 +1,4 @@
-import SocialsList from '../../../Socials/SocialsList';
+import SocialsList, { defaultSocials } from '../../../Socials/SocialsList';
 import NuttigeLinks from './NuttigeLinks/NuttigeLinks';
 import './NuttigeLinks.css';
 
@@ -9,11 +9,11 @@ const NuttigeLinksSection = () => {
         <h1 className="footer-title">Nuttige links</h1>
         <div className="nuttige-links-container">
           <NuttigeLinks />
-          <SocialsList />
+          <SocialsList socials={defaultSocials} />
         </div>
       </div>
       <div className="nuttige-links-mobile">
-        <SocialsList />
+        <SocialsList socials={defaultSocials} />
       </div>
     </div>
   );
