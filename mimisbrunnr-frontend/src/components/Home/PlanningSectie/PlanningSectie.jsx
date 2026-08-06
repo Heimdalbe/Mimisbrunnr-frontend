@@ -1,6 +1,5 @@
 import EventList from '../../Evenementen/EventList/EventList';
 import PrimaryButton from '../../Common/PrimaryButton/PrimaryButton';
-import events from '../../../api/events';
 import AsyncData from '../../Common/AsyncData/AsyncData';
 import useSWR from 'swr';
 import { getAll } from '../../../api';

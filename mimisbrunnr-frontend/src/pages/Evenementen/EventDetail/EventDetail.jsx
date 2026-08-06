@@ -1,5 +1,4 @@
 import { useParams } from 'react-router-dom';
-import events from '../../../api/events';
 import PrimaryButton from '../../../components/Common/PrimaryButton/PrimaryButton';
 import EventList from '../../../components/Evenementen/EventList/EventList';
 import './EventDetail.css';
