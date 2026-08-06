@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import './AlbumCard.css';
 import capitalize from '../../../utils/capitalize';
 
-const AlbumCard = ({ id, name, date, coverImage = { url: '../../../../public/BackgroundImg.png' }, published }) => {
+const AlbumCard = ({ id, name, date, coverImage = { url: '../../../../public/BackgroundImg.png' } }) => {
   const navigate = useNavigate();
   const d = new Date(date);
   const month = capitalize(d.toLocaleString('nl-BE', { month: 'long' }));

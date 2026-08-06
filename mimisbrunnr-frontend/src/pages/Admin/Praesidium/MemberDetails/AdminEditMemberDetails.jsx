@@ -12,7 +12,13 @@ const AdminEditMemberDetails = () => {
   return (
     <div className="container">
       <AsyncData loading={isLoading} error={error}>
-        <Breadcrumbs children={[{ link: 'admin' }, { link: 'ledengegevens' }, { link: `${member.firstName} ${member.lastName}`, isLast: true }]} />
+        <Breadcrumbs
+          children={[
+            { link: 'admin' },
+            { link: 'ledengegevens' },
+            { link: `${member.firstName} ${member.lastName}`, isLast: true },
+          ]}
+        />
         <MemberDetailsForm id={id} memberDetails={member} />
       </AsyncData>
     </div>

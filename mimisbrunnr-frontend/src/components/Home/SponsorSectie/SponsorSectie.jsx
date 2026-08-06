@@ -3,10 +3,10 @@ import SponsorList from './Sponsors/SponsorList';
 import PrimaryButton from '../../Common/PrimaryButton/PrimaryButton';
 import AsyncData from '../../Common/AsyncData/AsyncData';
 import useSWR from 'swr';
-import { getAll } from '../../../api'
+import { getAll } from '../../../api';
 
 const SponsorSectie = () => {
-  const { data: sponsors = { sponsors: [] }, sponsorError, sponsorsAreLoading } = useSWR(`sponsors`, getAll);
+  const { data: sponsors = { sponsors: [] }, sponsorError, sponsorsAreLoading } = useSWR('sponsors', getAll);
 
   return (
     <div>

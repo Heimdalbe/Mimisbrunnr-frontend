@@ -12,7 +12,16 @@ const AdminEditLustrumMember = () => {
   return (
     <div className="container">
       <AsyncData loading={isLoading} error={error}>
-        <Breadcrumbs children={[{ link: 'admin' }, { link: 'lustrumleden' }, { link: `${member.member?.firstName} ${member.member?.lastName}(${member.year}-${member.year + 1})`, isLast: true }]} />
+        <Breadcrumbs
+          children={[
+            { link: 'admin' },
+            { link: 'lustrumleden' },
+            {
+              link: `${member.member?.firstName} ${member.member?.lastName}(${member.year}-${member.year + 1})`,
+              isLast: true,
+            },
+          ]}
+        />
         <MemberForm endpoint={'praesidium/lustrum/members'} id={id} member={member} />
       </AsyncData>
     </div>

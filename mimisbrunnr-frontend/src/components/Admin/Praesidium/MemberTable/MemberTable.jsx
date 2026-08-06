@@ -14,19 +14,33 @@ const PraesidiumMemberTable = ({ members, hasYear = true, hasRole = false }) => 
         </tr>
       </thead>
       <tbody>
-        {
-          members.map((m) =>
-            <tr>
-              <td><Link to={`./${m.id}`}>{m.id}</Link></td>
-              {hasYear && <td>{m.year}-{m.year + 1}</td>}
-              {hasRole && <td><Link to={`/admin/functies/${m.role?.id}`}>{m.role?.name}</Link></td>}
-              <td><Link to={`/admin/ledengegevens/${m.member?.id}`}>{m.member?.firstName} {m.member?.lastName}</Link></td>
-              <td><Link to={`/admin/ledengegevens/${m.member?.id}/socials`}>Socials</Link></td>
-            </tr>,
-          )
-        }
+        {members.map((m) => (
+          <tr>
+            <td>
+              <Link to={`./${m.id}`}>{m.id}</Link>
+            </td>
+            {hasYear && (
+              <td>
+                {m.year}-{m.year + 1}
+              </td>
+            )}
+            {hasRole && (
+              <td>
+                <Link to={`/admin/functies/${m.role?.id}`}>{m.role?.name}</Link>
+              </td>
+            )}
+            <td>
+              <Link to={`/admin/ledengegevens/${m.member?.id}`}>
+                {m.member?.firstName} {m.member?.lastName}
+              </Link>
+            </td>
+            <td>
+              <Link to={`/admin/ledengegevens/${m.member?.id}/socials`}>Socials</Link>
+            </td>
+          </tr>
+        ))}
       </tbody>
-    </table >
+    </table>
   );
 };
 

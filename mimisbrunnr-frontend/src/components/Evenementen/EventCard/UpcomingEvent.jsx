@@ -1,15 +1,16 @@
-import "./UpcomingEvent.css";
-import EventIcon from "../Andere/EventIcon";
-import Countdown from "../Andere/Countdown";
-import useSWR from "swr";
-import { getAll } from "../../../api";
+import './UpcomingEvent.css';
+import EventIcon from '../Andere/EventIcon';
+import Countdown from '../Andere/Countdown';
+import useSWR from 'swr';
+import { getAll } from '../../../api';
+import AsyncData from '../../Common/AsyncData/AsyncData';
 
 const UpcomingEvent = ({
-  id
+  id,
 }) => {
   const { data: event = {}, error: eventError, isLoading: eventIsLoading } = useSWR(`events/pub/${id}`, getAll);
   const maxDescriptionLength = 260;
-  const safeDescription = event.description ?? "";
+  const safeDescription = event.description ?? '';
   const limitedDescription =
     safeDescription.length > maxDescriptionLength
       ? `${safeDescription.slice(0, maxDescriptionLength).trimEnd()}...`
@@ -18,25 +19,27 @@ const UpcomingEvent = ({
 
   return (
     <div className="event-wrapper">
-      <div className="info-section">
-        <div>
-          <div className="title-and-icon">
-            <div>
-              <h1>{event.name}</h1>
-              <h2 className="location">{event.location}</h2>
+      <AsyncData error={eventError} loading={eventIsLoading}>
+        <div className="info-section">
+          <div>
+            <div className="title-and-icon">
+              <div>
+                <h1>{event.name}</h1>
+                <h2 className="location">{event.location}</h2>
+              </div>
+              <div>
+                <EventIcon category={event.category} />
+              </div>
             </div>
-            <div>
-              <EventIcon category={event.category} />
-            </div>
+            <p>
+              {limitedDescription}
+              <a href={`evenementen/${id}`}> Lees meer...</a>
+            </p>
           </div>
-          <p>
-            {limitedDescription}
-            <a href={`evenementen/${id}`}> Lees meer...</a>
-          </p>
+          <Countdown date={date} />
         </div>
-        <Countdown date={date} />
-      </div>
-      <img src={event.banner?.url} alt={event.banner?.alt ?? "Foto van " + event.name} className="image" />
+        <img src={event.banner?.url} alt={event.banner?.alt ?? 'Foto van ' + event.name} className="image" />
+      </AsyncData>
     </div>
   );
 };

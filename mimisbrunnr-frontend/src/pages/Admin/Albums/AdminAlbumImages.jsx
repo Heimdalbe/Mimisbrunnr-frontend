@@ -54,28 +54,24 @@ const AdminAlbumImages = () => {
   return (
     <div className="container">
       <AsyncData loading={isLoading} error={error}>
-        <Breadcrumbs children={[{ link: 'admin' }, { link: 'albums' }, { link: `${data.name} > Images`, isLast: true }]} />
+        <Breadcrumbs
+          children={[{ link: 'admin' }, { link: 'albums' }, { link: `${data.name} > Images`, isLast: true }]}
+        />
         <h1>{data.name}</h1>
         <ImageTable albumId={id} images={data.images} mutate={mutate} />
       </AsyncData>
 
       <div>
-        <button onClick={() => setShowAdd(!showAdd)}>
-          Voeg Afbeelding toe
-        </button>
-        <button onClick={() => setShowImport(true)}>
-          Importeer Imgur Album
-        </button>
+        <button onClick={() => setShowAdd(!showAdd)}>Voeg Afbeelding toe</button>
+        <button onClick={() => setShowImport(true)}>Importeer Imgur Album</button>
       </div>
 
       {showAdd && (
         <div className="add-inline">
-          <input
-            value={url}
-            onChange={(e) => setUrl(e.target.value)}
-            placeholder="Image URL"
-          />
-          <button disabled={isAdding} onClick={() => onAdd()}>Toevoegen</button>
+          <input value={url} onChange={(e) => setUrl(e.target.value)} placeholder="Image URL" />
+          <button disabled={isAdding} onClick={() => onAdd()}>
+            Toevoegen
+          </button>
         </div>
       )}
 
@@ -85,25 +81,18 @@ const AdminAlbumImages = () => {
             <div>
               <h2>Import Imgur Album</h2>
 
-              <input
-                placeholder="Imgur album URL"
-                value={imgurUrl}
-                onChange={(e) => setImgurUrl(e.target.value)}
-              />
+              <input placeholder="Imgur album URL" value={imgurUrl} onChange={(e) => setImgurUrl(e.target.value)} />
 
               <button disabled={isImporting} onClick={() => onImport()}>
                 Importeren
               </button>
 
-              <button onClick={() => setShowImport(false)}>
-                Annuleren
-              </button>
+              <button onClick={() => setShowImport(false)}>Annuleren</button>
             </div>
           </div>
         </div>
-      )
-      }
-    </div >
+      )}
+    </div>
   );
 };
 

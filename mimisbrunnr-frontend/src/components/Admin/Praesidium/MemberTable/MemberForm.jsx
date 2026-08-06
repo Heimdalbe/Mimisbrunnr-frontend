@@ -29,8 +29,16 @@ const MemberForm = ({ endpoint, id = undefined, member = {} }) => {
     }
   }, [member, isEditMode]);
 
-  const { data: memberdetails = { members: [] }, isLoading: membersLoading, error: membersError } = useSWR('praesidium/memberdetails', getAll);
-  const { data: roles = { roles: [] }, isLoading: rolesLoading, error: rolesError } = useSWR('praesidium/roles', getAll);
+  const {
+    data: memberdetails = { members: [] },
+    isLoading: membersLoading,
+    error: membersError,
+  } = useSWR('praesidium/memberdetails', getAll);
+  const {
+    data: roles = { roles: [] },
+    isLoading: rolesLoading,
+    error: rolesError,
+  } = useSWR('praesidium/roles', getAll);
   const { trigger: handleSave, isMutating } = useSWRMutation(endpoint, save);
   const { trigger: handleDelete, isMutating: isDeleting } = useSWRMutation(endpoint, deleteById);
 
@@ -87,18 +95,16 @@ const MemberForm = ({ endpoint, id = undefined, member = {} }) => {
         <input type="url" name="imageUrl" value={formData.imageUrl} onChange={handleChange} />
       </label>
 
-      {formData.imageUrl && (
-        <img src={formData.imageUrl} alt="preview" style={{ width: 100 }} />
-      )}
+      {formData.imageUrl && <img src={formData.imageUrl} alt="preview" style={{ width: 100 }} />}
 
-      {endpoint !== 'praesidium/erelids' &&
+      {endpoint !== 'praesidium/erelids' && (
         <label>
           Jaar
           <input type="number" name="year" value={formData.year} onChange={handleChange}></input>
         </label>
-      }
+      )}
 
-      {endpoint === 'praesidium/members' &&
+      {endpoint === 'praesidium/members' && (
         <label>
           Role
           <AsyncData loading={rolesLoading} error={rolesError}>
@@ -110,26 +116,26 @@ const MemberForm = ({ endpoint, id = undefined, member = {} }) => {
             />
           </AsyncData>
         </label>
-      }
+      )}
 
       <div>
         {isEditMode && (
-          <button
-            type="button"
-            className="delete"
-            onClick={onDelete}
-            disabled={isDeleting}
-          >
+          <button type="button" className="delete" onClick={onDelete} disabled={isDeleting}>
             Delete
           </button>
         )}
 
-        <button type="reset" onClick={() => setFormData({
-          memberId: member.member?.id ?? '',
-          imageUrl: member.image?.url ?? '',
-          year: member.year ?? undefined,
-          role: member.role?.id ?? undefined,
-        })}>
+        <button
+          type="reset"
+          onClick={() =>
+            setFormData({
+              memberId: member.member?.id ?? '',
+              imageUrl: member.image?.url ?? '',
+              year: member.year ?? undefined,
+              role: member.role?.id ?? undefined,
+            })
+          }
+        >
           Reset
         </button>
 

@@ -71,10 +71,10 @@ const router = createBrowserRouter([
       { path: '/albums', Component: Albums },
       { path: '/albums/:id', Component: AlbumDetail },
 
-      { path: "/praesidium", Component: Praesidium },
-      { path: "/praesidium/ereleden", Component: Ereleden },
-      { path: "/praesidium/superschachten", Component: Superschachten },
-      { path: "/praesidium/lustrumcommites", Component: LustrumCommites },
+      { path: '/praesidium', Component: Praesidium },
+      { path: '/praesidium/ereleden', Component: Ereleden },
+      { path: '/praesidium/superschachten', Component: Superschachten },
+      { path: '/praesidium/lustrumcommites', Component: LustrumCommites },
 
       { path: '/evenementen', Component: Evenementen },
       { path: '/evenementen/:id', Component: EventDetail },

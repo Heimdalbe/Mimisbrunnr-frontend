@@ -8,7 +8,6 @@ import SelectField from '../../../components/Form/SelectField/SelectField';
 //TODO: Selectfield op full width ziet er hier beetje cursed uit
 
 //TODO: Nut van deze pagina nog is herevalueren want er zijn eigenlijk maar 2 boekjes om te tonen (2 edities 2023-2024),
-// alsook weet ik niet of er effectief nog nieuwe boekjes gaan uitkomen aangezien er voor 2024-2025 geen op de huidige site staat.
 
 const Boekje = () => {
   const labels = boekjes.map((b) => {
