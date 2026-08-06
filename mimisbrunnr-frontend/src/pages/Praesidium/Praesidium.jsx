@@ -22,7 +22,7 @@ const Praesidium = () => {
     if (years?.years?.length > 0 && !year) {
       setYear(years.years[years.years.length - 1]);
     }
-  }, [years]);
+  }, [years, year]);
 
   const { data: praesidium = { praesidium: [] }, error: praesidiumError, isLoading: praesidiumIsLoading } = useSWR(
     year ? `praesidium/${year}` : null,

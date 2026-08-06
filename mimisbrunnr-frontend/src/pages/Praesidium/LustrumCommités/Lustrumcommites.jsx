@@ -16,7 +16,7 @@ const LustrumCommites = () => {
     if (years?.years?.length > 0 && !year) {
       setYear(years.years[0]);
     }
-  }, [years]);
+  }, [years, year]);
 
   const { data: praesidium = { lustrumLids: [] }, error: praesidiumError, isLoading: praesidiumIsLoading } = useSWR(
     year ? `praesidium/lustrum/${year}` : null,
