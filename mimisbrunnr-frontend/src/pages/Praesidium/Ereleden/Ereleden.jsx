@@ -5,7 +5,11 @@ import UserList from '../../../components/UserList/UserList';
 import Breadcrumbs from '../../../components/Breadcrumbs/Breadcrumbs';
 
 const Ereleden = () => {
-  const { data: praesidium = { erelids: [] }, praesidiumError, praesidiumIsLoading } = useSWR('praesidium/erelids', getAll);
+  const {
+    data: praesidium = { erelids: [] },
+    praesidiumError,
+    praesidiumIsLoading,
+  } = useSWR('praesidium/erelids', getAll);
 
   return (
     <div className="container-sm-tm">

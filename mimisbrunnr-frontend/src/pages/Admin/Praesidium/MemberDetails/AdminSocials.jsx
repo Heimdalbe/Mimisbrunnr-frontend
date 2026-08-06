@@ -30,25 +30,24 @@ const AdminSocials = () => {
   return (
     <div className="container">
       <AsyncData loading={isLoading} error={error}>
-        <Breadcrumbs children={[{ link: 'admin' }, { link: 'ledengegevens' }, { link: `${data.firstName} ${data.lastName} > Images`, isLast: true }]} />
+        <Breadcrumbs
+          children={[
+            { link: 'admin' },
+            { link: 'ledengegevens' },
+            { link: `${data.firstName} ${data.lastName} > Images`, isLast: true },
+          ]}
+        />
         <h1>{data.name}</h1>
         <SocialsTable memberId={id} socials={data.socials} mutate={mutate} />
       </AsyncData>
 
       <div>
-        <button onClick={() => setShowAdd(!showAdd)}>
-          Voeg Social toe
-        </button>
+        <button onClick={() => setShowAdd(!showAdd)}>Voeg Social toe</button>
       </div>
 
       {showAdd && (
         <div className="add-inline">
-
-          <input
-            value={url}
-            onChange={(e) => setUrl(e.target.value)}
-            placeholder="URL"
-          />
+          <input value={url} onChange={(e) => setUrl(e.target.value)} placeholder="URL" />
           <AsyncData loading={typesAreLoading} error={typesError}>
             <SelectField
               label={'Kies een type:'}
@@ -57,10 +56,12 @@ const AdminSocials = () => {
               onChange={setType}
             />
           </AsyncData>
-          <button disabled={isAdding} onClick={() => onAdd()}>Toevoegen</button>
+          <button disabled={isAdding} onClick={() => onAdd()}>
+            Toevoegen
+          </button>
         </div>
       )}
-    </div >
+    </div>
   );
 };
 

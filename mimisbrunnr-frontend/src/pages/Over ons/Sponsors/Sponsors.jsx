@@ -16,11 +16,12 @@ const Sponsors = () => {
       </AsyncData>
       <h1>Sponsor worden?</h1>
       <p>
-        Wenst u ook sponsor te worden? Of zou u meer te weten willen komen wat een eventuele samenwerking teweeg zou kunnen brengen.
+        Wenst u ook sponsor te worden? Of zou u meer te weten willen komen wat een eventuele samenwerking teweeg zou
+        kunnen brengen.
         <br />
         Contacteer ons dan op <a href="mailto:publicrelations@heimdal.be">publicrelations@heimdal.be</a>
       </p>
-    </div >
+    </div>
   );
 };
 

@@ -15,7 +15,11 @@ const SPECIAL_OPTIONS = [
 
 const Praesidium = () => {
   const navigate = useNavigate();
-  const { data: years = { years: [] }, error: yearsError, isLoading: yearsAreLoading } = useSWR('praesidium/years', getAll);
+  const {
+    data: years = { years: [] },
+    error: yearsError,
+    isLoading: yearsAreLoading,
+  } = useSWR('praesidium/years', getAll);
   const [year, setYear] = useState(null);
 
   useEffect(() => {
@@ -24,10 +28,11 @@ const Praesidium = () => {
     }
   }, [years, year]);
 
-  const { data: praesidium = { praesidium: [] }, error: praesidiumError, isLoading: praesidiumIsLoading } = useSWR(
-    year ? `praesidium/${year}` : null,
-    getAll,
-  );
+  const {
+    data: praesidium = { praesidium: [] },
+    error: praesidiumError,
+    isLoading: praesidiumIsLoading,
+  } = useSWR(year ? `praesidium/${year}` : null, getAll);
 
   const handleSelect = (option) => {
     const special = SPECIAL_OPTIONS.find((o) => o.label === option);
@@ -45,12 +50,7 @@ const Praesidium = () => {
       <Breadcrumbs children={[{ link: 'praesidium', isLast: true }]} />
       <h1>Praesidium</h1>
       <AsyncData loading={yearsAreLoading} error={yearsError}>
-        <SelectField
-          label={'Kies een jaar:'}
-          options={allOptions}
-          value={year}
-          onChange={handleSelect}
-        />
+        <SelectField label={'Kies een jaar:'} options={allOptions} value={year} onChange={handleSelect} />
       </AsyncData>
       <AsyncData loading={praesidiumIsLoading} error={praesidiumError}>
         <UserList users={praesidium.praesidium} endpoint={'praesidium/members'} />

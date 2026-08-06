@@ -12,7 +12,13 @@ const AdminEditSuperSchacht = () => {
   return (
     <div className="container">
       <AsyncData loading={isLoading} error={error}>
-        <Breadcrumbs children={[{ link: 'admin' }, { link: 'superschachten' }, { link: `${member.year}-${member.year + 1}`, isLast: true }]} />
+        <Breadcrumbs
+          children={[
+            { link: 'admin' },
+            { link: 'superschachten' },
+            { link: `${member.year}-${member.year + 1}`, isLast: true },
+          ]}
+        />
         <MemberForm endpoint={'praesidium/superschachts'} id={id} member={member} />
       </AsyncData>
     </div>

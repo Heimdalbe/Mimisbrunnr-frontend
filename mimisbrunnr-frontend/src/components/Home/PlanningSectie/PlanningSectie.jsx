@@ -5,7 +5,11 @@ import useSWR from 'swr';
 import { getAll } from '../../../api';
 
 const PlanningSectie = () => {
-  const { data: data = { events: [] }, isLoading: eventsAreLoading, error: eventsError } = useSWR('events/pub?take=4', getAll);
+  const {
+    data: data = { events: [] },
+    isLoading: eventsAreLoading,
+    error: eventsError,
+  } = useSWR('events/pub?take=4', getAll);
 
   return (
     <div>
@@ -13,18 +17,13 @@ const PlanningSectie = () => {
         <h1>Op de planning...</h1>
       </div>
       <AsyncData loading={eventsAreLoading} error={eventsError}>
-        <div className='container-fw-mobile' style={{ paddingTop: 0, paddingBottom: 0 }}>
+        <div className="container-fw-mobile" style={{ paddingTop: 0, paddingBottom: 0 }}>
           <EventList events={data.events} limit={true} />
         </div>
       </AsyncData>
       <div className="container-sm-bm">
         <div className="button-wrapper">
-          <PrimaryButton
-            text='Alle evenementen'
-            to='/evenementen'
-            isLight={true}
-            isDisabled={false}
-          />
+          <PrimaryButton text="Alle evenementen" to="/evenementen" isLight={true} isDisabled={false} />
         </div>
       </div>
     </div>
