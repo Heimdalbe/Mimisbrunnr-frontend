@@ -17,7 +17,6 @@ import Superschachten from './pages/Praesidium/Superschachten/Superschachten.jsx
 import LustrumCommites from './pages/Praesidium/LustrumCommités/Lustrumcommites.jsx';
 import Evenementen from './pages/Evenementen/Evenementen.jsx';
 import EventDetail from './pages/Evenementen/EventDetail/EventDetail.jsx';
-import EventEnlistForm from './pages/Evenementen/EventEnlistForm.jsx';
 import PrivacyPolicy from './pages/Legal/PrivacyPolicy.jsx';
 import CookiePolicy from './pages/Legal/CookiePolicy.jsx';
 import Login from './pages/Login/Login.jsx';
@@ -78,14 +77,7 @@ const router = createBrowserRouter([
 
       { path: '/evenementen', Component: Evenementen },
       { path: '/evenementen/:id', Component: EventDetail },
-      {
-        path: '/evenementen/:id/inschrijven',
-        element: (
-          <ProtectedRoute>
-            <EventEnlistForm />
-          </ProtectedRoute>
-        ),
-      },
+
       { path: '/cookie-policy', Component: CookiePolicy },
       { path: '/privacy-policy', Component: PrivacyPolicy },
 
