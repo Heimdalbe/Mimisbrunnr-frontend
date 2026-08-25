@@ -3,7 +3,7 @@ import SmallFooter from './Small Footer/SmallFooter';
 
 const Footer = () => {
   return (
-    <footer>
+    <footer id='footer' className='footer'>
       <BigFooter />
       <SmallFooter />
     </footer>

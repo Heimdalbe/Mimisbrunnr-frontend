@@ -59,7 +59,7 @@ const EventDetail = () => {
           <h1>Beschrijving</h1>
           <p>{event.description}</p>
           <div className="button-div">
-            <PrimaryButton isLight={true} text={'Inschrijven'} to={`/evenementen/${id}/inschrijven`} />
+            <PrimaryButton isLight={true} text={'Inschrijven'} to={event.url} />
           </div>
         </div>
         {event.sponsors?.length > 0 && (

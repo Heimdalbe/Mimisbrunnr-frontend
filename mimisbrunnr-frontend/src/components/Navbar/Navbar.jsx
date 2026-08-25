@@ -50,9 +50,9 @@ const Navbar = () => {
               </Link>
             </div>
             <div>
-              <Link to={'/contact'} className="contact-link">
+              <a href="#footer">                
                 <NavContactButton />
-              </Link>
+              </a>
               <Link to={'/login'} className="user-icon">
                 <i className="fa-solid fa-circle-user"></i>
               </Link>
