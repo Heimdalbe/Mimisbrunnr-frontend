@@ -33,6 +33,15 @@
   flex: 3;
 }
 
+.contact-section ul {
+  list-style-type: none;
+}
+
+.contact-section ul li ul {
+  margin: 5px;
+  margin-inline-start: 10px;
+}
+
 .jormungandr {
   position: absolute;
   bottom: 0;
@@ -49,7 +58,6 @@ form {
 }
 
 @media (max-width: 1028px) {
-
   .jormungandr {
     display: none;
   }
