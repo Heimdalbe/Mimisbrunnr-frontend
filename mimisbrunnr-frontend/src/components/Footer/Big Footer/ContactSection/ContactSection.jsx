@@ -1,5 +1,3 @@
-import FooterContactForm from './ContactForm/FooterContactForm';
-
 const ContactSection = () => {
   return (
     <div className="contact-section">
