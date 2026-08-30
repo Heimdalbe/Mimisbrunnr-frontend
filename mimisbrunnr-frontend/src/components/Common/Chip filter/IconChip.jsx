@@ -1,19 +1,11 @@
 import './Chipfiltering.css';
-import { useState } from 'react';
 
 //TODO: Transition voor icon die van plek veranderd bij active zetten van een chip
 
-const IconChip = ({ label, icon }) => {
-  const [isActive, setIsActive] = useState(false);
-
+const IconChip = ({ label, icon, active, onClick }) => {
   return (
-    <div
-      className={`icon-chip ${isActive ? 'active-chip' : ''}`}
-      onClick={() => setIsActive(!isActive)}
-    >
-      <i
-        className={`chip-icon fa-solid ${icon} ${isActive ? 'active-icon' : ''}`}
-      ></i>
+    <div className={`icon-chip ${active ? 'active-chip' : ''}`} onClick={onClick}>
+      <i className={`chip-icon fa-solid ${icon} ${active ? 'active-icon' : ''}`}></i>
       <span className="chip-label">{label}</span>
     </div>
   );
