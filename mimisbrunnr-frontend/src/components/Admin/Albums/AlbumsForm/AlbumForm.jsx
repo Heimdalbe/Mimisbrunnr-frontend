@@ -84,15 +84,17 @@ const AlbumForm = ({ id = undefined, album = {} }) => {
         <textarea name="description" value={formData.description} onChange={handleChange} />
       </label>
 
-      <label>
-        Published
-        <input
-          type="checkbox"
-          name="published"
-          checked={formData.published}
-          onChange={handleChange}
-        />
-      </label>
+      {isEditMode && (
+        <label>
+          Published
+          <input
+            type="checkbox"
+            name="published"
+            checked={formData.published}
+            onChange={handleChange}
+          />
+        </label>
+      )}
 
       <div>
         {isEditMode && (
