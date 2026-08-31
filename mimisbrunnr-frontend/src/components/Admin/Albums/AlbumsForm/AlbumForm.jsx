@@ -75,44 +75,39 @@ const AlbumForm = ({ id = undefined, album = {} }) => {
         <input type="url" name="coverImage" value={formData.coverImage} onChange={handleChange} />
       </label>
 
-      {formData.coverImage && (
-        <img src={formData.coverImage} alt="preview" style={{ width: 100 }} />
-      )}
+      {formData.coverImage && <img src={formData.coverImage} alt="preview" style={{ width: 100 }} />}
 
       <label>
         Beschrijving
         <textarea name="description" value={formData.description} onChange={handleChange} />
       </label>
 
-      <label>
-        Gedeeld
-        <input
-          type="checkbox"
-          name="published"
-          checked={formData.published}
-          onChange={handleChange}
-        />
-      </label>
+      {isEditMode && (
+        <label>
+          Gedeeld
+          <input type="checkbox" name="published" checked={formData.published} onChange={handleChange} />
+        </label>
+      )}
 
       <div>
         {isEditMode && (
-          <button
-            type="button"
-            className="delete"
-            onClick={onDelete}
-            disabled={isDeleting}
-          >
+          <button type="button" className="delete" onClick={onDelete} disabled={isDeleting}>
             Delete
           </button>
         )}
 
-        <button type="reset" onClick={() => setFormData({
-          name: album.name || '',
-          date: album.date || '',
-          coverImage: album.coverImage?.url || '',
-          description: album.description || '',
-          published: album.published || false,
-        })}>
+        <button
+          type="reset"
+          onClick={() =>
+            setFormData({
+              name: album.name || '',
+              date: album.date || '',
+              coverImage: album.coverImage?.url || '',
+              description: album.description || '',
+              published: album.published || false,
+            })
+          }
+        >
           Reset
         </button>
 
