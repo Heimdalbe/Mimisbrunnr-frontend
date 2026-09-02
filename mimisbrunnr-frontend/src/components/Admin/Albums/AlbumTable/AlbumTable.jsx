@@ -13,16 +13,18 @@ const AlbumTable = ({ albums }) => {
         </tr>
       </thead>
       <tbody>
-        {
-          albums.map((a) =>
-            <tr>
-              <td><Link to={`/admin/albums/${a.id}`}>{a.name}</Link></td>
-              <td>{a.date}</td>
-              <td>{a.published ? <FaCheck /> : <FaXmark />}</td>
-              <td><Link to={`/admin/albums/${a.id}/images`}>Afbeeldingen</Link></td>
-            </tr>,
-          )
-        }
+        {albums.map((a) => (
+          <tr>
+            <td>
+              <Link to={`/admin/albums/${a.id}`}>{a.name}</Link>
+            </td>
+            <td>{a.date}</td>
+            <td>{a.published ? <FaCheck /> : <FaXmark />}</td>
+            <td>
+              <Link to={`/admin/albums/${a.id}/images`}>Afbeeldingen</Link>
+            </td>
+          </tr>
+        ))}
       </tbody>
     </table>
   );

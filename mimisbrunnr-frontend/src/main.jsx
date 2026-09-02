@@ -25,6 +25,9 @@ import AdminAlbums from './pages/Admin/Albums/AdminAlbums.jsx';
 import AdminNewAlbum from './pages/Admin/Albums/AdminNewAlbum.jsx';
 import AdminEditAlbum from './pages/Admin/Albums/AdminEditAlbum.jsx';
 import AdminAlbumImages from './pages/Admin/Albums/AdminAlbumImages.jsx';
+import AdminEvents from './pages/Admin/Events/AdminEvents.jsx';
+import AdminNewEvent from './pages/Admin/Events/AdminNewEvent.jsx';
+import AdminEditEvent from './pages/Admin/Events/AdminEditEvent.jsx';
 import AdminPraesidiumMembers from './pages/Admin/Praesidium/Members/AdminPraesidiumMembers.jsx';
 import AdminEditPraesidiumMember from './pages/Admin/Praesidium/Members/AdminEditPraesidiumMember.jsx';
 import AdminNewPraesidiumMember from './pages/Admin/Praesidium/Members/AdminNewPraesidiumMember.jsx';
@@ -95,6 +98,9 @@ const router = createBrowserRouter([
       { path: '/admin/albums/new', Component: AdminNewAlbum },
       { path: '/admin/albums/:id', Component: AdminEditAlbum },
       { path: '/admin/albums/:id/images', Component: AdminAlbumImages },
+      { path: '/admin/events', Component: AdminEvents },
+      { path: '/admin/events/new', Component: AdminNewEvent },
+      { path: '/admin/events/:id', Component: AdminEditEvent },
       { path: '/admin/praesidiumleden', Component: AdminPraesidiumMembers },
       { path: '/admin/praesidiumleden/:id', Component: AdminEditPraesidiumMember },
       { path: '/admin/praesidiumleden/new', Component: AdminNewPraesidiumMember },
@@ -124,5 +130,5 @@ createRoot(document.getElementById('root')).render(
     <AuthProvider>
       <RouterProvider router={router} />
     </AuthProvider>
-  </StrictMode>,
+  </StrictMode>
 );
