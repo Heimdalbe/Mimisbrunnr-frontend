@@ -54,6 +54,7 @@ import ProtectedRoute from './components/Common/ProtectedRoute.jsx';
 import './index.css';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import AdminLayout from './AdminLayout.jsx';
+import AdminEventSponsors from './pages/Admin/Events/AdminEventSponsors.jsx';
 
 const router = createBrowserRouter([
   {
@@ -101,6 +102,7 @@ const router = createBrowserRouter([
       { path: '/admin/events', Component: AdminEvents },
       { path: '/admin/events/new', Component: AdminNewEvent },
       { path: '/admin/events/:id', Component: AdminEditEvent },
+      { path: '/admin/events/:id/sponsors', Component: AdminEventSponsors },
       { path: '/admin/praesidiumleden', Component: AdminPraesidiumMembers },
       { path: '/admin/praesidiumleden/:id', Component: AdminEditPraesidiumMember },
       { path: '/admin/praesidiumleden/new', Component: AdminNewPraesidiumMember },

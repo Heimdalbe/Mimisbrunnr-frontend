@@ -7,7 +7,7 @@ const AdminNewEvent = () => {
     <div className="container">
       <Breadcrumbs children={[{ link: 'admin' }, { link: 'events' }, { link: 'new', isLast: true }]} />
 
-      <h1>Album Toevoegen</h1>
+      <h1>Event Toevoegen</h1>
       <EventForm action={'post'} />
     </div>
   );

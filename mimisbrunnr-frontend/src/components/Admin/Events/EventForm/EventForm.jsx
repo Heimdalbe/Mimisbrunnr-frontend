@@ -4,15 +4,27 @@ import { useEffect, useState } from 'react';
 import useSWRMutation from 'swr/mutation';
 import { deleteById, save } from '../../../../api';
 
+const ACCESSIBILITY_OPTIONS = ['OPEN', 'CLOSED'];
+
+const CATEGORY_OPTIONS = ['SPORT', 'CULTUUR', 'SCHACHTEN', 'FEESTENLAN', 'LEAGUE', 'OTHERS'];
+
 const EventForm = ({ id = undefined, event = {} }) => {
   const navigate = useNavigate();
   const isEditMode = id !== undefined;
 
   const [formData, setFormData] = useState({
     name: '',
-    date: '',
-    coverImage: '',
+    category: CATEGORY_OPTIONS[0],
+    accessibility: ACCESSIBILITY_OPTIONS[0],
+    location: '',
+    start: '',
+    end: '',
+    bannerurl: '',
     description: '',
+    entryFee: '',
+    iCal: '',
+    url: '',
+    sponsorIds: [],
     published: false,
   });
 
@@ -20,9 +32,17 @@ const EventForm = ({ id = undefined, event = {} }) => {
     if (isEditMode) {
       setFormData({
         name: event.name || '',
-        date: event.date || '',
-        coverImage: event.coverImage?.url || '',
+        category: event.category || CATEGORY_OPTIONS[0],
+        accessibility: event.accessibility || ACCESSIBILITY_OPTIONS[0],
+        location: event.location || '',
+        start: event.start || '',
+        end: event.end || '',
+        bannerurl: event.banner?.url || '',
         description: event.description || '',
+        entryFee: event.entryFee ?? '',
+        iCal: event.iCal ?? '',
+        url: event.url || '',
+        sponsorIds: event.sponsors?.map((s) => s.id) || [],
         published: event.published || false,
       });
     }
@@ -66,20 +86,67 @@ const EventForm = ({ id = undefined, event = {} }) => {
       </label>
 
       <label>
-        Datum
-        <input type="date" name="date" value={formData.date} onChange={handleChange} required />
+        Categorie
+        <select name="category" value={formData.category} onChange={handleChange} required>
+          {CATEGORY_OPTIONS.map((option) => (
+            <option key={option} value={option}>
+              {option}
+            </option>
+          ))}
+        </select>
       </label>
 
       <label>
-        Cover Afbeelding
-        <input type="url" name="coverImage" value={formData.coverImage} onChange={handleChange} />
+        Accessibiliteit
+        <select name="accessibility" value={formData.accessibility} onChange={handleChange} required>
+          {ACCESSIBILITY_OPTIONS.map((option) => (
+            <option key={option} value={option}>
+              {option}
+            </option>
+          ))}
+        </select>
       </label>
 
-      {formData.coverImage && <img src={formData.coverImage} alt="preview" style={{ width: 100 }} />}
+      <label>
+        Locatie
+        <input name="location" value={formData.location} onChange={handleChange} required />
+      </label>
+
+      <label>
+        Start
+        <input type="datetime-local" name="start" value={formData.start} onChange={handleChange} required />
+      </label>
+
+      <label>
+        End
+        <input type="datetime-local" name="end" value={formData.end} onChange={handleChange} required />
+      </label>
+
+      <label>
+        Banner
+        <input type="url" name="bannerurl" value={formData.bannerurl} onChange={handleChange} required />
+      </label>
+
+      {formData.bannerurl && <img src={formData.bannerurl} alt="preview" style={{ width: 100 }} />}
 
       <label>
         Beschrijving
-        <textarea name="description" value={formData.description} onChange={handleChange} />
+        <textarea name="description" value={formData.description} onChange={handleChange} required />
+      </label>
+
+      <label>
+        Entry Fee
+        <input name="entryFee" value={formData.entryFee} onChange={handleChange} />
+      </label>
+
+      <label>
+        iCal Link
+        <input type="url" name="iCal" value={formData.iCal} onChange={handleChange} />
+      </label>
+
+      <label>
+        Inschrijvingslink
+        <input type="url" name="url" value={formData.url} onChange={handleChange} required />
       </label>
 
       {isEditMode && (
@@ -101,9 +168,17 @@ const EventForm = ({ id = undefined, event = {} }) => {
           onClick={() =>
             setFormData({
               name: event.name || '',
-              date: event.date || '',
-              coverImage: event.coverImage?.url || '',
+              category: event.category || CATEGORY_OPTIONS[0],
+              accessibility: event.accessibility || ACCESSIBILITY_OPTIONS[0],
+              location: event.location || '',
+              start: event.start || '',
+              end: event.end || '',
+              bannerurl: event.banner?.url || '',
               description: event.description || '',
+              entryFee: event.entryFee ?? '',
+              iCal: event.iCal ?? '',
+              url: event.url || '',
+              sponsorIds: event.sponsors?.map((s) => s.id) || [],
               published: event.published || false,
             })
           }
