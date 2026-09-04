@@ -34,7 +34,7 @@ const AdminSocials = () => {
           children={[
             { link: 'admin' },
             { link: 'ledengegevens' },
-            { link: `${data.firstName} ${data.lastName} > Images`, isLast: true },
+            { link: `${data.firstName} ${data.lastName} > Socials`, isLast: true },
           ]}
         />
         <h1>{data.name}</h1>
@@ -47,7 +47,7 @@ const AdminSocials = () => {
 
       {showAdd && (
         <div className="add-inline">
-          <input value={url} onChange={(e) => setUrl(e.target.value)} placeholder="URL" />
+          <input value={url} onChange={(e) => setUrl(e.target.value)} placeholder="URL" required />
           <AsyncData loading={typesAreLoading} error={typesError}>
             <SelectField
               label={'Kies een type:'}

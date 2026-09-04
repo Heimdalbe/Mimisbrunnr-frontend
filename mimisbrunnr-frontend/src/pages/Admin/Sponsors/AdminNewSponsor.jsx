@@ -1,6 +1,5 @@
 import SponsorForm from '../../../components/Admin/Sponsors/SponsorForm/SponsorForm';
 import Breadcrumbs from '../../../components/Breadcrumbs/Breadcrumbs';
-import AsyncData from '../../../components/Common/AsyncData/AsyncData';
 
 const AdminNewSponsor = () => {
   return (
