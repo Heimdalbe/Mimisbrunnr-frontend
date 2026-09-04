@@ -48,9 +48,12 @@ const Navbar = () => {
               <Link to={'/evenementen'} className="nav-link">
                 Evenementen
               </Link>
+              <Link to={'/jaarthema'} className="nav-link">
+                Jaarthema
+              </Link>
             </div>
             <div>
-              <a href="#footer">                
+              <a href="#footer">
                 <NavContactButton />
               </a>
               <Link to={'/login'} className="user-icon">
