@@ -55,6 +55,9 @@ import './index.css';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import AdminLayout from './AdminLayout.jsx';
 import AdminEventSponsors from './pages/Admin/Events/AdminEventSponsors.jsx';
+import AdminSponsors from './pages/Admin/Sponsors/AdminSponsors.jsx';
+import AdminNewSponsor from './pages/Admin/Sponsors/AdminNewSponsor.jsx';
+import AdminEditSponsor from './pages/Admin/Sponsors/AdminEditSponsor.jsx';
 
 const router = createBrowserRouter([
   {
@@ -122,6 +125,9 @@ const router = createBrowserRouter([
       { path: '/admin/functies', Component: AdminPraesidiumRoles },
       { path: '/admin/functies/:id', Component: AdminEditPraesidiumRole },
       { path: '/admin/functies/new', Component: AdminNewPraesidiumRole },
+      { path: '/admin/sponsors', Component: AdminSponsors },
+      { path: '/admin/sponsors/new', Component: AdminNewSponsor },
+      { path: '/admin/sponsors/:id', Component: AdminEditSponsor },
       { path: '/admin/*', Component: NotFound },
     ],
   },
