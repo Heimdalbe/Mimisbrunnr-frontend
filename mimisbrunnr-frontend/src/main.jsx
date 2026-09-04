@@ -60,6 +60,9 @@ import AdminNewSponsor from './pages/Admin/Sponsors/AdminNewSponsor.jsx';
 import AdminEditSponsor from './pages/Admin/Sponsors/AdminEditSponsor.jsx';
 import Jaarthema from './pages/Jaarthema/Jaarthema.jsx';
 import Erestuff from './pages/Erestuff/Erestuff.jsx';
+import AdminSocialTypes from './pages/Admin/SocialTypes/AdminSocialTypes.jsx';
+import AdminNewSocialType from './pages/Admin/SocialTypes/AdminNewSocialType.jsx';
+import AdminEditSocialType from './pages/Admin/SocialTypes/AdminEditSocialType.jsx';
 
 const router = createBrowserRouter([
   {
@@ -131,6 +134,9 @@ const router = createBrowserRouter([
       { path: '/admin/functies', Component: AdminPraesidiumRoles },
       { path: '/admin/functies/:id', Component: AdminEditPraesidiumRole },
       { path: '/admin/functies/new', Component: AdminNewPraesidiumRole },
+      { path: '/admin/socialtypes', Component: AdminSocialTypes },
+      { path: '/admin/socialtypes/new', Component: AdminNewSocialType },
+      { path: '/admin/socialtypes/:id', Component: AdminEditSocialType },
       { path: '/admin/sponsors', Component: AdminSponsors },
       { path: '/admin/sponsors/new', Component: AdminNewSponsor },
       { path: '/admin/sponsors/:id', Component: AdminEditSponsor },
