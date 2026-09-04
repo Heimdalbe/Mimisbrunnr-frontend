@@ -58,6 +58,8 @@ import AdminEventSponsors from './pages/Admin/Events/AdminEventSponsors.jsx';
 import AdminSponsors from './pages/Admin/Sponsors/AdminSponsors.jsx';
 import AdminNewSponsor from './pages/Admin/Sponsors/AdminNewSponsor.jsx';
 import AdminEditSponsor from './pages/Admin/Sponsors/AdminEditSponsor.jsx';
+import Jaarthema from './pages/Jaarthema/Jaarthema.jsx';
+import Erestuff from './pages/Erestuff/Erestuff.jsx';
 
 const router = createBrowserRouter([
   {
@@ -84,6 +86,10 @@ const router = createBrowserRouter([
 
       { path: '/evenementen', Component: Evenementen },
       { path: '/evenementen/:id', Component: EventDetail },
+
+      { path: '/jaarthema', Component: Jaarthema },
+
+      { path: '/erestuff', Component: Erestuff },
 
       { path: '/cookie-policy', Component: CookiePolicy },
       { path: '/privacy-policy', Component: PrivacyPolicy },
