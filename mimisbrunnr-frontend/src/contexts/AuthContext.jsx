@@ -52,11 +52,7 @@ export const AuthProvider = ({ children }) => {
     refreshUser: checkAuth,
   };
 
-  return (
-    <AuthContext.Provider value={value}>
-      {children}
-    </AuthContext.Provider>
-  );
+  return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 };
 
 export default AuthContext;

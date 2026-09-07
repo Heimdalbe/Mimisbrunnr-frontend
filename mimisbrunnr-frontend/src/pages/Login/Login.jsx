@@ -1,10 +1,10 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useAuth } from '../../contexts/AuthContext';
 import { useNavigate, useLocation } from 'react-router-dom';
 import './Login.css';
 
 const Login = () => {
-  const { login, isAuthenticated, user, logout } = useAuth();
+  const { login } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -30,33 +30,6 @@ const Login = () => {
       }
     }
   };
-
-  const handleLogout = async () => {
-    try {
-      await logout();
-    } catch {
-      setError('Uitloggen mislukt. Probeer het opnieuw.');
-    }
-  };
-
-  if (isAuthenticated) {
-    return (
-      <div className="container-sm-tm">
-        <h1>Account</h1>
-        <div>
-          <p>
-            Je bent ingelogd als <strong>{user?.email}</strong>
-          </p>
-          <button
-            type="button"
-            onClick={handleLogout}
-          >
-            Uitloggen
-          </button>
-        </div>
-      </div>
-    );
-  }
 
   return (
     <div className="container-sm-tm">
@@ -85,9 +58,7 @@ const Login = () => {
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
-        <button type="submit">
-          Log in
-        </button>
+        <button type="submit">Log in</button>
       </form>
     </div>
   );

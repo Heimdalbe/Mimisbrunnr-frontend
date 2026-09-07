@@ -63,6 +63,7 @@ import Erestuff from './pages/Erestuff/Erestuff.jsx';
 import AdminSocialTypes from './pages/Admin/SocialTypes/AdminSocialTypes.jsx';
 import AdminNewSocialType from './pages/Admin/SocialTypes/AdminNewSocialType.jsx';
 import AdminEditSocialType from './pages/Admin/SocialTypes/AdminEditSocialType.jsx';
+import Account from './pages/Account/Account.jsx';
 
 const router = createBrowserRouter([
   {
@@ -96,6 +97,8 @@ const router = createBrowserRouter([
 
       { path: '/cookie-policy', Component: CookiePolicy },
       { path: '/privacy-policy', Component: PrivacyPolicy },
+
+      { path: '/account', Component: Account },
 
       { path: '/login', Component: Login },
       { path: '/unauthorized', Component: Unauthorized },
