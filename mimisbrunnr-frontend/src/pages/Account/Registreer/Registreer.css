@@ -1,0 +1,10 @@
+.registreer-form label {
+  color: var(--black);
+  margin-bottom: 20px;
+}
+
+.registreer-form__error {
+  color: #d32f2f;
+  font-size: 0.875rem;
+  margin: 0.25rem 0 0.5rem;
+}

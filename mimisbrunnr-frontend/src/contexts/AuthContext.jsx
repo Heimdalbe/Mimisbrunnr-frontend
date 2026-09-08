@@ -1,5 +1,5 @@
 import { createContext, useContext, useState, useEffect, useCallback } from 'react';
-import { getUserInfo, login as apiLogin, logout as apiLogout } from '../api/auth';
+import { getUserInfo, login as apiLogin, logout as apiLogout, register as apiRegister } from '../api/auth';
 
 const AuthContext = createContext(null);
 
@@ -38,6 +38,10 @@ export const AuthProvider = ({ children }) => {
     setUser(data.value ?? data);
   };
 
+  const register = async (name, email, password, confirmPassword) => {
+    await apiRegister(name, email, password, confirmPassword);
+  };
+
   const logout = async () => {
     await apiLogout();
     setUser(null);
@@ -49,6 +53,7 @@ export const AuthProvider = ({ children }) => {
     isAuthenticated: !!user,
     login,
     logout,
+    register,
     refreshUser: checkAuth,
   };
 
