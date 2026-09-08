@@ -8,7 +8,7 @@ const AdminHome = () => {
   return (
     <div>
       <Breadcrumbs children={[{ link: 'admin', isLast: true }]} />
-      <button onClick={() => trigger({ email: 'praeses@heimdal.be', password: 'A1b2C3!' })}>Login</button>
+      <p>W admin panel ofzo iets</p>
     </div>
   );
 };

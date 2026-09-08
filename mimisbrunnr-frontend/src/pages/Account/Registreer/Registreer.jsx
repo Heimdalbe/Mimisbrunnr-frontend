@@ -30,7 +30,12 @@ const Registreer = () => {
     try {
       await register(name, email, password, confirmPassword);
     } catch (err) {
-      setError('Er ging iets mis. Probeer het later opnieuw.');
+      if (err.response?.status === 422) {
+        setError('Een account met deze naam of e-mail bestaat al.');
+      } else {
+        setError('Er ging iets mis. Probeer het later opnieuw.');
+      }
+      return;
     }
 
     try {
