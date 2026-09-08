@@ -1,11 +1,13 @@
-import { useAuth } from '../../contexts/AuthContext';
+import { useAuth } from '../../../contexts/AuthContext';
 import { useNavigate, Link } from 'react-router-dom';
 import useSWR from 'swr';
-import { getAll } from '../../api';
+import { getAll } from '../../../api';
+import AccountForm from '../../../components/Account/AccountForm/AccountForm';
+import AsyncData from '../../../components/Common/AsyncData/AsyncData';
 
 const Account = () => {
   const { isAuthenticated, user, logout } = useAuth();
-  const { data = {}, error, isLoading } = useSWR('identity/accounts/info', getAll);
+  const { data: userData = {}, error, isLoading } = useSWR('/accounts/self', getAll);
   const navigate = useNavigate();
 
   const handleLogout = async () => {
@@ -25,6 +27,14 @@ const Account = () => {
           <p>
             Je bent ingelogd als <strong>{user?.email}</strong>
           </p>
+          <AsyncData loading={isLoading} error={error}>
+            <AccountForm action={'put'} user={userData} />
+          </AsyncData>
+
+          <p>
+            Klik <Link to={'/account/password-reset'}>hier</Link> om je wachtwoord te veranderen
+          </p>
+
           <button type="button" onClick={handleLogout}>
             Uitloggen
           </button>
