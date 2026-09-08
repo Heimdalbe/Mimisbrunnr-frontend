@@ -4,9 +4,11 @@ import NavbarHamburger from './Components/NavbarHamburger';
 import { useState, useEffect } from 'react';
 import OverOns from './Components/OverOns';
 import NavContactButton from './Components/NavContactButton';
+import { useAuth } from '../../contexts/AuthContext';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const { isAuthenticated } = useAuth();
 
   useEffect(() => {
     if (isOpen) {
@@ -56,7 +58,7 @@ const Navbar = () => {
               <a href="#footer">
                 <NavContactButton />
               </a>
-              <Link to={'/login'} className="user-icon">
+              <Link to={isAuthenticated ? '/account' : '/login'} className="user-icon">
                 <i className="fa-solid fa-circle-user"></i>
               </Link>
             </div>
@@ -69,7 +71,7 @@ const Navbar = () => {
           </Link>
 
           <div className="nav-links">
-            <Link to={'/login'} className={`user-icon ${isOpen ? 'open' : ''}`}>
+            <Link to={isAuthenticated ? '/account' : '/login'} className={`user-icon ${isOpen ? 'open' : ''}`}>
               <i className="fa-solid fa-circle-user"></i>
             </Link>
             <NavbarHamburger isOpen={isOpen} setIsOpen={setIsOpen} />
