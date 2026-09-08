@@ -1,6 +1,8 @@
+import './PrivacyPolicy.css';
+
 const PrivacyPolicy = () => {
   return (
-    <main className="container-sm-tm">
+    <div className="container-sm-tm privacy-policy">
       <h1>Privacy Policy</h1>
 
       <p>
@@ -90,7 +92,7 @@ const PrivacyPolicy = () => {
         met ons opnemen per e-mail via{' '}
         <a href="mailto:privacy@heimdal.be">privacy@heimdal.be</a>.
       </p>
-    </main>
+    </div>
   );
 };
 
