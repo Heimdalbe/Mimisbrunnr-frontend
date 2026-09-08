@@ -18,7 +18,6 @@ import LustrumCommites from './pages/Praesidium/LustrumCommités/Lustrumcommites
 import Evenementen from './pages/Evenementen/Evenementen.jsx';
 import EventDetail from './pages/Evenementen/EventDetail/EventDetail.jsx';
 import PrivacyPolicy from './pages/Legal/PrivacyPolicy.jsx';
-import CookiePolicy from './pages/Legal/CookiePolicy.jsx';
 import Login from './pages/Login/Login.jsx';
 import AdminHome from './pages/Admin/Home/AdminHome.jsx';
 import AdminAlbums from './pages/Admin/Albums/AdminAlbums.jsx';
@@ -94,7 +93,6 @@ const router = createBrowserRouter([
 
       { path: '/erestuff', Component: Erestuff },
 
-      { path: '/cookie-policy', Component: CookiePolicy },
       { path: '/privacy-policy', Component: PrivacyPolicy },
 
       { path: '/login', Component: Login },
@@ -150,5 +148,5 @@ createRoot(document.getElementById('root')).render(
     <AuthProvider>
       <RouterProvider router={router} />
     </AuthProvider>
-  </StrictMode>
+  </StrictMode>,
 );
