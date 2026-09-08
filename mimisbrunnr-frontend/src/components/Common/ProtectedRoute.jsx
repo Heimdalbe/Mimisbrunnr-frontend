@@ -1,7 +1,9 @@
 import { Navigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
 
-const ProtectedRoute = ({ children, role }) => {
+// Accepts either a single `role` string or a `roles` array.
+// Users with the Hmdl role always pass, regardless of what's required.
+const ProtectedRoute = ({ children, role, roles }) => {
   const { isAuthenticated, loading, user } = useAuth();
   const location = useLocation();
 
@@ -13,7 +15,13 @@ const ProtectedRoute = ({ children, role }) => {
     return <Navigate to="/login" state={{ from: location }} replace />;
   }
 
-  if (role && !user?.roles?.includes(role)) {
+  const userRoles = user?.roles ?? [];
+  const requiredRoles = roles ?? (role ? [role] : []);
+
+  const hasAccess =
+    userRoles.includes('Hmdl') || requiredRoles.length === 0 || requiredRoles.some((r) => userRoles.includes(r));
+
+  if (!hasAccess) {
     return <Navigate to="/unauthorized" replace />;
   }
 

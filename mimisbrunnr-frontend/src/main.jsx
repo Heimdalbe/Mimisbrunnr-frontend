@@ -65,6 +65,9 @@ import AdminEditSocialType from './pages/Admin/SocialTypes/AdminEditSocialType.j
 import Account from './pages/Account/Account/Account.jsx';
 import PasswordReset from './pages/Account/PasswordReset/PasswordReset.jsx';
 import Registreer from './pages/Account/Registreer/Registreer.jsx';
+import AdminAccounts from './pages/Admin/Accounts/AdminAccounts.jsx';
+import AdminEditAccount from './pages/Admin/Accounts/AdminEditAccount.jsx';
+import AdminEditPassword from './pages/Admin/Accounts/AdminEditPassword.jsx';
 
 const router = createBrowserRouter([
   {
@@ -110,41 +113,319 @@ const router = createBrowserRouter([
   {
     element: <AdminLayout />,
     children: [
-      { path: '/admin/', Component: AdminHome },
+      {
+        path: '/admin/',
+        element: (
+          <ProtectedRoute roles={['EventEditor', 'MediaEditor', 'SponsorEditor']}>
+            <AdminHome />
+          </ProtectedRoute>
+        ),
+      },
 
-      { path: '/admin/albums', Component: AdminAlbums },
-      { path: '/admin/albums/new', Component: AdminNewAlbum },
-      { path: '/admin/albums/:id', Component: AdminEditAlbum },
-      { path: '/admin/albums/:id/images', Component: AdminAlbumImages },
-      { path: '/admin/events', Component: AdminEvents },
-      { path: '/admin/events/new', Component: AdminNewEvent },
-      { path: '/admin/events/:id', Component: AdminEditEvent },
-      { path: '/admin/events/:id/sponsors', Component: AdminEventSponsors },
-      { path: '/admin/praesidiumleden', Component: AdminPraesidiumMembers },
-      { path: '/admin/praesidiumleden/:id', Component: AdminEditPraesidiumMember },
-      { path: '/admin/praesidiumleden/new', Component: AdminNewPraesidiumMember },
-      { path: '/admin/superschachten', Component: AdminSuperSchachten },
-      { path: '/admin/superschachten/:id', Component: AdminEditSuperSchacht },
-      { path: '/admin/superschachten/new', Component: AdminNewSuperSchacht },
-      { path: '/admin/ereleden', Component: AdminEreleden },
-      { path: '/admin/ereleden/:id', Component: AdminEditErelid },
-      { path: '/admin/ereleden/new', Component: AdminNewErelid },
-      { path: '/admin/lustrumleden', Component: AdminLustrumMembers },
-      { path: '/admin/lustrumleden/:id', Component: AdminEditLustrumMember },
-      { path: '/admin/lustrumleden/new', Component: AdminNewLustrumMember },
-      { path: '/admin/ledengegevens', Component: AdminMemberDetails },
-      { path: '/admin/ledengegevens/:id', Component: AdminEditMemberDetails },
-      { path: '/admin/ledengegevens/new', Component: AdminNewMemberDetails },
-      { path: '/admin/ledengegevens/:id/socials', Component: AdminSocials },
-      { path: '/admin/functies', Component: AdminPraesidiumRoles },
-      { path: '/admin/functies/:id', Component: AdminEditPraesidiumRole },
-      { path: '/admin/functies/new', Component: AdminNewPraesidiumRole },
-      { path: '/admin/socialtypes', Component: AdminSocialTypes },
-      { path: '/admin/socialtypes/new', Component: AdminNewSocialType },
-      { path: '/admin/socialtypes/:id', Component: AdminEditSocialType },
-      { path: '/admin/sponsors', Component: AdminSponsors },
-      { path: '/admin/sponsors/new', Component: AdminNewSponsor },
-      { path: '/admin/sponsors/:id', Component: AdminEditSponsor },
+      // Accounts — Hmdl only
+      {
+        path: '/admin/accounts',
+        element: (
+          <ProtectedRoute role="Hmdl">
+            <AdminAccounts />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: '/admin/accounts/:id',
+        element: (
+          <ProtectedRoute role="Hmdl">
+            <AdminEditAccount />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: '/admin/accounts/:id/password',
+        element: (
+          <ProtectedRoute role="Hmdl">
+            <AdminEditPassword />
+          </ProtectedRoute>
+        ),
+      },
+
+      // Albums — MediaEditor
+      {
+        path: '/admin/albums',
+        element: (
+          <ProtectedRoute role="MediaEditor">
+            <AdminAlbums />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: '/admin/albums/new',
+        element: (
+          <ProtectedRoute role="MediaEditor">
+            <AdminNewAlbum />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: '/admin/albums/:id',
+        element: (
+          <ProtectedRoute role="MediaEditor">
+            <AdminEditAlbum />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: '/admin/albums/:id/images',
+        element: (
+          <ProtectedRoute role="MediaEditor">
+            <AdminAlbumImages />
+          </ProtectedRoute>
+        ),
+      },
+
+      // Events — EventEditor
+      {
+        path: '/admin/events',
+        element: (
+          <ProtectedRoute role={['EventEditor', 'SponsorEditor']}>
+            <AdminEvents />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: '/admin/events/new',
+        element: (
+          <ProtectedRoute role="EventEditor">
+            <AdminNewEvent />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: '/admin/events/:id',
+        element: (
+          <ProtectedRoute role="EventEditor">
+            <AdminEditEvent />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: '/admin/events/:id/sponsors',
+        element: (
+          <ProtectedRoute roles={['EventEditor', 'SponsorEditor']}>
+            <AdminEventSponsors />
+          </ProtectedRoute>
+        ),
+      },
+
+      // Hmdl only
+      {
+        path: '/admin/praesidiumleden',
+        element: (
+          <ProtectedRoute role="Hmdl">
+            <AdminPraesidiumMembers />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: '/admin/praesidiumleden/:id',
+        element: (
+          <ProtectedRoute role="Hmdl">
+            <AdminEditPraesidiumMember />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: '/admin/praesidiumleden/new',
+        element: (
+          <ProtectedRoute role="Hmdl">
+            <AdminNewPraesidiumMember />
+          </ProtectedRoute>
+        ),
+      },
+
+      {
+        path: '/admin/superschachten',
+        element: (
+          <ProtectedRoute role="Hmdl">
+            <AdminSuperSchachten />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: '/admin/superschachten/:id',
+        element: (
+          <ProtectedRoute role="Hmdl">
+            <AdminEditSuperSchacht />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: '/admin/superschachten/new',
+        element: (
+          <ProtectedRoute role="Hmdl">
+            <AdminNewSuperSchacht />
+          </ProtectedRoute>
+        ),
+      },
+
+      {
+        path: '/admin/ereleden',
+        element: (
+          <ProtectedRoute role="Hmdl">
+            <AdminEreleden />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: '/admin/ereleden/:id',
+        element: (
+          <ProtectedRoute role="Hmdl">
+            <AdminEditErelid />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: '/admin/ereleden/new',
+        element: (
+          <ProtectedRoute role="Hmdl">
+            <AdminNewErelid />
+          </ProtectedRoute>
+        ),
+      },
+
+      {
+        path: '/admin/lustrumleden',
+        element: (
+          <ProtectedRoute role="Hmdl">
+            <AdminLustrumMembers />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: '/admin/lustrumleden/:id',
+        element: (
+          <ProtectedRoute role="Hmdl">
+            <AdminEditLustrumMember />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: '/admin/lustrumleden/new',
+        element: (
+          <ProtectedRoute role="Hmdl">
+            <AdminNewLustrumMember />
+          </ProtectedRoute>
+        ),
+      },
+
+      {
+        path: '/admin/ledengegevens',
+        element: (
+          <ProtectedRoute role="Hmdl">
+            <AdminMemberDetails />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: '/admin/ledengegevens/:id',
+        element: (
+          <ProtectedRoute role="Hmdl">
+            <AdminEditMemberDetails />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: '/admin/ledengegevens/new',
+        element: (
+          <ProtectedRoute role="Hmdl">
+            <AdminNewMemberDetails />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: '/admin/ledengegevens/:id/socials',
+        element: (
+          <ProtectedRoute role="Hmdl">
+            <AdminSocials />
+          </ProtectedRoute>
+        ),
+      },
+
+      {
+        path: '/admin/functies',
+        element: (
+          <ProtectedRoute role="Hmdl">
+            <AdminPraesidiumRoles />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: '/admin/functies/:id',
+        element: (
+          <ProtectedRoute role="Hmdl">
+            <AdminEditPraesidiumRole />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: '/admin/functies/new',
+        element: (
+          <ProtectedRoute role="Hmdl">
+            <AdminNewPraesidiumRole />
+          </ProtectedRoute>
+        ),
+      },
+
+      {
+        path: '/admin/socialtypes',
+        element: (
+          <ProtectedRoute role="Hmdl">
+            <AdminSocialTypes />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: '/admin/socialtypes/new',
+        element: (
+          <ProtectedRoute role="Hmdl">
+            <AdminNewSocialType />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: '/admin/socialtypes/:id',
+        element: (
+          <ProtectedRoute role="Hmdl">
+            <AdminEditSocialType />
+          </ProtectedRoute>
+        ),
+      },
+
+      // Sponsors — SponsorEditor
+      {
+        path: '/admin/sponsors',
+        element: (
+          <ProtectedRoute role="SponsorEditor">
+            <AdminSponsors />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: '/admin/sponsors/new',
+        element: (
+          <ProtectedRoute role="SponsorEditor">
+            <AdminNewSponsor />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: '/admin/sponsors/:id',
+        element: (
+          <ProtectedRoute role="SponsorEditor">
+            <AdminEditSponsor />
+          </ProtectedRoute>
+        ),
+      },
+
       { path: '/admin/*', Component: NotFound },
     ],
   },
@@ -155,5 +436,5 @@ createRoot(document.getElementById('root')).render(
     <AuthProvider>
       <RouterProvider router={router} />
     </AuthProvider>
-  </StrictMode>,
+  </StrictMode>
 );
