@@ -5,9 +5,7 @@ import useSWR from 'swr';
 import { getAll } from '../../../api';
 import AsyncData from '../../Common/AsyncData/AsyncData';
 
-const UpcomingEvent = ({
-  id,
-}) => {
+const UpcomingEvent = ({ id }) => {
   const { data: event = {}, error: eventError, isLoading: eventIsLoading } = useSWR(`events/pub/${id}`, getAll);
   const maxDescriptionLength = 260;
   const safeDescription = event.description ?? '';
@@ -38,6 +36,7 @@ const UpcomingEvent = ({
           </div>
           <Countdown date={date} />
         </div>
+
         <img src={event.banner?.url} alt={event.banner?.alt ?? 'Foto van ' + event.name} className="image" />
       </AsyncData>
     </div>

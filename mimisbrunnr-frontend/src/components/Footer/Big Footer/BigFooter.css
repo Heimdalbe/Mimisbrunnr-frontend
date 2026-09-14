@@ -33,13 +33,29 @@
   flex: 3;
 }
 
-.contact-section ul {
+.contact-section > ul {
   list-style-type: none;
 }
 
+.contact-section > ul > li {
+  margin-bottom: 25px;
+}
+
+.contact-section > ul > li > b {
+  display: block;
+  color: var(--green);
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
 .contact-section ul li ul {
+  list-style-type: none;
   margin: 5px;
   margin-inline-start: 10px;
+}
+
+.contact-section ul li ul li {
+  margin-bottom: 6px;
 }
 
 .jormungandr {

@@ -49,7 +49,14 @@ const PasswordResetForm = ({ user = {} }) => {
     <Form onSubmit={handleSubmit} className="password-reset-form">
       <label>
         Nieuw Wachtwoord
-        <input type="password" name="newPassword" value={formData.newPassword} onChange={handleChange} required />
+        <input
+          type="password"
+          placeholder="nieuw wachtwoord"
+          name="newPassword"
+          value={formData.newPassword}
+          onChange={handleChange}
+          required
+        />
       </label>
 
       <label>
@@ -57,6 +64,7 @@ const PasswordResetForm = ({ user = {} }) => {
         <input
           type="password"
           name="newPasswordRepeat"
+          placeholder="herhaal nieuw wachtwoord"
           value={formData.newPasswordRepeat}
           onChange={handleChange}
           required

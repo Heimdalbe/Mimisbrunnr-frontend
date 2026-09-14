@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useAuth } from '../../../contexts/AuthContext';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate, useLocation, Link } from 'react-router-dom';
 import './Registreer.css';
 
 const Registreer = () => {
@@ -57,12 +57,25 @@ const Registreer = () => {
         <form onSubmit={handleSubmit} className="registreer-form">
           <label>
             Name
-            <input name="name" value={name} onChange={(e) => setName(e.target.value)} required />
+            <input
+              name="name"
+              placeholder="John Heimdal"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              required
+            />
           </label>
 
           <label>
             E-Mail
-            <input type="email" name="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
+            <input
+              type="email"
+              placeholder="john.heimdal@placeholder.be"
+              name="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
           </label>
 
           <label>
@@ -70,6 +83,7 @@ const Registreer = () => {
             <input
               type="password"
               name="password"
+              placeholder="wachtwoord"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
@@ -81,6 +95,7 @@ const Registreer = () => {
             <input
               type="password"
               name="confirmPassword"
+              placeholder="herhaal wachtwoord"
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
               required
@@ -90,6 +105,9 @@ const Registreer = () => {
           {error && <p className="registreer-form__error">{error}</p>}
 
           <button type="submit">Registreer</button>
+          <p>
+            Heb je al een account? <Link to={'/login'}>Log In</Link>
+          </p>
         </form>
       </div>
     );
