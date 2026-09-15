@@ -34,7 +34,7 @@ import AdminMemberDetails from './pages/Admin/Praesidium/MemberDetails/AdminMemb
 import AdminEditMemberDetails from './pages/Admin/Praesidium/MemberDetails/AdminEditMemberDetails.jsx';
 import AdminNewMemberDetails from './pages/Admin/Praesidium/MemberDetails/AdminNewMemberDetails.jsx';
 import AdminSuperSchachten from './pages/Admin/Praesidium/Superschachten/AdminSuperSchachten.jsx';
-import AdminEditSuperSchacht from './pages/Admin/Praesidium/Superschachten/AdminEditSuperschacht.jsx';
+import AdminEditSuperSchacht from './pages/Admin/Praesidium/Superschachten/AdminEditSuperSchacht.jsx';
 import AdminNewSuperSchacht from './pages/Admin/Praesidium/Superschachten/AdminNewSuperSchacht.jsx';
 import AdminEreleden from './pages/Admin/Praesidium/Ereleden/AdminEreleden.jsx';
 import AdminEditErelid from './pages/Admin/Praesidium/Ereleden/AdminEditErelid.jsx';
