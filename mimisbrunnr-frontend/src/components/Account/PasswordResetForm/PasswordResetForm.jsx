@@ -15,6 +15,14 @@ const PasswordResetForm = ({ user = {} }) => {
 
   const { trigger: handleSave, isMutating } = useSWRMutation('accounts/self', put);
 
+  const isPasswordValid = (pw) => {
+    const minLength = pw.length >= 6;
+    const hasUpperCase = /[A-Z]/.test(pw);
+    const hasNumber = /[0-9]/.test(pw);
+    const hasSpecialChar = /[^A-Za-z0-9]/.test(pw);
+    return minLength && hasUpperCase && hasNumber && hasSpecialChar;
+  };
+
   function handleChange(u) {
     const { name, value, type, checked } = u.target;
 
@@ -33,6 +41,11 @@ const PasswordResetForm = ({ user = {} }) => {
 
     if (formData.newPassword !== formData.newPasswordRepeat) {
       setError('Wachtwoorden komen niet overeen.');
+      return;
+    }
+
+    if (!isPasswordValid(formData.newPassword)) {
+      setError('Wachtwoord moet minstens 6 tekens bevatten, 1 hoofdletter, 1 cijfer en 1 speciaal teken.');
       return;
     }
 

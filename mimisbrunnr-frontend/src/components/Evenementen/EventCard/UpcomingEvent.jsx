@@ -18,7 +18,7 @@ const UpcomingEvent = ({ id }) => {
   return (
     <div className="event-wrapper">
       <AsyncData error={eventError} loading={eventIsLoading}>
-        <div className="info-section">
+        <div className="event-info-section">
           <div>
             <div className="title-and-icon">
               <div>
