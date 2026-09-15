@@ -60,7 +60,7 @@
 
 .nav-link::after,
 .submenu-item span::after {
-  content: "";
+  content: '';
   position: absolute;
   left: 0;
   right: 0;
@@ -84,7 +84,9 @@
   font-size: 0.9rem;
   font-style: normal;
   text-decoration: none;
-  transition: background-color 0.2s ease, color 0.2s ease;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
 }
 
 .contact-link {
@@ -169,7 +171,6 @@
 }
 
 @media (min-width: 1029px) {
-
   .over-ons-wrapper:hover .submenu {
     display: flex !important;
   }
@@ -220,7 +221,7 @@
     top: 100%;
     left: 0;
     opacity: 0;
-
+    pointer-events: none;
     transform: translateY(10px);
     transition:
       opacity 0.2s ease,
@@ -229,12 +230,12 @@
 
   .over-ons-wrapper:hover .submenu {
     opacity: 1;
+    pointer-events: auto;
     transform: translateY(0);
   }
 }
 
 @media (max-width: 1028px) {
-
   a:hover {
     text-decoration: none;
   }
@@ -280,7 +281,7 @@
     transition: opacity 0.3s ease;
   }
 
-  .mobile-menu>* {
+  .mobile-menu > * {
     transform: translateY(-37.5px);
   }
 

@@ -4,6 +4,8 @@ import useSWR from 'swr';
 import { getAll } from '../../../api';
 import AccountForm from '../../../components/Account/AccountForm/AccountForm';
 import AsyncData from '../../../components/Common/AsyncData/AsyncData';
+import PrimaryButton from '../../../components/Common/PrimaryButton/PrimaryButton';
+import './Account.css';
 
 const Account = () => {
   const { isAuthenticated, user, logout } = useAuth();
@@ -35,9 +37,7 @@ const Account = () => {
             Klik <Link to={'/account/password-reset'}>hier</Link> om je wachtwoord te veranderen
           </p>
 
-          <button type="button" onClick={handleLogout}>
-            Uitloggen
-          </button>
+          <PrimaryButton text="Uitloggen" isLight={true} isDisabled={false} onClick={handleLogout} />
         </div>
       </div>
     );

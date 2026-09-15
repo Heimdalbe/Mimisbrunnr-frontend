@@ -4,9 +4,10 @@
   border-radius: 8px;
   width: 100%;
   height: 650px;
+  overflow: hidden;
 }
 
-.info-section {
+.event-info-section {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -16,7 +17,7 @@
 }
 /* TODO: Hardcoded margins hier zijn funky wunky dus moet nog gefixed worden */
 
-.info-section > div {
+.event-info-section > div {
   min-height: 0;
 }
 
@@ -24,12 +25,13 @@
   display: flex;
 }
 
-.info-section h1, .info-section p {
+.event-info-section h1,
+.event-info-section p {
   color: var(--white);
 }
 
-.info-section p,
-.info-section p:last-child {
+.event-info-section p,
+.event-info-section p:last-child {
   margin-bottom: 0;
 }
 
@@ -43,7 +45,8 @@
 }
 
 .image {
-  width: 50%;
+  height: 100%;
+  max-width: 50%;
   object-fit: cover;
   border-top-right-radius: 8px;
   border-bottom-right-radius: 8px;

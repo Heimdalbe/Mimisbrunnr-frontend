@@ -15,6 +15,14 @@ const PasswordResetForm = ({ user = {} }) => {
 
   const { trigger: handleSave, isMutating } = useSWRMutation('accounts/self', put);
 
+  const isPasswordValid = (pw) => {
+    const minLength = pw.length >= 6;
+    const hasUpperCase = /[A-Z]/.test(pw);
+    const hasNumber = /[0-9]/.test(pw);
+    const hasSpecialChar = /[^A-Za-z0-9]/.test(pw);
+    return minLength && hasUpperCase && hasNumber && hasSpecialChar;
+  };
+
   function handleChange(u) {
     const { name, value, type, checked } = u.target;
 
@@ -36,6 +44,11 @@ const PasswordResetForm = ({ user = {} }) => {
       return;
     }
 
+    if (!isPasswordValid(formData.newPassword)) {
+      setError('Wachtwoord moet minstens 6 tekens bevatten, 1 hoofdletter, 1 cijfer en 1 speciaal teken.');
+      return;
+    }
+
     setError('');
     await handleSave({
       id: user.id,
@@ -49,7 +62,14 @@ const PasswordResetForm = ({ user = {} }) => {
     <Form onSubmit={handleSubmit} className="password-reset-form">
       <label>
         Nieuw Wachtwoord
-        <input type="password" name="newPassword" value={formData.newPassword} onChange={handleChange} required />
+        <input
+          type="password"
+          placeholder="nieuw wachtwoord"
+          name="newPassword"
+          value={formData.newPassword}
+          onChange={handleChange}
+          required
+        />
       </label>
 
       <label>
@@ -57,6 +77,7 @@ const PasswordResetForm = ({ user = {} }) => {
         <input
           type="password"
           name="newPasswordRepeat"
+          placeholder="herhaal nieuw wachtwoord"
           value={formData.newPasswordRepeat}
           onChange={handleChange}
           required

@@ -99,9 +99,9 @@ const Navbar = () => {
                 Evenementen
               </Link>
 
-              <Link to={'/contact'} className="contact-link">
+              <a href="#footer">
                 <NavContactButton />
-              </Link>
+              </a>
             </div>
           </div>
         </div>
