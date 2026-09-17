@@ -19,7 +19,7 @@ const characteristics = [
     id: 3,
     iconClass: 'fa-solid fa-gamepad',
     name: 'GAMERS',
-    text: 'Van een potje Skyrim tot een ronde Mario Kart. Er staat gegarandeerd iemand paraat om te joinen.',
+    text: 'Van een potje Counter Strike tot een ronde Mario Kart. Er staat gegarandeerd iemand paraat om te joinen.',
   },
   {
     id: 4,
