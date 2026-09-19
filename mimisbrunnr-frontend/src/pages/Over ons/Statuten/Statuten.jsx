@@ -16,9 +16,7 @@ const Statuten = () => {
         />
         */}
       </div>
-      <h2>
-        Laatst aangepast op {statuten.datumAangepast.toLocaleDateString()}
-      </h2>
+      <h2>Laatst aangepast op {statuten.datumAangepast}</h2>
       <PdfViewer bestand={statuten.bestandUrl} />
     </div>
   );

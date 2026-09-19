@@ -37,10 +37,10 @@ const Werkgroepen = () => {
     <div className="container-sm-tm werkgroepen-page">
       <h1>Werkgroepen</h1>
       <p className="werkgroepen-intro">
-        Tijdelijk plaatsvervangend tekstje want ja hoe weet ik nu wat hier
-        eigenlijk zou moeten komen? Daarom houden we het hier voorlopig nog even
-        gevuld en passen we dit in de loop van tijd aan met de echte tekst die
-        hier moet komen! :)
+        Naast het praesidium draait Heimdal op de inzet van tal van studenten die graag de handen uit de mouwen steken.
+        Dat doen ze in onze werkgroepen: kleine teams die elk een eigen taak oppakken, van het bouwen van deze website
+        tot het organiseren van onze jaarlijkse LAN party. Zin om mee te helpen? Je hoeft geen ervaring te hebben, enkel
+        goesting! Ontdek hieronder wat elke werkgroep doet en sluit aan via de bijhorende Discord.
       </p>
       <WerkgroepenList werkgroepen={werkgroepen} />
     </div>
