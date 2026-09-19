@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import './PrimaryButton.css';
 
-const PrimaryButton = ({ text, to, isLight, isDisabled, onClick }) => {
+const PrimaryButton = ({ text, to, isLight, hasNoMarginBottom, isDisabled, onClick }) => {
   const className = [isLight ? 'primary-button' : 'primary-button-dark', isDisabled ? 'disabled' : ''].join(' ');
 
   if (to) {
@@ -13,7 +13,13 @@ const PrimaryButton = ({ text, to, isLight, isDisabled, onClick }) => {
   }
 
   return (
-    <button type="button" className={className} onClick={onClick} disabled={isDisabled}>
+    <button
+      type="button"
+      className={className}
+      style={hasNoMarginBottom ? { marginBottom: 0 } : undefined}
+      onClick={onClick}
+      disabled={isDisabled}
+    >
       {text}
     </button>
   );
