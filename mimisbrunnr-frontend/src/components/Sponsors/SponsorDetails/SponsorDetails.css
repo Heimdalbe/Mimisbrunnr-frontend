@@ -28,7 +28,8 @@
 
 .sponsor-logo{
   height: 100%;
-  width: auto;
+  width: 85%;
+  object-fit: contain;
   transition: transform 0.3s ease;
 }
 
