@@ -8,7 +8,7 @@ const NuttigeLinks = () => {
       <NuttigeLink link={'/over-ons'} text={'Over ons'} />
       <NuttigeLink link={'/evenementen'} text={'Events'} />
       <NuttigeLink link={'/praesidium'} text={'Praesidium'} />
-      <NuttigeLink link={'/leden'} text={'Leden'} />
+      <NuttigeLink link={'/albums'} text={'Albums'} />
     </div>
   );
 };
