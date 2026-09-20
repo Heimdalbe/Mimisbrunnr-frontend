@@ -5,21 +5,17 @@ import './Boekje.css';
 import boekjes from '../../../api/boekjes';
 import SelectField from '../../../components/Form/SelectField/SelectField';
 
-//TODO: Selectfield op full width ziet er hier beetje cursed uit
-
-//TODO: Nut van deze pagina nog is herevalueren want er zijn eigenlijk maar 2 boekjes om te tonen (2 edities 2023-2024),
-
 const Boekje = () => {
-  const labels = boekjes.map((b) => {
-    const year = b.datum ? b.datum.getFullYear() : new Date().getFullYear();
-    return year;
-  });
+  const options = boekjes.map(({ id, label }) => ({
+    label,
+    value: id,
+  }));
 
-  const [selectedLabel, setSelectedLabel] = useState(labels[0] ?? '');
-  const current = boekjes[labels.indexOf(selectedLabel)] || boekjes[0];
+  const [selectedId, setSelectedId] = useState(options[0]?.value ?? '');
+  const current = boekjes.find((boekje) => boekje.id === selectedId) || boekjes[0];
 
-  const handleChangeBoekje = (label) => {
-    setSelectedLabel(label);
+  const handleChangeBoekje = (id) => {
+    setSelectedId(id);
   };
 
   return (
@@ -35,10 +31,10 @@ const Boekje = () => {
         */}
       </div>
       <SelectField
-        label={'Kies een jaar:'}
-        placeholder={'bv. 2025 - 2026'}
-        options={labels}
-        value={selectedLabel}
+        label={'Kies een boekje:'}
+        placeholder={'bv. 2023-2024, editie 1'}
+        options={options}
+        value={selectedId}
         onChange={handleChangeBoekje}
       />
       <PdfViewer bestand={current.bestand} />
