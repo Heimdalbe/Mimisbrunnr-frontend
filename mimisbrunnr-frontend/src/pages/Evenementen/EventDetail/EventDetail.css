@@ -14,11 +14,9 @@
 }
 
 .event-name {
-
   font-size: 1.8rem;
   line-height: 1.8rem;
   font-weight: 800;
-
 }
 
 .info-card {
@@ -40,44 +38,44 @@
 
 @media (max-width: 768px) {
   .info-card {
-    position: static; 
+    position: static;
     min-width: auto;
   }
 
   .img-card-wrapper {
     flex-direction: column;
   }
-  
+
   .event-img {
     max-width: 100%;
   }
-  
+
   .background {
     visibility: hidden;
   }
 
   .event-name {
     text-align: center;
-    color: var(--black);  
+    color: var(--black);
     margin-block: 0.67em;
   }
 }
 
-@media (min-width: 768px){
-  .event-img{
+@media (min-width: 768px) {
+  .event-img {
     max-width: 75%;
     max-height: 100%;
     height: fit-content;
-    right:0px;
+    right: 0px;
   }
 
-  .img-card-wrapper{
+  .img-card-wrapper {
     height: 450px;
   }
 
   .event-name {
     text-align: left;
-    color: var(--white);  
+    color: var(--white);
     max-width: 250px;
     padding-left: 10px;
     padding-bottom: 210px;

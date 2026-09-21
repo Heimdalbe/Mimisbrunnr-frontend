@@ -24,7 +24,7 @@ const EventDetail = () => {
     <div className="container-sm-tm">
       {/* TODO: Terug knop of breadcrumbs (of allebei :p) */}
       <AsyncData loading={eventIsLoading} error={eventError}>
-        <img className="background" src="../../../../public/BackgroundImg.png"></img>
+        <img className="background" src="../../../../BackgroundImg.png"></img>
         <div className="img-card-wrapper">
           <img className="event-img" src={banner?.url} alt={banner?.alt} />
           <div className="event-name">{event.name}</div>
