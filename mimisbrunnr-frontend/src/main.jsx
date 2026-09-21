@@ -186,7 +186,7 @@ const router = createBrowserRouter([
       {
         path: '/admin/events',
         element: (
-          <ProtectedRoute role={['EventEditor', 'SponsorEditor']}>
+          <ProtectedRoute roles={['EventEditor', 'SponsorEditor']}>
             <AdminEvents />
           </ProtectedRoute>
         ),
