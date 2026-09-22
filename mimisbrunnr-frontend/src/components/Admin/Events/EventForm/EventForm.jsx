@@ -66,6 +66,7 @@ const EventForm = ({ id = undefined, event = {} }) => {
     await handleSave({
       id: id,
       ...formData,
+      url: formData.url || 'https://heimdal.be',
     });
 
     navigate('/admin/events');
@@ -146,7 +147,7 @@ const EventForm = ({ id = undefined, event = {} }) => {
 
       <label>
         Inschrijvingslink
-        <input type="url" name="url" value={formData.url} onChange={handleChange} required />
+        <input type="url" name="url" value={formData.url} onChange={handleChange} />
       </label>
 
       {isEditMode && (
