@@ -30,19 +30,19 @@ const EventDetail = () => {
           <div className="event-name">{event.name}</div>
           <div className="info-card">
             <div className="icon-info">
-              <i class="fa-solid fa-user-group"></i>
+              <i className="fa-solid fa-user-group"></i>
               {event.accessibility === 'OPEN' ? <span>Iedereen welkom</span> : <span>Heimies</span>}
             </div>
             <div className="icon-info">
-              <i class="fa-solid fa-calendar-days"></i>
+              <i className="fa-solid fa-calendar-days"></i>
               <span>{date.toLocaleDateString()}</span>
             </div>
             <div className="icon-info">
-              <i class="fa-solid fa-clock"></i>
+              <i className="fa-solid fa-clock"></i>
               <span>{start_time}</span>
             </div>
             <div className="icon-info">
-              <i class="fa-solid fa-location-dot"></i>
+              <i className="fa-solid fa-location-dot"></i>
               <span>{event.location}</span>
             </div>
             {event.iCal && (
