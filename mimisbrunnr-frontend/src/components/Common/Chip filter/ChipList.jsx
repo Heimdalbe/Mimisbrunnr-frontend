@@ -16,7 +16,13 @@ const ChipList = ({ chips, selected, onToggle, onClear }) => {
           />
         ))}
       </div>
-      <PrimaryButton hasNoMarginBottom={true} isLight={true} text={'Verwijder alle filters'} onClick={onClear} />
+      <PrimaryButton
+        hasNoMarginBottom={true}
+        isLight={true}
+        text={'Verwijder alle filters'}
+        onClick={onClear}
+        className="chiplist-clear-button"
+      />
     </div>
   );
 };

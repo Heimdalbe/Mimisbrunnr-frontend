@@ -55,7 +55,7 @@ const Evenementen = () => {
   const clearChips = () => setSelectedChips([]);
 
   return (
-    <>
+    <div>
       <div className="container-sm-tm">
         <Breadcrumbs children={[{ link: 'evenementen', isLast: true }]} />
         <AsyncData loading={allEventsAreLoading} error={allEventsError}>
@@ -63,12 +63,12 @@ const Evenementen = () => {
         </AsyncData>
         <ChipList chips={chips} selected={selectedChips} onToggle={toggleChip} onClear={clearChips} />
       </div>
-      <div className="container-sm-bm">
+      <div className="container-fw-mobile" style={{ paddingTop: '10px', marginBottom: '80px' }}>
         <AsyncData loading={eventsAreLoading} error={eventsError}>
           <EventList events={data.events} />
         </AsyncData>
       </div>
-    </>
+    </div>
   );
 };
 

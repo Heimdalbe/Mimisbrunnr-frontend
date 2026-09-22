@@ -53,11 +53,6 @@
   transition: color 0.3s ease;
 }
 
-.icon-chip:hover .chip-icon,
-.active-icon {
-  color: var(--green);
-}
-
 .chip-label {
   font-weight: bold;
   font-size: 0.9rem;
@@ -65,60 +60,56 @@
   white-space: nowrap;
 }
 
-/* .icon-chip {
-  border-radius: 100px;
-  display: flex;
-  align-items: center;
-  min-width: fit-content;
-  background-color: #e5e5e5;
-  padding: 4px 25px 4px 4px;
-  transition: background-color 0.2s ease;
-}
+@media (min-width: 768px) {
+  .icon-chip:hover {
+    background-color: var(--green);
+  }
 
-.icon-chip:hover {
-  cursor: pointer;
-}
-
-.active-chip {
-  background-color: var(--green);
-  flex-flow: row-reverse;
-  padding: 4px 4px 4px 20px;
-}
-
-.chip-icon {
-  border-radius: 100px;
-  width: 40px;
-  height: 40px;
-  padding: 0;
-  color: #e5e5e5;
-  background-color: var(--white);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  transition: color 0.2s ease;
-}
-
-.active-icon {
-  color: var(--green);
-} */
-
-.chip-label {
-  font-weight: bold;
-  font-size: 0.9rem;
-  color: var(--white);
-  white-space: nowrap;
+  .icon-chip:hover .chip-icon,
+  .active-icon {
+    color: var(--green);
+  }
 }
 
 @media (max-width: 480px) {
   .chiplist {
     justify-content: center;
+    gap: 40px;
+    margin-bottom: 0;
+  }
+  
+  .chiplist > div {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .chiplist-clear-button {
+    width: 100%;
   }
 
   .icon-chip {
-    flex: 0 0 auto;
+    width: 70px;
+    height: 70px;
+    padding: 4px;
+    border-radius: 50%;
+    justify-content: center;
+  }
+
+  .chip-icon {
+    width: 70px;
+    height: 70px;
+    background-color: transparent;
+    color: white;
+    font-size: 1.8rem;
+  }
+
+  .active-chip {
+    padding: 4px;
+    flex-direction: row;
+    background-color: var(--green);
   }
 
   .chip-label {
-    display:none;
+    display: none;
   }
 }
