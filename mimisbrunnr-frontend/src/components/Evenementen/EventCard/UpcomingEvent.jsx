@@ -36,8 +36,7 @@ const UpcomingEvent = ({ id }) => {
           </div>
           <Countdown date={date} />
         </div>
-        <img src={'/placeholder-event.svg'} alt={event.banner?.alt ?? 'Foto van ' + event.name} className="image" />
-        {/* <img src={event.banner?.url} alt={event.banner?.alt ?? 'Foto van ' + event.name} className="image" /> */}
+        <img src={event.banner?.url} alt={event.banner?.alt ?? 'Foto van ' + event.name} className="image" />
       </AsyncData>
     </div>
   );
