@@ -1,13 +1,13 @@
 .socials-list {
   margin: 0;
   display: flex;
-  gap: 5px;
+  gap: 16px;
   flex-direction: column;
   justify-content: space-between;
 }
 
 .social-link {
-  font-size: 28px;
+  font-size: 24px;
   color: white;
   transition: ease 0.3s;
   display: flex;
@@ -21,7 +21,7 @@
 
 @media (max-width: 1028px) {
   .social-link {
-    font-size: 32px;
+    font-size: 28px;
   }
 
   .socials-list {

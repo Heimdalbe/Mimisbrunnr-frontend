@@ -6,7 +6,9 @@
 }
 
 .vision-info-section {
-  flex: 2;
+  flex: 3;
+  padding-top: 110px;
+  padding-bottom: 40px;
 }
 
 .vision-image-section {
@@ -16,6 +18,7 @@
 .vision-image-section div {
   width: 100%;
   position: relative;
+  padding-top: 100px;
 }
 
 .v-pic1 {
@@ -34,6 +37,10 @@
   border: 5px var(--white) solid;
 }
 
+.vision-info-section-text p {
+  margin-bottom: 40px !important;
+}
+
 @media (max-width: 768px) {
   .vision-section {
     flex-direction: column;
@@ -43,6 +50,15 @@
   .vision-info-section,
   .vision-image-section {
     width: 100%;
+  }
+
+  .vision-info-section {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .vision-info-section-text p {
+    margin-bottom: 80px !important;
   }
 
   .v-pic2 {

@@ -2,13 +2,13 @@ import { useNavigate } from 'react-router-dom';
 import EventIcon from '../Andere/EventIcon';
 import './EventCard.css';
 
-const EventCard = ({ id, banner, start, end, name, category }) => {
+const EventCard = ({ id, banner, start, end, name, category, catInvisible }) => {
   const navigate = useNavigate();
   const date = new Date(start);
   const day = date.getDate().toString().padStart(2, '0');
   const month = date.toLocaleString('nl-BE', { month: 'long' }).slice(0, 3);
-  const start_time = date.toLocaleTimeString();
-  const end_time = new Date(end).toLocaleTimeString();
+  const start_time = date.toLocaleTimeString().slice(0, 5);
+  const end_time = new Date(end).toLocaleTimeString().slice(0, 5);
 
   return (
     <div
@@ -16,7 +16,7 @@ const EventCard = ({ id, banner, start, end, name, category }) => {
       style={{ backgroundImage: `url(${banner.url})` }}
       onClick={() => navigate(`/evenementen/${id}`)}
     >
-      <EventIcon category={category} />
+      {!catInvisible && <EventIcon category={category} />}
       <div className="event-info">
         <div className="date">
           <p className="day">{day}</p>

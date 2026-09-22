@@ -17,8 +17,8 @@ const PlanningSectie = () => {
         <h1>Op de planning...</h1>
       </div>
       <AsyncData loading={eventsAreLoading} error={eventsError}>
-        <div className="container-fw-mobile" style={{ paddingTop: 0, paddingBottom: 0 }}>
-          <EventList events={data.events} limit={true} />
+        <div className="container-fw-mobile" style={{ paddingTop: '10px', paddingBottom: '10px' }}>
+          <EventList events={data.events} limit={true} catInvisibility={true} />
         </div>
       </AsyncData>
       <div className="container-sm-bm">
