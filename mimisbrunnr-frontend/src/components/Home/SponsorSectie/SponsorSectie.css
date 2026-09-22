@@ -22,13 +22,12 @@
 }
 
 .overflowing > a {
-  flex: 0 0 180px;
-  width: 180px;
+  width: fit-content;
   height: 180px;
   display: flex;
   align-items: center;
-  justify-content: center;
   overflow: hidden;
+  margin-inline: 15px;
 }
 
 .sponsorlist a img {
@@ -61,8 +60,7 @@
   }
 
   .sponsorlist a img {
-    height: 200px;
-    max-width: none;
+    height: 180px;
     object-fit: contain;
     transform: none !important;
   }
