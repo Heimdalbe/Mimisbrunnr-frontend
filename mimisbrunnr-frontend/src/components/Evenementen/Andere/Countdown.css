@@ -1,6 +1,6 @@
 .countdown {
   display: flex;
-  gap: 20px;
+  gap: 40px;
 }
 
 .countdown-item {
@@ -9,7 +9,16 @@
   align-items: center;
 }
 
+.countdown-item:last-of-type h1 {
+  color: #E00818;
+}
+
+.countdown-item h1 {
+  font-size: 2.8rem;
+}
+
 .countdown-item h2 {
-  font-size: 20px;
+  font-size: 1rem;
   color: var(--white);
+  margin: 15px 0 0;
 }

@@ -11,8 +11,8 @@ const EventList = ({ events, limit, catInvisibility }) => {
           <EventCard
             key={event.id}
             id={event.id}
-            banner={event.banner}
-            // banner={{ url: '/placeholder-event.svg' }}
+            // banner={event.banner}
+            banner={{ url: '/placeholder-event.svg' }}
             start={event.start}
             end={event.end}
             name={event.name}

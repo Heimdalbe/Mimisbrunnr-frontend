@@ -1,22 +1,77 @@
 .chiplist {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  gap: 12px;
   max-width: 100%;
-  margin: 20px 0;
+  margin: 50px 0 40px;
+}
+
+.chiplist div{
+  display: flex;
+  gap: 12px;
 }
 
 .icon-chip {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-radius: 100px;
+  background-color: #e5e5e5;
+  padding: 4px 25px 4px 4px;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.3s ease,
+    padding 0.3s ease;
+}
+
+.icon-chip:hover {
+  background-color: var(--green);
+}
+
+.active-chip {
+  background-color: var(--green);
+  padding: 4px 4px 4px 20px;
+  flex-direction: row-reverse;
+}
+
+.chip-icon {
+  width: 40px;
+  height: 40px;
+  flex: 0 0 40px;
+
+  border-radius: 50%;
+  background-color: var(--white);
+  color: #e5e5e5;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: color 0.3s ease;
+}
+
+.icon-chip:hover .chip-icon,
+.active-icon {
+  color: var(--green);
+}
+
+.chip-label {
+  font-weight: bold;
+  font-size: 0.9rem;
+  color: var(--white);
+  white-space: nowrap;
+}
+
+/* .icon-chip {
   border-radius: 100px;
   display: flex;
   align-items: center;
-  gap: 10px;
-  flex: 0 1 170px;
   min-width: fit-content;
   background-color: #e5e5e5;
-  padding: 5px 4px;
+  padding: 4px 25px 4px 4px;
   transition: background-color 0.2s ease;
 }
 
@@ -27,29 +82,29 @@
 .active-chip {
   background-color: var(--green);
   flex-flow: row-reverse;
+  padding: 4px 4px 4px 20px;
 }
 
 .chip-icon {
   border-radius: 100px;
-  width: 48px;
-  height: 48px;
+  width: 40px;
+  height: 40px;
   padding: 0;
   color: #e5e5e5;
   background-color: var(--white);
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  flex: 0 0 48px;
-  box-sizing: border-box;
   transition: color 0.2s ease;
 }
 
 .active-icon {
   color: var(--green);
-}
+} */
 
 .chip-label {
   font-weight: bold;
+  font-size: 0.9rem;
   color: var(--white);
   white-space: nowrap;
 }

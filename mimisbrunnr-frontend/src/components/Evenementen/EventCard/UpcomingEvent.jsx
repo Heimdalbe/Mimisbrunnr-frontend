@@ -30,8 +30,8 @@ const UpcomingEvent = ({ id }) => {
               </div>
             </div>
             <p>
-              {limitedDescription}
-              <a href={`evenementen/${id}`}> Lees meer...</a>
+              {limitedDescription} &nbsp;
+              <a href={`evenementen/${id}`}>Lees meer...</a>
             </p>
           </div>
           <Countdown date={date} />

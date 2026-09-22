@@ -3,7 +3,7 @@
   background-color: var(--black);
   border-radius: 8px;
   width: 100%;
-  height: 650px;
+  height: 460px;
   overflow: hidden;
 }
 
@@ -11,21 +11,22 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  flex: 1 1 50%;
-  min-width: 0;
-  padding: 48px 56px;
-  gap: 24px;
-}
-
-.event-info-section > div {
-  min-height: 0;
+  width: 35%;
+  padding: 50px;
+  gap: 50px;
 }
 
 .title-and-icon {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
+  position: relative;
   gap: 16px;
+}
+
+.title-and-icon div .icon {
+  right: 0;
+  top: 0;
 }
 
 .event-info-section h1,
@@ -58,14 +59,13 @@
 
 .location {
   color: var(--green);
-  font-size: 1.1rem;
-  margin: 0;
+  font-size: 1rem;
+  margin: 16px 0 30px;
 }
 
 .image {
-  flex: 1 1 50%;
+  width: 65%;
   height: 100%;
-  max-width: 50%;
   object-fit: cover;
   border-top-right-radius: 8px;
   border-bottom-right-radius: 8px;

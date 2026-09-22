@@ -13,10 +13,13 @@ import AsyncData from '../../components/Common/AsyncData/AsyncData';
 const Evenementen = () => {
   const [selectedChips, setSelectedChips] = useState([]);
 
-  const query = selectedChips.length ? `events/pub?categories=${selectedChips.join(',')}` : 'events/pub';
+  const query = selectedChips.length 
+    ? `events/pub?categories=${selectedChips.join(',')}` 
+    : 'events/pub';
 
   const { data: data = { events: [] }, isLoading: eventsAreLoading, error: eventsError } = useSWR(query, getAll);
-  var upcomingEvent = data?.events?.[0];
+  const { data: allEventsData = { events: [] }, isLoading: allEventsAreLoading, error: allEventsError } = useSWR('events/pub', getAll);
+  var upcomingEvent = allEventsData?.events?.[0];
 
   const chips = [
     {
@@ -52,16 +55,20 @@ const Evenementen = () => {
   const clearChips = () => setSelectedChips([]);
 
   return (
-    <div className="container-sm-tm">
-      <Breadcrumbs children={[{ link: 'evenementen', isLast: true }]} />
-      <AsyncData loading={eventsAreLoading} error={eventsError}>
-        {upcomingEvent && <UpcomingEvent id={upcomingEvent.id} />}
-      </AsyncData>
-      <ChipList chips={chips} selected={selectedChips} onToggle={toggleChip} onClear={clearChips} />
-      <AsyncData loading={eventsAreLoading} error={eventsError}>
-        <EventList events={data.events} />
-      </AsyncData>
-    </div>
+    <>
+      <div className="container-sm-tm">
+        <Breadcrumbs children={[{ link: 'evenementen', isLast: true }]} />
+        <AsyncData loading={allEventsAreLoading} error={allEventsError}>
+          {upcomingEvent && <UpcomingEvent id={upcomingEvent.id} />}
+        </AsyncData>
+        <ChipList chips={chips} selected={selectedChips} onToggle={toggleChip} onClear={clearChips} />
+      </div>
+      <div className="container-sm-bm">
+        <AsyncData loading={eventsAreLoading} error={eventsError}>
+          <EventList events={data.events} />
+        </AsyncData>
+      </div>
+    </>
   );
 };
 
