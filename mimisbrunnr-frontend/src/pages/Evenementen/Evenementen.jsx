@@ -35,7 +35,7 @@ const Evenementen = () => {
       id: 3,
       value: 'SCHACHTEN',
       label: 'Schachten',
-      icon: 'fa-person',
+      icon: 'fa-child-reaching',
     },
     {
       id: 4,
