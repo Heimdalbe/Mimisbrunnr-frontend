@@ -11,7 +11,7 @@ const BigFooter = () => {
       </div>
       <img
         className="jormungandr"
-        src="Jormungandr.png"
+        src="/Jormungandr.png"
         alt="Jormungandr"
       />
     </div>

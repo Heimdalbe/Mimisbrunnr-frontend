@@ -24,7 +24,7 @@ const EventCard = ({ id, banner, start, end, name, category, catInvisible }) => 
         </div>
         <div className="line" />
         <div className="title-time">
-          <h3>{name}</h3>
+          <h3 style={{textTransform:'capitalize'}}>{name}</h3>
           <p className="footnote">{`${start_time} - ${end_time}`}</p>
         </div>
       </div>
