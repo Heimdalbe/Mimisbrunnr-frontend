@@ -29,8 +29,7 @@ const UserCard = ({ id, name, role = undefined, img, endpoint }) => {
         </div>
       </div>
 
-      {showOverlay && (<UserOverlay id={id} setShowOverlay={setShowOverlay} endpoint={endpoint} />
-      )}
+      {showOverlay && (<UserOverlay id={id} setShowOverlay={setShowOverlay} endpoint={endpoint} />)}
     </>
   );
 };
