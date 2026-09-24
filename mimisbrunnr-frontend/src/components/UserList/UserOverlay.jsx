@@ -19,11 +19,12 @@ const UserOverlay = ({ id, setShowOverlay, endpoint }) => {
           <div className="text-and-info">
             <h1>{`${user.member?.firstName} ${user.member?.lastName}`}</h1>
             {user.role?.name && <h2 className="role">{user.role?.name} {user.year}-{user.year + 1}</h2>}
-            {/* TODO: vorige functies of functies erna plaatsen hier nog? */}
+            {/* TODO: hier nog vorige functies + functies nadien plaatsen? */}
             
             {quote && <h3 className="quote">{`"${quote}"`}</h3>}
             
-            {/* TODO: backend aanvullen en dit toevoegen */}
+            {/* TODO: fun facts backend aanvullen en dit toevoegen. 
+            Indien niet ingevuld -> NIET ZICHTBAAR ZOALS QUOTE */}
             {/* <div className="fun-facts">
               <div className="praesidium-info-icon">
                 <i class="fa-solid fa-cake-candles"></i>
@@ -42,7 +43,6 @@ const UserOverlay = ({ id, setShowOverlay, endpoint }) => {
                 <p>Heimdalweekend</p>
               </div>
             </div> */}
-            
           </div>
         </AsyncData>
 
