@@ -9,10 +9,6 @@ const SchildSectie = () => {
       <div className="container">
         <SchildInfo />
       </div>
-
-      <div className="socials-wrapper">
-        <SocialsList socials={defaultSocials} />
-      </div>
     </div>
   );
 };
