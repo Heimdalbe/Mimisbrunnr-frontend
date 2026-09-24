@@ -1,5 +1,4 @@
 import SchildInfo from './SchildInfo/SchildInfo';
-import SocialsList, { defaultSocials } from '../../Socials/SocialsList';
 import './SchildSectie.css';
 
 const SchildSectie = () => {
