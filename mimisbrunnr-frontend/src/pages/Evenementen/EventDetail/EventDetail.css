@@ -146,6 +146,7 @@
 
 .description-section {
   max-width: 900px;
+  scroll-margin-top: 150px;
 }
 
 .sponsor-section {
@@ -189,6 +190,7 @@
   .img-card-wrapper {
     flex-direction: column;
     margin-bottom: 80px;
+    padding-top: 0;
   }
 
   .image-event {
@@ -210,6 +212,7 @@
 
   .info-card {
     width: 100%;
+    min-width: unset;
     max-width: unset;
     box-sizing: border-box;
   }
@@ -242,6 +245,10 @@
 }
 
 @media (max-width: 768px) {
+  .description-section {
+    scroll-margin-top: 0;
+  }
+
   .also-interesting-title {
     margin-top: 0;
   }

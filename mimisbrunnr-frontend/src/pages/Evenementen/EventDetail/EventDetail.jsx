@@ -1,4 +1,5 @@
-import { useParams } from 'react-router-dom';
+import { useEffect } from 'react';
+import { useLocation, useParams } from 'react-router-dom';
 import PrimaryButton from '../../../components/Common/PrimaryButton/PrimaryButton';
 import EventList from '../../../components/Evenementen/EventList/EventList';
 import './EventDetail.css';
@@ -11,6 +12,7 @@ import EventIcon from '../../../components/Evenementen/Andere/EventIcon';
 
 const EventDetail = () => {
   const { id } = useParams();
+  const { hash } = useLocation();
   const { data: event = {}, error: eventError, isLoading: eventIsLoading } = useSWR(`events/pub/${id}`, getAll);
   const {
     data: data = { events: [] },
@@ -22,6 +24,14 @@ const EventDetail = () => {
   var start_time = date.toLocaleTimeString().slice(-5);
   var end_time = endDate.toLocaleTimeString().slice(-5);
   var banner = event.banner;
+
+  useEffect(() => {
+    if (!eventIsLoading && hash) {
+      requestAnimationFrame(() => {
+        document.getElementById(hash.slice(1))?.scrollIntoView({ behavior: 'smooth' });
+      });
+    }
+  }, [eventIsLoading, hash]);
 
   return (
     <>
@@ -83,7 +93,7 @@ const EventDetail = () => {
           </div>
         </div>
 
-        <div className="description-section">
+        <div id="beschrijving" className="description-section">
           <h1>Beschrijving</h1>
           <p>{event.description}</p>
         </div>

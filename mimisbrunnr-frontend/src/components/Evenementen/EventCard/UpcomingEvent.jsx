@@ -4,6 +4,7 @@ import Countdown from '../Andere/Countdown';
 import useSWR from 'swr';
 import { getAll } from '../../../api';
 import AsyncData from '../../Common/AsyncData/AsyncData';
+import { useNavigate } from 'react-router-dom';
 
 const UpcomingEvent = ({ id }) => {
   const { data: event = {}, error: eventError, isLoading: eventIsLoading } = useSWR(`events/pub/${id}`, getAll);
@@ -14,9 +15,13 @@ const UpcomingEvent = ({ id }) => {
       ? `${safeDescription.slice(0, maxDescriptionLength).trimEnd()}...`
       : safeDescription;
   var date = new Date(event.start);
+  const navigate = useNavigate();
 
   return (
-    <div className="event-wrapper">
+    <div 
+      className="event-wrapper"
+      onClick={() => navigate(`/evenementen/${id}`)}
+    >
       <AsyncData error={eventError} loading={eventIsLoading}>
         <div className="event-info-section">
           <div>
@@ -31,7 +36,12 @@ const UpcomingEvent = ({ id }) => {
             </div>
             <p>
               {limitedDescription} &nbsp;
-              <a href={`evenementen/${id}`}>Lees meer...</a>
+              <a
+                href={`/evenementen/${id}#beschrijving`}
+                onClick={(clickEvent) => clickEvent.stopPropagation()}
+              >
+                Lees meer...
+              </a>
             </p>
           </div>
           <Countdown date={date} />
