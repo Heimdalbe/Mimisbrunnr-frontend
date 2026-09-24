@@ -1,15 +1,15 @@
 .user-list {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 100px 15px;
+  gap: 30px 15px;
 }
 
 .user-card {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 20px;
   height: 400px;
-  width: 300px;
+  min-width: 300px;
   cursor: pointer;
 }
 
@@ -74,6 +74,7 @@
 
 .role {
   color: var(--green);
+  font-size: 0.9rem;
 }
 
 .quote {

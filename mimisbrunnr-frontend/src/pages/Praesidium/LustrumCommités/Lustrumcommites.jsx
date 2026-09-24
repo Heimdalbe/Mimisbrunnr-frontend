@@ -5,6 +5,7 @@ import UserList from '../../../components/UserList/UserList';
 import Breadcrumbs from '../../../components/Breadcrumbs/Breadcrumbs';
 import { useEffect, useState } from 'react';
 import SelectField from '../../../components/Form/SelectField/SelectField';
+import '../Praesidium.css';
 
 const LustrumCommites = () => {
   const { data: years = { years: [] }, error: yearsError, isLoading: yearsAreLoading } = useSWR(
@@ -14,7 +15,7 @@ const LustrumCommites = () => {
 
   useEffect(() => {
     if (years?.years?.length > 0 && !year) {
-      setYear(years.years[0]);
+      setYear(years.years[years.years.length - 1]);
     }
   }, [years, year]);
 
@@ -23,17 +24,32 @@ const LustrumCommites = () => {
     getAll,
   );
 
+  const yearOptions = [...years.years]
+    .reverse()
+    .map((yearOption) => ({
+      label: `${yearOption} - ${yearOption + 1}`,
+      value: yearOption,
+    }));
+
   return (
-    <div className="container-sm-tm">
-      <Breadcrumbs showHome={false} children={[{ link: 'praesidium' }, { link: 'lustrumcommites', isLast: true }]} />
-      <h1>Lustrum commité</h1>
-      <AsyncData loading={yearsAreLoading} error={yearsError}>
-        <SelectField label={'Kies een jaar:'} options={years.years} value={year} onChange={setYear} />
-      </AsyncData>
-      <AsyncData loading={praesidiumIsLoading} error={praesidiumError}>
-        <UserList users={praesidium.lustrumLids} endpoint={'praesidium/lustrum/members'} />
-      </AsyncData>
-    </div>
+    <>
+      <div className="container-sm-tm">
+        <div className="praesidium-breadcrumb">
+          <Breadcrumbs showHome={false} children={[{ link: 'praesidium' }, { link: 'lustrumcommites', isLast: true }]} />
+        </div>
+        <div className="praesidium-sectie">
+          <h1>Lustrumcommité</h1>
+          <AsyncData loading={yearsAreLoading} error={yearsError}>
+            <SelectField options={yearOptions} value={year} onChange={setYear} />
+          </AsyncData>
+        </div>
+      </div>
+      <div className="container-sm-bm">
+        <AsyncData loading={praesidiumIsLoading} error={praesidiumError}>
+          <UserList users={praesidium.lustrumLids} endpoint={'praesidium/lustrum/members'} />
+        </AsyncData>
+      </div>
+    </>
   );
 };
 

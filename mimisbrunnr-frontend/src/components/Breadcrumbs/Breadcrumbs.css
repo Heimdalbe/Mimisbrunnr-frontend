@@ -8,6 +8,10 @@
   font-style: normal;
 }
 
+.breadcrumb-separator {
+  text-decoration: none;
+}
+
 .last-breadcrumb {
   color: var(--green);
   font-weight: bold;
