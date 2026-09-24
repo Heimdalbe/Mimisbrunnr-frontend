@@ -43,11 +43,11 @@ const Praesidium = () => {
     }
   };
 
-  const allOptions = [...SPECIAL_OPTIONS.map((o) => o.label), ...(years.years || [])];
+  const allOptions = [...(years.years || [])].reverse().concat(SPECIAL_OPTIONS.map((o) => o.label));
 
   return (
     <div className="container-sm-tm">
-      <Breadcrumbs children={[{ link: 'praesidium', isLast: true }]} />
+      {/* <Breadcrumbs showHome={false} children={[{ link: 'praesidium', isLast: true }]} /> */}
       <h1>Praesidium</h1>
       <AsyncData loading={yearsAreLoading} error={yearsError}>
         <SelectField label={'Kies een jaar:'} options={allOptions} value={year} onChange={handleSelect} />

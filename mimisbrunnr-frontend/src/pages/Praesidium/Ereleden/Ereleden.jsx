@@ -13,7 +13,7 @@ const Ereleden = () => {
 
   return (
     <div className="container-sm-tm">
-      <Breadcrumbs children={[{ link: 'praesidium' }, { link: 'ereleden', isLast: true }]} />
+      <Breadcrumbs showHome={false} children={[{ link: 'praesidium' }, { link: 'ereleden', isLast: true }]} />
       <h1>Ereleden</h1>
       <AsyncData loading={praesidiumIsLoading} error={praesidiumError}>
         <UserList users={praesidium.erelids} endpoint={'praesidium/erelids'} />

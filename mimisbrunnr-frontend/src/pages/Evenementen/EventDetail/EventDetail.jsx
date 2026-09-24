@@ -9,6 +9,7 @@ import { getAll } from '../../../api';
 import AsyncData from '../../../components/Common/AsyncData/AsyncData';
 import SponsorList from '../../../components/Home/SponsorSectie/Sponsors/SponsorList';
 import EventIcon from '../../../components/Evenementen/Andere/EventIcon';
+import Breadcrumbs from '../../../components/Breadcrumbs/Breadcrumbs';
 
 const EventDetail = () => {
   const { id } = useParams();
@@ -94,6 +95,7 @@ const EventDetail = () => {
         </div>
 
         <div id="beschrijving" className="description-section">
+          <Breadcrumbs children={[{ link: 'evenementen' }, { link: event.name, isLast: true }]} />
           <h1>Beschrijving</h1>
           <p>{event.description}</p>
         </div>

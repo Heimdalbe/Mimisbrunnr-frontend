@@ -13,7 +13,7 @@ const Superschachten = () => {
 
   return (
     <div className="container-sm-tm">
-      <Breadcrumbs children={[{ link: 'praesidium' }, { link: 'superschachten', isLast: true }]} />
+      <Breadcrumbs showHome={false} children={[{ link: 'praesidium' }, { link: 'superschachten', isLast: true }]} />
       <h1>Super Schachten</h1>
       <AsyncData loading={praesidiumIsLoading} error={praesidiumError}>
         <UserList users={praesidium.schachts} endpoint={'praesidium/superschachts'} />

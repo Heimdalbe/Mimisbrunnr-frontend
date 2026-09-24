@@ -25,7 +25,7 @@ const LustrumCommites = () => {
 
   return (
     <div className="container-sm-tm">
-      <Breadcrumbs children={[{ link: 'praesidium' }, { link: 'lustrumcommites', isLast: true }]} />
+      <Breadcrumbs showHome={false} children={[{ link: 'praesidium' }, { link: 'lustrumcommites', isLast: true }]} />
       <h1>Lustrum commité</h1>
       <AsyncData loading={yearsAreLoading} error={yearsError}>
         <SelectField label={'Kies een jaar:'} options={years.years} value={year} onChange={setYear} />
