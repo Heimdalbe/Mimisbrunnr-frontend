@@ -6,7 +6,6 @@ import Pagination from '../../components/Common/Pagination/Pagination';
 import AsyncData from '../../components/Common/AsyncData/AsyncData';
 
 const Albums = () => {
-
   const [page, setPage] = useState(1);
   const take = 12;
   const skip = take * (page - 1);
