@@ -21,7 +21,7 @@ const ContactSection = () => {
           <b>Telefoon</b>
           <ul>
             <li>
-              Praeses: <a href="tel:">+32 483 38 50 18</a>
+              Praeses: <a href="tel:+32483385018">+32 483 38 50 18</a>
             </li>
           </ul>
         </li>
