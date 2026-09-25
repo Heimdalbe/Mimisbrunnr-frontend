@@ -8,24 +8,31 @@
   position: relative;
   cursor: pointer;
   overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .album-info {
   width: 100%;
   position: absolute;
   bottom: 0;
-  
+
   color: white;
   background-color: rgba(0, 0, 0, 0.6);
   backdrop-filter: blur(4px);
   border-radius: 0 0 8px 8px;
-  
+
   display: flex;
   flex-direction: column;
   height: 100%;
-  transform: translateY(calc(100% - 80px)); 
-  transition: transform 0.3s ease, border-radius 0.3s ease;
+  transform: translateY(calc(100% - 80px));
+  transition:
+    transform 0.3s ease,
+    border-radius 0.3s ease;
 }
 
 .album-info > h3 {
