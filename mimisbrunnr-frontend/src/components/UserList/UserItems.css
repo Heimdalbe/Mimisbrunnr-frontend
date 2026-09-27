@@ -74,6 +74,7 @@
   padding: 60px 50px;
   min-width: 425px;
   min-height: 425px;
+  max-width: 425px;
   box-sizing: border-box;
 }
 
@@ -84,6 +85,7 @@
 
 .quote {
   font-style: italic;
+  line-height: 1.4rem;
 }
 
 .button-bar {
