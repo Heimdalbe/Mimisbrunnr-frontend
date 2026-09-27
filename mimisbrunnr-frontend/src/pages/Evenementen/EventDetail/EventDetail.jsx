@@ -22,8 +22,8 @@ const EventDetail = () => {
   } = useSWR('events/pub?take=4', getAll);
   var date = new Date(event.start);
   var endDate = new Date(event.end);
-  var start_time = date.toLocaleTimeString().slice(0, 5);
-  var end_time = endDate.toLocaleTimeString().slice(0, 5);
+  var start_time = date.toLocaleTimeString('nl-BE').slice(0, 5);
+  var end_time = endDate.toLocaleTimeString('nl-BE').slice(0, 5);
   var banner = event.banner;
 
   useEffect(() => {
