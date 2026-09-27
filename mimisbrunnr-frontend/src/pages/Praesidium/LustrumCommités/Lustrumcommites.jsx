@@ -28,21 +28,19 @@ const LustrumCommites = () => {
     isLoading: praesidiumIsLoading,
   } = useSWR(year ? `praesidium/lustrum/${year}` : null, getAll);
 
-  const yearOptions = [...years.years]
-    .reverse()
-    .map((yearOption) => ({
-      label: `${yearOption} - ${yearOption + 1}`,
-      value: yearOption,
-    }));
+  const yearOptions = [...years.years].reverse().map((yearOption) => ({
+    label: `${yearOption} - ${yearOption + 1}`,
+    value: yearOption,
+  }));
 
   return (
     <>
       <div className="container-sm-tm">
         <div className="praesidium-breadcrumb">
-          <Breadcrumbs showHome={false} children={[{ link: 'praesidium' }, { link: 'lustrumcommites', isLast: true }]} />
+          <Breadcrumbs showHome={false} children={[{ link: 'praesidium' }, { link: 'lustrumcomité', isLast: true }]} />
         </div>
         <div className="praesidium-sectie">
-          <h1>Lustrumcommité</h1>
+          <h1>Lustrumcomité</h1>
           <AsyncData loading={yearsAreLoading} error={yearsError}>
             <SelectField options={yearOptions} value={year} onChange={setYear} />
           </AsyncData>

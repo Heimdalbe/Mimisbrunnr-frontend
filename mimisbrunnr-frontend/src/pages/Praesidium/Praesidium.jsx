@@ -10,7 +10,7 @@ import './Praesidium.css';
 const SPECIAL_OPTIONS = [
   { label: 'Superschachten', value: 'superschachten' },
   { label: 'Ereleden', value: 'ereleden' },
-  { label: 'Lustrumcommités', value: 'lustrumcommites' },
+  { label: 'Lustrumcomité', value: 'lustrumcommites' },
 ];
 
 const Praesidium = () => {
@@ -43,27 +43,25 @@ const Praesidium = () => {
     }
   };
 
-  const yearOptions = [...(years.years || [])]
-    .reverse()
-    .map((yearOption) => ({
-      label: `${yearOption} - ${yearOption + 1}`,
-      value: yearOption,
-    }));
+  const yearOptions = [...(years.years || [])].reverse().map((yearOption) => ({
+    label: `${yearOption} - ${yearOption + 1}`,
+    value: yearOption,
+  }));
   const allOptions = yearOptions.concat(SPECIAL_OPTIONS.map((o) => o.label));
 
   return (
     <>
-    <div className="container-sm-tm praesidium-sectie">
-      <h1>Praesidium</h1>
-      <AsyncData loading={yearsAreLoading} error={yearsError}>
-        <SelectField options={allOptions} value={year} onChange={handleSelect} />
-      </AsyncData>
-    </div>
-    <div className="container-sm-bm">
-      <AsyncData loading={praesidiumIsLoading} error={praesidiumError}>
-        <UserList users={praesidium.praesidium} endpoint={'praesidium/members'} />
-      </AsyncData>
-    </div>
+      <div className="container-sm-tm praesidium-sectie">
+        <h1>Praesidium</h1>
+        <AsyncData loading={yearsAreLoading} error={yearsError}>
+          <SelectField options={allOptions} value={year} onChange={handleSelect} />
+        </AsyncData>
+      </div>
+      <div className="container-sm-bm">
+        <AsyncData loading={praesidiumIsLoading} error={praesidiumError}>
+          <UserList users={praesidium.praesidium} endpoint={'praesidium/members'} />
+        </AsyncData>
+      </div>
     </>
   );
 };
