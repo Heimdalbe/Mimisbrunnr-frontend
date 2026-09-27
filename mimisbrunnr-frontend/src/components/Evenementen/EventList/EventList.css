@@ -35,6 +35,10 @@
     gap: 15px;
   }
 
+  .carousel-wrapper.carousel-mobile {
+    margin-top: 0;
+  }
+
   .carousel-wrapper.carousel-mobile .carousel {
     flex-direction: row;
     overflow-x: auto;

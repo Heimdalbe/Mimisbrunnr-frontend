@@ -73,7 +73,7 @@ const Navbar = () => {
 
         <div className="navbar-mobile">
           <Link to={'/'} className="logo">
-            <img src="./HeimdalBannerTransparantWit.png" alt="Heimdal Banner" />
+            <img src="/HeimdalBannerTransparantWit.png" alt="Heimdal Banner" />
           </Link>
 
           <div className="nav-links">

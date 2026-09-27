@@ -13,14 +13,14 @@ const Albums = () => {
   const { data = [], error, isLoading } = useSWR(`albums/pub?skip=${skip}&take=${take}`, getAll);
 
   return (
-    <div className="container-sm-tm">
-      <AsyncData loading={isLoading} error={error}>
-        <>
-          <AlbumList albums={data.albums} />
-          <Pagination page={page} totalPages={Math.ceil(data.total / take)} onPageChange={setPage} />
-        </>
-      </AsyncData>
-    </div>
+    <AsyncData loading={isLoading} error={error}>
+      <div className="container-sm-tm">
+        <AlbumList albums={data.albums} />
+      </div>
+      <div className="container-sm-bm">
+        <Pagination page={page} totalPages={Math.ceil(data.total / take)} onPageChange={setPage} />
+      </div>
+    </AsyncData>
   );
 };
 

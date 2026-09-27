@@ -25,23 +25,24 @@ const Countdown = ({ date }) => {
   }, [date]);
 
   const { days, hours, minutes, seconds } = timeLeft;
+  const formatTime = (value) => String(value).padStart(2, '0');
 
   return (
     <div className="countdown">
       <div className="countdown-item">
-        <h1>{days}</h1>
+        <h1>{formatTime(days)}</h1>
         <h2>days</h2>
       </div>
       <div className="countdown-item">
-        <h1>{hours}</h1>
+        <h1>{formatTime(hours)}</h1>
         <h2>hours</h2>
       </div>
       <div className="countdown-item">
-        <h1>{minutes}</h1>
+        <h1>{formatTime(minutes)}</h1>
         <h2>minutes</h2>
       </div>
       <div className="countdown-item">
-        <h1>{seconds}</h1>
+        <h1>{formatTime(seconds)}</h1>
         <h2>seconds</h2>
       </div>
     </div>

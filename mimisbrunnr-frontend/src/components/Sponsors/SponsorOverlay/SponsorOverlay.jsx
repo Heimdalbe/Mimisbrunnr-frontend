@@ -1,33 +1,41 @@
 import useSWR from 'swr';
 import { getAll } from '../../../api';
 import AsyncData from '../../Common/AsyncData/AsyncData';
+import SocialLink from '../../Socials/SocialLink';
 import './SponsorOverlay.css';
 
 const SponsorOverlay = ({ id, setShowOverlay }) => {
   const { data: sponsor = {}, error: sponsorError, isLoading: sponsorsAreLoading } = useSWR(`sponsors/${id}`, getAll);
 
-  //TODO: Website hier terug ergens linken (verloren gegaan bij toevoegen van overlay)
-
   return (
     <div className="overlay" onClick={() => setShowOverlay(false)}>
-      <div className="overlay-content" onClick={(e) => e.stopPropagation()}>
+      <div className="overlay-content sponsor-overlay-modal" onClick={(e) => e.stopPropagation()}>
         <AsyncData error={sponsorError} loading={sponsorsAreLoading}>
-          <div className="sponsor-overlay-wrapper">
-            <div className="close-button" onClick={() => setShowOverlay(false)}>
-              <i className="fa-solid fa-xmark"></i>
-            </div>
-            <div className="sponsor-overlay-header">
-              <h2 className="sponsor-name">{sponsor.name}</h2>
-              <img className="sponsor-overlay-logo" src={sponsor.logo?.url} alt={`Logo van ${name}`}></img>
-            </div>
+          <img
+            className="overlay-image sponsor-overlay-logo"
+            src={sponsor.logo?.url}
+            alt={`Logo van ${sponsor.name}`}
+          />
+          <div className="text-and-info sponsor-overlay-info">
+            <h1>{sponsor.name}</h1>
+            {/* TODO: omschrijving van sponsor voor extra content. Maar wijziging in backend nodig */}
+            {/* <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p> */}
             {sponsor.benefits?.length > 0 && (
-              <div>
+              <div className="sponsor-overlay-benefits">
                 <h2>Extra Voordelen:</h2>
-                <p>{sponsor.benefits}</p>
+                <p style={{marginBottom: 0}}>{sponsor.benefits}</p>
               </div>
             )}
           </div>
         </AsyncData>
+        <div className="button-bar sponsor-overlay-actions">
+          <div className="close-button" onClick={() => setShowOverlay(false)}>
+            <i className="fa-solid fa-xmark" aria-hidden="true"></i>
+          </div>
+          {sponsor.website && (
+            <SocialLink type="website" url={sponsor.website} ariaLabel={`Website van ${sponsor.name}`} />
+          )}
+        </div>
       </div>
     </div>
   );

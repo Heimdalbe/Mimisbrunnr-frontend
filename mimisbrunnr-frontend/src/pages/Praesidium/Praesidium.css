@@ -1,0 +1,40 @@
+.praesidium-sectie {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.praesidium-breadcrumb .breadcrumb-wrapper {
+    margin-bottom: 0;
+}
+
+.praesidium-sectie h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.praesidium-sectie .select-field {
+    width: fit-content;
+    margin-bottom: 50px;
+    border: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.praesidium-sectie .dropdown {
+    width: fit-content;
+}
+
+.praesidium-sectie .dropdown-select i {
+    color: var(--green);
+    margin-left: 15px;
+    font-size: 1rem;
+}
+
+.praesidium-sectie .dropdown-list {
+    width: max-content;
+    min-width: 100%;
+}
+
+.praesidium-sectie .dropdown-list__item {
+    white-space: nowrap;
+}

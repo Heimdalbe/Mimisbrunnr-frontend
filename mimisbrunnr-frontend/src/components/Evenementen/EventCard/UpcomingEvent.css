@@ -1,31 +1,34 @@
 .event-wrapper {
   display: flex;
+  position: relative;
   background-color: var(--black);
   border-radius: 8px;
   width: 100%;
-  height: 650px;
+  height: 460px;
   overflow: hidden;
+  cursor: pointer;
 }
 
 .event-info-section {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  flex: 1 1 50%;
-  min-width: 0;
-  padding: 48px 56px;
-  gap: 24px;
-}
-
-.event-info-section > div {
-  min-height: 0;
+  width: 35%;
+  padding: 50px;
+  gap: 50px;
 }
 
 .title-and-icon {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
+  position: relative;
   gap: 16px;
+}
+
+.title-and-icon div .icon {
+  right: 0;
+  top: 0;
 }
 
 .event-info-section h1,
@@ -58,14 +61,13 @@
 
 .location {
   color: var(--green);
-  font-size: 1.1rem;
-  margin: 0;
+  font-size: 1rem;
+  margin: 16px 0 30px;
 }
 
 .image {
-  flex: 1 1 50%;
+  width: 65%;
   height: 100%;
-  max-width: 50%;
   object-fit: cover;
   border-top-right-radius: 8px;
   border-bottom-right-radius: 8px;
@@ -76,36 +78,42 @@
     display: flex;
     flex-direction: column;
     height: auto;
-    border-radius: 8px;
   }
 
   .image {
-    order: 1;
     width: 100%;
-    max-width: none;
-    height: auto;
-    aspect-ratio: 16 / 10;
-    border-radius: 8px 8px 0 0;
+    aspect-ratio: 18 / 10;
   }
 
   .event-info-section {
     order: 2;
     width: auto;
-    margin: 0;
-    padding: 24px 20px 28px;
+    padding: 40px 30px;
     gap: 22px;
   }
 
   .title-and-icon {
-    align-items: center;
-    justify-content: center;
     gap: 16px;
+    width: 100%;
+    position: static;
+  }
+
+  .title-and-icon div .icon {
+    top: 16px;
+    right: 16px;
+    z-index: 1;
   }
 
   .event-info-section h1 {
     margin: 0 0 12px;
-    font-size: 1.35rem;
+    font-size: 1.8rem;
     line-height: 1.35;
+    text-align: left;
+  }
+
+  .event-info-section h2 {
+    margin-bottom: 20px;
+    text-align: left;
   }
 
   .location {

@@ -1,6 +1,7 @@
 .sponsorlist-wrapper {
   width: 100%;
-  overflow-x: auto;
+  overflow-x: hidden;
+  overflow-y: hidden;
 }
 
 .sponsorlist {
@@ -15,10 +16,12 @@
 }
 
 .overflowing {
-  display: flex;
-  flex-wrap: nowrap;
-  width: max-content;
-  max-width: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  width: 100%;
+  max-width: 1280px;
+  box-sizing: border-box;
+  margin: 0 auto;
 }
 
 .overflowing>a {
@@ -26,20 +29,25 @@
   height: 180px;
   display: flex;
   align-items: center;
-  overflow: hidden;
+  overflow: visible;
   margin-inline: 15px;
 }
 
 .sponsorlist a img {
   height: 150px;
-  max-width: 100%;
   object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.sponsorlist a:hover img {
+  transform: scale(1.2);
 }
 
 @media (max-width: 768px) {
   .sponsorlist-wrapper {
     padding: 0;
     margin: 0;
+    margin-bottom: 30px;
     width: 100%;
     overflow-x: hidden;
   }
@@ -62,10 +70,6 @@
 
   .sponsorlist a:hover img {
     transform: none;
-  }
-
-  .sponsor-button {
-    display: none;
   }
 
   @keyframes marquee {
