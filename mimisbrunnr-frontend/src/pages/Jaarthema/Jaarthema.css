@@ -13,3 +13,7 @@
   margin: 20px 0 50px;
   border-radius: 8px;
 }
+
+p {
+  hyphens: none;
+}

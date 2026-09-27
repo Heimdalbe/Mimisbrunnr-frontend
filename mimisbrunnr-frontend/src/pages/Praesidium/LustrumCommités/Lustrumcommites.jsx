@@ -8,8 +8,11 @@ import SelectField from '../../../components/Form/SelectField/SelectField';
 import '../Praesidium.css';
 
 const LustrumCommites = () => {
-  const { data: years = { years: [] }, error: yearsError, isLoading: yearsAreLoading } = useSWR(
-    'praesidium/lustrum/years', getAll);
+  const {
+    data: years = { years: [] },
+    error: yearsError,
+    isLoading: yearsAreLoading,
+  } = useSWR('praesidium/lustrum/years', getAll);
 
   const [year, setYear] = useState(null);
 
@@ -19,10 +22,11 @@ const LustrumCommites = () => {
     }
   }, [years, year]);
 
-  const { data: praesidium = { lustrumLids: [] }, error: praesidiumError, isLoading: praesidiumIsLoading } = useSWR(
-    year ? `praesidium/lustrum/${year}` : null,
-    getAll,
-  );
+  const {
+    data: praesidium = { lustrumLids: [] },
+    error: praesidiumError,
+    isLoading: praesidiumIsLoading,
+  } = useSWR(year ? `praesidium/lustrum/${year}` : null, getAll);
 
   const yearOptions = [...years.years]
     .reverse()

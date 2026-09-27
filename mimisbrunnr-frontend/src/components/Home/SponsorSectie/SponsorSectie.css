@@ -22,7 +22,7 @@
   max-width: none;
 }
 
-.overflowing > a {
+.overflowing>a {
   width: fit-content;
   height: 180px;
   display: flex;
@@ -78,6 +78,7 @@
     0% {
       transform: translateX(50%);
     }
+
     100% {
       transform: translateX(-100%);
     }
