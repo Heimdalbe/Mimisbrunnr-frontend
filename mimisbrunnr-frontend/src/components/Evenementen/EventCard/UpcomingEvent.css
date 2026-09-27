@@ -89,7 +89,7 @@
 
   .image {
     width: 100%;
-    aspect-ratio: 18 / 10;
+    height: 100%;
     max-height: unset;
     object-fit: cover;
   }
@@ -97,6 +97,7 @@
   .event-info-section {
     order: 2;
     width: auto;
+    aspect-ratio: 18 / 10;
     padding: 40px 30px;
     gap: 22px;
   }
