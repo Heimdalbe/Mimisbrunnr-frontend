@@ -67,7 +67,8 @@
 .overlay-image {
   width: 425px;
   aspect-ratio: 1/1;
-  object-fit: contain;
+  object-fit: cover;
+  object-position: top center;
   background-color: var(--light-light-grey);
 }
 
