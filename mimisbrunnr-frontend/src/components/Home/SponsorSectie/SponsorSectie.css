@@ -70,10 +70,6 @@
     transform: none;
   }
 
-  .sponsor-button {
-    display: none;
-  }
-
   @keyframes marquee {
     0% {
       transform: translateX(50%);
