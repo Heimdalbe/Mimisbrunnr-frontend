@@ -16,7 +16,7 @@ const UserOverlay = ({ id, setShowOverlay, endpoint }) => {
             src={user.image?.url}
             alt={`Foto van : ${user.member?.firstName} ${user.member?.lastName}`}
           />
-          <div className="text-and-info">
+          <div className="text-and-info praesidium-overlay-info">
             <h1>{`${user.member?.firstName} ${user.member?.lastName}`}</h1>
             {user.role?.name && <h2 className="role">{user.role?.name} {user.year}-{user.year + 1}</h2>}
             {/* TODO: hier nog vorige functies + functies nadien plaatsen? */}
