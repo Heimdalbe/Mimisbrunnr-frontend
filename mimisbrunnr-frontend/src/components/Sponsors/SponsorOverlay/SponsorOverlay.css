@@ -1,34 +1,67 @@
-.sponsor-overlay-logo{
-  max-width: 200px;
+.sponsor-overlay-modal {
+  max-width: calc(100vw - 40px);
 }
 
-.sponsor-overlay-wrapper{
+.overlay-content .sponsor-overlay-logo {
+  box-sizing: border-box;
+  padding: 50px;
+  object-fit: contain;
+}
+
+.sponsor-overlay-info {
   display: flex;
   flex-direction: column;
-  margin: 0 50px 50px 50px;
-  width: 30vw;
+  gap: 16px;
 }
 
-.sponsor-overlay-header{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+.sponsor-overlay-info h1,
+.sponsor-overlay-benefits h2,
+.sponsor-overlay-benefits p {
+  margin: 0;
 }
 
-@media (min-width: 768px) {
-  .sponsor-overlay-header{
-    flex-direction: row;
-  }
+.sponsor-overlay-info h1 {
+  margin-bottom: 10px !important;
+  text-align: left !important;
+}
+
+.sponsor-overlay-benefits h2 {
+  margin-bottom: 8px;
+  font-size: 1rem;
+}
+
+.sponsor-overlay-actions {
+  flex-shrink: 0;
 }
 
 @media (max-width: 768px) {
-  .sponsor-overlay-header{
-    flex-direction: column;
+  .sponsor-overlay-modal {
+    max-width: 100%;
   }
-}
 
-.sponsor-overlay-wrapper .close-button{
-  align-self: flex-end;
-  position: relative;
-  left : 50px;
+  .overlay-content .sponsor-overlay-logo {
+    width: 100%;
+    height: 180px;
+    aspect-ratio: auto;
+    padding: 24px;
+    object-fit: contain;
+  }
+
+  .sponsor-overlay-info {
+    min-width: 0;
+    width: fit-content;
+    max-width: calc(100% - 40px);
+    align-self: center;
+    overflow-y: auto;
+    overflow-wrap: anywhere;
+    text-align: center;
+  }
+
+  .sponsor-overlay-info h1 {
+    text-align: center !important;
+  }
+
+  .sponsor-overlay-actions a {
+    margin-right: 20px;
+  }
 }
