@@ -35,7 +35,8 @@
 
 .sponsorlist a img {
   height: 150px;
-  object-fit: cover;
+  width: 150px;
+  object-fit: contain;
   transition: transform 0.3s ease;
 }
 
@@ -64,6 +65,7 @@
 
   .sponsorlist a img {
     height: 180px;
+    width: 180px;
     object-fit: contain;
     transform: none !important;
   }
