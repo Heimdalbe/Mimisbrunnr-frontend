@@ -18,10 +18,7 @@ const UpcomingEvent = ({ id }) => {
   const navigate = useNavigate();
 
   return (
-    <div 
-      className="event-wrapper"
-      onClick={() => navigate(`/evenementen/${id}`)}
-    >
+    <div className="event-wrapper" onClick={() => navigate(`/evenementen/${id}`)}>
       <AsyncData error={eventError} loading={eventIsLoading}>
         <div className="event-info-section">
           <div>
@@ -36,17 +33,16 @@ const UpcomingEvent = ({ id }) => {
             </div>
             <p>
               {limitedDescription} &nbsp;
-              <a
-                href={`/evenementen/${id}#beschrijving`}
-                onClick={(clickEvent) => clickEvent.stopPropagation()}
-              >
+              <a href={`/evenementen/${id}#beschrijving`} onClick={(clickEvent) => clickEvent.stopPropagation()}>
                 Lees meer...
               </a>
             </p>
           </div>
           <Countdown date={date} />
         </div>
-        <img src={event.banner?.url} alt={event.banner?.alt ?? 'Foto van ' + event.name} className="image" />
+        <div className="event-image-section">
+          <img src={event.banner?.url} alt={event.banner?.alt ?? 'Foto van ' + event.name} className="image" />
+        </div>
       </AsyncData>
     </div>
   );
