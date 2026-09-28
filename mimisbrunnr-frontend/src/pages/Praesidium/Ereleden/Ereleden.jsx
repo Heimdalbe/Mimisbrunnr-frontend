@@ -4,6 +4,7 @@ import AsyncData from '../../../components/Common/AsyncData/AsyncData';
 import UserList from '../../../components/UserList/UserList';
 import Breadcrumbs from '../../../components/Breadcrumbs/Breadcrumbs';
 import '../Praesidium.css';
+import PrimaryButton from '../../../components/Common/PrimaryButton/PrimaryButton';
 
 const Ereleden = () => {
   const {
@@ -19,7 +20,8 @@ const Ereleden = () => {
           <Breadcrumbs showHome={false} children={[{ link: 'praesidium' }, { link: 'ereleden', isLast: true }]} />
         </div>
         <div className="praesidium-sectie">
-          <h1 style={{marginBottom: '70px'}}>Ereleden</h1>
+          <h1 style={{ marginBottom: '70px' }}>Ereleden</h1>
+          <PrimaryButton to="/praesidium" text="Ga Terug" className="go-back-button" />
         </div>
       </div>
       <div className="container-sm-bm">

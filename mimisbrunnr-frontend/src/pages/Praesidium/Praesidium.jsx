@@ -10,7 +10,7 @@ import './Praesidium.css';
 const SPECIAL_OPTIONS = [
   { label: 'Superschachten', value: 'superschachten' },
   { label: 'Ereleden', value: 'ereleden' },
-  { label: 'Lustrumcomité', value: 'lustrumcommites' },
+  { label: 'Lustrumcomité', value: 'lustrumcomite' },
 ];
 
 const Praesidium = () => {
@@ -47,7 +47,7 @@ const Praesidium = () => {
     label: `${yearOption} - ${yearOption + 1}`,
     value: yearOption,
   }));
-  const allOptions = yearOptions.concat(SPECIAL_OPTIONS.map((o) => o.label));
+  const allOptions = SPECIAL_OPTIONS.map((o) => o.label).concat(yearOptions);
 
   return (
     <>

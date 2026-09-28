@@ -6,6 +6,7 @@ import Breadcrumbs from '../../../components/Breadcrumbs/Breadcrumbs';
 import { useEffect, useState } from 'react';
 import SelectField from '../../../components/Form/SelectField/SelectField';
 import '../Praesidium.css';
+import PrimaryButton from '../../../components/Common/PrimaryButton/PrimaryButton';
 
 const LustrumCommites = () => {
   const {
@@ -41,6 +42,7 @@ const LustrumCommites = () => {
         </div>
         <div className="praesidium-sectie">
           <h1>Lustrumcomité</h1>
+          <PrimaryButton to="/praesidium" text="Ga Terug" className="go-back-button" />
           <AsyncData loading={yearsAreLoading} error={yearsError}>
             <SelectField options={yearOptions} value={year} onChange={setYear} />
           </AsyncData>
