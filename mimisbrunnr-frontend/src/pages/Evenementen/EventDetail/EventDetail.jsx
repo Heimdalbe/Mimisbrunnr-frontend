@@ -101,7 +101,7 @@ const EventDetail = () => {
             <h1>Beschrijving</h1>
             <p>{event.description}</p>
           </div>
-          {event.url && event.url !== 'https://heimdal.be' && (
+          {event.url && (event.url !== 'https://heimdal.be' || event.url !== 'https://www.youtube.com/') && (
             <div className="button-div">
               <PrimaryButton isLight={true} text="Inschrijven" to={event.url} />
             </div>

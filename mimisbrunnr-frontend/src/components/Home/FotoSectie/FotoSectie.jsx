@@ -9,8 +9,8 @@ const FotoSectie = () => {
     'Groepsfoto1.jpg',
     'Groepsfoto2.jpg',
     'Groepsfoto3.jpg',
-    'BackgroundImg1.png',
-    'Groepsfoto1.jpg',
+    'Groepsfoto4.jpg',
+    'Weekendfoto1.jpg',
     'Groepsfoto2.jpg',
     'Groepsfoto3.jpg',
   ];
@@ -40,12 +40,12 @@ const FotoSectie = () => {
 
   return (
     <div>
-      <div className='container-sm-tm' style={{ paddingTop: 5 }}>
+      <div className="container-sm-tm" style={{ paddingTop: 5 }}>
         <h1>Enkele sfeerbeelden</h1>
       </div>
 
-      <div className='container-fw-mobile' style={{ paddingTop: 0, paddingBottom: 0 }}>
-        <div className='fixed-image-grid'>
+      <div className="container-fw-mobile" style={{ paddingTop: 0, paddingBottom: 0 }}>
+        <div className="fixed-image-grid">
           {images.map((src, i) => (
             <div
               key={i}
@@ -59,19 +59,14 @@ const FotoSectie = () => {
         </div>
       </div>
 
-      <div className='container-sm-bm'>
+      <div className="container-sm-bm">
         <div className="button-wrapper">
-          <PrimaryButton
-            text='Bekijk alles'
-            to='/albums'
-            isLight={false}
-            isDisabled={false}
-          />
+          <PrimaryButton text="Bekijk alles" to="/albums" isLight={false} isDisabled={false} />
         </div>
       </div>
 
       {/* Lightbox */}
-      {activeIndex !== null && (<LightBox images={images} activeIndex={activeIndex} setActiveIndex={setActiveIndex} />)}
+      {activeIndex !== null && <LightBox images={images} activeIndex={activeIndex} setActiveIndex={setActiveIndex} />}
     </div>
   );
 };
