@@ -135,6 +135,12 @@
   font-style: normal;
 }
 
+.overlay .trivia {
+  font-weight: 300;
+  font-size: 0.9rem;
+  font-style: normal;
+}
+
 .overlay .fun-facts {
   margin-top: 40px;
 }
