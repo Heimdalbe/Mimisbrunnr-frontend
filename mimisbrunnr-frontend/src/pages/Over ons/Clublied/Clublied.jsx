@@ -1,4 +1,5 @@
 import Strofe from '../../../components/Clublied/Strofe';
+import { Link } from 'react-router';
 import './Clublied.css';
 
 //TODO: Skyrim theme link nog toevoegen
@@ -50,6 +51,21 @@ const Clublied = () => {
             ]}
           />
         </div>
+        <p>Tekst geschreven door Joren Debois</p>
+        <p>
+          Clublied wordt gezongen op de melodie van{' '}
+          <Link target="_blank" to="https://youtu.be/AVy7YPNP_zI">
+            Dovahkiin - Skyrim theme song
+          </Link>
+        </p>
+        <p>
+          <Link
+            target="_blank"
+            to="https://drive.google.com/file/d/1ZGgB01GxJnpbXsGH8qoUQsIfzl93meCI/view?usp=drive_link"
+          >
+            Ingezongen versie
+          </Link>
+        </p>
       </div>
     </div>
   );
