@@ -14,6 +14,14 @@
   border-radius: 8px;
 }
 
-p {
+.jaarthema p {
   hyphens: none;
+}
+
+.jaarthema ul {
+  list-style: none;
+}
+
+.vorige-jaarthemas ul {
+  justify-items: flex-start;
 }
