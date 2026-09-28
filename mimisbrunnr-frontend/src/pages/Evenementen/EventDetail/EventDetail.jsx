@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useLocation, useParams } from 'react-router-dom';
 import PrimaryButton from '../../../components/Common/PrimaryButton/PrimaryButton';
 import EventList from '../../../components/Evenementen/EventList/EventList';
@@ -20,6 +20,7 @@ const EventDetail = () => {
     error: eventsError,
     isLoading: eventsAreLoading,
   } = useSWR('events/pub?take=4', getAll);
+  const [showNoAccess, setShowNoAccess] = useState(false);
   var date = new Date(event.start);
   var endDate = new Date(event.end);
   var start_time = date.toLocaleTimeString('nl-BE').slice(0, 5);
@@ -95,18 +96,28 @@ const EventDetail = () => {
               </div>
             </div>
           </div>
-
           <div id="beschrijving" className="description-section">
             <Breadcrumbs children={[{ link: 'evenementen' }, { link: event.name, isLast: true }]} />
             <h1>Beschrijving</h1>
             <p>{event.description}</p>
           </div>
-          {event.url && (event.url !== 'https://heimdal.be' || event.url !== 'https://www.youtube.com/') && (
+
+          {event.url && event.url !== 'https://heimdal.be' && (
             <div className="button-div">
-              <PrimaryButton isLight={true} text="Inschrijven" to={event.url} />
+              {event.url === 'https://www.youtube.com/' ? (
+                <>
+                  <PrimaryButton isLight={true} text="Inschrijven" onClick={() => setShowNoAccess(true)} />
+                  {showNoAccess && (
+                    <p className="error-message" role="alert">
+                      Je hebt niet de juiste rechten om je in te schrijven.
+                    </p>
+                  )}
+                </>
+              ) : (
+                <PrimaryButton isLight={true} text="Inschrijven" to={event.url} />
+              )}
             </div>
           )}
-
           {event.sponsors?.length > 0 && (
             <div className="sponsor-section">
               <h1>Sponsors</h1>
