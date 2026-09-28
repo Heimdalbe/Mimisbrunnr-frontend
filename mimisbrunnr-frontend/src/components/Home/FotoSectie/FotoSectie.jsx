@@ -11,8 +11,8 @@ const FotoSectie = () => {
     'Groepsfoto3.jpg',
     'Groepsfoto4.jpg',
     'Weekendfoto1.jpg',
-    'Groepsfoto2.jpg',
-    'Groepsfoto3.jpg',
+    'karakoefoto.jpg',
+    'mariokartfoto.jpg',
   ];
 
   const areas = ['a', 'b', 'c', 'd', 'e', 'f', 'g'];
