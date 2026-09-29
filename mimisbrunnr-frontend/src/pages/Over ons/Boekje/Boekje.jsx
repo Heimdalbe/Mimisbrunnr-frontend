@@ -30,13 +30,15 @@ const Boekje = () => {
         />
         */}
       </div>
-      <SelectField
-        label={'Kies een boekje:'}
-        placeholder={'bv. 2023-2024, editie 1'}
-        options={options}
-        value={selectedId}
-        onChange={handleChangeBoekje}
-      />
+      <div className="select-wrapper">
+        <SelectField
+          label={'Kies een boekje:'}
+          placeholder={'bv. 2023-2024, editie 1'}
+          options={options}
+          value={selectedId}
+          onChange={handleChangeBoekje}
+        />
+      </div>
       <PdfViewer bestand={current.bestand} />
     </div>
   );

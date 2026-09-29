@@ -1,18 +1,32 @@
 import { useState } from 'react';
 import { Document, Page, pdfjs } from 'react-pdf';
-import 'react-pdf/dist/Page/AnnotationLayer.css';
 import './PdfViewer.css';
 
-pdfjs.GlobalWorkerOptions.workerSrc = `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.mjs`;
+pdfjs.GlobalWorkerOptions.workerSrc = new URL('pdfjs-dist/build/pdf.worker.min.mjs', import.meta.url).toString();
 
 const PdfViewer = ({ bestand }) => {
-  const [numPages, setNumPages] = useState(null);
+  // Store the page count together with the file it belongs to
+  const [loaded, setLoaded] = useState({ bestand: null, numPages: 0 });
+
+  const numPages = loaded.bestand === bestand ? loaded.numPages : 0;
 
   return (
-    <div className="pdf-wrapper">
-      <Document file={bestand} onLoadSuccess={({ numPages }) => setNumPages(numPages)}>
-        {Array.from(new Array(numPages), (_, index) => (
-          <Page key={index} pageNumber={index + 1} renderTextLayer={false} renderAnnotationLayer={false} />
+    <div className="pdf-viewer">
+      <Document
+        file={bestand}
+        onLoadSuccess={({ numPages }) => setLoaded({ bestand, numPages })}
+        loading="PDF laden..."
+        error="De PDF kon niet worden geladen."
+      >
+        {Array.from({ length: numPages }, (_, i) => (
+          <Page
+            key={`${bestand}-${i + 1}`}
+            pageNumber={i + 1}
+            width={900}
+            renderTextLayer={false}
+            renderAnnotationLayer={false}
+            className="pdf-page"
+          />
         ))}
       </Document>
     </div>

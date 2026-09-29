@@ -1,14 +1,17 @@
-.pdf-wrapper {
-  overflow-y: auto;
-  max-height: 80vh;
-  -webkit-overflow-scrolling: touch;
-  width: 100%;
-  max-width: 650px;
-  margin: 0 auto;
-  margin-bottom: 20px;
+.pdf-viewer {
+  margin-bottom: 40px;
 }
 
-.pdf-wrapper canvas {
+.pdf-page {
   width: 100% !important;
   height: auto !important;
+  max-width: 900px;
+  margin: 0 auto 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.pdf-page canvas {
+  width: 100% !important;
+  height: auto !important;
+  display: block;
 }
