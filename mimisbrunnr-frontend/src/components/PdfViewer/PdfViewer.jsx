@@ -5,10 +5,10 @@ import './PdfViewer.css';
 pdfjs.GlobalWorkerOptions.workerSrc = `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.mjs`;
 
 const PdfViewer = ({ bestand }) => {
-  // Store the page count together with the file it belongs to
   const [loaded, setLoaded] = useState({ bestand: null, numPages: 0 });
 
   const numPages = loaded.bestand === bestand ? loaded.numPages : 0;
+  const width = Math.min(window.innerWidth - 32, 900);
 
   return (
     <div className="pdf-viewer">
@@ -22,7 +22,8 @@ const PdfViewer = ({ bestand }) => {
           <Page
             key={`${bestand}-${i + 1}`}
             pageNumber={i + 1}
-            width={900}
+            width={width}
+            devicePixelRatio={Math.min(window.devicePixelRatio || 1, 2)}
             renderTextLayer={false}
             renderAnnotationLayer={false}
             className="pdf-page"
