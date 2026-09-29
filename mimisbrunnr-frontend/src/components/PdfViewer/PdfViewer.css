@@ -1,15 +1,14 @@
-.pdf-container {
-  overflow: auto;
+.pdf-wrapper {
+  overflow-y: auto;
+  max-height: 80vh;
   -webkit-overflow-scrolling: touch;
+  width: 100%;
+  max-width: 650px;
+  margin: 0 auto;
+  margin-bottom: 20px;
 }
 
-iframe {
-  height: 1100px;
-  margin-bottom: 40px;
-}
-
-@media (max-width: 768px) {
-  iframe {
-    height: 80vh;
-  }
+.pdf-wrapper canvas {
+  width: 100% !important;
+  height: auto !important;
 }

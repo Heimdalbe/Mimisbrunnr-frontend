@@ -10,6 +10,13 @@ const Statuten = () => {
       </div>
       <h2>Laatst aangepast op {statuten.datumAangepast}</h2>
       <PdfViewer bestand={statuten.bestandUrl} />
+      <p className="pdf-fallback">
+        Lukt het lezen niet?{' '}
+        <a href={statuten.bestandUrl} target="_blank" rel="noreferrer">
+          Open de PDF in een nieuw tabblad
+        </a>
+        .
+      </p>
     </div>
   );
 };
