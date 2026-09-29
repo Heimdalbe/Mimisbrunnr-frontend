@@ -6,7 +6,7 @@ const WerkgroepCard = ({ naam, beschrijving, url }) => {
     <div className="werkgroep-card">
       <h2>{naam}</h2>
       <p>{beschrijving}</p>
-      <PrimaryButton text={'Join de werkgroep'} to={url} />
+      <PrimaryButton text={'Join de werkgroep'} to={url} target="_blank" />
     </div>
   );
 };

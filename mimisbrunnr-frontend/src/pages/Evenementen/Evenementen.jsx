@@ -13,12 +13,14 @@ import AsyncData from '../../components/Common/AsyncData/AsyncData';
 const Evenementen = () => {
   const [selectedChips, setSelectedChips] = useState([]);
 
-  const query = selectedChips.length 
-    ? `events/pub?categories=${selectedChips.join(',')}` 
-    : 'events/pub';
+  const query = selectedChips.length ? `events/pub?categories=${selectedChips.join(',')}` : 'events/pub';
 
   const { data: data = { events: [] }, isLoading: eventsAreLoading, error: eventsError } = useSWR(query, getAll);
-  const { data: allEventsData = { events: [] }, isLoading: allEventsAreLoading, error: allEventsError } = useSWR('events/pub', getAll);
+  const {
+    data: allEventsData = { events: [] },
+    isLoading: allEventsAreLoading,
+    error: allEventsError,
+  } = useSWR('events/pub', getAll);
   var upcomingEvent = allEventsData?.events?.[0];
 
   const chips = [

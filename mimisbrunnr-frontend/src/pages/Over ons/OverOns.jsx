@@ -19,7 +19,7 @@ const OverOns = () => {
         </p>
 
         <div className="link-wrapper">
-          <a className="link-button" href="https://discord.heimdal.be">
+          <a className="link-button" href="https://discord.heimdal.be" target="_blank">
             Join onze discord server!
           </a>
         </div>

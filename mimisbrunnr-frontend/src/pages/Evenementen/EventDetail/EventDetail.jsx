@@ -114,7 +114,7 @@ const EventDetail = () => {
                   )}
                 </>
               ) : (
-                <PrimaryButton isLight={true} text="Inschrijven" to={event.url} />
+                <PrimaryButton isLight={true} text="Inschrijven" to={event.url} target="_blank" />
               )}
             </div>
           )}
