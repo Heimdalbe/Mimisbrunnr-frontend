@@ -24,5 +24,8 @@
 
 .vorige-jaarthemas ul {
   justify-items: left;
+}
+
+.vorige-jaarthemas {
   display: grid;
 }
