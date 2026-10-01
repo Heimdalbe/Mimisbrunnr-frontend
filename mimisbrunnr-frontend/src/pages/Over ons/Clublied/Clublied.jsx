@@ -54,7 +54,7 @@ const Clublied = () => {
         <p>Tekst geschreven door Joren Debois</p>
         <p>
           Clublied wordt gezongen op de melodie van{' '}
-          <Link target="_blank" to="https://youtu.be/AVy7YPNP_zI">
+          <Link target="_blank" to="https://www.youtube.com/watch?v=DnlUfPlLjKs">
             Dovahkiin - Skyrim theme song
           </Link>
         </p>
