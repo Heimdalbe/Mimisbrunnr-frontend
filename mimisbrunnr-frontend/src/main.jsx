@@ -68,6 +68,7 @@ import Registreer from './pages/Account/Registreer/Registreer.jsx';
 import AdminAccounts from './pages/Admin/Accounts/AdminAccounts.jsx';
 import AdminEditAccount from './pages/Admin/Accounts/AdminEditAccount.jsx';
 import AdminEditPassword from './pages/Admin/Accounts/AdminEditPassword.jsx';
+import AdminAccountRoles from './pages/Admin/Accounts/AdminAccountRoles.jsx';
 
 const router = createBrowserRouter([
   {
@@ -144,6 +145,15 @@ const router = createBrowserRouter([
         element: (
           <ProtectedRoute role="Hmdl">
             <AdminEditPassword />
+          </ProtectedRoute>
+        ),
+      },
+
+      {
+        path: '/admin/accounts/:id/roles',
+        element: (
+          <ProtectedRoute role="Hmdl">
+            <AdminAccountRoles />
           </ProtectedRoute>
         ),
       },
@@ -436,5 +446,5 @@ createRoot(document.getElementById('root')).render(
     <AuthProvider>
       <RouterProvider router={router} />
     </AuthProvider>
-  </StrictMode>
+  </StrictMode>,
 );

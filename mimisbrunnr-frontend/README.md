@@ -1,24 +1,15 @@
 # Mimisbrunnr Frontend
 
-## Opstarten
-1. Installeer de dependencies met `npm install`
+De volledige instructies staan in de [README in de repository-root](../README.md): installatie, backend, lokaal inloggen, accountrollen en tests.
 
-2. Maak een `.env`-bestand aan in de root van het project met volgende inhoud:
-```env
-	VITE_API_URL=https://localhost:5001/api
+Vanuit deze map:
+
+```sh
+npm ci
+cp .env.example .env
+npm run dev -- --port 5173 --strictPort
 ```
 
-3. Start de applicatie met `npm run dev`
+Open `http://localhost:5173` nadat de backend is gestart. De standaard API-URL in `.env.example` is `https://localhost:5001/api`.
 
-## Technologieën
-- React
-- React Router
-- Vite
-- Axios
-- SWR
-- Motion
-- ESLint
-
-## Vereisten
-- Node.js 18 of nieuwer
-- npm
+Vereisten: Node.js 22.12+ (of 20.19+) en npm.

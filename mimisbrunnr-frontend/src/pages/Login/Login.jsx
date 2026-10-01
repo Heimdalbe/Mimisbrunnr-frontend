@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useAuth } from '../../contexts/AuthContext';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { Navigate, useNavigate, useLocation } from 'react-router-dom';
 import './Login.css';
 import { Link } from 'react-router-dom';
 
@@ -9,8 +9,8 @@ const Login = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  // Get the intended destination from location state, or default to home
-  const from = location.state?.from?.pathname || '/';
+  // Keep the requested admin page when authentication finishes.
+  const from = location.state?.from?.pathname || '/account';
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -68,7 +68,7 @@ const Login = () => {
       </div>
     );
   }
-  navigate('/account');
+  return <Navigate to={from} replace />;
 };
 
 export default Login;
