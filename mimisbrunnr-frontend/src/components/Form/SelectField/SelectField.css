@@ -31,6 +31,7 @@
 .label {
   color: var(--black);
   margin-left: 5px;
+  min-width: fit-content;
 }
 
 .dropdown-list {

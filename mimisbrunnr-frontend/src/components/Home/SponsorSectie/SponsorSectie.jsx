@@ -14,7 +14,7 @@ const SponsorSectie = () => {
         <h1 className='sponsor-titel'>Onze Sponsors</h1>
       </div>
       <AsyncData loading={sponsorsAreLoading} error={sponsorError}>
-        <SponsorList sponsors={sponsors.sponsors} />
+        <SponsorList hasOverflow={true} sponsors={sponsors.sponsors} />
       </AsyncData>
       <div className='container-sm-bm sponsor-button'>
         <div className="button-wrapper">

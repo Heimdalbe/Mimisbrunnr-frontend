@@ -10,6 +10,12 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { isAuthenticated } = useAuth();
 
+  const handleMobileMenuClick = (e) => {
+    if (e.target.closest('a')) {
+      setIsOpen(false);
+    }
+  };
+
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden';
@@ -27,7 +33,7 @@ const Navbar = () => {
       <div className="container">
         <div className="navbar-desktop">
           <Link className="logo" to={'/'}>
-            <img src="./HeimdalBannerTransparantWit.png" alt="Heimdal Banner" />
+            <img src="/HeimdalBannerTransparantWit.png" alt="Heimdal Banner" />
           </Link>
 
           <div className="nav-links">
@@ -67,7 +73,7 @@ const Navbar = () => {
 
         <div className="navbar-mobile">
           <Link to={'/'} className="logo">
-            <img src="./HeimdalBannerTransparantWit.png" alt="Heimdal Banner" />
+            <img src="/HeimdalBannerTransparantWit.png" alt="Heimdal Banner" />
           </Link>
 
           <div className="nav-links">
@@ -78,7 +84,7 @@ const Navbar = () => {
           </div>
 
           <div className={`mobile-menu ${isOpen ? 'open' : ''}`}>
-            <div className="mobile-links">
+            <div className="mobile-links" onClick={handleMobileMenuClick}>
               <OverOns
                 links={[
                   { label: 'Wie zijn we?', to: '/over-ons' },

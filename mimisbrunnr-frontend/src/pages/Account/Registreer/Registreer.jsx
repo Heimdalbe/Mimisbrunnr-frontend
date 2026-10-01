@@ -72,7 +72,7 @@ const Registreer = () => {
             Name
             <input
               name="name"
-              placeholder="John Heimdal"
+              placeholder="JohnHeimdal"
               value={name}
               onChange={(e) => setName(e.target.value)}
               required
@@ -83,7 +83,7 @@ const Registreer = () => {
             E-Mail
             <input
               type="email"
-              placeholder="john.heimdal@placeholder.be"
+              placeholder="john.heimdal@heimdal.be"
               name="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}

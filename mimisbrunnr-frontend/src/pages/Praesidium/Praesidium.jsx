@@ -5,12 +5,12 @@ import useSWR from 'swr';
 import { getAll } from '../../api';
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Breadcrumbs from '../../components/Breadcrumbs/Breadcrumbs';
+import './Praesidium.css';
 
 const SPECIAL_OPTIONS = [
   { label: 'Superschachten', value: 'superschachten' },
   { label: 'Ereleden', value: 'ereleden' },
-  { label: 'Lustrumcommités', value: 'lustrumcommites' },
+  { label: 'Lustrumcomité', value: 'lustrumcomite' },
 ];
 
 const Praesidium = () => {
@@ -43,19 +43,26 @@ const Praesidium = () => {
     }
   };
 
-  const allOptions = [...SPECIAL_OPTIONS.map((o) => o.label), ...(years.years || [])];
+  const yearOptions = [...(years.years || [])].reverse().map((yearOption) => ({
+    label: `${yearOption} - ${yearOption + 1}`,
+    value: yearOption,
+  }));
+  const allOptions = SPECIAL_OPTIONS.map((o) => o.label).concat(yearOptions);
 
   return (
-    <div className="container-sm-tm">
-      <Breadcrumbs children={[{ link: 'praesidium', isLast: true }]} />
-      <h1>Praesidium</h1>
-      <AsyncData loading={yearsAreLoading} error={yearsError}>
-        <SelectField label={'Kies een jaar:'} options={allOptions} value={year} onChange={handleSelect} />
-      </AsyncData>
-      <AsyncData loading={praesidiumIsLoading} error={praesidiumError}>
-        <UserList users={praesidium.praesidium} endpoint={'praesidium/members'} />
-      </AsyncData>
-    </div>
+    <>
+      <div className="container-sm-tm praesidium-sectie">
+        <h1>Praesidium</h1>
+        <AsyncData loading={yearsAreLoading} error={yearsError}>
+          <SelectField options={allOptions} value={year} onChange={handleSelect} />
+        </AsyncData>
+      </div>
+      <div className="container-sm-bm">
+        <AsyncData loading={praesidiumIsLoading} error={praesidiumError}>
+          <UserList users={praesidium.praesidium} endpoint={'praesidium/members'} />
+        </AsyncData>
+      </div>
+    </>
   );
 };
 

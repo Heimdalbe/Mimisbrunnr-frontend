@@ -90,7 +90,7 @@ const router = createBrowserRouter([
       { path: '/praesidium', Component: Praesidium },
       { path: '/praesidium/ereleden', Component: Ereleden },
       { path: '/praesidium/superschachten', Component: Superschachten },
-      { path: '/praesidium/lustrumcommites', Component: LustrumCommites },
+      { path: '/praesidium/lustrumcomite', Component: LustrumCommites },
 
       { path: '/evenementen', Component: Evenementen },
       { path: '/evenementen/:id', Component: EventDetail },
@@ -186,7 +186,7 @@ const router = createBrowserRouter([
       {
         path: '/admin/events',
         element: (
-          <ProtectedRoute role={['EventEditor', 'SponsorEditor']}>
+          <ProtectedRoute roles={['EventEditor', 'SponsorEditor']}>
             <AdminEvents />
           </ProtectedRoute>
         ),

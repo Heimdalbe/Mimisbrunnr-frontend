@@ -47,14 +47,14 @@ const AccountForm = ({ user = {} }) => {
     <Form onSubmit={handleSubmit} className="account-form">
       <label>
         Naam
-        <input name="name" placeholder="John Heimdal" value={formData.name} onChange={handleChange} required />
+        <input name="name" placeholder="JohnHeimdal" value={formData.name} onChange={handleChange} required />
       </label>
 
       <label>
         E-Mail
         <input
           type="email"
-          placeholder="john.heimdal@placeholder.be"
+          placeholder="john.heimdal@heimdal.be"
           name="email"
           value={formData.email}
           onChange={handleChange}

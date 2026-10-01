@@ -3,7 +3,7 @@ import './EventList.css';
 
 // TODO: hintende animatie dat je naar rechts kan swipen?
 
-const EventList = ({ events, limit }) => {
+const EventList = ({ events, limit, catInvisibility }) => {
   return (
     <div className={'carousel-wrapper' + (limit ? ' carousel-mobile' : '')}>
       <div className="carousel">
@@ -16,6 +16,7 @@ const EventList = ({ events, limit }) => {
             end={event.end}
             name={event.name}
             category={event.category}
+            catInvisible={catInvisibility}
           />
         ))}
         <div className="carousel-end-spacer" />

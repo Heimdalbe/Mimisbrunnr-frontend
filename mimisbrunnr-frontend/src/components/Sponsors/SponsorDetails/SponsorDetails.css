@@ -2,8 +2,11 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  align-items: center;
+  justify-content: center;
   aspect-ratio: 1;
   max-width: 100%;
+  scale: 0.8;
 }
 
 .sponsor-wrapper:hover{
@@ -11,11 +14,17 @@
 }
 
 .sponsor-wrapper:hover .sponsor-logo{  
-  transform: scale(1.3);
+  transform: scale(1);
+}
+
+@media (max-width: 768px) {
+  .sponsor-wrapper {
+    scale: 1;
+  }
 }
 
 .sponsor-img-wrapper{
-  aspect-ratio: 4/3;
+  aspect-ratio: 1;
   display: flex;
   justify-content: center;
   max-width: 100%;
@@ -28,7 +37,9 @@
 
 .sponsor-logo{
   height: 100%;
-  width: auto;
+  width: 85%;
+  object-fit: contain;
+  transform: scale(0.8);
   transition: transform 0.3s ease;
 }
 

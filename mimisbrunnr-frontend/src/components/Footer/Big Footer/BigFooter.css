@@ -10,14 +10,14 @@
 .footer-sections {
   position: relative;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   gap: 100px;
   z-index: 100;
 }
 
 .container.footer-sections {
   padding-top: 40px;
-  padding-bottom: 150px;
+  padding-bottom: 100px;
 }
 
 .footer-sections input {
@@ -26,36 +26,29 @@
 }
 
 .nuttige-links {
-  flex: 2;
+  width: 60%;
 }
 
 .contact-section {
-  flex: 3;
+  width: 40%;
 }
 
-.contact-section > ul {
+.contact-section p:first-of-type {
+  margin-bottom: 50px;
+}
+
+.contact-section div > ul {
   list-style-type: none;
+  margin-bottom: 40px;
 }
 
-.contact-section > ul > li {
-  margin-bottom: 25px;
-}
-
-.contact-section > ul > li > b {
-  display: block;
-  color: var(--green);
-  font-size: 1rem;
+.contact-section div > ul > li {
   margin-bottom: 10px;
+  margin-left: 20px;
 }
 
-.contact-section ul li ul {
-  list-style-type: none;
-  margin: 5px;
-  margin-inline-start: 10px;
-}
-
-.contact-section ul li ul li {
-  margin-bottom: 6px;
+.contact-section div > ul > li a {
+  margin-left: 10px;
 }
 
 .jormungandr {
@@ -65,12 +58,19 @@
   width: 35%;
   object-fit: cover;
   z-index: 1;
+  max-height: 80%;
 }
 
 form {
   display: flex;
   flex-direction: column;
   gap: 20px;
+}
+
+@media (min-width: 1920px) {
+  .jormungandr {
+    width: 30%;
+  }
 }
 
 @media (max-width: 1028px) {
@@ -82,6 +82,30 @@ form {
     flex-direction: column;
     gap: 25px;
     padding-top: 40px;
-    padding-bottom: 60px;
+    padding-bottom: 80px;
+  }
+
+  .nuttige-links {
+    width: 100%;
+    margin-top: 40px;
+  }
+
+  .contact-section {
+    width: 100%;
+    text-align: center;
+  }
+
+  .contact-section div > h3 {
+    margin-top: 80px;
+  }
+
+  .contact-section div > ul {
+    padding-left: 0;
+    text-align: center;
+    margin-bottom: 60px;
+  }
+
+  .contact-section div > ul > li {
+    margin-left: 0;
   }
 }

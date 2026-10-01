@@ -2,9 +2,13 @@
   position: relative;
 }
 
+.dark-bg.schild-sectie {
+  max-height: 85vh;
+}
+
 .dark-bg.schild-sectie .container {
-  padding-top: 30px;
-  padding-bottom: 30px;
+  padding-top: 60px;
+  padding-bottom: 50px;
 }
 
 .bg-image {
@@ -41,10 +45,20 @@
     padding-top: 60px;
     padding-bottom: 60px;
   }
+
+  .dark-bg.schild-sectie {
+    max-height: none;
+  }
 }
 
 @media (max-width: 1028px) {
   .socials-wrapper {
+    display: none;
+  }
+}
+
+@media (min-width: 1920px) {
+  .bg-image {
     display: none;
   }
 }

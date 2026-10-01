@@ -7,7 +7,7 @@
 .select-wrapper {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  align-items: center;
 }
 
 label {
@@ -16,4 +16,30 @@ label {
 
 select {
   width: 20%;
+}
+
+.select-wrapper .select-field {
+  width: fit-content;
+  margin-bottom: 50px;
+  border: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.select-wrapper .dropdown {
+  width: fit-content;
+}
+
+.select-wrapper .dropdown-select i {
+  color: var(--green);
+  margin-left: 15px;
+  font-size: 1rem;
+}
+
+.select-wrapper .dropdown-list {
+  width: max-content;
+  min-width: 100%;
+}
+
+.select-wrapper .dropdown-list__item {
+  white-space: nowrap;
 }

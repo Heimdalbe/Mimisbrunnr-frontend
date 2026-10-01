@@ -1,19 +1,36 @@
 import { Link } from 'react-router-dom';
 import './PrimaryButton.css';
 
-const PrimaryButton = ({ text, to, isLight, isDisabled, onClick }) => {
-  const className = [isLight ? 'primary-button' : 'primary-button-dark', isDisabled ? 'disabled' : ''].join(' ');
+const PrimaryButton = ({
+  text,
+  to,
+  isLight,
+  hasNoMarginBottom,
+  isDisabled,
+  onClick,
+  className: customClassName,
+  target,
+}) => {
+  const className = [isLight ? 'primary-button' : 'primary-button-dark', isDisabled ? 'disabled' : '', customClassName]
+    .filter(Boolean)
+    .join(' ');
 
   if (to) {
     return (
-      <Link to={to} className={className}>
+      <Link to={to} target={target} className={className}>
         {text}
       </Link>
     );
   }
 
   return (
-    <button type="button" className={className} onClick={onClick} disabled={isDisabled}>
+    <button
+      type="button"
+      className={className}
+      style={hasNoMarginBottom ? { marginBottom: 0 } : undefined}
+      onClick={onClick}
+      disabled={isDisabled}
+    >
       {text}
     </button>
   );
