@@ -6,13 +6,13 @@ import './FotoSectie.css';
 
 const FotoSectie = () => {
   const allImages = [
-    'Groepsfoto1.jpg',
-    'Groepsfoto2.jpg',
-    'Groepsfoto3.jpg',
-    'Groepsfoto4.jpg',
-    'Weekendfoto1.jpg',
-    'karakoefoto.jpg',
-    'mariokartfoto.jpg',
+    'Groepsfoto1.webp',
+    'Groepsfoto2.webp',
+    'Groepsfoto3.webp',
+    'Groepsfoto4.webp',
+    'Weekendfoto1.webp',
+    'karakoefoto.webp',
+    'mariokartfoto.webp',
   ];
 
   const areas = ['a', 'b', 'c', 'd', 'e', 'f', 'g'];

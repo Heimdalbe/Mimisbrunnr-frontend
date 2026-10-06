@@ -33,7 +33,7 @@ const Navbar = () => {
       <div className="container">
         <div className="navbar-desktop">
           <Link className="logo" to={'/'}>
-            <img src="/HeimdalBannerTransparantWit.png" alt="Heimdal Banner" />
+            <img src="/HeimdalBannerTransparantWit.webp" alt="Heimdal Banner" />
           </Link>
 
           <div className="nav-links">
@@ -73,7 +73,7 @@ const Navbar = () => {
 
         <div className="navbar-mobile">
           <Link to={'/'} className="logo">
-            <img src="/HeimdalBannerTransparantWit.png" alt="Heimdal Banner" />
+            <img src="/HeimdalBannerTransparantWit.webp" alt="Heimdal Banner" />
           </Link>
 
           <div className="nav-links">
