@@ -5,7 +5,7 @@ import './SchildInfo.css';
 const SchildInfo = () => {
   return (
     <div className="info-section">
-      <img className="schild" src="./Schild1.png" alt="Heimdal schild" />
+      <img className="schild" src="./Schild1.webp" alt="Heimdal schild" />
       <div>
         <h1>Heimdal</h1>
         <p>
