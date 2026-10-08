@@ -1,38 +1,38 @@
 .sponsor-container div:first-of-type h1 {
-    text-align: center;
+  text-align: center;
 }
 
 .sponsor-container .sponsors-list {
-    margin-bottom: 60px;
+  margin-bottom: 60px;
 }
 
 .new-sponsor-container {
-    position: relative;
-    isolation: isolate;
-    overflow: hidden;
-    background-color: black;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background-color: black;
 }
 
 .new-sponsor-container::before {
-    content: '';
-    position: absolute;
-    inset: -10%;
-    z-index: -1;
-    background-image: url('../../../../public/BackgroundImg.png');
-    background-size: cover;
-    background-position: bottom;
-    filter: blur(10px);
-    transform: scale(1.1);
+  content: '';
+  position: absolute;
+  inset: -10%;
+  z-index: -1;
+  background-image: url('../../../../public/BackgroundImg.webp');
+  background-size: cover;
+  background-position: bottom;
+  filter: blur(10px);
+  transform: scale(1.1);
 }
 
 .new-sponsor-container div div {
-    background-color: white;
-    padding: 30px 60px 10px;
-    margin-bottom: 40px;
+  background-color: white;
+  padding: 30px 60px 10px;
+  margin-bottom: 40px;
 }
 
 .new-sponsor-container div div h1 {
-    text-align: left !important;
+  text-align: left !important;
 }
 
 @media (max-width: 768px) {
