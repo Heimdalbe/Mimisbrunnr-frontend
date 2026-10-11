@@ -17,6 +17,7 @@ const Sponsors = () => {
       <div className="container-sm-tm sponsors-list">
         <Breadcrumbs children={[{ link: 'sponsors', isLast: true }]} />
         <h1>Onze Sponsors</h1>
+        <div>Klik voor meer informatie</div>
         <AsyncData loading={sponsorsAreLoading} error={sponsorError}>
           <SponsorGrid sponsors={sponsors.sponsors} />
         </AsyncData>
