@@ -45,6 +45,7 @@ const Navbar = () => {
                   { label: 'Boekje', to: '/over-ons/boekje' },
                   { label: 'Statuten', to: '/over-ons/statuten' },
                   { label: 'Werkgroepen', to: '/over-ons/werkgroepen' },
+                  { label: 'Sponsors', to: '/sponsors' },
                 ]}
               />
               <Link to={'/albums'} className="nav-link">
@@ -92,6 +93,7 @@ const Navbar = () => {
                   { label: 'Boekje', to: '/over-ons/boekje' },
                   { label: 'Statuten', to: '/over-ons/statuten' },
                   { label: 'Werkgroepen', to: '/over-ons/werkgroepen' },
+                  { label: 'Sponsors', to: '/sponsors' },
                 ]}
               />
 

@@ -12,7 +12,6 @@ const SponsorSectie = () => {
     <div>
       <div className="container-sm-tm">
         <h1 className="sponsor-titel">Onze Sponsors</h1>
-        <div>Klik voor meer informatie</div>
       </div>
       <AsyncData loading={sponsorsAreLoading} error={sponsorError}>
         <SponsorList hasOverflow={true} sponsors={sponsors.sponsors} />
