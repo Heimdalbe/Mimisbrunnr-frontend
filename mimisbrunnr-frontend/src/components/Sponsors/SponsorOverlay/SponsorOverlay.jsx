@@ -20,7 +20,7 @@ const SponsorOverlay = ({ id, setShowOverlay }) => {
           </div>
           <div className="text-and-info sponsor-overlay-info">
             <h1>{sponsor.name}</h1>
-            {sponsor.description?.length > 0 && <p style={{ marginBottom: 0 }}>{sponsor.benefits}</p>}
+            {sponsor.description?.length > 0 && <p style={{ marginBottom: 0 }}>{sponsor.description}</p>}
             {sponsor.benefits?.length > 0 && (
               <div className="sponsor-overlay-benefits">
                 <h2>Extra Voordelen:</h2>
