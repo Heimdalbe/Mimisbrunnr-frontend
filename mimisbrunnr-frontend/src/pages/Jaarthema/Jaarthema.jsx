@@ -27,15 +27,39 @@ const Jaarthema = () => {
           <ul>
             <li>
               <b>'25-'26</b> How To Train Your Dragon
+              <video className="vid" controls>
+                <source
+                  src="https://jormungandr-data.s3.eu-west-2.amazonaws.com/Heimdal_Jaarthema_2025-2026.mp4"
+                  type="video/mp4"
+                />
+              </video>
             </li>
             <li>
               <b>'24-'25</b> Stranger Things
+              <video className="vid" controls>
+                <source
+                  src="https://jormungandr-data.s3.eu-west-2.amazonaws.com/JaarthemaHeimdal2024-2025_v3.mp4"
+                  type="video/mp4"
+                />
+              </video>
             </li>
             <li>
               <b>'23-'24</b> Pirates of the Caribbean
+              <video className="vid" controls>
+                <source
+                  src="https://jormungandr-data.s3.eu-west-2.amazonaws.com/Jaarthema+filmpje+2023_24+v2.mp4"
+                  type="video/mp4"
+                />
+              </video>
             </li>
             <li>
               <b>'22-'23</b> The Lord of the Rings
+              <video className="vid" controls>
+                <source
+                  src="https://jormungandr-data.s3.eu-west-2.amazonaws.com/JaarthemaHeimdal-2223.mp4"
+                  type="video/mp4"
+                />
+              </video>
             </li>
             <li>
               <b>'21-'22</b> The Witcher
