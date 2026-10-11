@@ -6,23 +6,19 @@ import useSWR from 'swr';
 import { getAll } from '../../../api';
 
 const SponsorSectie = () => {
-  const { data: sponsors = { sponsors: [] }, sponsorError, sponsorsAreLoading } = useSWR('sponsors', getAll);
+  const { data: sponsors = { sponsors: [] }, sponsorError, sponsorsAreLoading } = useSWR('sponsors/homepage', getAll);
 
   return (
     <div>
-      <div className='container-sm-tm'>
-        <h1 className='sponsor-titel'>Onze Sponsors</h1>
+      <div className="container-sm-tm">
+        <h1 className="sponsor-titel">Onze Sponsors</h1>
       </div>
       <AsyncData loading={sponsorsAreLoading} error={sponsorError}>
         <SponsorList hasOverflow={true} sponsors={sponsors.sponsors} />
       </AsyncData>
-      <div className='container-sm-bm sponsor-button'>
+      <div className="container-sm-bm sponsor-button">
         <div className="button-wrapper">
-          <PrimaryButton
-            text='Meer info'
-            to='/sponsors'
-            isLight={true}
-            isDisabled={false} />
+          <PrimaryButton text="Meer info" to="/sponsors" isLight={true} isDisabled={false} />
         </div>
       </div>
     </div>

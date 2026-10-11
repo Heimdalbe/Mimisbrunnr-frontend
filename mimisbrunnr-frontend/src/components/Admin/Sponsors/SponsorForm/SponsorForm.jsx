@@ -19,6 +19,8 @@ const SponsorForm = ({ id = undefined, sponsor = {} }) => {
     benefits: '',
     sponsorRank: SPONSOR_RANK_OPTIONS[0],
     lanSponsorRank: LAN_SPONSOR_RANK_OPTIONS[0],
+    onHomePage: false,
+    onSponsorPage: false,
     order: '',
   });
 
@@ -31,6 +33,8 @@ const SponsorForm = ({ id = undefined, sponsor = {} }) => {
         benefits: sponsor.benefits || '',
         sponsorRank: sponsor.rank || SPONSOR_RANK_OPTIONS[0],
         lanSponsorRank: sponsor.lanSponsorRank || LAN_SPONSOR_RANK_OPTIONS[0],
+        onHomePage: sponsor.onHomePage || false,
+        onSponsorPage: sponsor.onSponsorPage || false,
         order: sponsor.order ?? '',
       });
     }
@@ -113,6 +117,16 @@ const SponsorForm = ({ id = undefined, sponsor = {} }) => {
       </label>
 
       <label>
+        Op Home Pagina
+        <input type="checkbox" name="onHomePage" checked={formData.onHomePage} onChange={handleChange} />
+      </label>
+
+      <label>
+        Op Sponsor Pagina
+        <input type="checkbox" name="onSponsorPage" checked={formData.onSponsorPage} onChange={handleChange} />
+      </label>
+
+      <label>
         Order
         <input type="number" name="order" value={formData.order} onChange={handleChange} required />
       </label>
@@ -134,6 +148,8 @@ const SponsorForm = ({ id = undefined, sponsor = {} }) => {
               benefits: sponsor.benefits || '',
               sponsorRank: sponsor.rank || SPONSOR_RANK_OPTIONS[0],
               lanSponsorRank: sponsor.lanSponsorRank || LAN_SPONSOR_RANK_OPTIONS[0],
+              onHomePage: sponsor.onHomePage || false,
+              onSponsorPage: sponsor.onSponsorPage || false,
               order: sponsor.order ?? '',
             })
           }
