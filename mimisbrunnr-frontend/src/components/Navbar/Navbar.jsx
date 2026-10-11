@@ -106,6 +106,9 @@ const Navbar = () => {
               <Link to={'/evenementen'} className="nav-link">
                 Evenementen
               </Link>
+              <Link to={'/jaarthema'} className="nav-link">
+                Jaarthema
+              </Link>
 
               <a href="#footer">
                 <NavContactButton />
