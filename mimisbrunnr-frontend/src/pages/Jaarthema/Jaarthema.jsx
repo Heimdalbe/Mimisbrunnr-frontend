@@ -41,10 +41,13 @@ const Jaarthema = () => {
               <b>'21-'22</b> The Witcher
             </li>
             <li>
-              <b>'20-'21</b> Game of Thrones
+              <b>'20-'21</b> Avatar the Last Airbender
             </li>
             <li>
-              <b>'19-'20</b> Harry Potter
+              <b>'19-'20</b> Game of Thrones
+            </li>
+            <li>
+              <b>'18-'19</b> Harry Potter
             </li>
           </ul>
         </div>
