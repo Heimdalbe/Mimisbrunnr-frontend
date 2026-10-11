@@ -17,6 +17,7 @@ const SponsorForm = ({ id = undefined, sponsor = {} }) => {
     logourl: '',
     website: '',
     benefits: '',
+    description: '',
     sponsorRank: SPONSOR_RANK_OPTIONS[0],
     lanSponsorRank: LAN_SPONSOR_RANK_OPTIONS[0],
     onHomePage: false,
@@ -31,6 +32,7 @@ const SponsorForm = ({ id = undefined, sponsor = {} }) => {
         logourl: sponsor.logo?.url || '',
         website: sponsor.website || '',
         benefits: sponsor.benefits || '',
+        description: sponsor.description || '',
         sponsorRank: sponsor.rank || SPONSOR_RANK_OPTIONS[0],
         lanSponsorRank: sponsor.lanSponsorRank || LAN_SPONSOR_RANK_OPTIONS[0],
         onHomePage: sponsor.onHomePage || false,
@@ -95,6 +97,11 @@ const SponsorForm = ({ id = undefined, sponsor = {} }) => {
       </label>
 
       <label>
+        Description
+        <textarea name="description" value={formData.description} onChange={handleChange} />
+      </label>
+
+      <label>
         Sponsor Rank
         <select name="sponsorRank" value={formData.sponsorRank} onChange={handleChange} required>
           {SPONSOR_RANK_OPTIONS.map((option) => (
@@ -146,6 +153,7 @@ const SponsorForm = ({ id = undefined, sponsor = {} }) => {
               logourl: sponsor.logo?.url || '',
               website: sponsor.website || '',
               benefits: sponsor.benefits || '',
+              description: sponsor.description || '',
               sponsorRank: sponsor.rank || SPONSOR_RANK_OPTIONS[0],
               lanSponsorRank: sponsor.lanSponsorRank || LAN_SPONSOR_RANK_OPTIONS[0],
               onHomePage: sponsor.onHomePage || false,

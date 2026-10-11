@@ -6,6 +6,13 @@
   box-sizing: border-box;
   padding: 50px;
   object-fit: contain;
+  object-position: center;
+}
+
+.overlay-image-wrapper {
+  display: flex;
+  align-items: center; /* vertical centering of the img */
+  justify-content: center; /* horizontal centering */
 }
 
 .sponsor-overlay-info {
