@@ -26,15 +26,13 @@ const Jaarthema = () => {
         <div className="vorige-jaarthemas">
           <ul>
             <li>
-              <div className="vorig-jaarthema-wrapper">
-                <b>'25-'26</b> How To Train Your Dragon
-                <video className="vid" controls>
-                  <source
-                    src="https://jormungandr-data.s3.eu-west-2.amazonaws.com/Heimdal_Jaarthema_2025-2026.mp4"
-                    type="video/mp4"
-                  />
-                </video>
-              </div>
+              <b>'25-'26</b> How To Train Your Dragon
+              <video className="vid" controls>
+                <source
+                  src="https://jormungandr-data.s3.eu-west-2.amazonaws.com/Heimdal_Jaarthema_2025-2026.mp4"
+                  type="video/mp4"
+                />
+              </video>
             </li>
             <li>
               <b>'24-'25</b> Stranger Things
