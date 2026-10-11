@@ -90,7 +90,7 @@ const EventDetail = () => {
                 {event.entryFee && (
                   <div className="icon-info">
                     <i className="fa-solid fa-money-bill"></i>
-                    <span>€{event.entryFee}</span>
+                    <span>{event.entryFee}</span>
                   </div>
                 )}
               </div>
