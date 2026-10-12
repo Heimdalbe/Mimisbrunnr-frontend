@@ -6,10 +6,8 @@ const SponsorList = ({ sponsors, hasOverflow }) => {
 
   return (
     <div className="sponsorlist-wrapper">
-      <div className={`sponsorlist marquee ${hasOverflow ? 'overflowing' : ''}`}>
+      <div className={`sponsorlist marquee ${hasOverflow ? 'overflowing' : ''}`} style={{ '--count': sponsors.length }}>
         {renderSponsors()}
-
-        {/* Duplicate set, only used by the mobile marquee */}
         <div className="sponsorlist-dupe" aria-hidden="true" inert="">
           {renderSponsors()}
         </div>
