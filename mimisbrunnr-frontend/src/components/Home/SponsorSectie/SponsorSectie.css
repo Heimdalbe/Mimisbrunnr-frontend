@@ -24,7 +24,7 @@
   margin: 0 auto;
 }
 
-.overflowing>a {
+.overflowing > a {
   width: fit-content;
   height: 180px;
   display: flex;
@@ -44,23 +44,27 @@
   transform: scale(1.2);
 }
 
+.sponsorlist-dupe {
+  display: none;
+}
+
 @media (max-width: 768px) {
-  .sponsorlist-wrapper {
-    padding: 0;
-    margin: 0;
-    margin-bottom: 30px;
-    width: 100%;
-    overflow-x: hidden;
+  .sponsorlist-dupe {
+    display: contents; /* children act as direct flex items of .sponsorlist */
   }
 
   .sponsorlist {
     display: flex;
     gap: 40px;
-    padding: 30px 0 60px;
+    padding: 30px 40px 60px 0; /* right padding = one gap, so both halves are equal */
     margin: 0;
     max-width: none;
     width: max-content;
     animation: marquee 20s linear infinite;
+  }
+
+  .sponsorlist a {
+    flex-shrink: 0;
   }
 
   .sponsorlist a img {
@@ -70,17 +74,12 @@
     transform: none !important;
   }
 
-  .sponsorlist a:hover img {
-    transform: none;
-  }
-
   @keyframes marquee {
-    0% {
-      transform: translateX(50%);
+    from {
+      transform: translateX(0);
     }
-
-    100% {
-      transform: translateX(-100%);
+    to {
+      transform: translateX(-50%);
     }
   }
 }
