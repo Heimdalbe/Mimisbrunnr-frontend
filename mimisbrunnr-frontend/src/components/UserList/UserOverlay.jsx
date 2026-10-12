@@ -7,6 +7,10 @@ const UserOverlay = ({ id, setShowOverlay, endpoint }) => {
   const { data: user = {}, error: userError, isLoading: userIsLoading } = useSWR(`${endpoint}/${id}`, getAll);
   const quote = user.member?.quote?.trim();
   const trivia = user.member?.trivia?.trim();
+  const birthDate = user.member?.birthDate;
+  const studieRichting = user.member?.studieRichting?.trim();
+  const favoriteGame = user.member?.favoriteGame?.trim();
+  const favoriteHeimdal = user.member?.favoriteHeimdal?.trim();
 
   return (
     <div className="overlay" onClick={() => setShowOverlay(false)}>
@@ -26,29 +30,37 @@ const UserOverlay = ({ id, setShowOverlay, endpoint }) => {
             )}
             {/* TODO: hier nog vorige functies + functies nadien plaatsen? */}
 
-            {quote && <h3 className="quote">{`Quote: "${quote}"`}</h3>}
-            {trivia && <h3 className="trivia">{`Trivia: ${trivia}`}</h3>}
+            {quote && <h3 className="quote">{`"${quote}"`}</h3>}
+            {trivia && <h3 className="trivia">{`${trivia}`}</h3>}
 
             {/* TODO: fun facts backend aanvullen en dit toevoegen. 
             Indien niet ingevuld -> NIET ZICHTBAAR ZOALS QUOTE */}
-            {/* <div className="fun-facts">
-              <div className="praesidium-info-icon">
-                <i class="fa-solid fa-cake-candles"></i>
-                <p>19/09/2005</p>
-              </div>
-              <div className="praesidium-info-icon">
-                <i class="fa-solid fa-graduation-cap"></i>
-                <p>Toegepaste informatica - HOGENT</p>
-              </div>
-              <div className="praesidium-info-icon">
-                <i class="fa-solid fa-gamepad"></i>
-                <p>Game titel</p>
-              </div>
-              <div className="praesidium-info-icon">
-                <img className="praesidium-info-icon-image" src="/HeimieLoveIcon.svg" alt="Heimie Love" />
-                <p>Heimdalweekend</p>
-              </div>
-            </div> */}
+            <div className="fun-facts">
+              {birthDate && (
+                <div className="praesidium-info-icon">
+                  <i class="fa-solid fa-cake-candles"></i>
+                  <p>{birthDate}</p>
+                </div>
+              )}
+              {studieRichting && (
+                <div className="praesidium-info-icon">
+                  <i class="fa-solid fa-graduation-cap"></i>
+                  <p>{studieRichting}</p>
+                </div>
+              )}
+              {favoriteGame && (
+                <div className="praesidium-info-icon">
+                  <i class="fa-solid fa-gamepad"></i>
+                  <p>{favoriteGame}</p>
+                </div>
+              )}
+              {favoriteHeimdal && (
+                <div className="praesidium-info-icon">
+                  <img className="praesidium-info-icon-image" src="/HeimieLoveIcon.svg" alt="Heimie Love" />
+                  <p>{favoriteHeimdal}</p>
+                </div>
+              )}
+            </div>
           </div>
         </AsyncData>
 
