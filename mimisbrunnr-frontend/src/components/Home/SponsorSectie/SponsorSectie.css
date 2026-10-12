@@ -65,6 +65,9 @@
     margin: 0;
     max-width: none;
     width: max-content;
+  }
+
+  .sponsorlist.ready {
     animation: marquee calc(var(--count) * 4s) linear infinite;
   }
 
