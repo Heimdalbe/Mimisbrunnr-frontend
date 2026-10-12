@@ -13,6 +13,10 @@ const MemberDetailsForm = ({ id = undefined, memberDetails = {} }) => {
     lastName: '',
     quote: '',
     trivia: '',
+    birthDate: null,
+    studieRichting: '',
+    favoriteGame: '',
+    favoriteHeimdal: '',
   });
 
   useEffect(() => {
@@ -22,6 +26,10 @@ const MemberDetailsForm = ({ id = undefined, memberDetails = {} }) => {
         lastName: memberDetails.lastName || '',
         quote: memberDetails.quote || '',
         trivia: memberDetails.trivia || '',
+        birthDate: memberDetails.birthDate || null,
+        studieRichting: memberDetails.studieRichting || '',
+        favoriteGame: memberDetails.favoriteGame || '',
+        favoriteHeimdal: memberDetails.favoriteHeimdal || '',
       });
     }
   }, [memberDetails, isEditMode]);
@@ -78,24 +86,48 @@ const MemberDetailsForm = ({ id = undefined, memberDetails = {} }) => {
         <input name="trivia" value={formData.trivia} onChange={handleChange} />
       </label>
 
+      <label>
+        BirthDate
+        <input type="date" name="birthDate" value={formData.birthDate} onChange={handleChange} />
+      </label>
+
+      <label>
+        Studie Richting
+        <input name="studieRichting" value={formData.studieRichting} onChange={handleChange} />
+      </label>
+
+      <label>
+        Favorite Game
+        <input name="favoriteGame" value={formData.favoriteGame} onChange={handleChange} />
+      </label>
+
+      <label>
+        Favorite Heimdal Activiteit
+        <input name="favoriteHeimdal" value={formData.favoriteHeimdal} onChange={handleChange} />
+      </label>
+
       <div>
         {isEditMode && (
-          <button
-            type="button"
-            className="delete"
-            onClick={onDelete}
-            disabled={isDeleting}
-          >
+          <button type="button" className="delete" onClick={onDelete} disabled={isDeleting}>
             Delete
           </button>
         )}
 
-        <button type="reset" onClick={() => setFormData({
-          firstName: memberDetails.firstName || '',
-          lastName: memberDetails.lastName || '',
-          quote: memberDetails.quote || '',
-          trivia: memberDetails.trivia || '',
-        })}>
+        <button
+          type="reset"
+          onClick={() =>
+            setFormData({
+              firstName: memberDetails.firstName || '',
+              lastName: memberDetails.lastName || '',
+              quote: memberDetails.quote || '',
+              trivia: memberDetails.trivia || '',
+              birthDate: memberDetails.birthDate || null,
+              studieRichting: memberDetails.studieRichting || '',
+              favoriteGame: memberDetails.favoriteGame || '',
+              favoriteHeimdal: memberDetails.favoriteHeimdal || '',
+            })
+          }
+        >
           Reset
         </button>
 
