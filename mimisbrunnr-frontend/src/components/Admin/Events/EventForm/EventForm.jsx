@@ -3,6 +3,7 @@ import './EventForm.css';
 import { useEffect, useState } from 'react';
 import useSWRMutation from 'swr/mutation';
 import { deleteById, save } from '../../../../api';
+import ImageUpload from '../../../../components/ImageUpload';
 
 const ACCESSIBILITY_OPTIONS = ['OPEN', 'CLOSED'];
 
@@ -62,6 +63,11 @@ const EventForm = ({ id = undefined, event = {} }) => {
 
   async function handleSubmit(e) {
     e.preventDefault();
+
+    if (!formData.bannerurl) {
+      alert('Upload eerst een banner');
+      return;
+    }
 
     await handleSave({
       id: id,
@@ -123,12 +129,14 @@ const EventForm = ({ id = undefined, event = {} }) => {
         <input type="datetime-local" name="end" value={formData.end} onChange={handleChange} required />
       </label>
 
-      <label>
+      <div>
         Banner
-        <input type="url" name="bannerurl" value={formData.bannerurl} onChange={handleChange} required />
-      </label>
-
-      {formData.bannerurl && <img src={formData.bannerurl} alt="preview" style={{ width: 100 }} />}
+        <ImageUpload
+          value={formData.bannerurl}
+          onChange={(url) => setFormData((prev) => ({ ...prev, bannerurl: url }))}
+          folder="events"
+        />
+      </div>
 
       <label>
         Beschrijving
