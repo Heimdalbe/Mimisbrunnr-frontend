@@ -1,7 +1,6 @@
 .sponsorlist-wrapper {
   width: 100%;
-  overflow-x: hidden;
-  overflow-y: hidden;
+  overflow: hidden;
 }
 
 .sponsorlist {
@@ -24,7 +23,8 @@
   margin: 0 auto;
 }
 
-.overflowing > a {
+/* descendant selector (not ">") so the duplicate set gets the same styles */
+.overflowing .sponsor-wrapper {
   width: fit-content;
   height: 180px;
   display: flex;
@@ -33,15 +33,17 @@
   margin-inline: 15px;
 }
 
-.sponsorlist a img {
+.sponsorlist .sponsor-wrapper img {
   height: 150px;
   width: 150px;
   object-fit: contain;
   transition: transform 0.3s ease;
 }
 
-.sponsorlist a:hover img {
-  transform: scale(1.2);
+@media (hover: hover) {
+  .sponsorlist .sponsor-wrapper:hover img {
+    transform: scale(1.2);
+  }
 }
 
 .sponsorlist-dupe {
@@ -63,15 +65,15 @@
     animation: marquee 20s linear infinite;
   }
 
-  .sponsorlist a {
+  .sponsorlist .sponsor-wrapper {
     flex-shrink: 0;
   }
 
-  .sponsorlist a img {
+  .sponsorlist .sponsor-wrapper img {
     height: 180px;
     width: 180px;
     object-fit: contain;
-    transform: none !important;
+    transform: none;
   }
 
   @keyframes marquee {
