@@ -4,39 +4,27 @@ import LightBox from '../../Common/Lightbox/Lightbox';
 
 import './FotoSectie.css';
 
+const images = [
+  'Groepsfoto1.webp',
+  'Groepsfoto2.webp',
+  'Groepsfoto3.webp',
+  'Groepsfoto4.webp',
+  'Weekendfoto1.webp',
+  'karakoefoto.webp',
+  'mariokartfoto.webp',
+];
+
+const areas = ['a', 'b', 'c', 'd', 'e', 'f', 'g'];
+
 const FotoSectie = () => {
-  const allImages = [
-    'Groepsfoto1.webp',
-    'Groepsfoto2.webp',
-    'Groepsfoto3.webp',
-    'Groepsfoto4.webp',
-    'Weekendfoto1.webp',
-    'karakoefoto.webp',
-    'mariokartfoto.webp',
-  ];
-
-  const areas = ['a', 'b', 'c', 'd', 'e', 'f', 'g'];
   const [activeIndex, setActiveIndex] = useState(null);
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
   useEffect(() => {
-    const handleResize = () => setWindowWidth(window.innerWidth);
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
-
-  useEffect(() => {
-    if (activeIndex !== null) {
-      document.body.style.overflow = 'hidden';
-    } else {
+    document.body.style.overflow = activeIndex !== null ? 'hidden' : '';
+    return () => {
       document.body.style.overflow = '';
-    }
+    };
   }, [activeIndex]);
-
-  const images = windowWidth <= 768 ? allImages.slice(0, 5) : allImages;
-  const areasToUse = windowWidth <= 768 ? areas.slice(0, 5) : areas;
-
-  const openLightbox = (index) => setActiveIndex(index);
 
   return (
     <div>
@@ -48,10 +36,10 @@ const FotoSectie = () => {
         <div className="fixed-image-grid">
           {images.map((src, i) => (
             <div
-              key={i}
+              key={src}
               className="fixed-image-grid-item"
-              style={{ gridArea: areasToUse[i] }}
-              onClick={() => openLightbox(i)}
+              style={{ gridArea: areas[i] }}
+              onClick={() => setActiveIndex(i)}
             >
               <img src={src} alt="" />
             </div>
@@ -65,7 +53,6 @@ const FotoSectie = () => {
         </div>
       </div>
 
-      {/* Lightbox */}
       {activeIndex !== null && <LightBox images={images} activeIndex={activeIndex} setActiveIndex={setActiveIndex} />}
     </div>
   );

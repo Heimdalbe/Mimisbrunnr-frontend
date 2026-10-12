@@ -23,7 +23,6 @@ const SponsorDetails = ({ id, name, logo }) => {
         <div className="sponsor-img-wrapper">
           <img className="sponsor-logo" src={logo.url} alt={`Logo van ${name}`}></img>
         </div>
-        {/* <h2 className="sponsor-name">{name}</h2> */}
       </div>
       {showOverlay && <SponsorOverlay id={id} setShowOverlay={setShowOverlay} />}
     </>
