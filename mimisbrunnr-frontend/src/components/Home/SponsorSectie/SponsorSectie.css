@@ -52,26 +52,31 @@
 
 @media (max-width: 768px) {
   .sponsorlist-dupe {
-    display: contents; /* children act as direct flex items of .sponsorlist */
+    display: contents;
   }
 
   .sponsorlist {
+    --item: 180px;
+    --gap: 40px;
+
     display: flex;
-    gap: 40px;
-    padding: 30px 40px 60px 0; /* right padding = one gap, so both halves are equal */
+    gap: var(--gap);
+    padding: 30px var(--gap) 60px 0;
     margin: 0;
     max-width: none;
     width: max-content;
-    animation: marquee 20s linear infinite;
+    animation: marquee calc(var(--count) * 4s) linear infinite;
   }
 
   .sponsorlist .sponsor-wrapper {
-    flex-shrink: 0;
+    flex: 0 0 var(--item);
+    width: var(--item);
+    height: var(--item);
   }
 
   .sponsorlist .sponsor-wrapper img {
-    height: 180px;
-    width: 180px;
+    width: var(--item);
+    height: var(--item);
     object-fit: contain;
     transform: none;
   }
@@ -81,7 +86,7 @@
       transform: translateX(0);
     }
     to {
-      transform: translateX(-50%);
+      transform: translateX(calc(var(--count) * (var(--item) + var(--gap)) * -1));
     }
   }
 }
