@@ -3,6 +3,7 @@ import './SponsorForm.css';
 import { useEffect, useState } from 'react';
 import useSWRMutation from 'swr/mutation';
 import { deleteById, save } from '../../../../api';
+import ImageUpload from '../../../../components/ImageUpload';
 
 const SPONSOR_RANK_OPTIONS = ['None', 'Bronze', 'Silver', 'Gold', 'Diamond'];
 
@@ -57,6 +58,11 @@ const SponsorForm = ({ id = undefined, sponsor = {} }) => {
   async function handleSubmit(s) {
     s.preventDefault();
 
+    if (!formData.logourl) {
+      alert('Upload eerst een logo');
+      return;
+    }
+
     await handleSave({
       id: id,
       ...formData,
@@ -79,12 +85,14 @@ const SponsorForm = ({ id = undefined, sponsor = {} }) => {
         <input name="name" value={formData.name} onChange={handleChange} required />
       </label>
 
-      <label>
+      <div>
         Logo
-        <input type="url" name="logourl" value={formData.logourl} onChange={handleChange} required />
-      </label>
-
-      {formData.logourl && <img src={formData.logourl} alt="preview" style={{ width: 100 }} />}
+        <ImageUpload
+          value={formData.logourl}
+          onChange={(url) => setFormData((prev) => ({ ...prev, logourl: url }))}
+          folder="sponsors"
+        />
+      </div>
 
       <label>
         Website
