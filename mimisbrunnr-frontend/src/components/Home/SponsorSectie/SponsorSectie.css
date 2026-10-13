@@ -23,29 +23,6 @@
   margin: 0 auto;
 }
 
-/* descendant selector (not ">") so the duplicate set gets the same styles */
-.overflowing .sponsor-wrapper {
-  width: fit-content;
-  height: 180px;
-  display: flex;
-  align-items: center;
-  overflow: visible;
-  margin-inline: 15px;
-}
-
-.sponsorlist .sponsor-wrapper img {
-  height: 150px;
-  width: 150px;
-  object-fit: contain;
-  transition: transform 0.3s ease;
-}
-
-@media (hover: hover) {
-  .sponsorlist .sponsor-wrapper:hover img {
-    transform: scale(1.2);
-  }
-}
-
 .sponsorlist-dupe {
   display: none;
 }
