@@ -129,6 +129,47 @@
   font-weight: 700;
 }
 
+.overlay .terms {
+  margin-top: 16px;
+}
+
+.overlay .terms + .terms {
+  margin-top: 12px;
+}
+
+.overlay .terms-title {
+  margin: 0 0 4px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.5;
+}
+
+.overlay .terms-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.overlay .terms-list li {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-bottom: 2px;
+  font-size: 0.85rem;
+}
+
+.overlay .term-role {
+  font-weight: 700;
+}
+
+.overlay .term-year {
+  color: var(--green);
+  font-weight: 300;
+  font-size: 0.8rem;
+}
+
 .overlay .quote {
   font-weight: 300;
   font-size: 0.9rem;

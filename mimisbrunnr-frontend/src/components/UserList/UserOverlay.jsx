@@ -5,12 +5,71 @@ import SocialsList from '../Socials/SocialsList';
 
 const UserOverlay = ({ id, setShowOverlay, endpoint }) => {
   const { data: user = {}, error: userError, isLoading: userIsLoading } = useSWR(`${endpoint}/${id}`, getAll);
+
+  let {
+    data: previousTermsResponse,
+    error: previousTermsError,
+    isLoading: previousTermsIsLoading,
+  } = useSWR(`praesidium/members/previous/${id}`, getAll);
+
+  let {
+    data: nextTermsResponse,
+    error: nextTermsError,
+    isLoading: nextTermsIsLoading,
+  } = useSWR(`praesidium/members/next/${id}`, getAll);
+
+  let {
+    data: allTermsResponse,
+    error: allTermsError,
+    isLoading: allTermsIsLoading,
+  } = useSWR(`praesidium/members/terms/${user.member?.id}`, getAll);
+
+  if (endpoint.endsWith('lustrum/members') || endpoint.endsWith('erelids') || endpoint.endsWith('superschachts')) {
+    previousTermsResponse = [];
+    nextTermsResponse = [];
+  } else {
+    allTermsResponse = [];
+  }
+
   const quote = user.member?.quote?.trim();
   const trivia = user.member?.trivia?.trim();
   const birthDate = user.member?.birthDate;
   const studieRichting = user.member?.studieRichting?.trim();
   const favoriteGame = user.member?.favoriteGame?.trim();
   const favoriteHeimdal = user.member?.favoriteHeimdal?.trim();
+
+  const previousTerms = (previousTermsResponse?.previousPraesidiumTerms ?? []).map((f) => ({
+    role: f.role?.name,
+    year: f.year,
+  }));
+  const nextTerms = (nextTermsResponse?.nextPraesidiumTerms ?? []).map((f) => ({
+    role: f.role?.name,
+    year: f.year,
+  }));
+  const allTerms = (allTermsResponse?.allPraesidiumTerms ?? []).map((f) => ({
+    role: f.role?.name,
+    year: f.year,
+  }));
+
+  const TermsSection = ({ title, terms, className, isLoading, error }) => (
+    <AsyncData loading={isLoading} error={error}>
+      {terms.length > 0 && (
+        <div className={`terms ${className}`}>
+          <h3 className="terms-title">{title}</h3>
+          <ul className="terms-list">
+            {terms.map((term) => (
+              <li key={`${term.role}-${term.year}`}>
+                <span className="term-role">{term.role}</span>
+                <span className="term-year">
+                  {term.year}-{term.year + 1}
+                </span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+    </AsyncData>
+  );
 
   return (
     <div className="overlay" onClick={() => setShowOverlay(false)}>
@@ -28,29 +87,48 @@ const UserOverlay = ({ id, setShowOverlay, endpoint }) => {
                 {user.role?.name} {user.year}-{user.year + 1}
               </h2>
             )}
-            {/* TODO: hier nog vorige functies + functies nadien plaatsen? */}
+
+            <TermsSection
+              title="Vorige functies"
+              className="previous-terms"
+              terms={previousTerms}
+              isLoading={previousTermsIsLoading}
+              error={previousTermsError}
+            />
+            <TermsSection
+              title="Volgende functies"
+              className="next-terms"
+              terms={nextTerms}
+              isLoading={nextTermsIsLoading}
+              error={nextTermsError}
+            />
+            <TermsSection
+              title="Praesidium functies"
+              className="all-terms"
+              terms={allTerms}
+              isLoading={allTermsIsLoading}
+              error={allTermsError}
+            />
 
             {quote && <h3 className="quote">{`"${quote}"`}</h3>}
             {trivia && <h3 className="trivia">{`${trivia}`}</h3>}
 
-            {/* TODO: fun facts backend aanvullen en dit toevoegen. 
-            Indien niet ingevuld -> NIET ZICHTBAAR ZOALS QUOTE */}
             <div className="fun-facts">
               {birthDate && (
                 <div className="praesidium-info-icon">
-                  <i class="fa-solid fa-cake-candles"></i>
+                  <i className="fa-solid fa-cake-candles"></i>
                   <p>{birthDate}</p>
                 </div>
               )}
               {studieRichting && (
                 <div className="praesidium-info-icon">
-                  <i class="fa-solid fa-graduation-cap"></i>
+                  <i className="fa-solid fa-graduation-cap"></i>
                   <p>{studieRichting}</p>
                 </div>
               )}
               {favoriteGame && (
                 <div className="praesidium-info-icon">
-                  <i class="fa-solid fa-gamepad"></i>
+                  <i className="fa-solid fa-gamepad"></i>
                   <p>{favoriteGame}</p>
                 </div>
               )}
