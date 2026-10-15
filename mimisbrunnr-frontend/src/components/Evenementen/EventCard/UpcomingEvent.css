@@ -84,23 +84,22 @@
   .event-wrapper {
     flex-direction: column;
     height: auto;
-    min-height: 0; /* optional: drop the 460px min on mobile */
+    min-height: 0; 
   }
 
   .event-image-section {
-    order: 1; /* image on top; remove if you want it below */
+    order: 1; 
     width: 100%;
-    aspect-ratio: 16 / 9; /* or: height: 220px; */
+    aspect-ratio: 16 / 9; 
   }
 
   .image {
-    /* position: absolute; inset: 0; already inherited, fills the section */
     object-fit: cover;
   }
 
   .event-info-section {
     order: 2;
-    width: auto;
+    width: -webkit-fill-available;
     aspect-ratio: 18 / 10;
     padding: 40px 30px;
     gap: 22px;
