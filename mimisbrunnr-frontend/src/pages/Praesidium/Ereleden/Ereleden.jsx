@@ -5,8 +5,12 @@ import UserList from '../../../components/UserList/UserList';
 import Breadcrumbs from '../../../components/Breadcrumbs/Breadcrumbs';
 import '../Praesidium.css';
 import PrimaryButton from '../../../components/Common/PrimaryButton/PrimaryButton';
+import { useNavigate } from 'react-router-dom';
 
 const Ereleden = () => {
+  const navigate = useNavigate();
+  const goBack = () => (window.history.state?.idx > 0 ? navigate(-1) : navigate('/praesidium'));
+
   const {
     data: praesidium = { erelids: [] },
     praesidiumError,
@@ -21,7 +25,7 @@ const Ereleden = () => {
         </div>
         <div className="praesidium-sectie">
           <h1 style={{ marginBottom: '70px' }}>Ereleden</h1>
-          <PrimaryButton to="/praesidium" text="Ga Terug" className="go-back-button" />
+          <PrimaryButton onClick={goBack} text="Ga Terug" className="go-back-button" />
         </div>
       </div>
       <div className="container-sm-bm">

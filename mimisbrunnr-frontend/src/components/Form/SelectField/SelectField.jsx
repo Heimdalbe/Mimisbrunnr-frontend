@@ -1,8 +1,7 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './SelectField.css';
 
-const normalizeOption = (o) =>
-  typeof o === 'object' && o !== null ? o : { label: o, value: o };
+const normalizeOption = (o) => (typeof o === 'object' && o !== null ? o : { label: o, value: o });
 
 const SelectField = ({ label, placeholder, options = [], value, onChange }) => {
   const [open, setOpen] = useState(false);
@@ -16,10 +15,19 @@ const SelectField = ({ label, placeholder, options = [], value, onChange }) => {
 
   const displayLabel = normalized.find((o) => o.value === value)?.label ?? value ?? placeholder;
 
+  useEffect(() => {
+    if (!open) return;
+
+    const close = () => setOpen(false);
+    window.addEventListener('scroll', close, true);
+
+    return () => window.removeEventListener('scroll', close, true);
+  }, [open]);
+
   return (
     <div className="select-field">
       <label className="label">{label}</label>
-      <div className="dropdown" onClick={() => setOpen(!open)}>
+      <div className="dropdown" tabIndex={0} onClick={() => setOpen(!open)} onBlur={() => setOpen(false)}>
         <div className="dropdown-select">
           <span className="select">{displayLabel}</span>
           <i className={`fa ${open ? 'fa-angle-up' : 'fa-angle-down'}`}></i>
@@ -32,11 +40,7 @@ const SelectField = ({ label, placeholder, options = [], value, onChange }) => {
           }}
         >
           {normalized.map((o) => (
-            <div
-              key={o.value}
-              className="dropdown-list__item"
-              onClick={() => handleSelect(o)}
-            >
+            <div key={o.value} className="dropdown-list__item" onClick={() => handleSelect(o)}>
               {o.label}
             </div>
           ))}

@@ -6,29 +6,31 @@ import SocialsList from '../Socials/SocialsList';
 const UserOverlay = ({ id, setShowOverlay, endpoint }) => {
   const { data: user = {}, error: userError, isLoading: userIsLoading } = useSWR(`${endpoint}/${id}`, getAll);
 
-  let {
-    data: previousTermsResponse,
-    error: previousTermsError,
-    isLoading: previousTermsIsLoading,
-  } = useSWR(`praesidium/members/previous/${id}`, getAll);
-
-  let {
-    data: nextTermsResponse,
-    error: nextTermsError,
-    isLoading: nextTermsIsLoading,
-  } = useSWR(`praesidium/members/next/${id}`, getAll);
-
-  let {
-    data: allTermsResponse,
-    error: allTermsError,
-    isLoading: allTermsIsLoading,
-  } = useSWR(`praesidium/members/terms/${user.member?.id}`, getAll);
+  let previousTermsResponse, previousTermsError, previousTermsIsLoading;
+  let nextTermsResponse, nextTermsError, nextTermsIsLoading;
+  let allTermsResponse, allTermsError, allTermsIsLoading;
 
   if (endpoint.endsWith('lustrum/members') || endpoint.endsWith('erelids') || endpoint.endsWith('superschachts')) {
     previousTermsResponse = [];
     nextTermsResponse = [];
+    ({
+      data: allTermsResponse,
+      error: allTermsError,
+      isLoading: allTermsIsLoading,
+    } = useSWR(`praesidium/members/terms/${user.member?.id}`, getAll));
   } else {
     allTermsResponse = [];
+    ({
+      data: previousTermsResponse,
+      error: previousTermsError,
+      isLoading: previousTermsIsLoading,
+    } = useSWR(`praesidium/members/previous/${id}`, getAll));
+
+    ({
+      data: nextTermsResponse,
+      error: nextTermsError,
+      isLoading: nextTermsIsLoading,
+    } = useSWR(`praesidium/members/next/${id}`, getAll));
   }
 
   const quote = user.member?.quote?.trim();
@@ -146,7 +148,6 @@ const UserOverlay = ({ id, setShowOverlay, endpoint }) => {
           <div className="close-button" onClick={() => setShowOverlay(false)}>
             <i className="fa-solid fa-xmark"></i>
           </div>
-          {/* Socials van de persoon doorgeven met props ipv defaults nu */}
           <SocialsList socials={user.member?.socials} />
         </div>
       </div>

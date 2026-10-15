@@ -7,8 +7,12 @@ import { useEffect, useState } from 'react';
 import SelectField from '../../../components/Form/SelectField/SelectField';
 import '../Praesidium.css';
 import PrimaryButton from '../../../components/Common/PrimaryButton/PrimaryButton';
+import { useNavigate } from 'react-router-dom';
 
 const LustrumCommites = () => {
+  const navigate = useNavigate();
+  const goBack = () => (window.history.state?.idx > 0 ? navigate(-1) : navigate('/praesidium'));
+
   const {
     data: years = { years: [] },
     error: yearsError,
@@ -42,7 +46,7 @@ const LustrumCommites = () => {
         </div>
         <div className="praesidium-sectie">
           <h1>Lustrumcomité</h1>
-          <PrimaryButton to="/praesidium" text="Ga Terug" className="go-back-button" />
+          <PrimaryButton onClick={goBack} text="Ga Terug" className="go-back-button" />
           <AsyncData loading={yearsAreLoading} error={yearsError}>
             <SelectField options={yearOptions} value={year} onChange={setYear} />
           </AsyncData>
