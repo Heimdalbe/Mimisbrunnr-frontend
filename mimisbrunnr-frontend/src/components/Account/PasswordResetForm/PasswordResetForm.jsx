@@ -84,7 +84,7 @@ const PasswordResetForm = ({ user = {} }) => {
         />
       </label>
 
-      {error && <p className="password-reset-form__error">{error}</p>}
+      {error && <p className="error-message">{error}</p>}
 
       <div>
         <button type="submit" disabled={isMutating}>

@@ -6,11 +6,13 @@ import AccountForm from '../../../components/Account/AccountForm/AccountForm';
 import AsyncData from '../../../components/Common/AsyncData/AsyncData';
 import PrimaryButton from '../../../components/Common/PrimaryButton/PrimaryButton';
 import './Account.css';
+import { useState } from 'react';
 
 const Account = () => {
   const { isAuthenticated, user, logout } = useAuth();
   const { data: userData = {}, error, isLoading } = useSWR('/accounts/self', getAll);
   const navigate = useNavigate();
+  const [logoutError, setError] = useState('');
 
   const handleLogout = async () => {
     try {
@@ -30,13 +32,14 @@ const Account = () => {
             Je bent ingelogd als <strong>{user?.email}</strong>
           </p>
           <AsyncData loading={isLoading} error={error}>
-            <AccountForm action={'put'} user={userData} />
+            <AccountForm user={userData} />
           </AsyncData>
 
           <p>
             Klik <Link to={'/account/password-reset'}>hier</Link> om je wachtwoord te veranderen
           </p>
 
+          {logoutError && <p className="error-message">{logoutError}</p>}
           <PrimaryButton text="Uitloggen" isLight={true} isDisabled={false} onClick={handleLogout} />
         </div>
       </div>

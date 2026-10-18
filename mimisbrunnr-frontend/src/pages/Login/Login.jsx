@@ -37,7 +37,7 @@ const Login = () => {
       <div className="container-sm-tm">
         <h1>Login</h1>
         <form className="login-form" onSubmit={handleSubmit}>
-          {error && <p>{error}</p>}
+          {error && <p className="error-message">{error}</p>}
           <div>
             <label>Email</label>
             <input

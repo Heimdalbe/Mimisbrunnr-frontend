@@ -44,7 +44,7 @@ const Registreer = () => {
       await register(name, email, password, confirmPassword);
     } catch (err) {
       if (err.response?.status === 422) {
-        setError('Een account met deze naam of e-mail bestaat al.');
+        setError(err.response?.data?.errors);
       } else {
         setError('Er ging iets mis. Probeer het later opnieuw.');
       }
@@ -115,7 +115,7 @@ const Registreer = () => {
             />
           </label>
 
-          {error && <p className="registreer-form__error">{error}</p>}
+          {error && <p className="error-message">{error}</p>}
 
           <button type="submit">Registreer</button>
           <p>
