@@ -1,31 +1,29 @@
 import { useEffect, useState } from 'react';
+import { createPortal } from 'react-dom';
 import './SponsorDetails.css';
 import SponsorOverlay from '../SponsorOverlay/SponsorOverlay';
 
 const SponsorDetails = ({ id, name, logo }) => {
   const [showOverlay, setShowOverlay] = useState(false);
 
-  // useEffect pagina niet scrollable maken als er een overlay geopend is
+  // Make the page non-scrollable while an overlay is open
   useEffect(() => {
-    if (showOverlay) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'auto';
-    }
-
+    if (!showOverlay) return;
+    document.body.style.overflow = 'hidden';
     return () => {
-      document.body.style.overflow = 'auto';
+      document.body.style.overflow = '';
     };
   }, [showOverlay]);
+
   return (
     <>
       <div className="sponsor-wrapper" onClick={() => setShowOverlay(true)}>
         <div className="sponsor-img-wrapper">
-          <img className="sponsor-logo" src={logo.url} alt={`Logo van ${name}`}></img>
+          <img className="sponsor-logo" src={logo.url} alt={`Logo van ${name}`} />
         </div>
-        {/* <h2 className="sponsor-name">{name}</h2> */}
       </div>
-      {showOverlay && <SponsorOverlay id={id} setShowOverlay={setShowOverlay} />}
+
+      {showOverlay && createPortal(<SponsorOverlay id={id} setShowOverlay={setShowOverlay} />, document.body)}
     </>
   );
 };

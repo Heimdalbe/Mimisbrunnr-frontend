@@ -11,19 +11,20 @@ const SponsorOverlay = ({ id, setShowOverlay }) => {
     <div className="overlay" onClick={() => setShowOverlay(false)}>
       <div className="overlay-content sponsor-overlay-modal" onClick={(e) => e.stopPropagation()}>
         <AsyncData error={sponsorError} loading={sponsorsAreLoading}>
-          <img
-            className="overlay-image sponsor-overlay-logo"
-            src={sponsor.logo?.url}
-            alt={`Logo van ${sponsor.name}`}
-          />
+          <div className="overlay-image-wrapper">
+            <img
+              className="overlay-image sponsor-overlay-logo"
+              src={sponsor.logo?.url}
+              alt={`Logo van ${sponsor.name}`}
+            />
+          </div>
           <div className="text-and-info sponsor-overlay-info">
             <h1>{sponsor.name}</h1>
-            {/* TODO: omschrijving van sponsor voor extra content. Maar wijziging in backend nodig */}
-            {/* <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p> */}
+            {sponsor.description?.length > 0 && <p style={{ marginBottom: 0 }}>{sponsor.description}</p>}
             {sponsor.benefits?.length > 0 && (
               <div className="sponsor-overlay-benefits">
                 <h2>Extra Voordelen:</h2>
-                <p style={{marginBottom: 0}}>{sponsor.benefits}</p>
+                <p style={{ marginBottom: 0 }}>{sponsor.benefits}</p>
               </div>
             )}
           </div>

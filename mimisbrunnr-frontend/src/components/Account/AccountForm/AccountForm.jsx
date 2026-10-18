@@ -76,9 +76,11 @@ const AccountForm = ({ user = {} }) => {
             Reset
           </button>
         )}
-        <button type="submit" disabled={isMutating}>
-          {isMutating ? 'Saving...' : 'Save'}
-        </button>
+        {changeMade && (
+          <button type="submit" disabled={isMutating}>
+            {isMutating ? 'Saving...' : 'Save'}
+          </button>
+        )}
       </div>
     </Form>
   );

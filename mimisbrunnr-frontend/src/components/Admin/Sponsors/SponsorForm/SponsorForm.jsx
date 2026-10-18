@@ -3,6 +3,7 @@ import './SponsorForm.css';
 import { useEffect, useState } from 'react';
 import useSWRMutation from 'swr/mutation';
 import { deleteById, save } from '../../../../api';
+import ImageUpload from '../../../../components/ImageUpload';
 
 const SPONSOR_RANK_OPTIONS = ['None', 'Bronze', 'Silver', 'Gold', 'Diamond'];
 
@@ -17,8 +18,11 @@ const SponsorForm = ({ id = undefined, sponsor = {} }) => {
     logourl: '',
     website: '',
     benefits: '',
+    description: '',
     sponsorRank: SPONSOR_RANK_OPTIONS[0],
     lanSponsorRank: LAN_SPONSOR_RANK_OPTIONS[0],
+    onHomePage: false,
+    onSponsorPage: false,
     order: '',
   });
 
@@ -29,8 +33,11 @@ const SponsorForm = ({ id = undefined, sponsor = {} }) => {
         logourl: sponsor.logo?.url || '',
         website: sponsor.website || '',
         benefits: sponsor.benefits || '',
+        description: sponsor.description || '',
         sponsorRank: sponsor.rank || SPONSOR_RANK_OPTIONS[0],
         lanSponsorRank: sponsor.lanSponsorRank || LAN_SPONSOR_RANK_OPTIONS[0],
+        onHomePage: sponsor.onHomePage || false,
+        onSponsorPage: sponsor.onSponsorPage || false,
         order: sponsor.order ?? '',
       });
     }
@@ -50,6 +57,11 @@ const SponsorForm = ({ id = undefined, sponsor = {} }) => {
 
   async function handleSubmit(s) {
     s.preventDefault();
+
+    if (!formData.logourl) {
+      alert('Upload eerst een logo');
+      return;
+    }
 
     await handleSave({
       id: id,
@@ -73,12 +85,14 @@ const SponsorForm = ({ id = undefined, sponsor = {} }) => {
         <input name="name" value={formData.name} onChange={handleChange} required />
       </label>
 
-      <label>
+      <div>
         Logo
-        <input type="url" name="logourl" value={formData.logourl} onChange={handleChange} required />
-      </label>
-
-      {formData.logourl && <img src={formData.logourl} alt="preview" style={{ width: 100 }} />}
+        <ImageUpload
+          value={formData.logourl}
+          onChange={(url) => setFormData((prev) => ({ ...prev, logourl: url }))}
+          folder="sponsors"
+        />
+      </div>
 
       <label>
         Website
@@ -88,6 +102,11 @@ const SponsorForm = ({ id = undefined, sponsor = {} }) => {
       <label>
         Benefits
         <textarea name="benefits" value={formData.benefits} onChange={handleChange} />
+      </label>
+
+      <label>
+        Description
+        <textarea name="description" value={formData.description} onChange={handleChange} />
       </label>
 
       <label>
@@ -113,6 +132,16 @@ const SponsorForm = ({ id = undefined, sponsor = {} }) => {
       </label>
 
       <label>
+        Op Home Pagina
+        <input type="checkbox" name="onHomePage" checked={formData.onHomePage} onChange={handleChange} />
+      </label>
+
+      <label>
+        Op Sponsor Pagina
+        <input type="checkbox" name="onSponsorPage" checked={formData.onSponsorPage} onChange={handleChange} />
+      </label>
+
+      <label>
         Order
         <input type="number" name="order" value={formData.order} onChange={handleChange} required />
       </label>
@@ -132,8 +161,11 @@ const SponsorForm = ({ id = undefined, sponsor = {} }) => {
               logourl: sponsor.logo?.url || '',
               website: sponsor.website || '',
               benefits: sponsor.benefits || '',
+              description: sponsor.description || '',
               sponsorRank: sponsor.rank || SPONSOR_RANK_OPTIONS[0],
               lanSponsorRank: sponsor.lanSponsorRank || LAN_SPONSOR_RANK_OPTIONS[0],
+              onHomePage: sponsor.onHomePage || false,
+              onSponsorPage: sponsor.onSponsorPage || false,
               order: sponsor.order ?? '',
             })
           }

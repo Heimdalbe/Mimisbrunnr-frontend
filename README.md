@@ -36,7 +36,7 @@ Een verse lokale backenddatabase in `Development` bevat deze demoaccounts:
 - Beheerder: `praeses@heimdal.be`, wachtwoord `A1b2C3!`.
 - Gewoon lid: `quaestor@heimdal.be`, wachtwoord `A1b2C3!`.
 
-Deze gegevens gelden alleen voor de lokale ontwikkelingsdata. Voor een gedeelde testomgeving zijn een eigen `Hmdl`-adminaccount en een account dat aangepast mag worden nodig. Voor rolbeheer is geen Imgur-account nodig.
+Deze gegevens gelden alleen voor de lokale ontwikkelingsdata. Voor een gedeelde testomgeving zijn een eigen `Hmdl`-adminaccount en een account dat aangepast mag worden nodig. Voor rolbeheer zijn geen Imgur- of AWS-inloggegevens nodig.
 
 Ga naar **http://localhost:5173/admin/accounts**, log in als beheerder en klik bij een account op **Rollen beheren**. Selecteer de gewenste rollen en klik **Rollen opslaan**. Uitgevinkte rollen worden verwijderd; meerdere rollen zijn mogelijk. De eigen `Hmdl`-rol is vergrendeld om uitsluiting te voorkomen. Wijzigingen gelden bij het volgende API-verzoek; andere gebruikers kunnen de pagina vernieuwen om bijgewerkte rechten in de navigatie te zien.
 
@@ -51,7 +51,7 @@ npm run preview   # Lokale preview van een bestaande build
 npm run lint      # Codecontrole
 ```
 
-Voor de lokale preview op een andere poort moet de backend `Frontend:Origin` die poort toestaan. Publiceren van een featurebranch activeert het bestaande deployproces op `prod` niet.
+Voor de lokale preview op een andere poort moet de backend `Frontend:Origin` die poort toestaan. Publiceren van een featurebranch activeert het deployproces op `main` niet.
 
 ## Handmatig testen
 

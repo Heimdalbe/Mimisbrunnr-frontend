@@ -3,8 +3,8 @@ import UserList from '../../components/UserList/UserList';
 import AsyncData from '../../components/Common/AsyncData/AsyncData';
 import useSWR from 'swr';
 import { getAll } from '../../api';
-import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import './Praesidium.css';
 
 const SPECIAL_OPTIONS = [
@@ -15,18 +15,22 @@ const SPECIAL_OPTIONS = [
 
 const Praesidium = () => {
   const navigate = useNavigate();
+  const [searchParams, setSearchParams] = useSearchParams();
+
   const {
     data: years = { years: [] },
     error: yearsError,
     isLoading: yearsAreLoading,
   } = useSWR('praesidium/years', getAll);
-  const [year, setYear] = useState(null);
+
+  const yearParam = searchParams.get('year');
+  const year = yearParam ? Number(yearParam) : null;
 
   useEffect(() => {
     if (years?.years?.length > 0 && !year) {
-      setYear(years.years[years.years.length - 1]);
+      setSearchParams({ year: years.years[years.years.length - 1] }, { replace: true });
     }
-  }, [years, year]);
+  }, [years, year, setSearchParams]);
 
   const {
     data: praesidium = { praesidium: [] },
@@ -34,20 +38,17 @@ const Praesidium = () => {
     isLoading: praesidiumIsLoading,
   } = useSWR(year ? `praesidium/${year}` : null, getAll);
 
-  const handleSelect = (option) => {
-    const special = SPECIAL_OPTIONS.find((o) => o.label === option);
-    if (special) {
-      navigate(`/praesidium/${special.value}`);
-    } else {
-      setYear(option);
-    }
+  const handleSelect = (value) => {
+    const special = SPECIAL_OPTIONS.find((o) => o.value === value);
+    if (special) navigate(`/praesidium/${special.value}`);
+    else setSearchParams({ year: value });
   };
 
   const yearOptions = [...(years.years || [])].reverse().map((yearOption) => ({
     label: `${yearOption} - ${yearOption + 1}`,
     value: yearOption,
   }));
-  const allOptions = SPECIAL_OPTIONS.map((o) => o.label).concat(yearOptions);
+  const allOptions = [...SPECIAL_OPTIONS, ...yearOptions];
 
   return (
     <>

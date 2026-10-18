@@ -6,6 +6,13 @@
   box-sizing: border-box;
   padding: 50px;
   object-fit: contain;
+  object-position: center;
+}
+
+.overlay-image-wrapper {
+  display: flex;
+  align-items: center; /* vertical centering of the img */
+  justify-content: center; /* horizontal centering */
 }
 
 .sponsor-overlay-info {
@@ -32,6 +39,19 @@
 
 .sponsor-overlay-actions {
   flex-shrink: 0;
+}
+
+.sponsor-overlay-modal .overlay-image-wrapper {
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.6)),
+    url('/BackgroundImg.webp') center / cover no-repeat;
+  min-height: 200px;
+}
+
+/* removes the gray if it comes from a background color */
+.sponsor-overlay-modal .overlay-image-wrapper,
+.sponsor-overlay-modal .sponsor-overlay-logo {
+  background-color: transparent;
 }
 
 @media (max-width: 768px) {

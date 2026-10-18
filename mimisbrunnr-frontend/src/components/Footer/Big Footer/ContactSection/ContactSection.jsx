@@ -5,6 +5,14 @@ const ContactSection = () => {
     <div className="contact-section">
       <h1 className="footer-title">Contact</h1>
       <div>
+        <h3>Algemeen</h3>
+        <ul>
+          <li>
+            <FaEnvelope /> <a href="mailto:gate@heimdal.be">gate@heimdal.be</a>
+          </li>
+        </ul>
+      </div>
+      <div>
         <h3>Praeses</h3>
         <ul>
           <li>
@@ -17,14 +25,6 @@ const ContactSection = () => {
         <ul>
           <li>
             <FaEnvelope /> <a href="mailto:pr@heimdal.be">pr@heimdal.be</a>
-          </li>
-        </ul>
-      </div>
-      <div>
-        <h3>Algemeen</h3>
-        <ul>
-          <li>
-            <FaEnvelope /> <a href="mailto:gate@heimdal.be">gate@heimdal.be</a>
           </li>
         </ul>
       </div>

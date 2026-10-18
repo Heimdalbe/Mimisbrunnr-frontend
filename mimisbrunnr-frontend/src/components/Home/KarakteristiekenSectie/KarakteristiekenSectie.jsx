@@ -30,12 +30,7 @@ const characteristics = [
 ];
 
 const KarakteristiekenSectie = () => {
-  const images = [
-    './Groepsfoto1.jpg',
-    './Groepsfoto2.jpg',
-    './Groepsfoto3.jpg',
-    './Groepsfoto4.jpg',
-  ];
+  const images = ['./Groepsfoto1.webp', './Groepsfoto2.webp', './Groepsfoto3.webp', './Groepsfoto4.webp'];
 
   const [imageIndex, setImageIndex] = useState(0);
   const [cardsIndex, setCardsIndex] = useState(0);
@@ -75,22 +70,19 @@ const KarakteristiekenSectie = () => {
   const displayedImageIndex = isMobile ? 3 : imageIndex;
 
   return (
-    <div className='line-container'>
-      <div className='group-picture-wrapper'>
+    <div className="line-container">
+      <div className="group-picture-wrapper">
         {images.map((img, index) => (
           <img
             key={index}
             className={`group-picture ${index === displayedImageIndex ? 'active' : ''}`}
             src={img}
-            alt='Groepsfoto'
+            alt="Groepsfoto"
           />
         ))}
       </div>
-      <div className='container'>
-        <KarakteristiekList
-          characteristics={characteristics}
-          activeIndex={cardsIndex}
-        />
+      <div className="container">
+        <KarakteristiekList characteristics={characteristics} activeIndex={cardsIndex} />
       </div>
     </div>
   );

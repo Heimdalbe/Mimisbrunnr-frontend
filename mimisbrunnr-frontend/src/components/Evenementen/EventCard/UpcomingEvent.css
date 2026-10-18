@@ -82,21 +82,24 @@
 
 @media (max-width: 768px) {
   .event-wrapper {
-    display: flex;
     flex-direction: column;
     height: auto;
+    min-height: 0; 
+  }
+
+  .event-image-section {
+    order: 1; 
+    width: 100%;
+    aspect-ratio: 16 / 9; 
   }
 
   .image {
-    width: 100%;
-    height: 100%;
-    max-height: unset;
     object-fit: cover;
   }
 
   .event-info-section {
     order: 2;
-    width: auto;
+    width: -webkit-fill-available;
     aspect-ratio: 18 / 10;
     padding: 40px 30px;
     gap: 22px;

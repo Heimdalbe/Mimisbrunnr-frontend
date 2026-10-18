@@ -1,4 +1,4 @@
-.sponsor-wrapper{
+.sponsor-wrapper {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -9,33 +9,34 @@
   scale: 0.8;
 }
 
-.sponsor-wrapper:hover{
+.sponsor-wrapper:hover {
   cursor: pointer;
 }
 
-.sponsor-wrapper:hover .sponsor-logo{  
+.sponsor-wrapper:hover .sponsor-logo {
   transform: scale(1);
 }
 
 @media (max-width: 768px) {
   .sponsor-wrapper {
     scale: 1;
+    max-height: 400px;
   }
 }
 
-.sponsor-img-wrapper{
+.sponsor-img-wrapper {
   aspect-ratio: 1;
   display: flex;
   justify-content: center;
   max-width: 100%;
 }
 
-.sponsor-name{
+.sponsor-name {
   text-align: center;
   align-self: center;
 }
 
-.sponsor-logo{
+.sponsor-logo {
   height: 100%;
   width: 85%;
   object-fit: contain;
@@ -43,13 +44,13 @@
   transition: transform 0.3s ease;
 }
 
-.overlay-header{
+.overlay-header {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
 
-.overlay-img-wrapper{
+.overlay-img-wrapper {
   aspect-ratio: 4/3;
   display: flex;
   justify-content: center;

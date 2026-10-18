@@ -33,7 +33,7 @@ const Navbar = () => {
       <div className="container">
         <div className="navbar-desktop">
           <Link className="logo" to={'/'}>
-            <img src="/HeimdalBannerTransparantWit.png" alt="Heimdal Banner" />
+            <img src="/HeimdalBannerTransparantWit.webp" alt="Heimdal Banner" />
           </Link>
 
           <div className="nav-links">
@@ -45,6 +45,7 @@ const Navbar = () => {
                   { label: 'Boekje', to: '/over-ons/boekje' },
                   { label: 'Statuten', to: '/over-ons/statuten' },
                   { label: 'Werkgroepen', to: '/over-ons/werkgroepen' },
+                  { label: 'Sponsors', to: '/sponsors' },
                 ]}
               />
               <Link to={'/albums'} className="nav-link">
@@ -73,7 +74,7 @@ const Navbar = () => {
 
         <div className="navbar-mobile">
           <Link to={'/'} className="logo">
-            <img src="/HeimdalBannerTransparantWit.png" alt="Heimdal Banner" />
+            <img src="/HeimdalBannerTransparantWit.webp" alt="Heimdal Banner" />
           </Link>
 
           <div className="nav-links">
@@ -92,6 +93,7 @@ const Navbar = () => {
                   { label: 'Boekje', to: '/over-ons/boekje' },
                   { label: 'Statuten', to: '/over-ons/statuten' },
                   { label: 'Werkgroepen', to: '/over-ons/werkgroepen' },
+                  { label: 'Sponsors', to: '/sponsors' },
                 ]}
               />
 
@@ -103,6 +105,9 @@ const Navbar = () => {
               </Link>
               <Link to={'/evenementen'} className="nav-link">
                 Evenementen
+              </Link>
+              <Link to={'/jaarthema'} className="nav-link">
+                Jaarthema
               </Link>
 
               <a href="#footer">
