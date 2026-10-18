@@ -19,7 +19,8 @@ const AccountForm = ({ user = {} }) => {
     });
   }, [user]);
 
-  const { trigger: handleSave, isMutating } = useSWRMutation('accounts/self', put);
+  const { trigger: handleSave, isMutating } = useSWRMutation('/accounts/self', put);
+  const [error, setError] = useState('');
 
   function handleChange(u) {
     const { name, value, type, checked } = u.target;
@@ -32,12 +33,20 @@ const AccountForm = ({ user = {} }) => {
 
   async function handleSubmit(u) {
     u.preventDefault();
-
-    await handleSave({
-      id: user.id,
-      ...formData,
-    });
-
+    try {
+      await handleSave({
+        id: user.id,
+        ...formData,
+      });
+      setError('');
+    } catch (err) {
+      if (err.response?.status === 422) {
+        setError(err.response?.data?.errors);
+      } else {
+        setError('Er ging iets mis. Probeer het later opnieuw.');
+      }
+      return;
+    }
     navigate('/account');
   }
 
@@ -82,6 +91,7 @@ const AccountForm = ({ user = {} }) => {
           </button>
         )}
       </div>
+      {error && <p className="error-message">{error}</p>}
     </Form>
   );
 };
