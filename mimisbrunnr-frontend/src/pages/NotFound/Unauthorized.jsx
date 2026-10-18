@@ -4,7 +4,7 @@ import './Unauthorized.css';
 const Unauthorized = () => {
   return (
     <main className="container unauthorized-page">
-      <h1>You shall not pass</h1>
+      <h1>You shall not pass!</h1>
       <picture>
         <source media="(prefers-reduced-motion: reduce)" srcSet="/gandalf-you-shall-not-pass.webp" />
         <img
