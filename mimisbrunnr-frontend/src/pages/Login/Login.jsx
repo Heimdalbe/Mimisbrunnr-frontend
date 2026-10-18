@@ -10,7 +10,7 @@ const Login = () => {
   const location = useLocation();
 
   // Get the intended destination from location state, or default to home
-  const from = location.state?.from?.pathname || '/';
+  const from = location.state?.from?.pathname || '/account';
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -37,7 +37,7 @@ const Login = () => {
       <div className="container-sm-tm">
         <h1>Login</h1>
         <form className="login-form" onSubmit={handleSubmit}>
-          {error && <p>{error}</p>}
+          {error && <p className="error-message">{error}</p>}
           <div>
             <label>Email</label>
             <input
@@ -67,8 +67,9 @@ const Login = () => {
         </form>
       </div>
     );
+  } else {
+    navigate(from, { replace: true });
   }
-  navigate('/account');
 };
 
 export default Login;

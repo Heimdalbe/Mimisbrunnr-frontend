@@ -1,11 +1,11 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap');
 
 html {
   scroll-behavior: smooth;
 }
 
 * {
-  font-family: "Montserrat", system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Montserrat', system-ui, Avenir, Helvetica, Arial, sans-serif;
   margin: 0;
   padding: 0;
   --black: #000;
@@ -16,6 +16,7 @@ html {
   --green: #4fd849;
   --darker-green: #3baa36;
   --yellow: #eee300;
+  --red: #d10000;
 }
 
 /* ====================================== */
@@ -140,17 +141,17 @@ a:hover {
   text-decoration: underline;
 }
 
-a.link-button{
-    display: block;
-    height: 25px;
-    width: fit-content;
-    background: var(--black);
-    padding: 10px 20px;
-    border-radius: 100px;
-    color: var(--white);
-    font-weight: bold;
-    font-size: small;
-    line-height: 25px;
+a.link-button {
+  display: block;
+  height: 25px;
+  width: fit-content;
+  background: var(--black);
+  padding: 10px 20px;
+  border-radius: 100px;
+  color: var(--white);
+  font-weight: bold;
+  font-size: small;
+  line-height: 25px;
 }
 
 .footnote {
@@ -185,25 +186,53 @@ a.link-button{
   }
 }
 
+.error-message {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  margin: 0;
+  padding: 12px 18px;
+  border-radius: 10px;
+  background-color: rgba(220, 38, 38, 0.08);
+
+  color: var(--red);
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-align: left;
+
+  animation: fade-in 0.25s ease;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
 /* ===================================== */
 /* =============== ADMIN =============== */
 /* ===================================== */
 
-.admin-content{
+.admin-content {
   margin-left: 250px;
 }
 
-.admin-add-button{
+.admin-add-button {
   display: flex;
   align-self: flex-end;
   text-align: right;
 }
 
-.admin-content table{
+.admin-content table {
   width: 100%;
 }
 
-.admin-content th{
+.admin-content th {
   text-align: left;
 }
