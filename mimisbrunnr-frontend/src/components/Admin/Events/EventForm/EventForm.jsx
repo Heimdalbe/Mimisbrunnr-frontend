@@ -5,7 +5,9 @@ import useSWRMutation from 'swr/mutation';
 import { deleteById, save } from '../../../../api';
 import ImageUpload from '../../../../components/ImageUpload';
 
-const ACCESSIBILITY_OPTIONS = ['OPEN', 'CLOSED'];
+import { EVENT_AUDIENCES } from '../../../../constants/eventAudiences';
+
+const ACCESSIBILITY_OPTIONS = Object.keys(EVENT_AUDIENCES);
 
 const CATEGORY_OPTIONS = ['SPORT', 'CULTUUR', 'SCHACHTEN', 'FEESTENLAN', 'LEAGUE', 'OTHERS'];
 
@@ -104,11 +106,11 @@ const EventForm = ({ id = undefined, event = {} }) => {
       </label>
 
       <label>
-        Accessibiliteit
+        Doelgroep
         <select name="accessibility" value={formData.accessibility} onChange={handleChange} required>
           {ACCESSIBILITY_OPTIONS.map((option) => (
             <option key={option} value={option}>
-              {option}
+              {EVENT_AUDIENCES[option]}
             </option>
           ))}
         </select>
