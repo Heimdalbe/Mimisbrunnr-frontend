@@ -5,9 +5,8 @@ import useSWRMutation from 'swr/mutation';
 import { deleteById, save } from '../../../../api';
 import ImageUpload from '../../../../components/ImageUpload';
 
-import { EVENT_AUDIENCES } from '../../../../constants/eventAudiences';
-
-const ACCESSIBILITY_OPTIONS = Object.keys(EVENT_AUDIENCES);
+import { eventAllowedRoles } from '../../../../constants/eventAudiences';
+import EventAudienceFields from './EventAudienceFields';
 
 const CATEGORY_OPTIONS = ['SPORT', 'CULTUUR', 'SCHACHTEN', 'FEESTENLAN', 'LEAGUE', 'OTHERS'];
 
@@ -18,7 +17,8 @@ const EventForm = ({ id = undefined, event = {} }) => {
   const [formData, setFormData] = useState({
     name: '',
     category: CATEGORY_OPTIONS[0],
-    accessibility: ACCESSIBILITY_OPTIONS[0],
+    accessibility: 'OPEN',
+    allowedRoles: [],
     location: '',
     start: '',
     end: '',
@@ -36,7 +36,8 @@ const EventForm = ({ id = undefined, event = {} }) => {
       setFormData({
         name: event.name || '',
         category: event.category || CATEGORY_OPTIONS[0],
-        accessibility: event.accessibility || ACCESSIBILITY_OPTIONS[0],
+        accessibility: eventAllowedRoles(event).length ? 'CLOSED' : 'OPEN',
+        allowedRoles: eventAllowedRoles(event),
         location: event.location || '',
         start: event.start || '',
         end: event.end || '',
@@ -50,6 +51,8 @@ const EventForm = ({ id = undefined, event = {} }) => {
       });
     }
   }, [event, isEditMode]);
+
+  const [error, setError] = useState('');
 
   const { trigger: handleSave, isMutating } = useSWRMutation('events', save);
   const { trigger: handleDelete, isMutating: isDeleting } = useSWRMutation('events', deleteById);
@@ -66,18 +69,29 @@ const EventForm = ({ id = undefined, event = {} }) => {
   async function handleSubmit(e) {
     e.preventDefault();
 
+    setError('');
+    if (formData.accessibility !== 'OPEN' && formData.allowedRoles.length === 0) {
+      setError('Selecteer minstens één toegelaten rol, of kies Iedereen welkom.');
+      return;
+    }
+
     if (!formData.bannerurl) {
       alert('Upload eerst een banner');
       return;
     }
 
-    await handleSave({
-      id: id,
-      ...formData,
-      url: formData.url || 'https://heimdal.be',
-    });
-
-    navigate('/admin/events');
+    try {
+      await handleSave({
+        id: id,
+        ...formData,
+        allowedRoles: formData.accessibility === 'OPEN' ? [] : formData.allowedRoles,
+        url: formData.url || 'https://heimdal.be',
+      });
+      navigate('/admin/events');
+    } catch (failure) {
+      const messages = failure.response?.data?.validationErrors?.map((item) => item.errorMessage);
+      setError(messages?.join(' ') || 'Evenement opslaan mislukt. Probeer het opnieuw.');
+    }
   }
 
   async function onDelete() {
@@ -108,13 +122,18 @@ const EventForm = ({ id = undefined, event = {} }) => {
       <label>
         Doelgroep
         <select name="accessibility" value={formData.accessibility} onChange={handleChange} required>
-          {ACCESSIBILITY_OPTIONS.map((option) => (
-            <option key={option} value={option}>
-              {EVENT_AUDIENCES[option]}
-            </option>
-          ))}
+          <option value="OPEN">Iedereen welkom</option>
+          <option value="CLOSED">Geselecteerde rollen</option>
         </select>
       </label>
+      {formData.accessibility !== 'OPEN' && (
+        <EventAudienceFields
+          selected={formData.allowedRoles}
+          onChange={(allowedRoles) => setFormData((previous) => ({ ...previous, allowedRoles }))}
+          disabled={isMutating}
+        />
+      )}
+      {error && <p className="error-message" role="alert">{error}</p>}
 
       <label>
         Locatie
@@ -180,7 +199,8 @@ const EventForm = ({ id = undefined, event = {} }) => {
             setFormData({
               name: event.name || '',
               category: event.category || CATEGORY_OPTIONS[0],
-              accessibility: event.accessibility || ACCESSIBILITY_OPTIONS[0],
+              accessibility: eventAllowedRoles(event).length ? 'CLOSED' : 'OPEN',
+              allowedRoles: eventAllowedRoles(event),
               location: event.location || '',
               start: event.start || '',
               end: event.end || '',

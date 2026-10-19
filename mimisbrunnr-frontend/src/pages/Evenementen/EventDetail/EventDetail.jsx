@@ -10,7 +10,7 @@ import AsyncData from '../../../components/Common/AsyncData/AsyncData';
 import SponsorList from '../../../components/Home/SponsorSectie/Sponsors/SponsorList';
 import EventIcon from '../../../components/Evenementen/Andere/EventIcon';
 import Breadcrumbs from '../../../components/Breadcrumbs/Breadcrumbs';
-import { EVENT_AUDIENCES } from '../../../constants/eventAudiences';
+import { eventAudienceLabel } from '../../../constants/eventAudiences';
 import { useAuth } from '../../../contexts/AuthContext';
 
 const EventDetail = () => {
@@ -64,7 +64,7 @@ const EventDetail = () => {
               <div className="info-card">
                 <div className="icon-info">
                   <i className="fa-solid fa-user-group"></i>
-                  <span>{EVENT_AUDIENCES[event.accessibility]}</span>
+                  <span>{eventAudienceLabel(event)}</span>
                 </div>
                 <div className="icon-info">
                   <i className="fa-solid fa-calendar-days"></i>
