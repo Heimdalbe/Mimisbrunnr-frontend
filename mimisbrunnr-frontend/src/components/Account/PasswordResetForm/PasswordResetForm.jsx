@@ -8,6 +8,7 @@ const PasswordResetForm = ({ user = {} }) => {
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
+    currentPassword: '',
     newPassword: '',
     newPasswordRepeat: '',
   });
@@ -50,22 +51,40 @@ const PasswordResetForm = ({ user = {} }) => {
     }
 
     setError('');
-    await handleSave({
-      id: user.id,
-      password: formData.newPassword,
-    });
-
-    navigate('/account');
+    try {
+      await handleSave({
+        id: user.id,
+        currentPassword: formData.currentPassword,
+        password: formData.newPassword,
+      });
+      navigate('/account');
+    } catch (failure) {
+      const messages = failure.response?.data?.validationErrors?.map((item) => item.errorMessage);
+      setError(messages?.join(' ') || 'Wachtwoord wijzigen mislukt. Probeer het opnieuw.');
+    }
   }
 
   return (
     <Form onSubmit={handleSubmit} className="password-reset-form">
+      <label>
+        Huidig wachtwoord
+        <input
+          type="password"
+          name="currentPassword"
+          autoComplete="current-password"
+          value={formData.currentPassword}
+          onChange={handleChange}
+          required
+        />
+      </label>
+
       <label>
         Nieuw Wachtwoord
         <input
           type="password"
           placeholder="nieuw wachtwoord"
           name="newPassword"
+          autoComplete="new-password"
           value={formData.newPassword}
           onChange={handleChange}
           required
@@ -77,6 +96,7 @@ const PasswordResetForm = ({ user = {} }) => {
         <input
           type="password"
           name="newPasswordRepeat"
+          autoComplete="new-password"
           placeholder="herhaal nieuw wachtwoord"
           value={formData.newPasswordRepeat}
           onChange={handleChange}
@@ -84,11 +104,11 @@ const PasswordResetForm = ({ user = {} }) => {
         />
       </label>
 
-      {error && <p className="error-message">{error}</p>}
+      {error && <p className="password-reset-form__error" role="alert">{error}</p>}
 
       <div>
         <button type="submit" disabled={isMutating}>
-          {isMutating ? 'Saving...' : 'Save'}
+          {isMutating ? 'Opslaan...' : 'Opslaan'}
         </button>
       </div>
     </Form>
