@@ -12,7 +12,7 @@ const AdminAccountRoles = () => {
   const available = useSWR('identity/roles', getAll);
 
   return (
-    <div className="container">
+    <div className="admin-page">
       <Breadcrumbs children={[
         { link: 'admin' },
         { link: 'accounts' },

@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import { Form, useNavigate } from 'react-router';
 import useSWRMutation from 'swr/mutation';
 import { deleteById, save } from '../../../../api';
-import './MemberDetailsForm.css';
 
 const MemberDetailsForm = ({ id = undefined, memberDetails = {} }) => {
   const navigate = useNavigate();
@@ -65,7 +64,7 @@ const MemberDetailsForm = ({ id = undefined, memberDetails = {} }) => {
   }
 
   return (
-    <Form onSubmit={handleSubmit} className="memberdetails-form">
+    <Form onSubmit={handleSubmit} className="admin-form admin-member-details-form">
       <label>
         Voornaam
         <input name="firstName" value={formData.firstName} onChange={handleChange} required />
@@ -108,7 +107,7 @@ const MemberDetailsForm = ({ id = undefined, memberDetails = {} }) => {
 
       <div>
         {isEditMode && (
-          <button type="button" className="delete" onClick={onDelete} disabled={isDeleting}>
+          <button type="button" className="admin-button-delete" onClick={onDelete} disabled={isDeleting}>
             Delete
           </button>
         )}

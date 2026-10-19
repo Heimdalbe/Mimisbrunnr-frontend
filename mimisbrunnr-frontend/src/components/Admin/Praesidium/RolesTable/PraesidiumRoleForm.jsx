@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import { Form, useNavigate } from 'react-router';
 import useSWRMutation from 'swr/mutation';
 import { deleteById, save } from '../../../../api';
-import './PraesidiumRoleForm.css';
 
 const PraesidiumRoleForm = ({ id = undefined, role = {} }) => {
   const navigate = useNavigate();
@@ -55,7 +54,7 @@ const PraesidiumRoleForm = ({ id = undefined, role = {} }) => {
   }
 
   return (
-    <Form onSubmit={handleSubmit} className="role-form">
+    <Form onSubmit={handleSubmit} className="admin-form admin-praesidium-role-form">
       <label>
         Naam
         <input name="name" value={formData.name} onChange={handleChange} />
@@ -75,7 +74,7 @@ const PraesidiumRoleForm = ({ id = undefined, role = {} }) => {
         {isEditMode && (
           <button
             type="button"
-            className="delete"
+            className="admin-button-delete"
             onClick={onDelete}
             disabled={isDeleting}
           >

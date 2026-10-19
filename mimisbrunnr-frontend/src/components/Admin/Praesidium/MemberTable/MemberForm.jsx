@@ -3,7 +3,6 @@ import { Form, useNavigate } from 'react-router';
 import useSWR from 'swr';
 import useSWRMutation from 'swr/mutation';
 import { deleteById, getAll, save } from '../../../../api';
-import './MemberForm.css';
 import SelectField from '../../../Form/SelectField/SelectField';
 import AsyncData from '../../../Common/AsyncData/AsyncData';
 
@@ -77,7 +76,7 @@ const MemberForm = ({ endpoint, id = undefined, member = {} }) => {
   }
 
   return (
-    <Form onSubmit={handleSubmit} className="member-form">
+    <Form onSubmit={handleSubmit} className="admin-form admin-member-form">
       <label>
         Heimie
         <AsyncData loading={membersLoading} error={membersError}>
@@ -120,7 +119,7 @@ const MemberForm = ({ endpoint, id = undefined, member = {} }) => {
 
       <div>
         {isEditMode && (
-          <button type="button" className="delete" onClick={onDelete} disabled={isDeleting}>
+          <button type="button" className="admin-button-delete" onClick={onDelete} disabled={isDeleting}>
             Delete
           </button>
         )}

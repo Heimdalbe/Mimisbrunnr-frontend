@@ -46,7 +46,7 @@ const EditPasswordForm = ({ account = {} }) => {
   }
 
   return (
-    <Form onSubmit={handleSubmit} className="edit-password-form">
+    <Form onSubmit={handleSubmit} className="admin-form admin-password-form">
       <label>
         Nieuw Wachtwoord
         <input type="password" name="newPassword" value={formData.newPassword} onChange={handleChange} required />
@@ -63,7 +63,7 @@ const EditPasswordForm = ({ account = {} }) => {
         />
       </label>
 
-      {error && <p className="edit-password-form__error">{error}</p>}
+      {error && <p className="admin-password-form__error">{error}</p>}
 
       <div>
         <button type="submit" disabled={isMutating}>

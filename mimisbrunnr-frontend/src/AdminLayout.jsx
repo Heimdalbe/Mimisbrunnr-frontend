@@ -1,13 +1,14 @@
 import { Outlet, ScrollRestoration } from 'react-router-dom';
 import Navbar from './components/Admin/Navbar/Navbar';
 import ProtectedRoute from './components/Common/ProtectedRoute';
+import './AdminLayout.css';
 
 const AdminLayout = () => {
   return (
     <ProtectedRoute roles={['EventEditor', 'MediaEditor', 'SponsorEditor']}>
-      <div>
+      <div className="admin-layout">
         <Navbar />
-        <div className="admin-content"><Outlet /></div>
+        <main className="admin-content"><Outlet /></main>
         <ScrollRestoration />
       </div>
     </ProtectedRoute>

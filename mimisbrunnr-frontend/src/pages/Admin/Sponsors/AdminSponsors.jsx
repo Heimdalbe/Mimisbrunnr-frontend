@@ -9,13 +9,15 @@ const AdminSponsors = () => {
   const { data = {}, error, isLoading } = useSWR('sponsors', getAll);
 
   return (
-    <div className="container">
+    <div className="admin-page">
       <Breadcrumbs children={[{ link: 'admin' }, { link: 'sponsors', isLast: true }]} />
       <Link className="admin-add-button" to={'/admin/sponsors/new'}>
         Toevoegen
       </Link>
       <AsyncData loading={isLoading} error={error}>
-        <SponsorTable sponsors={data.sponsors} />
+        <div className="admin-table-scroll" role="region" aria-label="Overzicht" tabIndex={0}>
+          <SponsorTable sponsors={data.sponsors} />
+        </div>
       </AsyncData>
     </div>
   );

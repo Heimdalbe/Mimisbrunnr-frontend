@@ -6,7 +6,7 @@ import PraesidiumRoleForm from '../../../../components/Admin/Praesidium/RolesTab
 
 const AdminNewPraesidiumRole = () => {
   return (
-    <div className="container">
+    <div className="admin-page">
       <Breadcrumbs children={[{ link: 'admin' }, { link: 'functies' }, { link: 'new', isLast: true }]} />
       <PraesidiumRoleForm />
     </div>

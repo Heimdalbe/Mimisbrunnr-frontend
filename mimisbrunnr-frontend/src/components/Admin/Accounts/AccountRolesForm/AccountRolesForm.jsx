@@ -64,14 +64,14 @@ const AccountRolesForm = ({ account, assigned, available, onSaved }) => {
   }
 
   return (
-    <form className="account-roles-form" onSubmit={submit}>
+    <form className="admin-form admin-roles-form" onSubmit={submit}>
       <p><strong>{account.name}</strong> — {account.email}</p>
       <p>Selecteer alle rollen voor dit account. Uitgevinkte rollen worden bij het opslaan verwijderd.</p>
       <fieldset disabled={saving}>
         <legend>Rollen</legend>
         {available.length === 0 && <p>Er zijn nog geen rollen beschikbaar.</p>}
         {available.map(({ key, value: role }) => (
-          <label key={key} className="account-role-option">
+          <label key={key} className="admin-role-option">
             <input
               type="checkbox"
               checked={selected.includes(role)}
@@ -90,7 +90,7 @@ const AccountRolesForm = ({ account, assigned, available, onSaved }) => {
       <p>Nieuwe rechten gelden vanaf het volgende verzoek aan de server.</p>
       {error && <p role="alert">{error}</p>}
       {saved && <p role="status">Rollen opgeslagen.</p>}
-      <div className="account-roles-actions">
+      <div className="admin-roles-actions">
         <Link to="/admin/accounts">Terug naar accounts</Link>
         <button type="button" onClick={reset} disabled={saving || !changed}>Herstellen</button>
         <button type="submit" disabled={saving || !changed || available.length === 0}>

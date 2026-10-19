@@ -9,11 +9,13 @@ const AdminSuperSchachten = () => {
   const { data = { schachts: [] }, error, isLoading } = useSWR('praesidium/superschachts', getAll);
 
   return (
-    <div className="container">
+    <div className="admin-page">
       <Breadcrumbs children={[{ link: 'admin' }, { link: 'superschachten', isLast: true }]} />
       <Link className="admin-add-button" to={'/admin/superschachten/new'}>Toevoegen</Link>
       <AsyncData isLoading={isLoading} error={error} >
-        <PraesidiumMemberTable members={data.schachts} />
+        <div className="admin-table-scroll" role="region" aria-label="Overzicht" tabIndex={0}>
+          <PraesidiumMemberTable members={data.schachts} />
+        </div>
       </AsyncData>
     </div>
   );

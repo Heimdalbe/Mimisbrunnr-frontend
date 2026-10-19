@@ -3,7 +3,7 @@ import Breadcrumbs from '../../../components/Breadcrumbs/Breadcrumbs';
 
 const AdminNewSponsor = () => {
   return (
-    <div className="container">
+    <div className="admin-page">
       <Breadcrumbs children={[{ link: 'admin' }, { link: 'sponsors' }, { link: 'new', isLast: true }]} />
 
       <h1>Sponsor Toevoegen</h1>

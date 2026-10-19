@@ -28,7 +28,7 @@ const AdminSocials = () => {
   }
 
   return (
-    <div className="container">
+    <div className="admin-page">
       <AsyncData loading={isLoading} error={error}>
         <Breadcrumbs
           children={[
@@ -38,7 +38,9 @@ const AdminSocials = () => {
           ]}
         />
         <h1>{data.name}</h1>
-        <SocialsTable memberId={id} socials={data.socials} mutate={mutate} />
+        <div className="admin-table-scroll" role="region" aria-label="Overzicht" tabIndex={0}>
+          <SocialsTable memberId={id} socials={data.socials} mutate={mutate} />
+        </div>
       </AsyncData>
 
       <div>

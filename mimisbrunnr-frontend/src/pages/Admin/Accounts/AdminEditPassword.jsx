@@ -10,7 +10,7 @@ const AdminEditPassword = () => {
   const { data: account = {}, error, isLoading } = useSWR(`accounts/${id}`, getAll);
 
   return (
-    <div className="container">
+    <div className="admin-page">
       <AsyncData loading={isLoading} error={error}>
         <Breadcrumbs
           children={[{ link: 'admin' }, { link: 'accounts' }, { link: `${account.name} > Wachtwoord`, isLast: true }]}

@@ -1,5 +1,4 @@
 import { Form, useNavigate } from 'react-router';
-import './SocialTypesForm.css';
 import { useEffect, useState } from 'react';
 import useSWRMutation from 'swr/mutation';
 import { deleteById, save } from '../../../../api';
@@ -51,7 +50,7 @@ const SocialTypesForm = ({ id = undefined, socialtype = {} }) => {
   }
 
   return (
-    <Form onSubmit={handleSubmit} className="socialTypes-form">
+    <Form onSubmit={handleSubmit} className="admin-form admin-social-type-form">
       <label>
         Naam
         <input name="name" value={formData.name} onChange={handleChange} required />
@@ -59,7 +58,7 @@ const SocialTypesForm = ({ id = undefined, socialtype = {} }) => {
 
       <div>
         {isEditMode && (
-          <button type="button" className="delete" onClick={onDelete} disabled={isDeleting}>
+          <button type="button" className="admin-button-delete" onClick={onDelete} disabled={isDeleting}>
             Delete
           </button>
         )}

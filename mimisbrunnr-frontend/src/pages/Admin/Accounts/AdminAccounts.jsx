@@ -8,10 +8,12 @@ const AdminAccounts = () => {
   const { data = {}, error, isLoading } = useSWR('accounts', getAll);
 
   return (
-    <div className="container">
+    <div className="admin-page">
       <Breadcrumbs children={[{ link: 'admin' }, { link: 'accounts', isLast: true }]} />
       <AsyncData loading={isLoading} error={error}>
-        <AccountsTable accounts={data.accounts} />
+        <div className="admin-table-scroll" role="region" aria-label="Overzicht" tabIndex={0}>
+          <AccountsTable accounts={data.accounts} />
+        </div>
       </AsyncData>
     </div>
   );

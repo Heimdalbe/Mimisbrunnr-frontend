@@ -11,7 +11,7 @@ const AdminEditPraesidiumRole = () => {
   const { data = {}, error, isLoading } = useSWR(`praesidium/roles/${id}`, getAll);
 
   return (
-    <div className="container">
+    <div className="admin-page">
       <AsyncData loading={isLoading} error={error}>
         <Breadcrumbs children={[{ link: 'admin' }, { link: 'functies' }, { link: `${data.name}`, isLast: true }]} />
         <PraesidiumRoleForm id={id} role={data} />

@@ -9,13 +9,15 @@ const AdminSocialTypes = () => {
   const { data = {}, error, isLoading } = useSWR('socials/types', getAll);
 
   return (
-    <div className="container">
+    <div className="admin-page">
       <Breadcrumbs children={[{ link: 'admin' }, { link: 'socialtypes', isLast: true }]} />
       <Link className="admin-add-button" to={'/admin/socialtypes/new'}>
         Toevoegen
       </Link>
       <AsyncData loading={isLoading} error={error}>
-        <SocialTypesTable socialtypes={data.types} />
+        <div className="admin-table-scroll" role="region" aria-label="Overzicht" tabIndex={0}>
+          <SocialTypesTable socialtypes={data.types} />
+        </div>
       </AsyncData>
     </div>
   );
