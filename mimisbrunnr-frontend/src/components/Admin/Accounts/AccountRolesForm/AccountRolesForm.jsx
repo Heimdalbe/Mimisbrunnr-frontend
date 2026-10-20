@@ -6,6 +6,7 @@ import './AccountRolesForm.css';
 
 const descriptions = {
   Feut: 'Toegang tot open evenementen.',
+  Heimie: 'Heimdal-lid met een betaald lidmaatschap.',
   Schacht: 'Toegang tot open en gesloten evenementen.',
   Commilitones: 'Toegang tot open en gesloten evenementen.',
   Hmdl: 'Volledige beheerderstoegang, inclusief accounts en rollen.',
