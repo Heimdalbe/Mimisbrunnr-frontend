@@ -10,7 +10,7 @@ const AdminEditMemberDetails = () => {
   const { data: member = {}, error, isLoading } = useSWR(`praesidium/memberdetails/${id}`, getAll);
 
   return (
-    <div className="container">
+    <div className="admin-page">
       <AsyncData loading={isLoading} error={error}>
         <Breadcrumbs
           children={[

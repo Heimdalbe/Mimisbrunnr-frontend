@@ -61,7 +61,7 @@
   max-height: 80%;
 }
 
-form {
+.big-footer form {
   display: flex;
   flex-direction: column;
   gap: 20px;

@@ -10,7 +10,7 @@ const AdminEditSponsor = () => {
   const { data: sponsor = {}, error, isLoading } = useSWR(`sponsors/${id}`, getAll);
 
   return (
-    <div className="container">
+    <div className="admin-page">
       <AsyncData loading={isLoading} error={error}>
         <Breadcrumbs children={[{ link: 'admin' }, { link: 'sponsors' }, { link: `${sponsor.name}`, isLast: true }]} />
 

@@ -1,5 +1,4 @@
 import { Form, useNavigate } from 'react-router';
-import './AccountsForm.css';
 import { useEffect, useState } from 'react';
 import useSWRMutation from 'swr/mutation';
 import { deleteById, save } from '../../../../api';
@@ -53,7 +52,7 @@ const AccountsForm = ({ id = undefined, account = {} }) => {
   }
 
   return (
-    <Form onSubmit={handleSubmit} className="accounts-form">
+    <Form onSubmit={handleSubmit} className="admin-form admin-account-form">
       <label>
         Naam
         <input name="name" value={formData.name} onChange={handleChange} required />
@@ -66,7 +65,7 @@ const AccountsForm = ({ id = undefined, account = {} }) => {
 
       <div>
         {isEditMode && (
-          <button type="button" className="delete" onClick={onDelete} disabled={isDeleting}>
+          <button type="button" className="admin-button-delete" onClick={onDelete} disabled={isDeleting}>
             Delete
           </button>
         )}

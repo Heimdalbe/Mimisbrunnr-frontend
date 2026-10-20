@@ -1,5 +1,4 @@
 import { Form, useNavigate } from 'react-router';
-import './SponsorForm.css';
 import { useEffect, useState } from 'react';
 import useSWRMutation from 'swr/mutation';
 import { deleteById, save } from '../../../../api';
@@ -79,7 +78,7 @@ const SponsorForm = ({ id = undefined, sponsor = {} }) => {
   }
 
   return (
-    <Form onSubmit={handleSubmit} className="sponsor-form">
+    <Form onSubmit={handleSubmit} className="admin-form admin-sponsor-form">
       <label>
         Naam
         <input name="name" value={formData.name} onChange={handleChange} required />
@@ -148,7 +147,7 @@ const SponsorForm = ({ id = undefined, sponsor = {} }) => {
 
       <div>
         {isEditMode && (
-          <button type="button" className="delete" onClick={onDelete} disabled={isDeleting}>
+          <button type="button" className="admin-button-delete" onClick={onDelete} disabled={isDeleting}>
             Delete
           </button>
         )}

@@ -25,7 +25,7 @@ const Account = () => {
 
   if (isAuthenticated) {
     return (
-      <div className="container-sm-tm">
+      <div className="container-sm-tm account-page">
         <h1>Account</h1>
         <div>
           <p>
@@ -47,7 +47,7 @@ const Account = () => {
   }
 
   return (
-    <div className="container-sm-tm">
+    <div className="container-sm-tm account-page">
       <h1>Account</h1>
       <div>
         <p>

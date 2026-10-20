@@ -10,7 +10,7 @@ const AdminEditLustrumMember = () => {
   const { data: member = {}, error, isLoading } = useSWR(`praesidium/lustrum/members/${id}`, getAll);
 
   return (
-    <div className="container">
+    <div className="admin-page">
       <AsyncData loading={isLoading} error={error}>
         <Breadcrumbs
           children={[

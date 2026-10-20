@@ -3,7 +3,7 @@ import SocialTypesForm from '../../../components/Admin/SocialTypes/SocialTypesFo
 
 const AdminNewSocialType = () => {
   return (
-    <div className="container">
+    <div className="admin-page">
       <Breadcrumbs children={[{ link: 'admin' }, { link: 'socialtypes' }, { link: 'new', isLast: true }]} />
 
       <h1>Social Type Toevoegen</h1>

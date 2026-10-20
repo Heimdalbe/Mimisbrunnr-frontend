@@ -52,13 +52,15 @@ const AdminAlbumImages = () => {
   }
 
   return (
-    <div className="container">
+    <div className="admin-page">
       <AsyncData loading={isLoading} error={error}>
         <Breadcrumbs
           children={[{ link: 'admin' }, { link: 'albums' }, { link: `${data.name} > Images`, isLast: true }]}
         />
         <h1>{data.name}</h1>
-        <ImageTable albumId={id} images={data.images} mutate={mutate} />
+        <div className="admin-table-scroll" role="region" aria-label="Overzicht" tabIndex={0}>
+          <ImageTable albumId={id} images={data.images} mutate={mutate} />
+        </div>
       </AsyncData>
 
       <div>

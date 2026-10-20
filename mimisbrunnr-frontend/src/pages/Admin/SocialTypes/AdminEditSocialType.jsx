@@ -10,7 +10,7 @@ const AdminEditSocialType = () => {
   const { data: socialtype = {}, error, isLoading } = useSWR(`socials/types/${id}`, getAll);
 
   return (
-    <div className="container">
+    <div className="admin-page">
       <AsyncData loading={isLoading} error={error}>
         <Breadcrumbs
           children={[{ link: 'admin' }, { link: 'socialtypes' }, { link: `${socialtype.name}`, isLast: true }]}

@@ -9,13 +9,15 @@ const AdminEvents = () => {
   const { data = {}, error, isLoading } = useSWR('events', getAll);
 
   return (
-    <div className="container">
+    <div className="admin-page">
       <Breadcrumbs children={[{ link: 'admin' }, { link: 'events', isLast: true }]} />
       <Link className="admin-add-button" to={'/admin/events/new'}>
         Toevoegen
       </Link>
       <AsyncData loading={isLoading} error={error}>
-        <EventTable events={data.events} />
+        <div className="admin-table-scroll" role="region" aria-label="Overzicht" tabIndex={0}>
+          <EventTable events={data.events} />
+        </div>
       </AsyncData>
     </div>
   );

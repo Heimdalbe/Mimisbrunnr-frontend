@@ -4,7 +4,7 @@ import Breadcrumbs from '../../../../components/Breadcrumbs/Breadcrumbs';
 const AdminNewSuperSchacht = () => {
 
   return (
-    <div className="container">
+    <div className="admin-page">
       <Breadcrumbs children={[{ link: 'admin' }, { link: 'superschachten' }, { link: 'new', isLast: true }]} />
       <MemberForm endpoint={'praesidium/superschachts'} />
     </div>

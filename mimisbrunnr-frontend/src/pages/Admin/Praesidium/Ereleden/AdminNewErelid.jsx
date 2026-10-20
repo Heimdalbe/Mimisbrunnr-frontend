@@ -4,7 +4,7 @@ import Breadcrumbs from '../../../../components/Breadcrumbs/Breadcrumbs';
 const AdminNewErelid = () => {
 
   return (
-    <div className="container">
+    <div className="admin-page">
       <Breadcrumbs children={[{ link: 'admin' }, { link: 'ereleden' }, { link: 'new', isLast: true }]} />
       <MemberForm endpoint={'praesidium/erelids'} />
     </div>

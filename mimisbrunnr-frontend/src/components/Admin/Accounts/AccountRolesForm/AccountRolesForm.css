@@ -1,14 +1,14 @@
-.account-roles-form {
+.admin-roles-form {
   max-width: 48rem;
   color: var(--black);
 }
 
-.account-roles-form fieldset {
+.admin-roles-form fieldset {
   padding: 1rem;
   border: 1px solid currentColor;
 }
 
-.account-role-option {
+.admin-role-option {
   display: flex;
   gap: 0.75rem;
   align-items: flex-start;
@@ -16,16 +16,16 @@
   cursor: pointer;
 }
 
-.account-role-option input {
+.admin-role-option input {
   width: auto;
   margin-top: 0.25rem;
 }
 
-.account-role-option small {
+.admin-role-option small {
   display: block;
 }
 
-.account-roles-actions {
+.admin-roles-actions {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
@@ -33,7 +33,7 @@
   margin: 1rem 0;
 }
 
-.account-roles-form button:disabled {
+.admin-roles-form button:disabled {
   opacity: 0.6;
   cursor: not-allowed;
 }

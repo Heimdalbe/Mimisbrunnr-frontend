@@ -1,16 +1,11 @@
-import { post } from '../../../api';
-import useSWRMutation from 'swr/mutation';
 import Breadcrumbs from '../../../components/Breadcrumbs/Breadcrumbs';
 
-const AdminHome = () => {
-  const { trigger } = useSWRMutation('identity/accounts/login', post);
-
-  return (
-    <div>
-      <Breadcrumbs children={[{ link: 'admin', isLast: true }]} />
-      <p>W admin panel ofzo iets</p>
-    </div>
-  );
-};
+const AdminHome = () => (
+  <div className="admin-page">
+    <Breadcrumbs children={[{ link: 'admin', isLast: true }]} />
+    <h1>Administratie</h1>
+    <p>Kies een onderdeel in het menu om de website te beheren.</p>
+  </div>
+);
 
 export default AdminHome;

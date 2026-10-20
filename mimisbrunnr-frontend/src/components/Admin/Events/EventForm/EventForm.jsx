@@ -1,5 +1,4 @@
 import { Form, useNavigate } from 'react-router';
-import './EventForm.css';
 import { useEffect, useState } from 'react';
 import useSWRMutation from 'swr/mutation';
 import { deleteById, save } from '../../../../api';
@@ -102,7 +101,7 @@ const EventForm = ({ id = undefined, event = {} }) => {
   }
 
   return (
-    <Form onSubmit={handleSubmit} className="event-form">
+    <Form onSubmit={handleSubmit} className="admin-form admin-event-form">
       <label>
         Naam
         <input name="name" value={formData.name} onChange={handleChange} required />
@@ -188,7 +187,7 @@ const EventForm = ({ id = undefined, event = {} }) => {
 
       <div>
         {isEditMode && (
-          <button type="button" className="delete" onClick={onDelete} disabled={isDeleting}>
+          <button type="button" className="admin-button-delete" onClick={onDelete} disabled={isDeleting}>
             Delete
           </button>
         )}

@@ -10,11 +10,11 @@
   align-items: center;
 }
 
-label {
+.select-wrapper label {
   color: var(--black);
 }
 
-select {
+.select-wrapper select {
   width: 20%;
 }
 

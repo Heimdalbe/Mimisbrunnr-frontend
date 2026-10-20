@@ -52,7 +52,7 @@ const AdminEventSponsors = () => {
   }
 
   return (
-    <div className="container">
+    <div className="admin-page">
       <AsyncData loading={eventLoading || sponsorLoading} error={eventError || sponsorError}>
         {event && (
           <>
@@ -69,11 +69,11 @@ const AdminEventSponsors = () => {
 
             <h1>{event.name} - Sponsors</h1>
 
-            <form onSubmit={handleSubmit}>
+            <form className="admin-form admin-event-sponsors-form" onSubmit={handleSubmit}>
               {sponsors.length === 0 ? (
                 <p>Er zijn nog geen sponsors.</p>
               ) : (
-                <div className="sponsor-list">
+                <div className="admin-sponsor-options">
                   {sponsors.map((sponsor) => (
                     <label key={sponsor.id}>
                       <div>

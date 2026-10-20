@@ -9,11 +9,13 @@ const AdminPraesidiumRoles = () => {
   const { data = { roles: [] }, error, isLoading } = useSWR('praesidium/roles', getAll);
 
   return (
-    <div className="container">
+    <div className="admin-page">
       <Breadcrumbs children={[{ link: 'admin' }, { link: 'functies', isLast: true }]} />
       <Link className="admin-add-button" to={'/admin/functies/new'}>Toevoegen</Link>
       <AsyncData isLoading={isLoading} error={error} >
-        <PraesidiumRolesTable roles={data.roles} />
+        <div className="admin-table-scroll" role="region" aria-label="Overzicht" tabIndex={0}>
+          <PraesidiumRolesTable roles={data.roles} />
+        </div>
       </AsyncData>
     </div>
   );

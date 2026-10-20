@@ -4,7 +4,7 @@ import AsyncData from '../../../components/Common/AsyncData/AsyncData';
 
 const AdminNewEvent = () => {
   return (
-    <div className="container">
+    <div className="admin-page">
       <Breadcrumbs children={[{ link: 'admin' }, { link: 'events' }, { link: 'new', isLast: true }]} />
 
       <h1>Event Toevoegen</h1>
