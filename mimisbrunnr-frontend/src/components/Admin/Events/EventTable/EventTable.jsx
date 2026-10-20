@@ -1,5 +1,6 @@
 import { FaCheck, FaXmark } from 'react-icons/fa6';
 import { Link } from 'react-router';
+import { eventAudienceLabel } from '../../../../constants/eventAudiences';
 
 const formatDate = (date) => {
   return new Intl.DateTimeFormat('nl-BE', {
@@ -20,21 +21,21 @@ const EventTable = ({ events }) => {
           <th>Categorie</th>
           <th>Start</th>
           <th>Einde</th>
-          <th>Accessibility</th>
+          <th>Doelgroep</th>
           <th>Published</th>
           <th>Sponsors</th>
         </tr>
       </thead>
       <tbody>
         {events.map((e) => (
-          <tr>
+          <tr key={e.id}>
             <td>
               <Link to={`/admin/events/${e.id}`}>{e.name}</Link>
             </td>
             <td>{e.category}</td>
             <td>{formatDate(e.start)}</td>
             <td>{formatDate(e.end)}</td>
-            <td>{e.accessibility}</td>
+            <td>{eventAudienceLabel(e)}</td>
             <td>{e.published ? <FaCheck /> : <FaXmark />}</td>
             <td>
               <Link to={`/admin/events/${e.id}/sponsors`}>Sponsors</Link>

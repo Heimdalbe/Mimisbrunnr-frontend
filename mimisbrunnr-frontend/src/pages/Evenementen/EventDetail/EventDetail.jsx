@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useLocation, useParams } from 'react-router-dom';
 import PrimaryButton from '../../../components/Common/PrimaryButton/PrimaryButton';
 import EventList from '../../../components/Evenementen/EventList/EventList';
@@ -10,17 +10,22 @@ import AsyncData from '../../../components/Common/AsyncData/AsyncData';
 import SponsorList from '../../../components/Home/SponsorSectie/Sponsors/SponsorList';
 import EventIcon from '../../../components/Evenementen/Andere/EventIcon';
 import Breadcrumbs from '../../../components/Breadcrumbs/Breadcrumbs';
+import { eventAudienceLabel } from '../../../constants/eventAudiences';
+import { useAuth } from '../../../contexts/AuthContext';
 
 const EventDetail = () => {
   const { id } = useParams();
+  const { user, loading: authLoading } = useAuth();
   const { hash } = useLocation();
-  const { data: event = {}, error: eventError, isLoading: eventIsLoading } = useSWR(`events/pub/${id}`, getAll);
+  const { data: event = {}, error: eventError, isLoading: eventIsLoading } = useSWR(
+    authLoading ? null : [`events/pub/${id}`, user?.email, user?.roles],
+    ([url]) => getAll(url),
+  );
   const {
     data: data = { events: [] },
     error: eventsError,
     isLoading: eventsAreLoading,
   } = useSWR('events/pub?take=4', getAll);
-  const [showNoAccess, setShowNoAccess] = useState(false);
   var date = new Date(event.start);
   var endDate = new Date(event.end);
   var start_time = date.toLocaleTimeString('nl-BE').slice(0, 5);
@@ -39,7 +44,7 @@ const EventDetail = () => {
     <>
       <div className="container-sm-tm">
         {/* TODO: Terug knop of breadcrumbs (of allebei :p) */}
-        <AsyncData loading={eventIsLoading} error={eventError}>
+        <AsyncData loading={authLoading || eventIsLoading} error={eventError}>
           <div className="background-wrapper">
             <img className="background" src="../../../../BackgroundImg.png"></img>
           </div>
@@ -59,7 +64,7 @@ const EventDetail = () => {
               <div className="info-card">
                 <div className="icon-info">
                   <i className="fa-solid fa-user-group"></i>
-                  {event.accessibility === 'OPEN' ? <span>Iedereen welkom</span> : <span>Heimies</span>}
+                  <span>{eventAudienceLabel(event)}</span>
                 </div>
                 <div className="icon-info">
                   <i className="fa-solid fa-calendar-days"></i>
@@ -102,20 +107,14 @@ const EventDetail = () => {
             <p>{event.description}</p>
           </div>
 
-          {event.url && event.url !== 'https://heimdal.be' && (
+          {event.registrationAccessError ? (
             <div className="button-div">
-              {event.url === 'https://www.youtube.com/' ? (
-                <>
-                  <PrimaryButton isLight={true} text="Inschrijven" onClick={() => setShowNoAccess(true)} />
-                  {showNoAccess && (
-                    <p className="error-message" role="alert">
-                      Je hebt niet de juiste rechten om je in te schrijven.
-                    </p>
-                  )}
-                </>
-              ) : (
-                <PrimaryButton isLight={true} text="Inschrijven" to={event.url} target="_blank" />
-              )}
+              <p className="event-registration-error" role="alert">{event.registrationAccessError}</p>
+              {!user && <PrimaryButton isLight={true} text="Inloggen" to="/login" />}
+            </div>
+          ) : event.url && event.url !== 'https://heimdal.be' && (
+            <div className="button-div">
+              <PrimaryButton isLight={true} text="Inschrijven" to={event.url} target="_blank" />
             </div>
           )}
           {event.sponsors?.length > 0 && (
