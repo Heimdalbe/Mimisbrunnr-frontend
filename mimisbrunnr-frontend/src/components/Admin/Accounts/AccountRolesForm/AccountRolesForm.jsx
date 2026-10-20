@@ -5,10 +5,10 @@ import { useAuth } from '../../../../contexts/AuthContext';
 import './AccountRolesForm.css';
 
 const descriptions = {
-  Feut: 'Toegang tot open evenementen.',
-  Heimie: 'Heimdal-lid met een betaald lidmaatschap.',
-  Schacht: 'Toegang tot open en gesloten evenementen.',
-  Commilitones: 'Toegang tot open en gesloten evenementen.',
+  Feut: 'Geïnteresseerde (standaardrol).',
+  Heimie: 'Betaald lidmaatschap.',
+  Schacht: 'Gedoopt. Voor inschrijvingen als Schacht is ook Heimie nodig.',
+  Commilitones: 'Ontgroend. Voor inschrijvingen als Commilitones is ook Heimie nodig.',
   Hmdl: 'Volledige beheerderstoegang, inclusief accounts en rollen.',
   EventEditor: 'Evenementen beheren.',
   MediaEditor: 'Albums en afbeeldingen beheren.',
