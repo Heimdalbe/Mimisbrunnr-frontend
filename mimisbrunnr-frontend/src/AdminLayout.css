@@ -18,6 +18,23 @@
   padding: clamp(1.25rem, 4vw, 3rem);
 }
 
+.admin-mode-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.admin-content--marwan {
+  overflow-x: auto;
+}
+
+/* Reset the whole work area, including lists and inline editors, but keep the shell. */
+.admin-content--marwan .admin-page,
+.admin-content--marwan .admin-page * {
+  all: revert !important;
+}
+
 .admin-page {
   max-width: 85rem;
   margin: 0 auto;
