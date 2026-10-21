@@ -18,6 +18,19 @@
   padding: clamp(1.25rem, 4vw, 3rem);
 }
 
+.admin-mode-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Restore browser defaults only inside forms; navigation and layout stay styled. */
+.admin-content--marwan .admin-form,
+.admin-content--marwan .admin-form * {
+  all: revert !important;
+}
+
 .admin-page {
   max-width: 85rem;
   margin: 0 auto;
