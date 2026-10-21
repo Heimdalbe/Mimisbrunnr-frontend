@@ -70,6 +70,7 @@ const PasswordResetForm = ({ user = {} }) => {
         Huidig wachtwoord
         <input
           type="password"
+          placeholder="huidig wachtwoord"
           name="currentPassword"
           autoComplete="current-password"
           value={formData.currentPassword}
