@@ -1,5 +1,7 @@
 # Mimisbrunnr Frontend
 
+Het project staat in de repo-root; voer de npm-commando's hieronder daar uit.
+
 ## Opstarten
 1. Installeer de dependencies met `npm install`
 
@@ -22,3 +24,6 @@
 ## Vereisten
 - Node.js 18 of nieuwer
 - npm
+
+## Deployment
+Gebruik de repo-root als Docker-buildcontext en `Dockerfile` als pad. De Compose-config staat buiten deze repo; pas op de server verwijzingen naar de oude submap `mimisbrunnr-frontend/` aan vóór deployment.
