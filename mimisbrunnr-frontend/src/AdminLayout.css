@@ -25,9 +25,13 @@
   margin-bottom: 1.5rem;
 }
 
-/* Restore browser defaults only inside forms; navigation and layout stay styled. */
-.admin-content--marwan .admin-form,
-.admin-content--marwan .admin-form * {
+.admin-content--marwan {
+  overflow-x: auto;
+}
+
+/* Reset the whole work area, including lists and inline editors, but keep the shell. */
+.admin-content--marwan .admin-page,
+.admin-content--marwan .admin-page * {
   all: revert !important;
 }
 
