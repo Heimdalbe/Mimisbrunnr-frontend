@@ -5,7 +5,7 @@ import EventList from '../../../components/Evenementen/EventList/EventList';
 import './EventDetail.css';
 
 import useSWR from 'swr';
-import { getAll } from '../../../api';
+import { axios, getAll } from '../../../api';
 import AsyncData from '../../../components/Common/AsyncData/AsyncData';
 import SponsorList from '../../../components/Home/SponsorSectie/Sponsors/SponsorList';
 import EventIcon from '../../../components/Evenementen/Andere/EventIcon';
@@ -84,11 +84,11 @@ const EventDetail = () => {
                     {/* <span className="location-adress">Klein Turkije 8, 9000 Gent</span> */}
                   </div>
                 </div>
-                {event.iCal && (
+                {event.start && event.end && (
                   <div className="icon-info">
                     <i className="fa-solid fa-link"></i>
                     <span>
-                      <a href={event.iCal}>iCal-link</a>
+                      <a href={axios.getUri({ url: `events/pub/${id}/calendar` })}>Toevoegen aan agenda</a>
                     </span>
                   </div>
                 )}
