@@ -2,11 +2,11 @@ import SocialLink from './SocialLink';
 import './Socials.css';
 
 export const defaultSocials = [
-  { type: { name: 'facebook' }, url: 'https://www.facebook.com/Heimdal.be/' },
-  { type: { name: 'instagram' }, url: 'https://www.instagram.com/heimdalgent/' },
-  { type: { name: 'linkedin' }, url: 'https://www.linkedin.com/company/heimdal-be/' },
-  { type: { name: 'twitch' }, url: 'https://www.twitch.tv/heimdalgent' },
   { type: { name: 'discord' }, url: 'https://discord.heimdal.be' },
+  { type: { name: 'instagram' }, url: 'https://www.instagram.com/heimdalgent/' },
+  { type: { name: 'twitch' }, url: 'https://www.twitch.tv/heimdalgent' },
+  { type: { name: 'facebook' }, url: 'https://www.facebook.com/Heimdal.be/' },
+  { type: { name: 'linkedin' }, url: 'https://www.linkedin.com/company/heimdal-be/' },
 ];
 
 const SocialsList = ({ socials }) => {
