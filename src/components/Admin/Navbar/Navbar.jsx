@@ -6,6 +6,7 @@ const groups = [
   { title: 'Website', links: [
     ['/admin/accounts', 'Accounts'], ['/admin/albums', 'Albums'],
     ['/admin/events', 'Events'], ['/admin/sponsors', 'Sponsors'],
+    ['/admin/lidgeld', 'Lidgeld'],
   ] },
   { title: 'Praesidium', links: [
     ['/admin/ledengegevens', 'Ledengegevens'], ['/admin/praesidiumleden', 'Praesidiumleden'],
