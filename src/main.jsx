@@ -20,6 +20,7 @@ import EventDetail from './pages/Evenementen/EventDetail/EventDetail.jsx';
 import PrivacyPolicy from './pages/Legal/PrivacyPolicy.jsx';
 import Login from './pages/Login/Login.jsx';
 import AdminHome from './pages/Admin/Home/AdminHome.jsx';
+import AdminMembershipFees from './pages/Admin/Membership/AdminMembershipFees.jsx';
 import AdminAlbums from './pages/Admin/Albums/AdminAlbums.jsx';
 import AdminNewAlbum from './pages/Admin/Albums/AdminNewAlbum.jsx';
 import AdminEditAlbum from './pages/Admin/Albums/AdminEditAlbum.jsx';
@@ -124,6 +125,14 @@ const router = createBrowserRouter([
       },
 
       // Accounts — Hmdl only
+      {
+        path: '/admin/lidgeld',
+        element: (
+          <ProtectedRoute role="Hmdl">
+            <AdminMembershipFees />
+          </ProtectedRoute>
+        ),
+      },
       {
         path: '/admin/accounts',
         element: (
