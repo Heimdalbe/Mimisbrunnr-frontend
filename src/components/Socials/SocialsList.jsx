@@ -6,6 +6,7 @@ export const defaultSocials = [
   { type: { name: 'instagram' }, url: 'https://www.instagram.com/heimdalgent/' },
   { type: { name: 'linkedin' }, url: 'https://www.linkedin.com/company/heimdal-be/' },
   { type: { name: 'twitch' }, url: 'https://www.twitch.tv/heimdalgent' },
+  { type: { name: 'discord' }, url: 'https://discord.heimdal.be' },
 ];
 
 const SocialsList = ({ socials }) => {

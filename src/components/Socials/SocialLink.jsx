@@ -11,7 +11,13 @@ const SocialLink = ({ type, url, ariaLabel }) => {
   const IconComponent = FaIcons[iconName] ?? FaIcons.FaGlobe;
 
   return (
-    <a href={url} className="social-link" target="_blank" rel="noreferrer" aria-label={ariaLabel}>
+    <a
+      href={url}
+      className="social-link"
+      target="_blank"
+      rel="noreferrer"
+      aria-label={ariaLabel ?? capitalize(socialType ?? 'website')}
+    >
       <IconComponent />
     </a>
   );
