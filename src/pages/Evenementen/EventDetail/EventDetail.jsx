@@ -12,6 +12,7 @@ import EventIcon from '../../../components/Evenementen/Andere/EventIcon';
 import Breadcrumbs from '../../../components/Breadcrumbs/Breadcrumbs';
 import { eventAudienceLabel } from '../../../constants/eventAudiences';
 import { useAuth } from '../../../contexts/AuthContext';
+import formatTime from '../../../utils/formatTime';
 
 const EventDetail = () => {
   const { id } = useParams();
@@ -27,9 +28,8 @@ const EventDetail = () => {
     isLoading: eventsAreLoading,
   } = useSWR('events/pub?take=4', getAll);
   var date = new Date(event.start);
-  var endDate = new Date(event.end);
-  var start_time = date.toLocaleTimeString('nl-BE').slice(0, 5);
-  var end_time = endDate.toLocaleTimeString('nl-BE').slice(0, 5);
+  var start_time = formatTime(event.start);
+  var end_time = formatTime(event.end);
   var banner = event.banner;
 
   useEffect(() => {

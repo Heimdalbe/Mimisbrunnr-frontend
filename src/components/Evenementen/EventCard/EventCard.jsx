@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import EventIcon from '../Andere/EventIcon';
+import formatTime from '../../../utils/formatTime';
 import './EventCard.css';
 
 const EventCard = ({ id, banner, start, end, name, category, catInvisible }) => {
@@ -7,8 +8,8 @@ const EventCard = ({ id, banner, start, end, name, category, catInvisible }) => 
   const date = new Date(start);
   const day = date.getDate().toString().padStart(2, '0');
   const month = date.toLocaleString('nl-BE', { month: 'long' }).slice(0, 3);
-  const start_time = date.toLocaleTimeString().slice(0, 5);
-  const end_time = new Date(end).toLocaleTimeString().slice(0, 5);
+  const start_time = formatTime(start);
+  const end_time = formatTime(end);
 
   return (
     <div
