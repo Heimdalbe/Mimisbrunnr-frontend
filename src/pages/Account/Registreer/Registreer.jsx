@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { useAuth } from '../../../contexts/AuthContext';
 import { useNavigate, useLocation, Link } from 'react-router-dom';
 import './Registreer.css';
+import AccountNameFields from '../../../components/Account/AccountNameFields';
+import errorMessage from '../../../api/errorMessage';
 
 const Registreer = () => {
   const { isAuthenticated, login, register } = useAuth();
@@ -12,6 +14,7 @@ const Registreer = () => {
   const from = location.state?.from?.pathname || '/';
 
   const [name, setName] = useState('');
+  const [names, setNames] = useState({ firstName: '', lastName: '' });
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
@@ -41,13 +44,9 @@ const Registreer = () => {
     setError('');
 
     try {
-      await register(name, email, password, confirmPassword);
+      await register({ name, ...names, email, password, confirmPassword });
     } catch (err) {
-      if (err.response?.status === 422) {
-        setError(err.response?.data?.errors);
-      } else {
-        setError('Er ging iets mis. Probeer het later opnieuw.');
-      }
+      setError(errorMessage(err, 'Registreren mislukt. Probeer het opnieuw.'));
       return;
     }
 
@@ -69,15 +68,22 @@ const Registreer = () => {
         <h1>Registreer</h1>
         <form onSubmit={handleSubmit} className="registreer-form">
           <label>
-            Name
+            Gebruikersnaam
             <input
               name="name"
+              autoComplete="username"
+              maxLength={50}
               placeholder="JohnHeimdal"
               value={name}
               onChange={(e) => setName(e.target.value)}
               required
             />
           </label>
+
+          <AccountNameFields
+            {...names}
+            onChange={(e) => setNames((previous) => ({ ...previous, [e.target.name]: e.target.value }))}
+          />
 
           <label>
             E-Mail
@@ -115,7 +121,7 @@ const Registreer = () => {
             />
           </label>
 
-          {error && <p className="error-message">{error}</p>}
+          {error && <p className="error-message" role="alert">{error}</p>}
 
           <button type="submit">Registreer</button>
           <p>
