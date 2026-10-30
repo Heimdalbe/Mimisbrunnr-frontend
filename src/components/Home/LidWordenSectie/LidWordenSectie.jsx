@@ -1,4 +1,17 @@
+import useSWR from 'swr';
+import { getAll } from '../../../api';
 import './LidWordenSectie.css';
+
+const euro = new Intl.NumberFormat('nl-BE', { style: 'currency', currency: 'EUR' });
+
+const MembershipFeeText = () => {
+  const { data: fees } = useSWR('membership-fees', getAll);
+
+  return fees
+    ? `Volg de betaalinstructies van het praesidium: ${euro.format(fees.firstYearFee)} voor je eerste lidjaar, `
+      + `daarna ${euro.format(fees.renewalFee)} per jaar.`
+    : 'Vraag het actuele lidgeld en de betaalinstructies aan het praesidium.';
+};
 
 const LidWordenSectie = () => (
   <section className="container membership-section" aria-labelledby="membership-title">
@@ -15,7 +28,7 @@ const LidWordenSectie = () => (
       </li>
       <li>
         <h2>Betaal je lidgeld</h2>
-        <p>Volg de betaalinstructies van het praesidium: €12 voor je eerste lidjaar, daarna €7 per jaar.</p>
+        <p><MembershipFeeText /></p>
       </li>
     </ol>
     <div className="button-wrapper">
