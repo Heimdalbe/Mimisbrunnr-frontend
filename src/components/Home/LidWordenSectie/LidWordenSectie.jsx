@@ -15,7 +15,7 @@ const LidWordenSectie = () => (
       </li>
       <li>
         <h2>Betaal je lidgeld</h2>
-        <p>Volg de betaalinstructies van het praesidium: €11 voor je eerste lidjaar, daarna €9 per jaar.</p>
+        <p>Volg de betaalinstructies van het praesidium: €12 voor je eerste lidjaar, daarna €7 per jaar.</p>
       </li>
     </ol>
     <div className="button-wrapper">

@@ -10,13 +10,13 @@ const Home = () => {
   return (
     <div>
       <SchildSectie />
-      <LidWordenSectie />
       <PlanningSectie />
       <div className="dark-bg">
         <KarakteristiekenSectie />
         <FotoSectie />
       </div>
       <VisieSectie />
+      <LidWordenSectie />
       <SponsorSectie />
     </div>
   );
