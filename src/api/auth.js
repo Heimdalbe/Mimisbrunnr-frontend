@@ -8,13 +8,8 @@ export async function login(email, password) {
   return data;
 }
 
-export async function register(name, email, password, confirmPassword) {
-  const { data } = await axios.post('/identity/accounts/register', {
-    name,
-    email,
-    password,
-    confirmPassword,
-  });
+export async function register(account) {
+  const { data } = await axios.post('/identity/accounts/register', account);
   return data;
 }
 

@@ -5,7 +5,9 @@ const AccountsTable = ({ accounts = [] }) => {
     <table>
       <thead>
         <tr>
-          <th>Naam</th>
+          <th>Gebruikersnaam</th>
+          <th>Voornaam</th>
+          <th>Familienaam</th>
           <th>Rollen</th>
           <th>Wachtwoord</th>
         </tr>
@@ -16,6 +18,8 @@ const AccountsTable = ({ accounts = [] }) => {
             <td>
               <Link to={`/admin/accounts/${a.id}`}>{a.name}</Link>
             </td>
+            <td>{a.firstName || '—'}</td>
+            <td>{a.lastName || '—'}</td>
             <td>
               <Link to={`/admin/accounts/${a.id}/roles`}>Rollen beheren</Link>
             </td>

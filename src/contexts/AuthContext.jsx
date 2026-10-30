@@ -38,8 +38,8 @@ export const AuthProvider = ({ children }) => {
     setUser(data.value ?? data);
   };
 
-  const register = async (name, email, password, confirmPassword) => {
-    await apiRegister(name, email, password, confirmPassword);
+  const register = async (account) => {
+    await apiRegister(account);
   };
 
   const logout = async () => {
