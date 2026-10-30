@@ -1,0 +1,44 @@
+.membership-section > h1,
+.membership-section > p {
+  text-align: center;
+}
+
+.membership-steps {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 40px;
+  margin: 40px 0;
+  padding-left: 24px;
+}
+
+.membership-steps li {
+  padding-left: 8px;
+}
+
+.membership-steps li::marker {
+  font-weight: 800;
+}
+
+.membership-steps h2 {
+  line-height: 1.4;
+}
+
+.membership-steps p:last-child {
+  margin-bottom: 0;
+}
+
+@media (max-width: 768px) {
+  .membership-steps {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .membership-steps h2,
+  .membership-steps p {
+    text-align: left;
+  }
+
+  .membership-section .link-button {
+    margin: 0 auto;
+  }
+}

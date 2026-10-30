@@ -4,11 +4,13 @@ import KarakteristiekenSectie from '../../components/Home/KarakteristiekenSectie
 import FotoSectie from '../../components/Home/FotoSectie/FotoSectie';
 import VisieSectie from '../../components/Home/VisieSectie/VisieSectie';
 import SponsorSectie from '../../components/Home/SponsorSectie/SponsorSectie';
+import LidWordenSectie from '../../components/Home/LidWordenSectie/LidWordenSectie';
 
 const Home = () => {
   return (
     <div>
       <SchildSectie />
+      <LidWordenSectie />
       <PlanningSectie />
       <div className="dark-bg">
         <KarakteristiekenSectie />
