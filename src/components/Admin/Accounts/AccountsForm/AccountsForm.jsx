@@ -2,6 +2,8 @@ import { Form, useNavigate } from 'react-router';
 import { useEffect, useState } from 'react';
 import useSWRMutation from 'swr/mutation';
 import { deleteById, save } from '../../../../api';
+import AccountNameFields from '../../../Account/AccountNameFields';
+import errorMessage from '../../../../api/errorMessage';
 
 const AccountsForm = ({ id = undefined, account = {} }) => {
   const navigate = useNavigate();
@@ -9,6 +11,8 @@ const AccountsForm = ({ id = undefined, account = {} }) => {
 
   const [formData, setFormData] = useState({
     name: '',
+    firstName: '',
+    lastName: '',
     email: '',
   });
 
@@ -16,6 +20,8 @@ const AccountsForm = ({ id = undefined, account = {} }) => {
     if (isEditMode) {
       setFormData({
         name: account.name || '',
+        firstName: account.firstName || '',
+        lastName: account.lastName || '',
         email: account.email || '',
       });
     }
@@ -23,6 +29,7 @@ const AccountsForm = ({ id = undefined, account = {} }) => {
 
   const { trigger: handleSave, isMutating } = useSWRMutation('accounts', save);
   const { trigger: handleDelete, isMutating: isDeleting } = useSWRMutation('accounts', deleteById);
+  const [error, setError] = useState('');
 
   function handleChange(s) {
     const { name, value, type, checked } = s.target;
@@ -36,12 +43,12 @@ const AccountsForm = ({ id = undefined, account = {} }) => {
   async function handleSubmit(s) {
     s.preventDefault();
 
-    await handleSave({
-      id: id,
-      ...formData,
-    });
-
-    navigate('/admin/accounts');
+    try {
+      await handleSave({ id, ...formData });
+      navigate('/admin/accounts');
+    } catch (failure) {
+      setError(errorMessage(failure));
+    }
   }
 
   async function onDelete() {
@@ -54,9 +61,18 @@ const AccountsForm = ({ id = undefined, account = {} }) => {
   return (
     <Form onSubmit={handleSubmit} className="admin-form admin-account-form">
       <label>
-        Naam
-        <input name="name" value={formData.name} onChange={handleChange} required />
+        Gebruikersnaam
+        <input
+          name="name"
+          autoComplete="username"
+          maxLength={50}
+          value={formData.name}
+          onChange={handleChange}
+          required
+        />
       </label>
+
+      <AccountNameFields {...formData} onChange={handleChange} />
 
       <label>
         E-Mail
@@ -75,6 +91,8 @@ const AccountsForm = ({ id = undefined, account = {} }) => {
           onClick={() =>
             setFormData({
               name: account.name || '',
+              firstName: account.firstName || '',
+              lastName: account.lastName || '',
               email: account.email || '',
             })
           }
@@ -86,6 +104,7 @@ const AccountsForm = ({ id = undefined, account = {} }) => {
           {isMutating ? 'Saving...' : 'Save'}
         </button>
       </div>
+      {error && <p className="error-message" role="alert">{error}</p>}
     </Form>
   );
 };

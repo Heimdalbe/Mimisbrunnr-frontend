@@ -16,6 +16,7 @@
 }
 
 .registreer-form input {
+  box-sizing: border-box;
   width: 100%;
   padding: 10px 14px;
   margin-bottom: 15px;

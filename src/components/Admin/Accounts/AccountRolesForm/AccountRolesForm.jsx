@@ -3,6 +3,7 @@ import { Link } from 'react-router';
 import { axios } from '../../../../api';
 import { useAuth } from '../../../../contexts/AuthContext';
 import './AccountRolesForm.css';
+import errorMessage from '../../../../api/errorMessage';
 
 const descriptions = {
   Feut: 'Geïnteresseerde (standaardrol).',
@@ -14,13 +15,6 @@ const descriptions = {
   MediaEditor: 'Albums en afbeeldingen beheren.',
   SponsorEditor: 'Sponsors beheren.',
 };
-
-function errorMessage(error) {
-  const body = error.response?.data;
-  const validation = body?.validationErrors?.map((item) => item.errorMessage);
-  const errors = Array.isArray(body?.errors) ? body.errors : Object.values(body?.errors ?? {}).flat();
-  return [...(validation ?? []), ...errors].join(' ') || 'Opslaan mislukt. Probeer het opnieuw.';
-}
 
 const AccountRolesForm = ({ account, assigned, available, onSaved }) => {
   const { refreshUser } = useAuth();

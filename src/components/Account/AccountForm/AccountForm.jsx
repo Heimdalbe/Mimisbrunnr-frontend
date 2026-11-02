@@ -3,18 +3,26 @@ import './AccountForm.css';
 import { useEffect, useState } from 'react';
 import useSWRMutation from 'swr/mutation';
 import { put } from '../../../api';
+import { useSWRConfig } from 'swr';
+import AccountNameFields from '../AccountNameFields';
+import errorMessage from '../../../api/errorMessage';
 
 const AccountForm = ({ user = {} }) => {
   const navigate = useNavigate();
+  const { mutate } = useSWRConfig();
 
   const [formData, setFormData] = useState({
     name: '',
+    firstName: '',
+    lastName: '',
     email: '',
   });
 
   useEffect(() => {
     setFormData({
       name: user.name || '',
+      firstName: user.firstName || '',
+      lastName: user.lastName || '',
       email: user.email || '',
     });
   }, [user]);
@@ -38,26 +46,33 @@ const AccountForm = ({ user = {} }) => {
         id: user.id,
         ...formData,
       });
+      await mutate('/accounts/self');
       setError('');
     } catch (err) {
-      if (err.response?.status === 422) {
-        setError(err.response?.data?.errors);
-      } else {
-        setError('Er ging iets mis. Probeer het later opnieuw.');
-      }
+      setError(errorMessage(err));
       return;
     }
     navigate('/account');
   }
 
-  const changeMade = formData.name !== user.name || formData.email !== user.email;
+  const changeMade = Object.keys(formData).some((key) => formData[key] !== (user[key] ?? ''));
 
   return (
     <Form onSubmit={handleSubmit} className="account-form">
       <label>
-        Naam
-        <input name="name" placeholder="JohnHeimdal" value={formData.name} onChange={handleChange} required />
+        Gebruikersnaam
+        <input
+          name="name"
+          autoComplete="username"
+          maxLength={50}
+          placeholder="JohnHeimdal"
+          value={formData.name}
+          onChange={handleChange}
+          required
+        />
       </label>
+
+      <AccountNameFields {...formData} onChange={handleChange} />
 
       <label>
         E-Mail
@@ -78,6 +93,8 @@ const AccountForm = ({ user = {} }) => {
             onClick={() =>
               setFormData({
                 name: user.name || '',
+                firstName: user.firstName || '',
+                lastName: user.lastName || '',
                 email: user.email || '',
               })
             }
@@ -91,7 +108,7 @@ const AccountForm = ({ user = {} }) => {
           </button>
         )}
       </div>
-      {error && <p className="error-message">{error}</p>}
+      {error && <p className="error-message" role="alert">{error}</p>}
     </Form>
   );
 };
