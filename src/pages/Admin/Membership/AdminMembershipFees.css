@@ -1,0 +1,5 @@
+.admin-membership-fees fieldset {
+  display: grid;
+  gap: 1.25rem;
+  padding: 1rem;
+}
