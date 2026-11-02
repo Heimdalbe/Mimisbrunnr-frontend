@@ -25,7 +25,7 @@
   box-sizing: border-box;
 }
 
-.nuttige-links {
+.footer-links {
   width: 60%;
 }
 
@@ -85,9 +85,13 @@
     padding-bottom: 80px;
   }
 
-  .nuttige-links {
+  .footer-links {
     width: 100%;
     margin-top: 40px;
+  }
+
+  .footer-links .nuttige-links {
+    align-items: center;
   }
 
   .contact-section {
