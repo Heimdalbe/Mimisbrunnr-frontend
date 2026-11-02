@@ -12,6 +12,10 @@
   width: 100%;
 }
 
+.pdf-viewer .pdf-fallback {
+  margin: 0;
+}
+
 .pdf-viewer .pdf-page,
 .pdf-viewer .react-pdf__Page {
   width: 100% !important;
