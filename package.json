@@ -11,6 +11,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@embedpdf/react-pdf-viewer": "^2.15.1",
     "axios": "^1.15.0",
     "motion": "^12.23.24",
     "react": "^19.1.1",
