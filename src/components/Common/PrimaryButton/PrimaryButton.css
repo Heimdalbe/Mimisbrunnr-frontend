@@ -18,11 +18,12 @@
 
 .primary-button-dark {
   background-color: var(--green);
-  color: var(--white);
+  color: var(--black);
 }
 
 .primary-button:hover {
   background-color: var(--green);
+  color: var(--black);
   text-decoration: none;
 }
 
