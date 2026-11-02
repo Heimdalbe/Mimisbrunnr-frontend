@@ -19,7 +19,7 @@
 }
 
 .select-wrapper .select-field {
-  width: fit-content;
+  width: -webkit-fill-available;
   margin-bottom: 50px;
   border: none;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
