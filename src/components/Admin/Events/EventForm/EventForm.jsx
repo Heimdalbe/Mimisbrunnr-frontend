@@ -24,7 +24,6 @@ const EventForm = ({ id = undefined, event = {} }) => {
     bannerurl: '',
     description: '',
     entryFee: '',
-    iCal: '',
     url: '',
     sponsorIds: [],
     published: false,
@@ -43,7 +42,6 @@ const EventForm = ({ id = undefined, event = {} }) => {
         bannerurl: event.banner?.url || '',
         description: event.description || '',
         entryFee: event.entryFee ?? '',
-        iCal: event.iCal ?? '',
         url: event.url || '',
         sponsorIds: event.sponsors?.map((s) => s.id) || [],
         published: event.published || false,
@@ -169,11 +167,6 @@ const EventForm = ({ id = undefined, event = {} }) => {
       </label>
 
       <label>
-        iCal Link
-        <input type="url" name="iCal" value={formData.iCal} onChange={handleChange} />
-      </label>
-
-      <label>
         Inschrijvingslink
         <input type="url" name="url" value={formData.url} onChange={handleChange} />
       </label>
@@ -206,7 +199,6 @@ const EventForm = ({ id = undefined, event = {} }) => {
               bannerurl: event.banner?.url || '',
               description: event.description || '',
               entryFee: event.entryFee ?? '',
-              iCal: event.iCal ?? '',
               url: event.url || '',
               sponsorIds: event.sponsors?.map((s) => s.id) || [],
               published: event.published || false,
