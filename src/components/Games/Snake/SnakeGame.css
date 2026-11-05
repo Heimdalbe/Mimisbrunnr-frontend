@@ -1,0 +1,62 @@
+.footer-dragon-dialog:has(.snake-game) {
+  width: min(860px, calc(100vw - 24px));
+  max-width: none;
+  max-height: 94dvh;
+  padding: 0;
+  background: #101c15;
+  color: #f2f6ee;
+  border: 1px solid #35553b;
+  overscroll-behavior: contain;
+}
+
+.snake-game {
+  padding: clamp(16px, 3vw, 28px);
+  font-size: 14px;
+}
+
+.snake-heading, .snake-scorebar, .snake-leaderboard-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.snake-heading h2 { margin: 6px 0 20px; font-size: clamp(20px, 4vw, 30px); }
+.snake-eyebrow { color: #8edc76; font-size: 11px; letter-spacing: .16em; }
+.snake-game button { cursor: pointer; border: 1px solid #52754b; border-radius: 8px; padding: 9px 15px; background: #253e2a; color: #f2f6ee; font: inherit; }
+.snake-game button:hover { background: #355a38; }
+.snake-game button:disabled { cursor: default; opacity: .5; }
+.snake-game :focus-visible { outline: 2px solid #dcec80; outline-offset: 3px; }
+.snake-game .snake-close { padding: 3px 12px; font-size: 26px; align-self: flex-start; }
+.snake-settings fieldset { display: flex; flex-wrap: wrap; align-items: end; gap: 10px; padding: 10px 12px 14px; border: 1px solid #35553b; border-radius: 10px; }
+.snake-settings legend { color: #b8cbb2; padding: 0 6px; }
+.snake-settings label { display: grid; gap: 5px; }
+.snake-settings input { width: 70px; padding: 9px; border: 1px solid #52754b; border-radius: 6px; background: #17291d; color: #f2f6ee; font: inherit; }
+.snake-settings span { padding-bottom: 10px; }
+.snake-scorebar { margin: 16px 0 10px; color: #b8cbb2; }
+.snake-scorebar strong { color: #dcec80; font-size: 24px; padding-left: 6px; }
+.snake-board { margin-inline: auto; position: relative; border: 3px solid #52754b; border-radius: 12px; overflow: hidden; touch-action: none; }
+.snake-board > svg { display: block; width: 100%; max-height: 40dvh; background: #183b28; }
+.snake-overlay { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center; align-items: center; background: #101c15df; text-align: center; padding: 10px; }
+.snake-overlay h3 { font-size: clamp(20px, 4vw, 30px); margin: 4px 0; }
+.snake-overlay p { margin: 8px 0 18px; color: #c4d3be; }
+.snake-overlay button { background: #4bd23d; color: #102312; font-weight: 700; border: 0; padding: 12px 26px; }
+.snake-game .snake-overlay button:hover { background: #72e85e; }
+.snake-controls { display: flex; justify-content: center; gap: 8px; margin-top: 14px; }
+.snake-controls button { min-width: 46px; min-height: 44px; font-size: 22px; padding: 4px 12px; }
+.snake-help { text-align: center; font-size: 12px; color: #b8cbb2; line-height: 1.6; }
+.snake-leaderboard { margin-top: 24px; padding-top: 18px; border-top: 1px solid #35553b; }
+.snake-leaderboard h3 { margin: 0; font-size: 20px; }
+.snake-leaderboard-heading span { color: #b8cbb2; font-size: 12px; }
+.snake-save-status { color: #b8cbb2; font-size: 13px; line-height: 1.6; }
+.snake-game a { color: #8edc76; }
+.snake-leaderboard table { width: 100%; border-collapse: collapse; text-align: left; }
+.snake-leaderboard th { color: #b8cbb2; font-size: 12px; font-weight: 500; }
+.snake-leaderboard td, .snake-leaderboard th { padding: 10px 8px; border-bottom: 1px solid #294531; overflow-wrap: anywhere; }
+.snake-leaderboard td:last-child, .snake-leaderboard th:last-child { text-align: right; color: #dcec80; }
+
+@media (max-width: 480px) {
+  .snake-overlay img { width: 52px; height: 42px; }
+  .snake-overlay p { font-size: 12px; margin: 4px 0 10px; }
+  .snake-game .snake-overlay button { padding: 8px 16px; }
+}

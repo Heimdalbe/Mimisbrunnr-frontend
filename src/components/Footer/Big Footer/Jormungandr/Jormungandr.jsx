@@ -1,8 +1,11 @@
-import { useEffect, useRef } from 'react';
+import { lazy, Suspense, useEffect, useRef, useState } from 'react';
 import rest from './rest.svg';
 import './Jormungandr.css';
 
+const SnakeGame = lazy(() => import('../../../Games/Snake/SnakeGame'));
+
 export default function Jormungandr() {
+  const [open, setOpen] = useState(false);
   const image = useRef(null);
   const svg = useRef(null);
   const flight = useRef(null);
@@ -56,16 +59,18 @@ export default function Jormungandr() {
       onFocus={() => flight.current?.play()}
       onClick={() => {
         flight.current?.reset();
+        setOpen(true);
         dialog.current.showModal();
       }}
     >
       <img ref={image} src={rest} alt="" />
     </button>
     <svg ref={svg} className="footer-dragon-flight" aria-hidden="true" />
-    <dialog ref={dialog} className="footer-dragon-dialog">
-      <h2>Jormungandr Snake</h2>
-      <p>Nog niet klaar.</p>
-      <button onClick={() => dialog.current.close()}>Terug</button>
+    <dialog ref={dialog} className="footer-dragon-dialog" aria-label="Jormungandr Snake"
+      onClose={() => setOpen(false)}>
+      {open && <Suspense fallback={<p role="status">Spel laden…</p>}>
+        <SnakeGame onClose={() => dialog.current.close()} />
+      </Suspense>}
     </dialog>
   </>;
 }
