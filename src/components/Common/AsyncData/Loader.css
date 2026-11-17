@@ -8,6 +8,7 @@
 .loader img {
   width: var(--loader-size, 64px);
   height: var(--loader-size, 64px);
+  transform-origin: 50% 50%;
   animation: jormungandr-spin 1.5s linear infinite;
 }
 
