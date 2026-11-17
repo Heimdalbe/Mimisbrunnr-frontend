@@ -52,7 +52,7 @@
   height: 100%;
 }
 
-.grid > div > .img-wrapper > img {
+.grid > div > .img-wrapper > .image-frame {
   width: 100%;
   height: 100%;
   object-fit: cover;

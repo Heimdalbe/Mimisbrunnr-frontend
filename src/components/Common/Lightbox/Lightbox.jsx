@@ -1,7 +1,9 @@
 import { useEffect } from 'react';
+import LoadingImage from '../LoadingImage/LoadingImage';
 import './Lightbox.css';
 
 const LightBox = ({ images = [], activeIndex, setActiveIndex }) => {
+  const image = images[activeIndex];
 
   useEffect(() => {
     const handleKeyDown = (e) => {
@@ -55,7 +57,8 @@ const LightBox = ({ images = [], activeIndex, setActiveIndex }) => {
       </button>
     </div>
 
-    <img src={images[activeIndex]} alt="" />
+    <LoadingImage src={typeof image === 'string' ? image : image?.url}
+      alt={image?.description ?? ''} className="lightbox-photo" loading="eager" />
   </div>;
 };
 

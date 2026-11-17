@@ -27,6 +27,7 @@
 }
 
 .event-img {
+  width: auto;
   border-radius: 10px;
   z-index: 1;
   height: 380px;

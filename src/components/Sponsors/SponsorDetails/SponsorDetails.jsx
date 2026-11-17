@@ -1,3 +1,4 @@
+import LoadingImage from '../../Common/LoadingImage/LoadingImage';
 import { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 import './SponsorDetails.css';
@@ -19,7 +20,7 @@ const SponsorDetails = ({ id, name, logo }) => {
     <>
       <div className="sponsor-wrapper" onClick={() => setShowOverlay(true)}>
         <div className="sponsor-img-wrapper">
-          <img className="sponsor-logo" src={logo.url} alt={`Logo van ${name}`} />
+          <LoadingImage className="sponsor-logo" src={logo.url} alt={`Logo van ${name}`} />
         </div>
       </div>
 

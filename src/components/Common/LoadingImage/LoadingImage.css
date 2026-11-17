@@ -1,0 +1,44 @@
+:where(.image-frame) {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  object-position: center;
+  background: transparent;
+}
+
+.image-frame:not([data-state="loaded"]) { background-color: #f4f4f4; }
+
+.image-frame > .image-content {
+  display: block;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  max-height: none;
+  padding: inherit;
+  box-sizing: border-box;
+  border-radius: inherit;
+  object-fit: inherit;
+  object-position: inherit;
+}
+
+.image-frame:not([data-state="loaded"]) > .image-content {
+  opacity: 0;
+}
+
+.image-placeholder {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  --loader-size: 48px;
+}
+
+.image-placeholder .loader { min-height: 0; }
+.image-placeholder .loader img { object-fit: contain; background: transparent; border-radius: 0; }
+.image-error { padding: 12px; box-sizing: border-box; color: #555; font-size: .875rem; text-align: center; }

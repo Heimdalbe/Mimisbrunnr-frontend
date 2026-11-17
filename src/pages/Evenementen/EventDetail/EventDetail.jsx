@@ -1,3 +1,4 @@
+import LoadingImage from '../../../components/Common/LoadingImage/LoadingImage';
 import { useEffect } from 'react';
 import { useLocation, useParams } from 'react-router-dom';
 import PrimaryButton from '../../../components/Common/PrimaryButton/PrimaryButton';
@@ -50,7 +51,7 @@ const EventDetail = () => {
           </div>
           <div className="img-card-wrapper">
             <div className="image-event">
-              <img className="event-img" src={banner?.url} alt={banner?.alt} />
+              <LoadingImage loading="eager" className="event-img" src={banner?.url} alt={banner?.alt} />
               <EventIcon category={event.category} />
             </div>
             <div className="wrapper-info-container">

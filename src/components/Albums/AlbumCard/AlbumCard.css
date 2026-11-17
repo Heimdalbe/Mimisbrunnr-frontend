@@ -1,9 +1,6 @@
 .album-card {
   flex: 1;
   aspect-ratio: 13 / 10;
-  background-size: auto 100%;
-  background-position: center;
-  background-repeat: no-repeat;
   border-radius: 8px;
   position: relative;
   cursor: pointer;
@@ -11,10 +8,9 @@
   transition:
     transform 0.3s ease,
     box-shadow 0.3s ease;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
 }
+
+.album-cover { position: absolute; inset: 0; height: 100%; }
 
 .album-info {
   width: 100%;
