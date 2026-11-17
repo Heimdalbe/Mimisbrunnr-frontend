@@ -1,14 +1,3 @@
-.footer-dragon-flight {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-  overflow: hidden;
-  opacity: 0;
-  pointer-events: none;
-}
-
 .footer-dragon-trigger {
   padding: 0;
   border: 0;
@@ -17,7 +6,7 @@
   line-height: 0;
 }
 
-.footer-dragon-trigger img {
+.footer-dragon-trigger svg {
   display: block;
   width: 100%;
 }
