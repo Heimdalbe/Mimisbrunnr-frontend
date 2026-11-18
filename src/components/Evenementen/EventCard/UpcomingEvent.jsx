@@ -1,3 +1,4 @@
+import LoadingImage from '../../Common/LoadingImage/LoadingImage';
 import './UpcomingEvent.css';
 import EventIcon from '../Andere/EventIcon';
 import Countdown from '../Andere/Countdown';
@@ -41,7 +42,7 @@ const UpcomingEvent = ({ id }) => {
           <Countdown date={date} />
         </div>
         <div className="event-image-section">
-          <img src={event.banner?.url} alt={event.banner?.alt ?? 'Foto van ' + event.name} className="image" />
+          <LoadingImage src={event.banner?.url} alt={event.banner?.alt ?? 'Foto van ' + event.name} className="image" />
         </div>
       </AsyncData>
     </div>

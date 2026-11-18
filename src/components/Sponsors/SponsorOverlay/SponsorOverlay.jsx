@@ -1,3 +1,4 @@
+import LoadingImage from '../../Common/LoadingImage/LoadingImage';
 import useSWR from 'swr';
 import { getAll } from '../../../api';
 import AsyncData from '../../Common/AsyncData/AsyncData';
@@ -12,7 +13,7 @@ const SponsorOverlay = ({ id, setShowOverlay }) => {
       <div className="overlay-content sponsor-overlay-modal" onClick={(e) => e.stopPropagation()}>
         <AsyncData error={sponsorError} loading={sponsorsAreLoading}>
           <div className="overlay-image-wrapper">
-            <img
+            <LoadingImage loading="eager"
               className="overlay-image sponsor-overlay-logo"
               src={sponsor.logo?.url}
               alt={`Logo van ${sponsor.name}`}

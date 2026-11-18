@@ -12,10 +12,11 @@
   cursor: pointer;
 }
 
-.lightbox img {
-  max-width: 70%;
-  max-height: 70%;
-  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+.lightbox-photo {
+  width: 70vw;
+  height: 70vh;
+  object-fit: contain;
+  background: transparent;
 }
 
 .lightbox-close,
@@ -60,9 +61,8 @@
 
 
 @media (max-width: 768px) {
-  .lightbox img {
-    max-width: 100%;
-    max-height: 60%;
-    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+  .lightbox-photo {
+    width: 100vw;
+    height: 60vh;
   }
 }

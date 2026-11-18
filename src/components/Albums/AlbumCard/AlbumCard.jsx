@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import './AlbumCard.css';
 import capitalize from '../../../utils/capitalize';
+import LoadingImage from '../../Common/LoadingImage/LoadingImage';
 
 const AlbumCard = ({ id, name, date, coverImage = { url: '../../../../public/BackgroundImg.png' } }) => {
   const navigate = useNavigate();
@@ -11,9 +12,9 @@ const AlbumCard = ({ id, name, date, coverImage = { url: '../../../../public/Bac
   return (
     <div
       className="album-card"
-      style={{ backgroundImage: `url(${coverImage.url})` }}
       onClick={() => navigate(`/albums/${id}`)}
     >
+      <LoadingImage className="album-cover" src={coverImage?.url} alt={`Cover van ${name}`} />
       <div className="album-info">
         <h3>{name}</h3>
         <div className="date">

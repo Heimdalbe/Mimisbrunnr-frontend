@@ -1,3 +1,4 @@
+import LoadingImage from '../Common/LoadingImage/LoadingImage';
 import { useState, useEffect } from 'react';
 import './UserItems.css';
 import SocialsList from '../Socials/SocialsList';
@@ -22,7 +23,7 @@ const UserCard = ({ id, name, role = undefined, img, endpoint }) => {
   return (
     <>
       <div className="user-card" onClick={() => setShowOverlay(true)}>
-        <img src={img} alt={`Foto van ${name}`} />
+        <LoadingImage className="user-card-image" src={img} alt={`Foto van ${name}`} />
         <div className="card-info">
           <p className="card-text">{name}</p>
           {role && <p className="card-text role">{role}</p>}

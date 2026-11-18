@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import LightBox from '../Lightbox/Lightbox';
+import LoadingImage from '../LoadingImage/LoadingImage';
 import './ImageGrid.css';
 
 function getLayoutGroups(n) {
@@ -32,14 +33,13 @@ const ImageGrid = ({ images = [] }) => {
   const [activeIndex, setActiveIndex] = useState(null);
   const openLightbox = (index) => setActiveIndex(index);
 
-  const urls = images.map((i) => i.url);
-
   useEffect(() => {
-    if (activeIndex !== null) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
-    }
+    if (activeIndex === null) return;
+    const previous = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.body.style.overflow = previous;
+    };
   }, [activeIndex]);
 
   const layouts = getLayoutGroups(images?.length ?? 0);
@@ -54,7 +54,7 @@ const ImageGrid = ({ images = [] }) => {
       let k = index;
       imgs.push(
         <div key={j} onClick={() => openLightbox(k)} className='img-wrapper' style={{ gridArea: '_' + j }} >
-          <img src={img.url} alt={img.description} loading="lazy" />
+          <LoadingImage src={img.url} alt={img.description} />
         </div>,
       );
       index += 1;
@@ -75,7 +75,7 @@ const ImageGrid = ({ images = [] }) => {
         {diffs}
       </div>
 
-      {activeIndex !== null && (<LightBox images={urls} activeIndex={activeIndex} setActiveIndex={setActiveIndex} />)}
+      {activeIndex !== null && (<LightBox images={images} activeIndex={activeIndex} setActiveIndex={setActiveIndex} />)}
     </>
   );
 };
