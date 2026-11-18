@@ -19,10 +19,11 @@ const EventDetail = () => {
   const { id } = useParams();
   const { user, loading: authLoading } = useAuth();
   const { hash } = useLocation();
-  const { data: event = {}, error: eventError, isLoading: eventIsLoading } = useSWR(
-    authLoading ? null : [`events/pub/${id}`, user?.email, user?.roles],
-    ([url]) => getAll(url),
-  );
+  const {
+    data: event = {},
+    error: eventError,
+    isLoading: eventIsLoading,
+  } = useSWR(authLoading ? null : [`events/pub/${id}`, user?.email, user?.roles], ([url]) => getAll(url));
   const {
     data: data = { events: [] },
     error: eventsError,
@@ -47,7 +48,7 @@ const EventDetail = () => {
         {/* TODO: Terug knop of breadcrumbs (of allebei :p) */}
         <AsyncData loading={authLoading || eventIsLoading} error={eventError}>
           <div className="background-wrapper">
-            <img className="background" src="../../../../BackgroundImg.png"></img>
+            <img className="background" src="../../../../BackgroundImg.webp"></img>
           </div>
           <div className="img-card-wrapper">
             <div className="image-event">
@@ -110,13 +111,18 @@ const EventDetail = () => {
 
           {event.registrationAccessError ? (
             <div className="button-div">
-              <p className="event-registration-error" role="alert">{event.registrationAccessError}</p>
+              <p className="event-registration-error" role="alert">
+                {event.registrationAccessError}
+              </p>
               {!user && <PrimaryButton isLight={true} text="Inloggen" to="/login" />}
             </div>
-          ) : event.url && event.url !== 'https://heimdal.be' && (
-            <div className="button-div">
-              <PrimaryButton isLight={true} text="Inschrijven" to={event.url} target="_blank" />
-            </div>
+          ) : (
+            event.url &&
+            event.url !== 'https://heimdal.be' && (
+              <div className="button-div">
+                <PrimaryButton isLight={true} text="Inschrijven" to={event.url} target="_blank" />
+              </div>
+            )
           )}
           {event.sponsors?.length > 0 && (
             <div className="sponsor-section">
