@@ -14,7 +14,9 @@ const SponsorList = ({ sponsors, hasOverflow }) => {
   if (!sponsors?.length) return null;
 
   const renderSponsors = () =>
-    sponsors.map((s) => <SponsorDetails key={s.id} id={s.id} name={s.name} logo={s.logo} website={s.website} />);
+    sponsors.map((s) => (
+      <SponsorDetails key={s.id} id={s.id} name={s.name} logo={s.logo} website={s.website} loading="eager" />
+    ));
 
   return (
     <div className="sponsorlist-wrapper">

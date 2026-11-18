@@ -54,7 +54,7 @@
     height: var(--item);
   }
 
-  .sponsorlist .sponsor-wrapper img {
+  .sponsorlist .sponsor-logo {
     width: var(--item);
     height: var(--item);
     object-fit: contain;
