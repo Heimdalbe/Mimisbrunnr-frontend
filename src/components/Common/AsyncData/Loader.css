@@ -1,0 +1,30 @@
+.loader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 96px;
+}
+
+.loader img {
+  width: var(--loader-size, 64px);
+  height: var(--loader-size, 64px);
+  transform-origin: 50% 50%;
+  animation: jormungandr-spin 1.5s linear infinite;
+}
+
+.loader-label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+@keyframes jormungandr-spin {
+  to { transform: rotate(360deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .loader img { animation: none; }
+}
