@@ -16,7 +16,9 @@ const Home = () => {
         <FotoSectie />
       </div>
       <VisieSectie />
-      <LidWordenSectie />
+      <div className="dark-bg">
+        <LidWordenSectie />
+      </div>
       <SponsorSectie />
     </div>
   );
