@@ -81,7 +81,7 @@
   line-height: 1.6;
 }
 
-.icon {
+.event-card > .icon {
   position: absolute;
   top: 13px;
   right: 13px;

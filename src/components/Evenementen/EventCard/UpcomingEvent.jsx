@@ -28,9 +28,7 @@ const UpcomingEvent = ({ id }) => {
                 <h1>{event.name}</h1>
                 <h2 className="location">{event.location}</h2>
               </div>
-              <div>
-                <EventIcon category={event.category} />
-              </div>
+              <EventIcon category={event.category} />
             </div>
             <p>
               {limitedDescription} &nbsp;
