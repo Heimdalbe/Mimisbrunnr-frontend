@@ -10,9 +10,9 @@ const EventIcons = {
 const EventIcon = ({ category }) => {
   const iconClass = EventIcons[category] || 'fa-solid fa-question'; // fallback icoon
   return (
-    <div className="icon">
-      <i className={iconClass}></i>
-    </div>
+    <span className="icon">
+      <i className={iconClass} aria-hidden="true"></i>
+    </span>
   );
 };
 

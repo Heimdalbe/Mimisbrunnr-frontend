@@ -23,13 +23,11 @@ const UpcomingEvent = ({ id }) => {
       <AsyncData error={eventError} loading={eventIsLoading}>
         <div className="event-info-section">
           <div>
-            <div className="title-and-icon">
-              <div>
-                <h1>{event.name}</h1>
-                <h2 className="location">{event.location}</h2>
-              </div>
+            <h1 className="title-and-icon">
+              {event.name}{'\u2060'}
               <EventIcon category={event.category} />
-            </div>
+            </h1>
+            <h2 className="location">{event.location}</h2>
             <p>
               {limitedDescription} &nbsp;
               <a href={`/evenementen/${id}#beschrijving`} onClick={(clickEvent) => clickEvent.stopPropagation()}>

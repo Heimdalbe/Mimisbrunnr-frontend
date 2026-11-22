@@ -19,19 +19,13 @@
 }
 
 .title-and-icon {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 16px;
-}
-
-.title-and-icon > div:first-child {
-  min-width: 0;
   overflow-wrap: anywhere;
 }
 
 .title-and-icon > .icon {
-  flex-shrink: 0;
+  display: inline-flex;
+  margin-inline-start: 1rem;
+  vertical-align: middle;
 }
 
 .event-info-section h1,
