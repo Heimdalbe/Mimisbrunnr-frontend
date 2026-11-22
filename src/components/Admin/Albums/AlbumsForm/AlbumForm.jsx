@@ -42,9 +42,11 @@ const AlbumForm = ({ id = undefined, album = {} }) => {
   async function handleSubmit(e) {
     e.preventDefault();
 
+    const { coverImage, ...fields } = formData;
     await handleSave({
-      id: id,
-      ...formData,
+      id,
+      ...fields,
+      coverImageUrl: coverImage.trim() || null,
     });
 
     navigate('/admin/albums');
