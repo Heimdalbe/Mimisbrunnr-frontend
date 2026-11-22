@@ -24,14 +24,10 @@ const UpcomingEvent = ({ id }) => {
         <div className="event-info-section">
           <div>
             <div className="title-and-icon">
-              <div>
-                <h1>{event.name}</h1>
-                <h2 className="location">{event.location}</h2>
-              </div>
-              <div>
-                <EventIcon category={event.category} />
-              </div>
+              <h1>{event.name}</h1>
+              <EventIcon category={event.category} />
             </div>
+            <h2 className="location">{event.location}</h2>
             <p>
               {limitedDescription} &nbsp;
               <a href={`/evenementen/${id}#beschrijving`} onClick={(clickEvent) => clickEvent.stopPropagation()}>

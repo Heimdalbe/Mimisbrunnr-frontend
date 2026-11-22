@@ -21,14 +21,17 @@
 .title-and-icon {
   display: flex;
   align-items: flex-start;
-  justify-content: space-between;
-  position: relative;
   gap: 16px;
 }
 
-.title-and-icon div .icon {
-  right: 0;
-  top: 0;
+.title-and-icon > h1 {
+  flex: 1;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.title-and-icon > .icon {
+  flex: none;
 }
 
 .event-info-section h1,
@@ -39,7 +42,7 @@
 .event-info-section h1 {
   font-size: 2.25rem;
   line-height: 1.2;
-  margin: 0 0 8px;
+  margin: 0;
 }
 
 .event-info-section p {
@@ -105,13 +108,8 @@
     gap: 22px;
   }
 
-  .title-and-icon {
-    gap: 16px;
-    width: 100%;
-    position: static;
-  }
-
-  .title-and-icon div .icon {
+  .title-and-icon > .icon {
+    position: absolute;
     top: 16px;
     right: 16px;
     z-index: 1;
