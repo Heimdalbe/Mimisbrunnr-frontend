@@ -23,10 +23,10 @@ const UpcomingEvent = ({ id }) => {
       <AsyncData error={eventError} loading={eventIsLoading}>
         <div className="event-info-section">
           <div>
-            <h1 className="title-and-icon">
-              {event.name}{'\u2060'}
+            <div className="title-and-icon">
+              <h1>{event.name}</h1>
               <EventIcon category={event.category} />
-            </h1>
+            </div>
             <h2 className="location">{event.location}</h2>
             <p>
               {limitedDescription} &nbsp;
