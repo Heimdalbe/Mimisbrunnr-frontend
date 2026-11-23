@@ -86,6 +86,11 @@ const router = createBrowserRouter([
       { path: '/sponsors', Component: Sponsors },
       { path: '/over-ons/stamboom', Component: Stamboom },
 
+      {
+        path: '/snake',
+        lazy: async () => ({ Component: (await import('./components/Games/Snake/SnakeGame')).default }),
+      },
+
       { path: '/albums', Component: Albums },
       { path: '/albums/:id', Component: AlbumDetail },
 

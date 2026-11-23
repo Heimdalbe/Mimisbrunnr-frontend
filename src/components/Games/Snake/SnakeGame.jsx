@@ -1,13 +1,15 @@
 import { useEffect, useId, useRef, useState } from 'react';
 import useSWR from 'swr';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
+import PrimaryButton from '../../Common/PrimaryButton/PrimaryButton';
 import { axios, getAll } from '../../../api';
 import { useAuth } from '../../../contexts/AuthContext';
 import { createGame, directions, step, turn } from './snake';
 import head from './head.svg';
 import './SnakeGame.css';
 
-export default function SnakeGame({ onClose }) {
+export default function SnakeGame() {
+  const { state } = useLocation();
   const [game, setGame] = useState(createGame);
   const [saving, setSaving] = useState('');
   const board = useRef(null);
@@ -16,9 +18,12 @@ export default function SnakeGame({ onClose }) {
   const { data: scores, error, mutate, isLoading } = useSWR(
     `/games/snake/leaderboard?width=${game.width}&height=${game.height}`, getAll,
   );
-  const active = game.status === 'running' || game.status === 'paused';
+  const running = game.status === 'running';
+  const paused = game.status === 'paused';
+  const active = running || paused;
   const finished = game.status === 'over' || game.status === 'won';
   const maximum = game.width * game.height - 3;
+  const action = running ? 'Pauze' : paused ? 'Verder spelen' : finished ? 'Opnieuw spelen' : 'Start spel';
 
   useEffect(() => {
     if (game.status !== 'running') return;
@@ -64,7 +69,7 @@ export default function SnakeGame({ onClose }) {
     focusBoard();
   };
   const changeDirection = (direction) => {
-    setGame((g) => turn(g, direction));
+    setGame((g) => g.status === 'running' ? turn(g, direction) : g);
     focusBoard();
   };
   const pause = () => {
@@ -73,40 +78,40 @@ export default function SnakeGame({ onClose }) {
   };
 
   return <section className="snake-game" aria-labelledby="snake-title">
-    <header className="snake-heading">
-      <div><span className="snake-eyebrow">HEIMDAL ARCADE</span><h2 id="snake-title">Jormungandr Snake</h2></div>
-      <button className="snake-close" onClick={onClose} aria-label="Spel sluiten">×</button>
-    </header>
-    <form className="snake-settings" onSubmit={(event) => {
-      event.preventDefault();
-      const values = new FormData(event.currentTarget);
-      setGame(createGame(Number(values.get('width')), Number(values.get('height'))));
-      setSaving('');
-    }}>
-      <fieldset disabled={active}>
-        <legend>Speelveld</legend>
-        <label>Breedte
-          <input name="width" type="number" min="8" max="40" step="1" defaultValue="20" required />
-        </label>
-        <span aria-hidden="true">×</span>
-        <label>Hoogte <input name="height" type="number" min="8" max="40" step="1" defaultValue="16" required /></label>
-        <button type="submit">Veld instellen</button>
-      </fieldset>
-    </form>
-    <div className="snake-scorebar">
-      <span>Score <strong>{game.score}</strong><small> / {maximum}</small></span>
-      <span>{game.width} × {game.height}</span>
-      <button onClick={pause} disabled={!active}>{game.status === 'paused' ? 'Verder' : 'Pauze'}</button>
+    <Link className="snake-back" to={state?.from ?? '/#footer'}>← Terug</Link>
+    <h1 id="snake-title">Jormungandr Snake</h1>
+    <div className="snake-toolbar">
+      <p>Score <strong>{game.score}</strong> / {maximum}</p>
+      <details className="snake-settings">
+        <summary>Speelveld · {game.width} × {game.height}</summary>
+        <form onSubmit={(event) => {
+          event.preventDefault();
+          const values = new FormData(event.currentTarget);
+          setGame(createGame(Number(values.get('width')), Number(values.get('height'))));
+          setSaving('');
+          event.currentTarget.closest('details').open = false;
+        }}>
+          <fieldset disabled={active}>
+            <label>Breedte
+              <input name="width" type="number" min="8" max="40" step="1" defaultValue={game.width} required />
+            </label>
+            <label>Hoogte
+              <input name="height" type="number" min="8" max="40" step="1" defaultValue={game.height} required />
+            </label>
+            <button type="submit" className="primary-button">Toepassen</button>
+          </fieldset>
+        </form>
+      </details>
     </div>
-    <div className="snake-board" style={{ maxWidth: `${40 * game.width / game.height}dvh` }}
-      ref={board} tabIndex="0" aria-label="Snake-speelveld"
-      aria-describedby={`${id}-help`} onKeyDown={(event) => {
-        if (directions[event.key]) {
+    <div className="snake-board" style={{ '--board-ratio': game.width / game.height }}
+      ref={board} tabIndex={0} aria-label="Snake-speelveld" aria-describedby={`${id}-help`}
+      onKeyDown={(event) => {
+        if (directions[event.key] && running) {
           event.preventDefault();
           changeDirection(directions[event.key]);
-        } else if (event.code === 'Space' && active) {
+        } else if (event.code === 'Space') {
           event.preventDefault();
-          pause();
+          if (!event.repeat) (active ? pause : start)();
         }
       }}>
       <svg viewBox={`0 0 ${game.width} ${game.height}`} role="img" aria-label={`Speelveld, score ${game.score}`}>
@@ -130,30 +135,26 @@ export default function SnakeGame({ onClose }) {
           <image href={head} x="-.65" y="-.68" width="1.5" height="1.36" />
         </g>
       </svg>
-      {game.status !== 'running' && <div className="snake-overlay">
-        <img src={head} alt="" width="88" height="70" />
-        <h3>{game.status === 'ready' ? 'Klaar voor de jacht?' : game.status === 'paused' ? 'Even pauze'
-          : game.status === 'won' ? 'Hele veld gevuld!' : 'Game over'}</h3>
-        <p>{finished ? `${game.score} van ${maximum} punten` : 'Eet, groei en ontwijk je eigen staart.'}</p>
-        <button onClick={game.status === 'paused' ? pause : start}>
-          {game.status === 'paused' ? 'Verder spelen' : finished ? 'Opnieuw spelen' : 'Start spel'}
-        </button>
-      </div>}
     </div>
-    <div className="snake-controls" aria-label="Richting kiezen">
-      {Object.entries(directions).map(([key, direction], i) => <button key={key}
-        aria-label={['Omhoog', 'Rechts', 'Omlaag', 'Links'][i]} onClick={() => changeDirection(direction)}>
-        {['↑', '→', '↓', '←'][i]}
-      </button>)}
-    </div>
-    <p id={`${id}-help`} className="snake-help">Pijltjestoetsen of de knoppen om te sturen · Spatie om te pauzeren.</p>
-    <section className="snake-leaderboard" aria-labelledby="snake-leaderboard-title">
-      <div className="snake-leaderboard-heading">
-        <h3 id="snake-leaderboard-title">Leaderboard</h3><span>{game.width} × {game.height} · top 10</span>
+    <div className="snake-actions">
+      <div>
+        {finished && <strong role="status">{game.status === 'won' ? 'Hele veld gevuld!' : 'Game over'}</strong>}
+        <PrimaryButton text={action} isLight onClick={active ? pause : start} />
       </div>
+      <div className="snake-controls" role="group" aria-label="Richting kiezen">
+        {Object.entries(directions).map(([key, direction], i) => <button key={key}
+          type="button" disabled={!running} aria-label={['Omhoog', 'Rechts', 'Omlaag', 'Links'][i]}
+          onClick={() => changeDirection(direction)}>
+          {['↑', '→', '↓', '←'][i]}
+        </button>)}
+      </div>
+    </div>
+    <p id={`${id}-help`} className="snake-help">Stuur met de pijltjes. Pauzeer met spatie.</p>
+    <section className="snake-leaderboard" aria-labelledby="snake-leaderboard-title">
+      <h2 id="snake-leaderboard-title">Ranglijst · {game.width} × {game.height}</h2>
       <p className="snake-save-status" role="status">
         {!isAuthenticated ? <>Speel als gast, of
-          {' '}<Link to="/login" onClick={onClose}>log in</Link> om je score te bewaren.
+          {' '}<Link to="/login" state={{ from: { pathname: '/snake' } }}>log in</Link> om je score te bewaren.
         </>
           : saving === 'saving' ? 'Score opslaan…' : saving === 'saved' ? 'Score opgeslagen onder je gebruikersnaam.'
             : saving === 'error' ? 'Opslaan mislukt. Je kunt het hieronder opnieuw proberen.'
