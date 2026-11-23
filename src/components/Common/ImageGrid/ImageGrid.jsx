@@ -54,7 +54,8 @@ const ImageGrid = ({ images = [] }) => {
       let k = index;
       imgs.push(
         <div key={j} onClick={() => openLightbox(k)} className='img-wrapper' style={{ gridArea: '_' + j }} >
-          <LoadingImage src={img.url} alt={img.description} />
+          <LoadingImage src={img.thumbnailUrl || img.url} fallbackSrc={img.url}
+            alt={img.description} loading={k < 2 ? 'eager' : 'lazy'} />
         </div>,
       );
       index += 1;
