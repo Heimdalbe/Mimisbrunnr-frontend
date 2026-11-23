@@ -1,6 +1,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { createGame, turn, step } from './snake.js';
+import { createMotion, dragonFrame, moveMotion } from './snakeVisual.js';
 
 const running = (width = 20, height = 16) => ({ ...createGame(width, height), status: 'running' });
 
@@ -57,4 +58,32 @@ test('pause and restart work on rectangular boards at both dimension limits', ()
     assert.equal(step(paused), paused);
     assert.ok(fresh.snake.every(([x, y]) => x >= 0 && x < width && y >= 0 && y < height));
   }
+});
+
+test('the dragon travels through fractional positions between grid ticks', () => {
+  const game = running();
+  const next = step(game);
+  const motion = moveMotion(createMotion(game.snake), next.snake);
+  const middle = dragonFrame({ ...motion, progress: 0.5 });
+  const x = (frame) => Number(frame.head.match(/translate\(([^ ]+)/)[1]);
+
+  assert.ok(Math.abs(x(middle) - x(dragonFrame(motion)) - 0.5) < 0.001);
+  assert.ok(Math.abs(x(dragonFrame({ ...motion, progress: 1 })) - x(middle) - 0.5) < 0.001);
+  assert.deepEqual(next.snake[0], [7, 8]);
+});
+
+test('visual poses line up across growth and consecutive turns', () => {
+  let game = running();
+  let motion = createMotion(game.snake);
+
+  for (const direction of [null, null, null, null, [0, 1], [-1, 0], null, null, [0, -1], null, [1, 0]]) {
+    const next = step(turn(game, direction), () => 0);
+    const nextMotion = moveMotion(motion, next.snake);
+    assert.deepEqual(dragonFrame(nextMotion), dragonFrame({ ...motion, progress: 1 }));
+    game = next;
+    motion = nextMotion;
+  }
+
+  assert.equal(game.score, 1);
+  assert.equal(game.snake.length, 4);
 });

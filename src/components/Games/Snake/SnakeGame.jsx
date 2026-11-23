@@ -4,8 +4,8 @@ import { Link, useLocation } from 'react-router-dom';
 import PrimaryButton from '../../Common/PrimaryButton/PrimaryButton';
 import { axios, getAll } from '../../../api';
 import { useAuth } from '../../../contexts/AuthContext';
-import { createGame, directions, step, turn } from './snake';
-import head from './head.svg';
+import { createGame, directions, snakeTick, step, turn } from './snake';
+import SnakeDragon from './SnakeDragon';
 import './SnakeGame.css';
 
 export default function SnakeGame() {
@@ -27,7 +27,7 @@ export default function SnakeGame() {
 
   useEffect(() => {
     if (game.status !== 'running') return;
-    const timer = setInterval(() => setGame((g) => step(g)), 140);
+    const timer = setInterval(() => setGame((g) => step(g)), snakeTick);
     return () => clearInterval(timer);
   }, [game.status]);
 
@@ -126,14 +126,7 @@ export default function SnakeGame() {
           <path d="M0-.2C-.5-.5-.55.5-.15.4Q0 .34.15.4C.55.5.5-.5 0-.2" fill="#ff655b" />
           <path d="M0-.2Q-.08-.53.23-.53" fill="none" stroke="#ffdf72" strokeWidth=".09" />
         </g>}
-        <polyline points={game.snake.map(([x, y]) => `${x + .5},${y + .5}`).join(' ')}
-          fill="none" stroke="#018743" strokeWidth=".75" strokeLinecap="round" strokeLinejoin="round" />
-        <polyline points={game.snake.map(([x, y]) => `${x + .5},${y + .5}`).join(' ')}
-          fill="none" stroke="#4bc140" strokeWidth=".32" strokeDasharray=".8 .8" strokeLinejoin="round" />
-        <g transform={`translate(${game.snake[0][0] + .5} ${game.snake[0][1] + .5})
-          rotate(${Math.atan2(game.direction[1], game.direction[0]) * 180 / Math.PI})`}>
-          <image href={head} x="-.65" y="-.68" width="1.5" height="1.36" />
-        </g>
+        <SnakeDragon snake={game.snake} status={game.status} />
       </svg>
     </div>
     <div className="snake-actions">

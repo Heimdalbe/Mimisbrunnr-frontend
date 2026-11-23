@@ -1,3 +1,5 @@
+export const snakeTick = 140;
+
 export const directions = {
   ArrowUp: [0, -1], ArrowRight: [1, 0], ArrowDown: [0, 1], ArrowLeft: [-1, 0],
 };
