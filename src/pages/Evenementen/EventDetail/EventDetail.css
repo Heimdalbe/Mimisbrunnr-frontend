@@ -150,6 +150,30 @@
   scroll-margin-top: 150px;
 }
 
+.event-description {
+  overflow-wrap: anywhere;
+}
+
+.event-description p,
+.event-description li {
+  white-space: pre-line;
+  text-align: left;
+}
+
+.event-description p:last-child {
+  margin-bottom: 20px;
+}
+
+.event-description :is(ul, ol, blockquote) {
+  margin: 0 0 20px 1.5rem;
+}
+
+.event-description pre {
+  overflow-x: auto;
+  white-space: pre-wrap;
+  margin-bottom: 20px;
+}
+
 .sponsor-section {
   margin-bottom: 100px;
 }

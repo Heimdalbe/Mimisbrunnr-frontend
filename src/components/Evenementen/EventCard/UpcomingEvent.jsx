@@ -6,15 +6,10 @@ import useSWR from 'swr';
 import { getAll } from '../../../api';
 import AsyncData from '../../Common/AsyncData/AsyncData';
 import { useNavigate } from 'react-router-dom';
+import Markdown from 'react-markdown';
 
 const UpcomingEvent = ({ id }) => {
   const { data: event = {}, error: eventError, isLoading: eventIsLoading } = useSWR(`events/pub/${id}`, getAll);
-  const maxDescriptionLength = 260;
-  const safeDescription = event.description ?? '';
-  const limitedDescription =
-    safeDescription.length > maxDescriptionLength
-      ? `${safeDescription.slice(0, maxDescriptionLength).trimEnd()}...`
-      : safeDescription;
   var date = new Date(event.start);
   const navigate = useNavigate();
 
@@ -28,12 +23,16 @@ const UpcomingEvent = ({ id }) => {
               <EventIcon category={event.category} />
             </div>
             <h2 className="location">{event.location}</h2>
-            <p>
-              {limitedDescription} &nbsp;
+            <div className="upcoming-description">
+              <div className="upcoming-description-preview">
+                <Markdown skipHtml unwrapDisallowed allowedElements={['p', 'strong', 'em', 'code', 'br']}>
+                  {event.description}
+                </Markdown>
+              </div>
               <a href={`/evenementen/${id}#beschrijving`} onClick={(clickEvent) => clickEvent.stopPropagation()}>
                 Lees meer...
               </a>
-            </p>
+            </div>
           </div>
           <Countdown date={date} />
         </div>
