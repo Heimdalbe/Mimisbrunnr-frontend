@@ -1,5 +1,6 @@
 import LoadingImage from '../../../components/Common/LoadingImage/LoadingImage';
 import { useEffect } from 'react';
+import Markdown from 'react-markdown';
 import { useLocation, useParams } from 'react-router-dom';
 import PrimaryButton from '../../../components/Common/PrimaryButton/PrimaryButton';
 import EventList from '../../../components/Evenementen/EventList/EventList';
@@ -106,7 +107,12 @@ const EventDetail = () => {
           <div id="beschrijving" className="description-section">
             <Breadcrumbs children={[{ link: 'evenementen' }, { link: event.name, isLast: true }]} />
             <h1>Beschrijving</h1>
-            <p>{event.description}</p>
+            <div className="event-description">
+              <Markdown skipHtml disallowedElements={['img']}
+                components={{ a: ({ href, children }) => href ? <a href={href}>{children}</a> : children }}>
+                {event.description}
+              </Markdown>
+            </div>
           </div>
 
           {event.registrationAccessError ? (

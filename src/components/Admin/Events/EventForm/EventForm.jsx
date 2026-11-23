@@ -158,7 +158,9 @@ const EventForm = ({ id = undefined, event = {} }) => {
 
       <label>
         Beschrijving
-        <textarea name="description" value={formData.description} onChange={handleChange} required />
+        <textarea name="description" value={formData.description} onChange={handleChange} required
+          aria-describedby="event-description-help" />
+        <small id="event-description-help">Markdown kan, bijvoorbeeld **vet** of een lijst met streepjes.</small>
       </label>
 
       <label>
