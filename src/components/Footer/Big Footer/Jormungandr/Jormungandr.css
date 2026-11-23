@@ -28,17 +28,6 @@
   pointer-events: auto;
 }
 
-.footer-dragon-dialog {
-  margin: auto;
-  padding: 30px;
-  border: 0;
-  border-radius: 12px;
-}
-
-.footer-dragon-dialog::backdrop {
-  background: #0009;
-}
-
 @media (max-width: 1028px) {
   .big-footer {
     padding-bottom: min(65vw, 270px);
