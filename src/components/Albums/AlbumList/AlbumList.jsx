@@ -7,14 +7,14 @@ const AlbumList = ({ albums = [] }) => {
       <h1>Albums</h1>
 
       <div className="album-grid">
-        {albums.map((album) => (
+        {albums.map((album, index) => (
           <AlbumCard
             key={album.id}
             id={album.id}
             name={album.name}
             date={album.date}
             coverImage={album.coverImage}
-            published={album.published}
+            loading={index === 0 ? 'eager' : 'lazy'}
           />
         ))}
       </div>
