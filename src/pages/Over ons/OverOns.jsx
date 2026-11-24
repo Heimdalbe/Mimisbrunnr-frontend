@@ -1,15 +1,11 @@
 import SponsorSectie from '../../components/Home/SponsorSectie/SponsorSectie';
 import VisieSectie from '../../components/Home/VisieSectie/VisieSectie';
-import './OverOns.css';
+import OverOnsBanner from './OverOnsBanner';
 
 const OverOns = () => {
   return (
     <div>
-      <div className="top-foto">
-        <div className="top-text">
-          <h1>Heimdal</h1>
-        </div>
-      </div>
+      <OverOnsBanner />
       <div className="container over-ons">
         <h1>Over ons</h1>
         <p>

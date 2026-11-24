@@ -16,11 +16,11 @@ const Breadcrumbs = ({ children, showHome = true }) => {
         link = `${link}/${c.link}`;
         return c.isLast ? (
           <span key={i} className="last-breadcrumb">
-            {capitalize(c.link)}
+            {c.label ?? capitalize(c.link)}
           </span>
         ) : (
           <span key={i}>
-            <Link to={link}>{capitalize(c.link)}</Link>
+            <Link to={link}>{c.label ?? capitalize(c.link)}</Link>
             <span className="breadcrumb-separator"> &gt; </span>
           </span>
         );

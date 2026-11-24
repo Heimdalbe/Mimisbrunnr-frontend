@@ -1,5 +1,43 @@
-.clublied-wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.clublied-page .top-foto {
+  height: clamp(12rem, 28vw, 25rem);
+}
+
+.clublied-wrapper :is(h1, h2, p) {
+  text-align: left;
+}
+
+.clublied-wrapper h1 {
+  margin: 0 0 2rem;
+}
+
+.clublied-lyrics {
+  display: grid;
+  gap: 1.75rem;
+}
+
+.clublied-lyrics h2 {
+  margin: 0 0 0.5rem;
+  color: #555;
+  line-height: 1.25;
+}
+
+.clublied-lyrics p,
+.clublied-lyrics p:last-child {
+  margin: 0;
+  font-size: clamp(1rem, 1.5vw, 1.25rem);
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.clublied-credits {
+  margin-top: 2rem;
+}
+
+.clublied-credits p:last-child {
+  margin-bottom: 0;
+}
+
+.clublied-credits a {
+  color: inherit;
+  text-decoration: underline;
 }
