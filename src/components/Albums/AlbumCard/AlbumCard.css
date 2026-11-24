@@ -1,5 +1,7 @@
 .album-card {
+  display: block;
   flex: 1;
+  font-style: normal;
   aspect-ratio: 13 / 10;
   border-radius: 8px;
   position: relative;
@@ -53,6 +55,7 @@
 }
 
 .album-card:hover {
+  text-decoration: none;
   transform: scale(1.03);
 }
 

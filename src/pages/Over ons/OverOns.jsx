@@ -2,6 +2,7 @@ import SponsorSectie from '../../components/Home/SponsorSectie/SponsorSectie';
 import VisieSectie from '../../components/Home/VisieSectie/VisieSectie';
 import DiscordInvite from '../../components/Common/DiscordInvite/DiscordInvite';
 import './OverOns.css';
+import OverOnsBanner from './OverOnsBanner';
 
 const OverOns = () => {
   return (
