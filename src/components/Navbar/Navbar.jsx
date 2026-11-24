@@ -18,6 +18,7 @@ const NavbarLinks = () => (
     ]} />
     <Link to="/albums" className="nav-link">Albums</Link>
     <NavDropdown label="Praesidium" to="/praesidium" links={[
+      { label: 'Praesidium', to: '/praesidium' },
       { label: 'Ereleden', to: '/praesidium/ereleden' },
       { label: 'Superschachten', to: '/praesidium/superschachten' },
       { label: 'Lustrumcomité', to: '/praesidium/lustrumcomite' },
