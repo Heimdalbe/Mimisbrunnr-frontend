@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
 import useSWR from 'swr';
 import { getAll } from '../../../api';
 
@@ -9,6 +9,7 @@ import './AlbumDetail.css';
 
 const AlbumDetail = () => {
   const { id } = useParams();
+  const { search } = useLocation();
   const { data = [], error, isLoading } = useSWR(`albums/pub/${id}`, getAll);
 
   const d = new Date(data.date);
@@ -20,13 +21,12 @@ const AlbumDetail = () => {
     <div className="container-sm-tm">
       <AsyncData error={error} loading={isLoading}>
         <div className="album-wrapper">
-          {/* TODO: Terug knop of breadcrumbs (of allebei :p) */}
           <h1>{data.name}</h1>
           <h2>{day} {month} {year}</h2>
           {data.description ? <p>{data.description}</p> : <></>}
           <ImageGrid images={data.images} />
           <div>
-            <PrimaryButton text="Terug naar alle albums" isLight={true} to={'../albums'} />
+            <PrimaryButton text="Terug naar alle albums" isLight={true} to={{ pathname: '/albums', search }} />
           </div>
         </div>
       </AsyncData>
