@@ -4,15 +4,18 @@ import rest from './rest.svg?raw';
 import { createFaceAnimation } from './faceMotion';
 import './Jormungandr.css';
 
+const dragonMarkup = { __html: rest };
+
 export default function Jormungandr() {
-  const { pathname, search } = useLocation();
+  const { key, pathname, search } = useLocation();
   const svg = useRef(null);
   const face = useRef(null);
 
   useEffect(() => {
-    face.current = createFaceAnimation(svg.current);
-    return () => face.current.reset();
-  }, []);
+    const animation = createFaceAnimation(svg.current);
+    face.current = animation;
+    return animation.reset;
+  }, [key]);
 
   return <Link
     to="/snake"
@@ -23,6 +26,6 @@ export default function Jormungandr() {
     onFocus={() => face.current?.play()}
     onClick={() => face.current?.reset()}
   >
-    <span ref={svg} dangerouslySetInnerHTML={{ __html: rest }} />
+    <span ref={svg} dangerouslySetInnerHTML={dragonMarkup} />
   </Link>;
 }
