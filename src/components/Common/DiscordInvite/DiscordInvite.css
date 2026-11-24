@@ -1,0 +1,70 @@
+.discord-invite-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 24rem);
+  align-items: center;
+  gap: clamp(1.5rem, 5vw, 5rem);
+}
+
+.discord-invite-copy :is(h1, h2, p) {
+  text-align: left;
+}
+
+.discord-invite-copy > :first-child {
+  margin-top: 0;
+}
+
+.discord-invite-copy > p:last-child {
+  margin-bottom: 0;
+}
+
+.discord-invite {
+  display: grid;
+  justify-items: center;
+  gap: 14px;
+  padding: 28px 24px;
+  border-radius: 8px;
+  background: var(--light-grey);
+  color: var(--white);
+  text-align: center;
+}
+
+.discord-invite > strong {
+  font-size: 1.5rem;
+}
+
+.discord-invite-icon {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+}
+
+.discord-invite-counts {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 4px 16px;
+  color: var(--light-light-grey);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.discord-invite-online::before {
+  content: '';
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  margin-right: 6px;
+  border-radius: 50%;
+  background: var(--green);
+}
+
+.discord-invite .primary-button-dark {
+  justify-self: stretch;
+  padding-inline: 20px;
+}
+
+@media (max-width: 768px) {
+  .discord-invite-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
