@@ -1,6 +1,5 @@
 import useSWR from 'swr';
 import LoadingImage from '../LoadingImage/LoadingImage';
-import PrimaryButton from '../PrimaryButton/PrimaryButton';
 import './DiscordInvite.css';
 
 const inviteUrl = 'https://discord.com/api/v10/invites/6ZsU4wHqZ3?with_counts=true';
@@ -35,13 +34,15 @@ export default function DiscordInvite() {
         {hasCounts ? (
           <>
             <span className="discord-invite-online">{formatCount.format(online)} online</span>
-            <span>{formatCount.format(members)} leden</span>
+            <span className="discord-invite-members">{formatCount.format(members)} leden</span>
           </>
         ) : (
           <span>{isLoading ? 'Ledenstatistieken laden…' : 'Ledenstatistieken tijdelijk niet beschikbaar'}</span>
         )}
       </div>
-      <PrimaryButton text="Join onze Discord" to={inviteLink} target="_blank" />
+      <a className="discord-invite-join" href={inviteLink} target="_blank" rel="noreferrer">
+        Join onze Discord
+      </a>
     </div>
   );
 }

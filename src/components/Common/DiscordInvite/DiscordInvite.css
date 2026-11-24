@@ -23,9 +23,13 @@
   gap: 14px;
   padding: 28px 24px;
   border-radius: 8px;
-  background: var(--light-grey);
-  color: var(--white);
+  background: #242429;
+  color: #f2f3f5;
   text-align: center;
+}
+
+.discord-invite :is(strong, span, a) {
+  font-family: system-ui, sans-serif;
 }
 
 .discord-invite > strong {
@@ -43,24 +47,46 @@
   justify-content: center;
   flex-wrap: wrap;
   gap: 4px 16px;
-  color: var(--light-light-grey);
+  color: #dbdee1;
   font-size: 0.9rem;
   line-height: 1.5;
 }
 
-.discord-invite-online::before {
+.discord-invite-online::before,
+.discord-invite-members::before {
   content: '';
   display: inline-block;
   width: 8px;
   height: 8px;
   margin-right: 6px;
   border-radius: 50%;
-  background: var(--green);
+  background: #949ba4;
 }
 
-.discord-invite .primary-button-dark {
+.discord-invite-online::before {
+  background: #57b17b;
+}
+
+.discord-invite .discord-invite-join {
   justify-self: stretch;
-  padding-inline: 20px;
+  padding: 12px 20px;
+  border-radius: 6px;
+  background: #515ee7;
+  color: #fff;
+  font-size: 0.9rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1.5;
+  text-decoration: none;
+}
+
+.discord-invite .discord-invite-join:hover {
+  background: #4752c4;
+}
+
+.discord-invite-join:focus-visible {
+  outline: 2px solid #c9ccff;
+  outline-offset: 3px;
 }
 
 @media (max-width: 768px) {
